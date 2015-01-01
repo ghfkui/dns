@@ -1,0 +1,62 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"mask\": 142",
+            "    },",
+            "    {",
+            "        \"mask\": 78",
+            "    },",
+            "    {",
+            "        \"mask\": 575",
+            "    },",
+            "    {",
+            "        \"mask\": 120",
+            "    },",
+            "    {",
+            "        \"mask\": 915",
+            "    },",
+            "    {",
+            "        \"mask\": 996",
+            "    },",
+            "    {",
+            "        \"mask\": 531",
+            "    },",
+            "    {",
+            "        \"mask\": 529",
+            "    },",
+            "    {",
+            "        \"mask\": 131",
+            "    },",
+            "    {",
+            "        \"mask\": 304",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StoreMask",
+        "storeId": "StoreMask"
+    },
+    "designerId": "4018a724-394e-4ca7-af05-d39545441c8b",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mask"
+            },
+            "name": "MyField3",
+            "designerId": "fc65b3ab-fc8d-4289-b25a-30a971dfde3a"
+        }
+    ]
+}

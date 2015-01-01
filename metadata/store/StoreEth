@@ -31,31 +31,6 @@
     "designerId": "606c4bcf-df5c-4a61-8d8a-c748c5c7aae4",
     "cn": [
         {
-            "type": "Ext.data.proxy.Ajax",
-            "reference": {
-                "name": "proxy",
-                "type": "object"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "url": "."
-            },
-            "name": "MyAjaxProxy4",
-            "designerId": "219dd23e-0f56-42ae-a8a6-859dd801a893",
-            "cn": [
-                {
-                    "type": "Ext.data.reader.Json",
-                    "reference": {
-                        "name": "reader",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "name": "MyJsonReader4",
-                    "designerId": "5e54743e-dd09-44b8-be9f-be99508f291b"
-                }
-            ]
-        },
-        {
             "type": "Ext.data.field.Field",
             "reference": {
                 "name": "fields",

@@ -8,10 +8,27 @@
     "userConfig": {
         "designer|userAlias": "RoutemgrView",
         "designer|userClassName": "RoutemgrView",
-        "title": "路由管理"
+        "rowUpdate": false,
+        "title": "路由管理",
+        "urlUpdate": "../route/update"
     },
     "name": "MyPanel17",
+    "configAlternates": {
+        "rowUpdate": "boolean"
+    },
     "designerId": "bb12f71f-3f45-4249-bf47-0c7864d0cee2",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rowUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "urlUpdate",
+            "type": "string"
+        }
+    ],
     "viewControllerInstanceId": "520b6b51-5aa6-48c1-84b9-8528cef807ed",
     "viewModelInstanceId": "3c957f11-1a8f-47d1-984b-caf75234268f",
     "cn": [
@@ -78,7 +95,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "route",
-                                        "text": "名称"
+                                        "text": "名称",
+                                        "width": "10%"
                                     },
                                     "name": "MyColumn3",
                                     "designerId": "e205fb38-6ccf-4075-b27d-55a17693a14d"
@@ -105,27 +123,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "ip",
-                                        "text": "IP",
+                                        "dataIndex": "address",
+                                        "text": "网络地址",
                                         "width": "20%"
                                     },
                                     "name": "MyColumn5",
                                     "designerId": "e4e267f3-a3cc-4aeb-9ea4-3335cba1cac8"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "mask",
-                                        "text": "端口",
-                                        "width": null
-                                    },
-                                    "name": "MyColumn9",
-                                    "designerId": "20fb9cd8-75c7-488e-9166-ba80958b5acc"
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -259,7 +262,14 @@
                                                         ],
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "console.log('a')"
+                                                            "console.log('a');",
+                                                            "var tabpanel = view.up('tabpanel'),",
+                                                            "    routeAddForm = tabpanel.down(\"form#routeAddForm\"),",
+                                                            "    panel = tabpanel.up(\"panel\");",
+                                                            "panel.rowUpdate = true;",
+                                                            "routeAddForm.getForm().setValues(record.data);",
+                                                            "routeAddForm.down(\"textfield[name=route]\").setDisabled(true);",
+                                                            "tabpanel.setActiveItem(1);"
                                                         ]
                                                     },
                                                     "name": "handler",
@@ -421,9 +431,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rowUpdate": "false",
-                        "title": "添加路由",
-                        "urlUpdate": "../route/update"
+                        "rowUpdate": null,
+                        "title": "添加路由"
                     },
                     "name": "MyPanel20",
                     "designerId": "b28b11e4-712c-4df6-be05-4954fe059e18",
@@ -431,11 +440,6 @@
                         {
                             "group": "(Custom Properties)",
                             "name": "rowUpdate",
-                            "type": "string"
-                        },
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "urlUpdate",
                             "type": "string"
                         }
                     ],
@@ -469,6 +473,23 @@
                             "designerId": "eaa8e615-f1ed-4d58-bd6e-f8956b47b084",
                             "cn": [
                                 {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": null,
+                                        "fieldLabel": "id",
+                                        "hidden": true,
+                                        "layout|anchor": "60%",
+                                        "name": "id"
+                                    },
+                                    "name": "MyNumberField8",
+                                    "designerId": "adf4db1d-f229-41cf-8ae4-c5ef81921edb"
+                                },
+                                {
                                     "type": "Ext.form.field.Text",
                                     "reference": {
                                         "name": "items",
@@ -481,8 +502,8 @@
                                         "layout|anchor": "60%",
                                         "name": "route"
                                     },
-                                    "name": "MyTextField10",
-                                    "designerId": "adf4db1d-f229-41cf-8ae4-c5ef81921edb"
+                                    "name": "MyTextField12",
+                                    "designerId": "8f58f811-720c-4f78-9aef-40d58c2c7d34"
                                 },
                                 {
                                     "type": "Ext.form.field.ComboBox",
@@ -492,6 +513,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "disableKeyFilter": true,
                                         "displayField": "eth",
                                         "fieldLabel": "选择网卡",
                                         "layout|anchor": "60%",
@@ -527,7 +549,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "IP",
+                                                "fieldLabel": "网络地址",
+                                                "layout|flex": null,
                                                 "name": "ip"
                                             },
                                             "name": "MyTextField11",
@@ -541,12 +564,18 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "端口",
+                                                "disableKeyFilter": true,
+                                                "displayField": "mask",
+                                                "fieldLabel": " /",
                                                 "labelPad": null,
-                                                "labelSeparator": " ",
-                                                "labelWidth": null,
+                                                "labelSeparator": "/",
+                                                "labelWidth": 5,
+                                                "margin": "0 0 0 5",
                                                 "name": "mask",
-                                                "padding": null
+                                                "padding": null,
+                                                "store": "StoreMask",
+                                                "valueField": "mask",
+                                                "width": 60
                                             },
                                             "name": "MyComboBox3",
                                             "designerId": "33dafdce-f1a5-48fa-b218-a3c63ae212b8"
@@ -602,53 +631,116 @@
                                     "designerId": "c3f571b3-807e-4e7f-b295-200d6a7ef612"
                                 },
                                 {
-                                    "type": "Ext.button.Button",
+                                    "type": "Ext.toolbar.Toolbar",
                                     "reference": {
-                                        "name": "items",
+                                        "name": "dockedItems",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "text": "添加"
+                                        "container|align": "bottom",
+                                        "container|padding": null,
+                                        "dock": "bottom"
                                     },
-                                    "name": "MyButton10",
-                                    "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832",
+                                    "name": "MyToolbar3",
+                                    "designerId": "09287fad-d1f7-43ed-94b9-151b8d52544c",
                                     "cn": [
                                         {
-                                            "type": "basiceventbinding",
+                                            "type": "Ext.button.Button",
                                             "reference": {
-                                                "name": "listeners",
+                                                "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fn": "onButtonClick",
-                                                "implHandler": [
-                                                    " var me = this,",
-                                                    "     form = me.down('form#routeAddForm'),",
-                                                    "     valid = form.isValid();",
-                                                    "if(!valid){",
-                                                    "    return false;",
-                                                    "}",
-                                                    "if(me.rowUpdate){",
-                                                    "    form.getForm().url = me.urlUpdate;",
-                                                    "}",
-                                                    "form.submit({",
-                                                    "    waitMsg: '正在保存',",
-                                                    "    success: function (form, action) {",
-                                                    "        Ext.Msg.alert('成功', '路由保存成功');",
-                                                    "",
-                                                    "    },",
-                                                    "    failure: function (form, action) {",
-                                                    "        Ext.Msg.alert('失败',  action.result.msg);",
-                                                    "    }",
-                                                    "});"
-                                                ],
-                                                "name": "click",
-                                                "scope": "me"
+                                                "itemId": "save",
+                                                "layout|flex": null,
+                                                "text": "保存"
                                             },
-                                            "name": "onButtonClick",
-                                            "designerId": "534ed035-42ce-480e-a2d1-1e0dc67144a3"
+                                            "name": "MyButton10",
+                                            "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onSaveClick",
+                                                        "implHandler": [
+                                                            " var me = this,",
+                                                            "     form = me.down('form#routeAddForm'),",
+                                                            "     valid = form.isValid();",
+                                                            "if(!valid){",
+                                                            "    return false;",
+                                                            "}",
+                                                            "if(me.rowUpdate){",
+                                                            "    form.getForm().url = me.urlUpdate;",
+                                                            "}",
+                                                            "form.submit({",
+                                                            "    waitMsg: '正在保存',",
+                                                            "    success: function (form, action) {",
+                                                            "        Ext.Msg.alert('成功', '路由保存成功');",
+                                                            "        ",
+                                                            "        if(me.rowUpdate){",
+                                                            "            me.down(\"pagingtoolbar\").doRefresh();",
+                                                            "        }else{",
+                                                            "            me.down(\"gridpanel#routeList\").getStore().load();",
+                                                            "        }",
+                                                            "        me.resetForm();",
+                                                            "",
+                                                            "    },",
+                                                            "    failure: function (form, action) {",
+                                                            "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                            "    }",
+                                                            "});"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onSaveClick",
+                                                    "designerId": "e75298ca-1f7f-49b0-9ad6-255d6a2052b0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "cancel",
+                                                "layout|flex": null,
+                                                "margin": "0 0 0 50",
+                                                "text": "取消",
+                                                "textAlign": null
+                                            },
+                                            "name": "MyButton12",
+                                            "designerId": "54f3bb2c-6243-4306-bc9a-762e6324ad40",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onCancelClick",
+                                                        "implHandler": [
+                                                            "this.resetForm();"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onCancelClick",
+                                                    "designerId": "1189cfb2-ef85-475f-b050-6eb770ee3fde"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -657,6 +749,27 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "resetForm",
+                "implHandler": [
+                    "var me = this,",
+                    "    tabpanel = me.down(\"tabpanel\"),",
+                    "    routeAddForm = me.down(\"form#routeAddForm\");",
+                    "tabpanel.setActiveItem(0);",
+                    "routeAddForm.down(\"textfield[name=route]\").setDisabled(false);",
+                    "routeAddForm.reset();"
+                ]
+            },
+            "name": "resetForm",
+            "designerId": "afe02faf-f641-4876-8291-027616b25c36"
         }
     ]
 }

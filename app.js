@@ -39,7 +39,8 @@ Ext.application({
         'StoreUser',
         'StoreInterface',
         'StoreRoute',
-        'StoreEth'
+        'StoreEth',
+        'StoreMask'
     ],
     views: [
         'MainView',

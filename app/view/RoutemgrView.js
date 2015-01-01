@@ -27,11 +27,17 @@ Ext.define('app.view.RoutemgrView', {
         'Ext.grid.column.Action',
         'Ext.toolbar.Paging',
         'Ext.form.Panel',
+        'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
         'Ext.form.field.TextArea',
         'Ext.form.field.Checkbox'
     ],
+
+    config: {
+        rowUpdate: false,
+        urlUpdate: '../route/update'
+    },
 
     viewModel: {
         type: 'routemgrview'
@@ -59,6 +65,7 @@ Ext.define('app.view.RoutemgrView', {
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
+                                    width: '10%',
                                     dataIndex: 'route',
                                     text: '名称'
                                 },
@@ -70,13 +77,8 @@ Ext.define('app.view.RoutemgrView', {
                                 {
                                     xtype: 'gridcolumn',
                                     width: '20%',
-                                    dataIndex: 'ip',
-                                    text: 'IP'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'mask',
-                                    text: '端口'
+                                    dataIndex: 'address',
+                                    text: '网络地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -107,7 +109,14 @@ Ext.define('app.view.RoutemgrView', {
                                     items: [
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                console.log('a')
+                                                console.log('a');
+                                                var tabpanel = view.up('tabpanel'),
+                                                    routeAddForm = tabpanel.down("form#routeAddForm"),
+                                                    panel = tabpanel.up("panel");
+                                                panel.rowUpdate = true;
+                                                routeAddForm.getForm().setValues(record.data);
+                                                routeAddForm.down("textfield[name=route]").setDisabled(true);
+                                                tabpanel.setActiveItem(1);
                                             },
                                             altText: '修改',
                                             icon: 'image/edit.gif',
@@ -175,8 +184,6 @@ Ext.define('app.view.RoutemgrView', {
                 },
                 {
                     xtype: 'panel',
-                    rowUpdate: 'false',
-                    urlUpdate: '../route/update',
                     title: '添加路由',
                     items: [
                         {
@@ -187,6 +194,13 @@ Ext.define('app.view.RoutemgrView', {
                             jsonSubmit: true,
                             url: '../route/add',
                             items: [
+                                {
+                                    xtype: 'numberfield',
+                                    anchor: '60%',
+                                    hidden: true,
+                                    fieldLabel: 'id',
+                                    name: 'id'
+                                },
                                 {
                                     xtype: 'textfield',
                                     anchor: '60%',
@@ -199,6 +213,7 @@ Ext.define('app.view.RoutemgrView', {
                                     anchor: '60%',
                                     fieldLabel: '选择网卡',
                                     name: 'eth',
+                                    disableKeyFilter: true,
                                     displayField: 'eth',
                                     store: 'StoreEth',
                                     valueField: 'eth'
@@ -212,14 +227,21 @@ Ext.define('app.view.RoutemgrView', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'IP',
+                                            fieldLabel: '网络地址',
                                             name: 'ip'
                                         },
                                         {
                                             xtype: 'combobox',
-                                            fieldLabel: '端口',
-                                            labelSeparator: ' ',
-                                            name: 'mask'
+                                            margin: '0 0 0 5',
+                                            width: 60,
+                                            fieldLabel: ' /',
+                                            labelSeparator: '/',
+                                            labelWidth: 5,
+                                            name: 'mask',
+                                            disableKeyFilter: true,
+                                            displayField: 'mask',
+                                            store: 'StoreMask',
+                                            valueField: 'mask'
                                         }
                                     ]
                                 },
@@ -243,13 +265,35 @@ Ext.define('app.view.RoutemgrView', {
                                     fieldLabel: '生效设置',
                                     name: 'enabled',
                                     boxLabel: '立即启用'
-                                },
+                                }
+                            ],
+                            dockedItems: [
                                 {
-                                    xtype: 'button',
-                                    text: '添加',
-                                    listeners: {
-                                        click: 'onButtonClick'
-                                    }
+                                    xtype: 'toolbar',
+                                    dock: 'bottom',
+                                    layout: {
+                                        type: 'hbox',
+                                        align: 'bottom'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            itemId: 'save',
+                                            text: '保存',
+                                            listeners: {
+                                                click: 'onSaveClick'
+                                            }
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            itemId: 'cancel',
+                                            margin: '0 0 0 50',
+                                            text: '取消',
+                                            listeners: {
+                                                click: 'onCancelClick'
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -291,7 +335,7 @@ Ext.define('app.view.RoutemgrView', {
         });
     },
 
-    onButtonClick: function(button, e, eOpts) {
+    onSaveClick: function(button, e, eOpts) {
          var me = this,
              form = me.down('form#routeAddForm'),
              valid = form.isValid();
@@ -306,11 +350,31 @@ Ext.define('app.view.RoutemgrView', {
             success: function (form, action) {
                 Ext.Msg.alert('成功', '路由保存成功');
 
+                if(me.rowUpdate){
+                    me.down("pagingtoolbar").doRefresh();
+                }else{
+                    me.down("gridpanel#routeList").getStore().load();
+                }
+                me.resetForm();
+
             },
             failure: function (form, action) {
                 Ext.Msg.alert('失败',  action.result.msg);
             }
         });
+    },
+
+    onCancelClick: function(button, e, eOpts) {
+        this.resetForm();
+    },
+
+    resetForm: function() {
+        var me = this,
+            tabpanel = me.down("tabpanel"),
+            routeAddForm = me.down("form#routeAddForm");
+        tabpanel.setActiveItem(0);
+        routeAddForm.down("textfield[name=route]").setDisabled(false);
+        routeAddForm.reset();
     }
 
 });
