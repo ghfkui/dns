@@ -17,7 +17,9 @@ Ext.define('app.store.StoreEth', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'Ext.data.field.Field'
+        'Ext.data.field.Field',
+        'Ext.data.proxy.Ajax',
+        'Ext.data.reader.Json'
     ],
 
     constructor: function(cfg) {
@@ -25,28 +27,19 @@ Ext.define('app.store.StoreEth', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreEth',
-            data: [
-                {
-                    eth: 'lan'
-                },
-                {
-                    eth: 'etc'
-                },
-                {
-                    eth: 'arc'
-                },
-                {
-                    eth: 'exp'
-                },
-                {
-                    eth: 'temp'
-                }
-            ],
             fields: [
                 {
-                    name: 'eth'
+                    name: 'name'
                 }
-            ]
+            ],
+            proxy: {
+                type: 'ajax',
+                url: '../system/network',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'data'
+                }
+            }
         }, cfg)]);
     }
 });

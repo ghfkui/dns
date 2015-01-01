@@ -27,34 +27,16 @@ Ext.define('app.store.StoreMask', {
             storeId: 'StoreMask',
             data: [
                 {
-                    mask: 142
+                    mask: 8
                 },
                 {
-                    mask: 78
+                    mask: 16
                 },
                 {
-                    mask: 575
+                    mask: 24
                 },
                 {
-                    mask: 120
-                },
-                {
-                    mask: 915
-                },
-                {
-                    mask: 996
-                },
-                {
-                    mask: 531
-                },
-                {
-                    mask: 529
-                },
-                {
-                    mask: 131
-                },
-                {
-                    mask: 304
+                    mask: 32
                 }
             ],
             fields: [

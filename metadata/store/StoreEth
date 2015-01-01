@@ -6,25 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "data": [
-            "[",
-            "    {",
-            "        \"eth\": \"lan\"",
-            "    },",
-            "    {",
-            "        \"eth\": \"etc\"",
-            "    },",
-            "    {",
-            "        \"eth\": \"arc\"",
-            "    },",
-            "    {",
-            "        \"eth\": \"exp\"",
-            "    },",
-            "    {",
-            "        \"eth\": \"temp\"",
-            "    }",
-            "]"
-        ],
         "designer|userClassName": "StoreEth",
         "storeId": "StoreEth"
     },
@@ -38,10 +19,38 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "eth"
+                "name": "name"
             },
             "name": "MyField1",
             "designerId": "f54655da-8ae6-4c80-a362-2a4feac812d4"
+        },
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../system/network"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "79ca7991-4480-44f9-99c5-3d542e691b67",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "27bbbb10-c89d-42c2-a248-3dfddbd14181"
+                }
+            ]
         }
     ]
 }
