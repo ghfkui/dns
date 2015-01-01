@@ -70,8 +70,13 @@ Ext.define('app.view.RoutemgrView', {
                                 {
                                     xtype: 'gridcolumn',
                                     width: '20%',
-                                    dataIndex: 'address',
-                                    text: '网络地址'
+                                    dataIndex: 'ip',
+                                    text: 'IP'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'mask',
+                                    text: '端口'
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -204,17 +209,14 @@ Ext.define('app.view.RoutemgrView', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: '网络地址',
-                                            name: 'address'
+                                            fieldLabel: 'IP',
+                                            name: 'ip'
                                         },
                                         {
                                             xtype: 'combobox',
-                                            padding: 10,
-                                            fieldLabel: '        /',
-                                            labelPad: 10,
+                                            fieldLabel: '端口',
                                             labelSeparator: ' ',
-                                            labelWidth: 10,
-                                            name: 'address'
+                                            name: 'mask'
                                         }
                                     ]
                                 },

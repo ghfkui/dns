@@ -40,6 +40,14 @@ Ext.define('app.model.RouteModel', {
         },
         {
             type: 'string',
+            name: 'ip'
+        },
+        {
+            type: 'int',
+            name: 'mask'
+        },
+        {
+            type: 'string',
             name: 'address'
         },
         {

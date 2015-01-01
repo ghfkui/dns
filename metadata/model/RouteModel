@@ -71,6 +71,32 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "ip"
+            },
+            "name": "MyString9",
+            "designerId": "2a83729e-3726-4366-a0c6-c1e5aebdbbcf"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mask"
+            },
+            "name": "MyInteger13",
+            "designerId": "e4f4063d-ba44-4c0d-a88f-dfebd9a0a996"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "address"
             },
             "name": "MyString4",

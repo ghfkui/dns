@@ -105,12 +105,27 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "address",
-                                        "text": "网络地址",
+                                        "dataIndex": "ip",
+                                        "text": "IP",
                                         "width": "20%"
                                     },
                                     "name": "MyColumn5",
                                     "designerId": "e4e267f3-a3cc-4aeb-9ea4-3335cba1cac8"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "mask",
+                                        "text": "端口",
+                                        "width": null
+                                    },
+                                    "name": "MyColumn9",
+                                    "designerId": "20fb9cd8-75c7-488e-9166-ba80958b5acc"
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -466,8 +481,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "网络地址",
-                                                "name": "address"
+                                                "fieldLabel": "IP",
+                                                "name": "ip"
                                             },
                                             "name": "MyTextField11",
                                             "designerId": "d67be1b3-cc68-486e-be15-20c409fdabf7"
@@ -480,12 +495,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "        /",
-                                                "labelPad": 10,
+                                                "fieldLabel": "端口",
+                                                "labelPad": null,
                                                 "labelSeparator": " ",
-                                                "labelWidth": 10,
-                                                "name": "address",
-                                                "padding": 10
+                                                "labelWidth": null,
+                                                "name": "mask",
+                                                "padding": null
                                             },
                                             "name": "MyComboBox3",
                                             "designerId": "33dafdce-f1a5-48fa-b218-a3c63ae212b8"
