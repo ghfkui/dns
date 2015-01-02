@@ -443,6 +443,38 @@
                                             "designerId": "4e8e3b1e-bc85-478a-a2d1-bb22607e947c"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "id": null,
+                                        "text": " 操作日志"
+                                    },
+                                    "name": "MyMenuItem13",
+                                    "designerId": "d03e4659-46fe-4d0a-8c21-0f892ee7c8fa",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'OperateLogView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "7fc6c53a-9d02-4fa0-8403-32d3be2fe8b1"
+                                        }
+                                    ]
                                 }
                             ]
                         }

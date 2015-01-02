@@ -57,7 +57,8 @@ Ext.application({
         'NetworkConfigs',
         'RoutemgrView',
         'UsermgrView',
-        'UserAddWindow'
+        'UserAddWindow',
+        'OperateLogView'
     ],
     controllers: [
         'MainController'

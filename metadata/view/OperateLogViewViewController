@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "operatelogview",
+        "designer|userClassName": "OperateLogViewViewController"
+    },
+    "name": "LogViewViewController1",
+    "designerId": "cb578622-0e3f-42df-bc9d-793b4c82d0a9"
+}

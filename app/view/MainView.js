@@ -149,6 +149,13 @@ Ext.define('app.view.MainView', {
                                         return 'LogView';
                                     },
                                     text: ' DNS日志'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return 'OperateLogView';
+                                    },
+                                    text: ' 操作日志'
                                 }
                             ]
                         }

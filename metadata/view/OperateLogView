@@ -1,0 +1,113 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "OperateLogView",
+        "designer|userClassName": "OperateLogView",
+        "title": "操作日志"
+    },
+    "name": "LogView1",
+    "designerId": "b2ac0e1f-0542-42a2-9c1d-7ac11e24daf0",
+    "viewControllerInstanceId": "cb578622-0e3f-42df-bc9d-793b4c82d0a9",
+    "viewModelInstanceId": "2de0fdaa-2824-4be3-aa2a-70267e5190fa",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "header": false,
+                "id": "dnsloggrid1",
+                "scroll": "vertical",
+                "store": "StoreDNSLog",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel2",
+            "designerId": "e3ef9fa9-9a33-4a44-a192-394cbe2bee0b",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ID",
+                        "format": "0000",
+                        "text": "行号",
+                        "width": "5%"
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "0d74f777-2413-46b5-809e-693ec5e56aa7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LOG",
+                        "text": "日志",
+                        "width": "95%"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "2d27b5c3-f515-423f-bc5a-f0fc6c9182cd"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "a7a4e933-ec99-447e-b50c-e72aac0217d6"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "store": "StoreDNSLog"
+                    },
+                    "name": "pagingtoolbar7",
+                    "designerId": "5e28688a-6b22-4188-b2b3-62fc7c0802ad",
+                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelBeforeActivate",
+                "implHandler": [
+                    "this.query(\"gridpanel[id=dnsloggrid]\")[0].store.load();"
+                ],
+                "name": "beforeactivate",
+                "scope": "me"
+            },
+            "name": "onPanelBeforeActivate",
+            "designerId": "44922e9f-cc94-4061-a570-df2ff6a3d5a8"
+        }
+    ]
+}

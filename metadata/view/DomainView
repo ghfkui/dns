@@ -316,7 +316,7 @@
                             "userConfig": {
                                 "dock": "bottom"
                             },
-                            "name": "pagingtoolbar2",
+                            "name": "pagingtoolbar3",
                             "designerId": "edebd609-8ba7-4eba-b37c-97b5705f3a84",
                             "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                         },
@@ -466,6 +466,66 @@
                                     },
                                     "name": "handler",
                                     "designerId": "7451e297-db79-42b0-ab52-04c8636b8b19"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Label",
+                                "hideLabel": true,
+                                "itemId": "searchDomainName",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "af7d0363-36e8-4f36-b27e-8cd992e61ed1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "search",
+                                "layout|flex": null,
+                                "text": "搜索域名"
+                            },
+                            "name": "MyButton",
+                            "designerId": "ff237d8b-a215-427f-b43e-711333ed06ff",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSearchClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    grid = me.down(\"gridpanel\"),",
+                                            "    store = grid.getStore(),",
+                                            "    proxy = store.getProxy(),",
+                                            "    searchDomainName = me.down(\"textfield#searchDomainName\").getValue();",
+                                            "if(searchDomainName){",
+                                            "    proxy.setExtraParam(\"s\", searchDomainName);",
+                                            "    store.load();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSearchClick",
+                                    "designerId": "cfd6cc81-3e41-4025-9642-e0c7647e9cfe"
                                 }
                             ]
                         }

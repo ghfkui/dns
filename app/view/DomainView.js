@@ -26,13 +26,15 @@ Ext.define('app.view.DomainView', {
         'Ext.grid.column.Action',
         'Ext.toolbar.Paging',
         'Ext.grid.View',
-        'Ext.tab.Tab'
+        'Ext.tab.Tab',
+        'Ext.form.field.Text'
     ],
 
     viewModel: {
         type: 'domainview'
     },
     title: '域名管理',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -196,11 +198,38 @@ Ext.define('app.view.DomainView', {
                                 Ext.MessageBox.show(config, this);
                             },
                             text: '应用设置'
+                        },
+                        {
+                            xtype: 'textfield',
+                            itemId: 'searchDomainName',
+                            fieldLabel: 'Label',
+                            hideLabel: true,
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'search',
+                            text: '搜索域名',
+                            listeners: {
+                                click: 'onSearchClick'
+                            }
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+
+    onSearchClick: function(button, e, eOpts) {
+        var me = this,
+            grid = me.down("gridpanel"),
+            store = grid.getStore(),
+            proxy = store.getProxy(),
+            searchDomainName = me.down("textfield#searchDomainName").getValue();
+        if(searchDomainName){
+            proxy.setExtraParam("s", searchDomainName);
+            store.load();
+        }
+    }
 
 });
