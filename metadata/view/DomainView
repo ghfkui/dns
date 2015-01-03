@@ -477,7 +477,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "allowBlank": false,
                                 "fieldLabel": "Label",
                                 "hideLabel": true,
                                 "itemId": "searchDomainName",
@@ -516,10 +515,10 @@
                                             "    store = grid.getStore(),",
                                             "    proxy = store.getProxy(),",
                                             "    searchDomainName = me.down(\"textfield#searchDomainName\").getValue();",
-                                            "if(searchDomainName){",
-                                            "    proxy.setExtraParam(\"s\", searchDomainName);",
-                                            "    store.load();",
-                                            "}"
+                                            "",
+                                            "proxy.setExtraParam(\"s\", searchDomainName);",
+                                            "store.load();",
+                                            ""
                                         ],
                                         "name": "click",
                                         "scope": "me"

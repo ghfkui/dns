@@ -203,8 +203,7 @@ Ext.define('app.view.DomainView', {
                             xtype: 'textfield',
                             itemId: 'searchDomainName',
                             fieldLabel: 'Label',
-                            hideLabel: true,
-                            allowBlank: false
+                            hideLabel: true
                         },
                         {
                             xtype: 'button',
@@ -226,10 +225,10 @@ Ext.define('app.view.DomainView', {
             store = grid.getStore(),
             proxy = store.getProxy(),
             searchDomainName = me.down("textfield#searchDomainName").getValue();
-        if(searchDomainName){
-            proxy.setExtraParam("s", searchDomainName);
-            store.load();
-        }
+
+        proxy.setExtraParam("s", searchDomainName);
+        store.load();
+
     }
 
 });

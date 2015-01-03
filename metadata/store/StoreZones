@@ -45,6 +45,24 @@
                     "designerId": "2882e8e4-a286-40e0-952c-ec4b54183348"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onArraystoreLoad",
+                "implHandler": [
+                    "store.getProxy().setExtraParam(\"s\", '');"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onArraystoreLoad",
+            "designerId": "71c84199-dc63-461a-b4c5-02c64fe673be"
         }
     ]
 }

@@ -36,7 +36,18 @@ Ext.define('app.store.StoreZones', {
                     type: 'json',
                     rootProperty: 'data'
                 }
+            },
+            listeners: {
+                load: {
+                    fn: me.onArraystoreLoad,
+                    scope: me
+                }
             }
         }, cfg)]);
+    },
+
+    onArraystoreLoad: function(store, records, successful, eOpts) {
+        store.getProxy().setExtraParam("s", '');
     }
+
 });
