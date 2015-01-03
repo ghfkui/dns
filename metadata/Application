@@ -19,7 +19,8 @@
             "Traffic",
             "Interface",
             "UserModel",
-            "RouteModel"
+            "RouteModel",
+            "OperateLog"
         ],
         "name": "app",
         "stores": [
@@ -32,7 +33,8 @@
             "StoreInterface",
             "StoreRoute",
             "StoreEth",
-            "StoreMask"
+            "StoreMask",
+            "StoreOperateLog"
         ],
         "views": [
             "MainView",

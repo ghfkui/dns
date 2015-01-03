@@ -16,6 +16,56 @@
     "viewModelInstanceId": "2de0fdaa-2824-4be3-aa2a-70267e5190fa",
     "cn": [
         {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar3",
+            "designerId": "78172c06-94d2-4c71-8acf-21e27b70c95e",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "clean",
+                        "layout|flex": null,
+                        "text": "清空列表"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "1c1d366a-2d90-4221-bfa5-fcd889595295",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCleanClick",
+                                "implHandler": [
+                                    "console.log(\"clean\");"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onCleanClick",
+                            "designerId": "b54aeab3-111b-4dce-974f-8b0a588790ba"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "Ext.grid.Panel",
             "reference": {
                 "name": "items",
@@ -24,11 +74,11 @@
             "codeClass": null,
             "userConfig": {
                 "autoLoad": true,
-                "header": false,
-                "id": "dnsloggrid1",
+                "id": null,
+                "itemId": "operateLogGrid",
                 "scroll": "vertical",
-                "store": "StoreDNSLog",
-                "title": "My Grid Panel"
+                "store": "StoreOperateLog",
+                "title": "日志列表"
             },
             "name": "MyGridPanel2",
             "designerId": "e3ef9fa9-9a33-4a44-a192-394cbe2bee0b",
@@ -41,7 +91,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "ID",
+                        "dataIndex": "id",
                         "format": "0000",
                         "text": "行号",
                         "width": "5%"
@@ -57,8 +107,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "LOG",
-                        "text": "日志",
+                        "dataIndex": "name",
+                        "text": "操作名称",
                         "width": "95%"
                     },
                     "name": "MyColumn6",
@@ -85,7 +135,7 @@
                         "dock": "bottom",
                         "store": "StoreDNSLog"
                     },
-                    "name": "pagingtoolbar7",
+                    "name": "pagingtoolbar11",
                     "designerId": "5e28688a-6b22-4188-b2b3-62fc7c0802ad",
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }

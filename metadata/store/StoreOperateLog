@@ -1,0 +1,45 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreOperateLog",
+        "model": "OperateLog",
+        "storeId": "StoreOperateLog"
+    },
+    "name": "StoreDNSLog1",
+    "designerId": "ccb70d28-e7f7-4519-ad54-f896ff1c6549",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../log/opt"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "63fed7f3-3ee8-41da-92ea-50da5b6c3384",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "ad363eeb-718a-4246-bbfb-a56ee87ff87a"
+                }
+            ]
+        }
+    ]
+}

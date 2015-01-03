@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "OperateLog"
+    },
+    "name": "Dnslog1",
+    "designerId": "6510339f-c16f-4610-b748-8cd6dec77e4a",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyInteger3",
+            "designerId": "3eb905a7-bd91-4502-a27b-07b11f79a8c3"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyString8",
+            "designerId": "c8afeca1-7801-4327-a37e-e29eae5cb121"
+        }
+    ]
+}

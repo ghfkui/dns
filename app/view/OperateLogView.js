@@ -20,6 +20,7 @@ Ext.define('app.view.OperateLogView', {
     requires: [
         'app.view.OperateLogViewViewModel',
         'app.view.PagingToolbar',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
         'Ext.grid.View',
@@ -32,28 +33,43 @@ Ext.define('app.view.OperateLogView', {
     title: '操作日志',
     defaultListenerScope: true,
 
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'button',
+                    itemId: 'clean',
+                    text: '清空列表',
+                    listeners: {
+                        click: 'onCleanClick'
+                    }
+                }
+            ]
+        }
+    ],
     items: [
         {
             xtype: 'gridpanel',
-            id: 'dnsloggrid1',
-            header: false,
-            title: 'My Grid Panel',
+            itemId: 'operateLogGrid',
+            title: '日志列表',
             autoLoad: true,
             scroll: 'vertical',
-            store: 'StoreDNSLog',
+            store: 'StoreOperateLog',
             columns: [
                 {
                     xtype: 'numbercolumn',
                     width: '5%',
-                    dataIndex: 'ID',
+                    dataIndex: 'id',
                     text: '行号',
                     format: '0000'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: '95%',
-                    dataIndex: 'LOG',
-                    text: '日志'
+                    dataIndex: 'name',
+                    text: '操作名称'
                 }
             ],
             dockedItems: [
@@ -67,6 +83,10 @@ Ext.define('app.view.OperateLogView', {
     ],
     listeners: {
         beforeactivate: 'onPanelBeforeActivate'
+    },
+
+    onCleanClick: function(button, e, eOpts) {
+        console.log("clean");
     },
 
     onPanelBeforeActivate: function(component, eOpts) {
