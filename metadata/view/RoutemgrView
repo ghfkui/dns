@@ -745,6 +745,24 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelDeactivate",
+                                "implHandler": [
+                                    "this.resetForm();"
+                                ],
+                                "name": "deactivate",
+                                "scope": "me"
+                            },
+                            "name": "onPanelDeactivate",
+                            "designerId": "140ca114-c165-4400-b9f9-c38516e7f9a5"
                         }
                     ]
                 }

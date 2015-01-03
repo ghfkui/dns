@@ -297,7 +297,10 @@ Ext.define('app.view.RoutemgrView', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        deactivate: 'onPanelDeactivate'
+                    }
                 }
             ]
         }
@@ -365,6 +368,10 @@ Ext.define('app.view.RoutemgrView', {
     },
 
     onCancelClick: function(button, e, eOpts) {
+        this.resetForm();
+    },
+
+    onPanelDeactivate: function(component, eOpts) {
         this.resetForm();
     },
 
