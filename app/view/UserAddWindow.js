@@ -100,8 +100,8 @@ Ext.define('app.view.UserAddWindow', {
             waitMsg: '正在保存',
             success: function (form, action) {
                 Ext.Msg.alert('成功', '用户保存成功');
+                this.addWin.fireEvent('userAdded');
                 this.addWin.close();
-
             },
             failure: function (form, action) {
                 Ext.Msg.alert('失败',  action.result.msg);

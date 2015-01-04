@@ -55,7 +55,9 @@
                             "userConfig": {
                                 "fn": "onButtonClick",
                                 "implHandler": [
-                                    "var addWin = new Ext.create('app.view.UserAddWindow');",
+                                    "var me = this,",
+                                    "    addWin = new Ext.create('app.view.UserAddWindow');",
+                                    "addWin.on('userAdded', me.userAdded, me);",
                                     "addWin.show();"
                                 ],
                                 "name": "click",
@@ -267,6 +269,22 @@
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }
             ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "userAdded",
+                "implHandler": [
+                    "this.down('gridpanel').getStore().load();"
+                ]
+            },
+            "name": "userAdded",
+            "designerId": "944139ae-dd88-413c-90eb-f12d5d574933"
         }
     ]
 }

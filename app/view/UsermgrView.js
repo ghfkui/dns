@@ -136,8 +136,14 @@ Ext.define('app.view.UsermgrView', {
     ],
 
     onButtonClick: function(button, e, eOpts) {
-        var addWin = new Ext.create('app.view.UserAddWindow');
+        var me = this,
+            addWin = new Ext.create('app.view.UserAddWindow');
+        addWin.on('userAdded', me.userAdded, me);
         addWin.show();
+    },
+
+    userAdded: function() {
+        this.down('gridpanel').getStore().load();
     }
 
 });
