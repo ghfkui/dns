@@ -19,9 +19,8 @@ Ext.define('app.view.DomainAdd', {
 
     requires: [
         'app.view.DomainAddViewModel',
-        'Ext.form.FieldContainer',
-        'Ext.form.field.Checkbox',
         'Ext.form.FieldSet',
+        'Ext.form.field.Checkbox',
         'Ext.form.field.Number',
         'Ext.button.Button'
     ],
@@ -40,13 +39,13 @@ Ext.define('app.view.DomainAdd', {
     title: '创建域名',
     jsonSubmit: true,
     url: '../zone/add',
+    defaultListenerScope: true,
 
     items: [
         {
-            xtype: 'fieldcontainer',
+            xtype: 'fieldset',
             border: 1,
-            height: 120,
-            fieldLabel: '基本选项',
+            title: '基本选项',
             items: [
                 {
                     xtype: 'textfield',
@@ -57,20 +56,49 @@ Ext.define('app.view.DomainAdd', {
                 },
                 {
                     xtype: 'checkboxfield',
-                    fieldLabel: 'Label',
-                    hideLabel: true,
+                    fieldLabel: '      ',
+                    labelSeparator: ' ',
                     name: 'Enable',
                     value: 1,
                     boxLabel: '开启解析',
                     checked: true,
                     inputValue: '1',
                     uncheckedValue: '0'
+                },
+                {
+                    xtype: 'checkboxfield',
+                    itemId: 'domainSwitch',
+                    fieldLabel: '  ',
+                    labelSeparator: ' ',
+                    boxLabel: '域名转发',
+                    listeners: {
+                        change: 'onDomainSwitchChange'
+                    }
                 }
             ]
         },
         {
             xtype: 'fieldset',
-            collapsible: true,
+            hidden: true,
+            itemId: 'domainSwitchSet',
+            title: '域名转发',
+            items: [
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    fieldLabel: 'IP1',
+                    name: 'ip1'
+                },
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    fieldLabel: 'IP2',
+                    name: 'ip2'
+                }
+            ]
+        },
+        {
+            xtype: 'fieldset',
             title: '高级选项',
             items: [
                 {
@@ -164,6 +192,16 @@ Ext.define('app.view.DomainAdd', {
             },
             text: '保存'
         }
-    ]
+    ],
+
+    onDomainSwitchChange: function(field, newValue, oldValue, eOpts) {
+        var checked = field.getValue(),
+            domainSwitchSet = this.down('#domainSwitchSet');
+        if(checked){
+            domainSwitchSet.show();
+        }else{
+            domainSwitchSet.hide();
+        }
+    }
 
 });

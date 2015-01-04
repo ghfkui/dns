@@ -38,7 +38,7 @@
     "viewModelInstanceId": "9112cdf7-1029-4624-84fd-8f89dbddaf43",
     "cn": [
         {
-            "type": "Ext.form.FieldContainer",
+            "type": "Ext.form.FieldSet",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -46,10 +46,10 @@
             "codeClass": null,
             "userConfig": {
                 "border": 1,
-                "fieldLabel": "基本选项",
-                "height": 120
+                "height": null,
+                "title": "基本选项"
             },
-            "name": "MyFieldContainer",
+            "name": "MyFieldSet3",
             "designerId": "dabdb231-5bd9-4acf-90a5-bf16bb7448f4",
             "cn": [
                 {
@@ -79,9 +79,9 @@
                         "boxLabel": "开启解析",
                         "checked": true,
                         "designer|displayName": "Enable",
-                        "fieldLabel": "Label",
-                        "hideLabel": true,
+                        "fieldLabel": "      ",
                         "inputValue": "1",
+                        "labelSeparator": " ",
                         "name": "Enable",
                         "uncheckedValue": "0",
                         "value": [
@@ -90,6 +90,48 @@
                     },
                     "name": "MyCheckbox",
                     "designerId": "4810b2cd-dc46-47f5-9cca-a3cbba3371b4"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "域名转发",
+                        "fieldLabel": "  ",
+                        "itemId": "domainSwitch",
+                        "labelSeparator": " "
+                    },
+                    "name": "MyCheckbox1",
+                    "designerId": "8f2bd4bb-6c07-4d6f-88d9-3870d7c6e67e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onDomainSwitchChange",
+                                "implHandler": [
+                                    "var checked = field.getValue(),",
+                                    "    domainSwitchSet = this.down('#domainSwitchSet');",
+                                    "if(checked){",
+                                    "    domainSwitchSet.show();",
+                                    "}else{",
+                                    "    domainSwitchSet.hide();",
+                                    "}"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onDomainSwitchChange",
+                            "designerId": "718ea548-c6a5-4de9-a184-ca690ac2fd66"
+                        }
+                    ]
                 }
             ]
         },
@@ -101,7 +143,56 @@
             },
             "codeClass": null,
             "userConfig": {
-                "collapsible": true,
+                "border": null,
+                "height": null,
+                "hidden": true,
+                "itemId": "domainSwitchSet",
+                "title": "域名转发"
+            },
+            "name": "MyFieldSet2",
+            "designerId": "c7ccbeb5-8c38-4d5c-b704-7ab5667e4200",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "IP1",
+                        "layout|anchor": "100%",
+                        "name": "ip1"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "623a7d36-13c2-4543-b5a8-52fef77f5d6c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "IP2",
+                        "layout|anchor": "100%",
+                        "name": "ip2"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "995280c8-666f-4367-8f35-9725fc449681"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsible": null,
                 "title": "高级选项"
             },
             "name": "MyFieldSet",
