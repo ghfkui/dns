@@ -220,7 +220,7 @@
                                             "                    view.getStore().load();",
                                             "                    var result = Ext.decode(data.responseText);",
                                             "                    if (result.success) {",
-                                            "                        Ext.Msg.alert('成功', '删除成功');",
+                                            "                        Ext.Msg.alert('成功', result.msg);",
                                             "                    }",
                                             "                },",
                                             "                failure: function(data) {",
@@ -262,7 +262,7 @@
                         "dock": "bottom",
                         "store": "StoreUser"
                     },
-                    "name": "pagingtoolbar5",
+                    "name": "pagingtoolbar6",
                     "designerId": "02dc8757-dd1f-473b-b095-04c36fcd93f0",
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }

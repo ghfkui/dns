@@ -13,7 +13,7 @@
             }
         },
         "urlPrefix": "http://localhost/dnsdemo/",
-        "exportPath": "C:/nginx-1.7.9/html/d",
+        "exportPath": "D:/nginx/html/d",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "buildShouldOverwriteIndex": false,

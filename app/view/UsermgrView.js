@@ -96,7 +96,7 @@ Ext.define('app.view.UsermgrView', {
                                                     view.getStore().load();
                                                     var result = Ext.decode(data.responseText);
                                                     if (result.success) {
-                                                        Ext.Msg.alert('成功', '删除成功');
+                                                        Ext.Msg.alert('成功', result.msg);
                                                     }
                                                 },
                                                 failure: function(data) {

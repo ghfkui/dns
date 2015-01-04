@@ -22,7 +22,7 @@ Ext.define('app.view.OperateLogView', {
         'app.view.PagingToolbar',
         'Ext.button.Button',
         'Ext.grid.Panel',
-        'Ext.grid.column.Number',
+        'Ext.grid.column.Column',
         'Ext.grid.View',
         'Ext.toolbar.Paging'
     ],
@@ -59,16 +59,15 @@ Ext.define('app.view.OperateLogView', {
             store: 'StoreOperateLog',
             columns: [
                 {
-                    xtype: 'numbercolumn',
-                    width: '5%',
-                    dataIndex: 'id',
-                    text: '行号',
-                    format: '0000'
+                    xtype: 'gridcolumn',
+                    width: '40%',
+                    dataIndex: 'time',
+                    text: '时间'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: '95%',
-                    dataIndex: 'name',
+                    dataIndex: 'log',
                     text: '操作名称'
                 }
             ],
@@ -86,7 +85,23 @@ Ext.define('app.view.OperateLogView', {
     },
 
     onCleanClick: function(button, e, eOpts) {
-        console.log("clean");
+        var operateLogGrid = this.down('#operateLogGrid');
+        Ext.Ajax.request({
+            url: '../log/opt/clean',
+            success: function(data, a1, a2) {
+                this.view.getStore().load();
+                var result = Ext.decode(data.responseText);
+                if (result.success) {
+                    Ext.Msg.alert('成功', result.msg);
+                }
+            },
+            failure: function(data) {
+                Ext.Msg.alert('失败', "清空失败");
+            },
+            scope: {
+                view: operateLogGrid
+            }
+        });
     },
 
     onPanelBeforeActivate: function(component, eOpts) {

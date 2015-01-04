@@ -17,18 +17,18 @@ Ext.define('app.model.OperateLog', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'Ext.data.field.Integer',
+        'Ext.data.field.Date',
         'Ext.data.field.String'
     ],
 
     fields: [
         {
-            type: 'int',
-            name: 'id'
+            type: 'date',
+            name: 'time'
         },
         {
             type: 'string',
-            name: 'name'
+            name: 'log'
         }
     ]
 });
