@@ -70,6 +70,7 @@ Ext.define('app.view.DomainAdd', {
                     itemId: 'domainSwitch',
                     fieldLabel: '  ',
                     labelSeparator: ' ',
+                    name: 'DomainSwitched',
                     boxLabel: '域名转发',
                     listeners: {
                         change: 'onDomainSwitchChange'
@@ -87,13 +88,15 @@ Ext.define('app.view.DomainAdd', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: 'IP1',
-                    name: 'ip1'
+                    name: 'IP2',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: 'IP2',
-                    name: 'ip2'
+                    name: 'IP2',
+                    allowBlank: false
                 }
             ]
         },
