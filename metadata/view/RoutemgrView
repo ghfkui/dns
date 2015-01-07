@@ -524,6 +524,7 @@
                                     "userConfig": {
                                         "disableKeyFilter": true,
                                         "displayField": "name",
+                                        "editable": false,
                                         "fieldLabel": "选择网卡",
                                         "layout|anchor": "60%",
                                         "name": "eth",
@@ -575,6 +576,7 @@
                                             "userConfig": {
                                                 "disableKeyFilter": true,
                                                 "displayField": "mask",
+                                                "editable": false,
                                                 "fieldLabel": " /",
                                                 "labelPad": null,
                                                 "labelSeparator": "/",

@@ -137,12 +137,20 @@ Ext.define('app.view.NetworkConfigs', {
                 },
                 {
                     xtype: 'panel',
+                    padding: '10 0',
                     title: 'WAN接口',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'form',
+                            itemId: 'ncardconfig',
                             margin: '0 10',
                             title: '网卡配置',
+                            jsonSubmit: true,
+                            url: '../interfaces/ip',
                             items: [
                                 {
                                     xtype: 'fieldcontainer',
@@ -157,11 +165,15 @@ Ext.define('app.view.NetworkConfigs', {
                                             items: [
                                                 {
                                                     xtype: 'radiofield',
-                                                    boxLabel: 'IPv4'
+                                                    name: 'protocol',
+                                                    boxLabel: 'IPv4',
+                                                    inputValue: '1'
                                                 },
                                                 {
                                                     xtype: 'radiofield',
-                                                    boxLabel: 'IPv6'
+                                                    name: 'protocol',
+                                                    boxLabel: 'IPv6',
+                                                    inputValue: '1'
                                                 }
                                             ]
                                         }
@@ -179,7 +191,8 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: '网络地址'
+                                            fieldLabel: '网络地址',
+                                            name: 'ip'
                                         },
                                         {
                                             xtype: 'combobox',
@@ -187,7 +200,12 @@ Ext.define('app.view.NetworkConfigs', {
                                             width: 60,
                                             fieldLabel: '    /',
                                             labelSeparator: '/',
-                                            labelWidth: 5
+                                            labelWidth: 5,
+                                            name: 'mask',
+                                            editable: false,
+                                            displayField: 'mask',
+                                            store: 'StoreMask',
+                                            valueField: 'mask'
                                         }
                                     ]
                                 },
@@ -199,7 +217,8 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: '网关'
+                                            fieldLabel: '网关',
+                                            name: 'gateway'
                                         }
                                     ]
                                 },
@@ -212,7 +231,10 @@ Ext.define('app.view.NetworkConfigs', {
                                         {
                                             xtype: 'checkboxfield',
                                             fieldLabel: '安全',
-                                            boxLabel: '阻止私有网络'
+                                            name: 'private',
+                                            boxLabel: '阻止私有网络',
+                                            inputValue: '1',
+                                            uncheckedValue: '0'
                                         }
                                     ]
                                 },
@@ -225,7 +247,11 @@ Ext.define('app.view.NetworkConfigs', {
                                         {
                                             xtype: 'checkboxfield',
                                             fieldLabel: 'WEB管理',
-                                            boxLabel: '启用'
+                                            name: 'webmgr',
+                                            boxLabel: '启用',
+                                            checked: true,
+                                            inputValue: '1',
+                                            uncheckedValue: '0'
                                         }
                                     ]
                                 },
@@ -238,7 +264,11 @@ Ext.define('app.view.NetworkConfigs', {
                                         {
                                             xtype: 'checkboxfield',
                                             fieldLabel: 'DNS服务',
-                                            boxLabel: '启用'
+                                            name: 'dns',
+                                            boxLabel: '启用',
+                                            checked: true,
+                                            inputValue: '1',
+                                            uncheckedValue: '0'
                                         }
                                     ]
                                 },
@@ -251,7 +281,11 @@ Ext.define('app.view.NetworkConfigs', {
                                         {
                                             xtype: 'checkboxfield',
                                             fieldLabel: '允许PING',
-                                            boxLabel: '启用'
+                                            name: 'ping',
+                                            boxLabel: '启用',
+                                            checked: true,
+                                            inputValue: '1',
+                                            uncheckedValue: '0'
                                         }
                                     ]
                                 }
@@ -260,14 +294,14 @@ Ext.define('app.view.NetworkConfigs', {
                                 {
                                     xtype: 'toolbar',
                                     dock: 'bottom',
-                                    layout: {
-                                        type: 'hbox',
-                                        pack: 'center'
-                                    },
                                     items: [
                                         {
                                             xtype: 'button',
-                                            text: '保存'
+                                            itemId: 'save',
+                                            text: '保存',
+                                            listeners: {
+                                                click: 'onSaveClick'
+                                            }
                                         }
                                     ]
                                 }
@@ -275,14 +309,20 @@ Ext.define('app.view.NetworkConfigs', {
                         },
                         {
                             xtype: 'panel',
+                            flex: 1,
+                            margin: '0 10',
                             title: '相关IP列表'
                         }
                     ]
                 },
                 {
                     xtype: 'panel',
-                    padding: '10 0',
+                    padding: '10 0 0',
                     title: '接口管理',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'form',
@@ -364,25 +404,29 @@ Ext.define('app.view.NetworkConfigs', {
                         },
                         {
                             xtype: 'gridpanel',
+                            flex: 1,
                             itemId: 'connectorGrid',
-                            margin: 10,
-                            padding: '10 0',
+                            margin: '10 10 0',
+                            padding: '10 0 0',
                             title: '接口列表',
                             autoLoad: true,
                             store: 'StoreConnector',
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
+                                    width: '30%',
                                     dataIndex: 'key',
                                     text: '接口名称'
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    width: '30%',
                                     dataIndex: 'value',
                                     text: '接口网卡'
                                 },
                                 {
                                     xtype: 'actioncolumn',
+                                    width: '40%',
                                     text: '操作',
                                     items: [
                                         {
@@ -447,6 +491,23 @@ Ext.define('app.view.NetworkConfigs', {
             ]
         }
     ],
+
+    onSaveClick: function(button, e, eOpts) {
+        var me = this,
+            form = me.down('form#ncardconfig');
+        form.submit({
+            waitMsg: '正在保存',
+            success: function (form, action) {
+                Ext.Msg.alert('成功', '保存成功', function(){
+                    //form.reset();
+                    //connectorStore.load();
+                });
+            },
+            failure: function (form, action) {
+                Ext.Msg.alert('失败',  action.result.msg);
+            }
+        });
+    },
 
     onAddClick: function(button, e, eOpts) {
         var me = this,

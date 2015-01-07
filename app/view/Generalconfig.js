@@ -238,6 +238,7 @@ Ext.define('app.view.Generalconfig', {
                                     flex: 1,
                                     fieldLabel: '选择时区',
                                     name: 'TIME_ZONE',
+                                    editable: false,
                                     store: 'StoreTimezone'
                                 },
                                 {

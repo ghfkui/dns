@@ -449,6 +449,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "editable": false,
                                         "fieldLabel": "选择时区",
                                         "layout|flex": 1,
                                         "name": "TIME_ZONE",

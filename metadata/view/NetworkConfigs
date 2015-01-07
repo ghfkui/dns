@@ -295,6 +295,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "padding": "10 0",
                         "title": "WAN接口"
                     },
                     "name": "MyPanel18",
@@ -318,8 +321,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "itemId": "ncardconfig",
+                                "jsonSubmit": true,
                                 "margin": "0 10",
-                                "title": "网卡配置"
+                                "title": "网卡配置",
+                                "url": "../interfaces/ip"
                             },
                             "name": "MyForm10",
                             "designerId": "0c0e10d7-6df2-4fb5-b7dc-1a3086369b64",
@@ -364,7 +370,9 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "boxLabel": "IPv4",
-                                                        "fieldLabel": null
+                                                        "fieldLabel": null,
+                                                        "inputValue": "1",
+                                                        "name": "protocol"
                                                     },
                                                     "name": "MyRadio6",
                                                     "designerId": "a329a0d9-dbd9-4735-be0d-a21fda77f443"
@@ -378,7 +386,9 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "boxLabel": "IPv6",
-                                                        "fieldLabel": null
+                                                        "fieldLabel": null,
+                                                        "inputValue": "1",
+                                                        "name": "protocol"
                                                     },
                                                     "name": "MyRadio7",
                                                     "designerId": "63234394-f65f-4224-b196-5fea0840741a"
@@ -414,7 +424,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "网络地址"
+                                                "fieldLabel": "网络地址",
+                                                "name": "ip"
                                             },
                                             "name": "MyTextField18",
                                             "designerId": "4a98329c-22b0-49bc-9224-eb34bfb5690c"
@@ -427,10 +438,15 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "displayField": "mask",
+                                                "editable": false,
                                                 "fieldLabel": "    /",
                                                 "labelSeparator": "/",
                                                 "labelWidth": 5,
                                                 "margin": "0 0 0 5",
+                                                "name": "mask",
+                                                "store": "StoreMask",
+                                                "valueField": "mask",
                                                 "width": 60
                                             },
                                             "name": "MyComboBox6",
@@ -463,7 +479,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "网关"
+                                                "fieldLabel": "网关",
+                                                "name": "gateway"
                                             },
                                             "name": "MyTextField19",
                                             "designerId": "2d70094d-d17e-44ad-961b-95627c91ca45"
@@ -496,7 +513,10 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "阻止私有网络",
-                                                "fieldLabel": "安全"
+                                                "fieldLabel": "安全",
+                                                "inputValue": "1",
+                                                "name": "private",
+                                                "uncheckedValue": "0"
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "c6c485a9-c690-4e06-996c-11d031b93e8c"
@@ -529,7 +549,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "启用",
-                                                "fieldLabel": "WEB管理"
+                                                "checked": true,
+                                                "fieldLabel": "WEB管理",
+                                                "inputValue": "1",
+                                                "name": "webmgr",
+                                                "uncheckedValue": "0"
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d0b309e0-ef73-49bd-8178-f8d99fdc0171"
@@ -562,7 +586,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "启用",
-                                                "fieldLabel": "DNS服务"
+                                                "checked": true,
+                                                "fieldLabel": "DNS服务",
+                                                "inputValue": "1",
+                                                "name": "dns",
+                                                "uncheckedValue": "0"
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "2b6d36cf-7579-4822-b9ff-5b27faaebf1e"
@@ -595,7 +623,11 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "启用",
-                                                "fieldLabel": "允许PING"
+                                                "checked": true,
+                                                "fieldLabel": "允许PING",
+                                                "inputValue": "1",
+                                                "name": "ping",
+                                                "uncheckedValue": "0"
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d5448631-fd7f-4aa4-b9c5-bb2e8cbcac23"
@@ -610,7 +642,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "container|pack": "center",
                                         "dock": "bottom"
                                     },
                                     "name": "MyToolbar5",
@@ -624,11 +655,45 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "save",
                                                 "layout|flex": null,
                                                 "text": "保存"
                                             },
                                             "name": "MyButton14",
-                                            "designerId": "25e1e768-bae5-439e-b061-0634dcec9d1c"
+                                            "designerId": "25e1e768-bae5-439e-b061-0634dcec9d1c",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onSaveClick",
+                                                        "implHandler": [
+                                                            "var me = this,",
+                                                            "    form = me.down('form#ncardconfig');",
+                                                            "form.submit({",
+                                                            "    waitMsg: '正在保存',",
+                                                            "    success: function (form, action) {",
+                                                            "        Ext.Msg.alert('成功', '保存成功', function(){",
+                                                            "            //form.reset();",
+                                                            "            //connectorStore.load();",
+                                                            "        });",
+                                                            "    },",
+                                                            "    failure: function (form, action) {",
+                                                            "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                            "    }",
+                                                            "});"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onSaveClick",
+                                                    "designerId": "1d5ee34c-cd9d-48be-94e5-f970912e8ee8"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -642,6 +707,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": 1,
+                                "margin": "0 10",
                                 "title": "相关IP列表"
                             },
                             "name": "MyPanel25",
@@ -657,7 +724,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "padding": "10 0",
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "padding": "10 0 0",
                         "title": "接口管理"
                     },
                     "name": "MyPanel19",
@@ -883,8 +952,9 @@
                             "userConfig": {
                                 "autoLoad": true,
                                 "itemId": "connectorGrid",
-                                "margin": 10,
-                                "padding": "10 0",
+                                "layout|flex": 1,
+                                "margin": "10 10 0",
+                                "padding": "10 0 0",
                                 "store": "StoreConnector",
                                 "title": "接口列表"
                             },
@@ -900,7 +970,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "key",
-                                        "text": "接口名称"
+                                        "text": "接口名称",
+                                        "width": "30%"
                                     },
                                     "name": "MyColumn12",
                                     "designerId": "0dbc4717-2450-44db-9e6f-cefc3f0d36b7"
@@ -914,7 +985,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "value",
-                                        "text": "接口网卡"
+                                        "text": "接口网卡",
+                                        "width": "30%"
                                     },
                                     "name": "MyColumn13",
                                     "designerId": "3d10668e-bc02-4984-8a24-40e9e5f4ab29"
@@ -927,7 +999,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "text": "操作"
+                                        "text": "操作",
+                                        "width": "40%"
                                     },
                                     "name": "MyActionColumn2",
                                     "designerId": "2044c5ff-1402-430e-b5b5-cd21f778b954",

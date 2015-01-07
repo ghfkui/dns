@@ -227,6 +227,7 @@ Ext.define('app.view.RoutemgrView', {
                                     fieldLabel: '选择网卡',
                                     name: 'eth',
                                     disableKeyFilter: true,
+                                    editable: false,
                                     displayField: 'name',
                                     store: 'StoreEth',
                                     valueField: 'name'
@@ -252,6 +253,7 @@ Ext.define('app.view.RoutemgrView', {
                                             labelWidth: 5,
                                             name: 'mask',
                                             disableKeyFilter: true,
+                                            editable: false,
                                             displayField: 'mask',
                                             store: 'StoreMask',
                                             valueField: 'mask'
