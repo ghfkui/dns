@@ -87,10 +87,10 @@ Ext.define('app.view.RoutemgrView', {
                                 {
                                     xtype: 'gridcolumn',
                                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                        if(record.enabled == 1){
-                                            return '<a href="#">启用</a>';
+                                        if(record.data.enabled == 1){
+                                            return '<a href="#" class="enable">启用</a>';
                                         }else{
-                                            return '<a href="#">停用</a>';
+                                            return '<a href="#" class="disable">停用</a>';
                                         }
                                     },
                                     dataIndex: 'enabled',
@@ -166,7 +166,10 @@ Ext.define('app.view.RoutemgrView', {
                                     store: 'StoreRoute',
                                     dock: 'bottom'
                                 }
-                            ]
+                            ],
+                            listeners: {
+                                cellclick: 'onRouteListCellClick'
+                            }
                         }
                     ]
                 },
@@ -255,6 +258,38 @@ Ext.define('app.view.RoutemgrView', {
             ]
         }
     ],
+
+    onRouteListCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        var target = e.target,
+            route = record.data,
+            enabled = 0;
+        if(target && target.className.indexOf("disable") != -1){
+            enabled = 1;
+        }
+        Ext.Ajax.request({
+            url: '../route/status',
+            success: function(data, a1, a2) {
+
+                var result = Ext.decode(data.responseText);
+                if (result.success) {
+                    this.route.enabled = this.enabled;
+                    this.view.refresh();
+                }
+            },
+            failure: function(data) {
+                Ext.Msg.alert('失败', "操作失败");
+            },
+            jsonData: {
+                id: route.id,
+                enabled: enabled
+            },
+            scope: {
+                route: route,
+                enabled: enabled,
+                view: tableview
+            }
+        });
+    },
 
     onButtonClick: function(button, e, eOpts) {
          var me = this,

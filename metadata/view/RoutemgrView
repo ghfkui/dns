@@ -175,10 +175,10 @@
                                                 ],
                                                 "fn": "renderer",
                                                 "implHandler": [
-                                                    "if(record.enabled == 1){",
-                                                    "    return '<a href=\"#\">启用</a>';",
+                                                    "if(record.data.enabled == 1){",
+                                                    "    return '<a href=\"#\" class=\"enable\">启用</a>';",
                                                     "}else{",
-                                                    "    return '<a href=\"#\">停用</a>';   ",
+                                                    "    return '<a href=\"#\" class=\"disable\">停用</a>';",
                                                     "}"
                                                 ]
                                             },
@@ -362,6 +362,52 @@
                                     "name": "pagingtoolbar",
                                     "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
                                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onRouteListCellClick",
+                                        "implHandler": [
+                                            "var target = e.target,",
+                                            "    route = record.data,",
+                                            "    enabled = 0;",
+                                            "if(target && target.className.indexOf(\"disable\") != -1){",
+                                            "    enabled = 1;",
+                                            "}",
+                                            "Ext.Ajax.request({",
+                                            "    url: '../route/status',",
+                                            "    success: function(data, a1, a2) {",
+                                            "",
+                                            "        var result = Ext.decode(data.responseText);",
+                                            "        if (result.success) {",
+                                            "            this.route.enabled = this.enabled;",
+                                            "            this.view.refresh();",
+                                            "        }",
+                                            "    },",
+                                            "    failure: function(data) {",
+                                            "        Ext.Msg.alert('失败', \"操作失败\");",
+                                            "    },",
+                                            "    jsonData: {",
+                                            "        id: route.id,",
+                                            "        enabled: enabled",
+                                            "    },",
+                                            "    scope: {",
+                                            "        route: route,",
+                                            "        enabled: enabled,",
+                                            "        view: tableview",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "cellclick",
+                                        "scope": "me"
+                                    },
+                                    "name": "onRouteListCellClick",
+                                    "designerId": "7b4e86f8-4b85-4e30-91d4-4313ced97d9a"
                                 }
                             ]
                         }
