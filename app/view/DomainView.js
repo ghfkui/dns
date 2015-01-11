@@ -83,7 +83,7 @@ Ext.define('app.view.DomainView', {
                                 {
                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
                                         var win = new Ext.create('app.view.DomainWindows');
-                                        win.setzone(view.getStore().getAt(rowIndex).data);
+                                        win.setzone(view.getStore().getAt(rowIndex));
                                         win.show();
                                     },
                                     altText: '',

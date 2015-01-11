@@ -62,13 +62,6 @@ Ext.define('app.view.MainView', {
                                         return 'RoutemgrView';
                                     },
                                     text: '路由设置'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    getRefView: function() {
-                                        return '';
-                                    },
-                                    text: '安全设置'
                                 }
                             ]
                         }

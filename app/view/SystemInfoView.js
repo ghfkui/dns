@@ -37,6 +37,7 @@ Ext.define('app.view.SystemInfoView', {
         {
             xtype: 'tabpanel',
             margin: 10,
+            activeTab: 0,
             items: [
                 {
                     xtype: 'panel',
@@ -73,14 +74,6 @@ Ext.define('app.view.SystemInfoView', {
                 },
                 {
                     xtype: 'TrafficView'
-                },
-                {
-                    xtype: 'panel',
-                    title: '图形统计'
-                },
-                {
-                    xtype: 'panel',
-                    title: '查询统计'
                 }
             ]
         }

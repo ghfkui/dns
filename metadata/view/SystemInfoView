@@ -26,6 +26,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "activeTab": 0,
                 "margin": 10
             },
             "name": "MyTabPanel2",
@@ -145,56 +146,6 @@
                             "codeClass": null,
                             "name": "TabConfig11",
                             "designerId": "73b2fbb0-e568-407f-af2d-3bff118d240d"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "title": "图形统计"
-                    },
-                    "name": "MyPanel18",
-                    "designerId": "7c3410f2-a7d7-4ba7-95c5-34f905cb687e",
-                    "cn": [
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "name": "TabConfig9",
-                            "designerId": "31908d30-2fd2-432d-8e89-3cff68cf619a"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "title": "查询统计"
-                    },
-                    "name": "MyPanel19",
-                    "designerId": "02e48bc0-3ad9-4d5d-b9e2-cbef8fa35b07",
-                    "cn": [
-                        {
-                            "type": "Ext.tab.Tab",
-                            "reference": {
-                                "name": "tabConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "name": "TabConfig10",
-                            "designerId": "50961984-6a45-4411-ad35-7cbcd7b0b7d4"
                         }
                     ]
                 }

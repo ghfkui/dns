@@ -27,7 +27,8 @@ Ext.define('app.view.DomainAdd', {
 
     config: {
         RowUpdate: false,
-        urlUpdate: '../zone/update'
+        urlUpdate: '../zone/update',
+        zone: 'null'
     },
 
     viewModel: {
@@ -88,7 +89,7 @@ Ext.define('app.view.DomainAdd', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: 'IP1',
-                    name: 'IP2',
+                    name: 'IP1',
                     allowBlank: false
                 },
                 {
@@ -177,7 +178,7 @@ Ext.define('app.view.DomainAdd', {
             handler: function(button, e) {
                 var Valid = this.up("form").getForm().isValid();
                 if (!Valid) return;
-
+                var zone = this.up("DomainAdd").zone;
                 var rowupdate = this.up("DomainAdd").RowUpdate;
                 if (rowupdate)
                 {
@@ -186,6 +187,9 @@ Ext.define('app.view.DomainAdd', {
                 this.up("form").getForm().submit({
                     waitMsg: '正在保存',
                     success: function (form, action) {
+                        if(zone){
+                            zone.data = form.getValues();
+                        }
                         Ext.Msg.alert('成功', action.result.msg);
                     },
                     failure: function (form, action) {

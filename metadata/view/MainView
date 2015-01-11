@@ -128,37 +128,6 @@
                                             "designerId": "f08e43b2-8295-442d-a976-5fa750645af6"
                                         }
                                     ]
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "安全设置"
-                                    },
-                                    "name": "MyMenuItem2",
-                                    "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be",
-                                    "cn": [
-                                        {
-                                            "type": "basicfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "getRefView",
-                                                "implHandler": [
-                                                    "return '';"
-                                                ]
-                                            },
-                                            "name": "getRefView",
-                                            "designerId": "98a619da-8182-42fd-b769-ce4adad68a98"
-                                        }
-                                    ]
                                 }
                             ]
                         }

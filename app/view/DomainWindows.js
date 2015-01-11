@@ -54,9 +54,10 @@ Ext.define('app.view.DomainWindows', {
     },
 
     setzone: function(zone) {
+        this.down("DomainAdd").zone=zone;
         this.down("DomainAdd").RowUpdate=true;
         this.down("DomainAdd").query("textfield[name=Domain]")[0].readOnly=true;
-        this.down("form").getForm().setValues(zone);
+        this.down("form").getForm().setValues(zone.data);
     }
 
 });

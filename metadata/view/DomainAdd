@@ -15,7 +15,8 @@
         "padding": 20,
         "title": "创建域名",
         "url": "../zone/add",
-        "urlUpdate": "../zone/update"
+        "urlUpdate": "../zone/update",
+        "zone": "null"
     },
     "name": "MyForm1",
     "configAlternates": {
@@ -31,6 +32,11 @@
         {
             "group": "(Custom Properties)",
             "name": "urlUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "zone",
             "type": "string"
         }
     ],
@@ -164,7 +170,7 @@
                         "allowBlank": false,
                         "fieldLabel": "IP1",
                         "layout|anchor": "100%",
-                        "name": "IP2"
+                        "name": "IP1"
                     },
                     "name": "MyTextField2",
                     "designerId": "623a7d36-13c2-4543-b5a8-52fef77f5d6c"
@@ -373,7 +379,7 @@
                         "implHandler": [
                             "var Valid = this.up(\"form\").getForm().isValid();",
                             "if (!Valid) return;",
-                            "",
+                            "var zone = this.up(\"DomainAdd\").zone;",
                             "var rowupdate = this.up(\"DomainAdd\").RowUpdate;",
                             "if (rowupdate)",
                             "{",
@@ -382,6 +388,9 @@
                             "this.up(\"form\").getForm().submit({",
                             "    waitMsg: '正在保存',",
                             "    success: function (form, action) {",
+                            "        if(zone){",
+                            "            zone.data = form.getValues();",
+                            "        }",
                             "        Ext.Msg.alert('成功', action.result.msg);",
                             "    },",
                             "    failure: function (form, action) {",
