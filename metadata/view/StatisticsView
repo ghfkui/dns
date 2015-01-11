@@ -1,0 +1,112 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "statisticsview",
+        "designer|userClassName": "StatisticsView",
+        "title": "查询统计"
+    },
+    "name": "LogView1",
+    "designerId": "12c6e3bd-5238-484e-be1d-c6412b2b6238",
+    "viewControllerInstanceId": "b1527bbb-72c7-444b-9232-6180722b7990",
+    "viewModelInstanceId": "e9641525-59b9-45c4-8986-4801e601bccd",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "header": false,
+                "id": "statisticsgrid",
+                "scroll": "vertical",
+                "store": "StoreStatistics",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel2",
+            "designerId": "b452f0d1-8402-4c65-bcf7-8ef2ab7e2bc5",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "name",
+                        "text": "名称",
+                        "width": "20%"
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "6edb9687-e276-4dc9-b578-8d5850e48565"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "count",
+                        "text": "数量",
+                        "width": "80%"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "28d3572d-2e3a-4ab5-894c-5460662f4fe1"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "706a615e-6da3-4bf7-8662-009fc99ff1ed"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "store": "StoreStatistics"
+                    },
+                    "name": "pagingtoolbar2",
+                    "designerId": "d3186300-2a7b-4f25-a2b6-2d41aecf9606",
+                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelBeforeActivate",
+                "implHandler": [
+                    "this.query(\"gridpanel[id=statisticsgrid]\")[0].store.load();"
+                ],
+                "name": "beforeactivate",
+                "scope": "me"
+            },
+            "name": "onPanelBeforeActivate",
+            "designerId": "09d219a4-1c31-4985-85ea-e6fed839b809"
+        }
+    ]
+}

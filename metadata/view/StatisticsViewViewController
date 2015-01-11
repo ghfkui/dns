@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "statisticsview",
+        "designer|userClassName": "StatisticsViewViewController"
+    },
+    "name": "LogViewViewController1",
+    "designerId": "b1527bbb-72c7-444b-9232-6180722b7990"
+}

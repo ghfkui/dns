@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Statistics"
+    },
+    "name": "Dnslog1",
+    "designerId": "1c886071-5035-42d0-93aa-6fc4be7497de",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "count"
+            },
+            "name": "MyInteger3",
+            "designerId": "e1eee55d-763f-4b9d-a523-f9804e86e28f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyString8",
+            "designerId": "404bbffd-84d3-4f09-900a-24bd8495eb79"
+        }
+    ]
+}

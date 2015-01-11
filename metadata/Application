@@ -20,7 +20,8 @@
             "Interface",
             "UserModel",
             "RouteModel",
-            "OperateLog"
+            "OperateLog",
+            "Statistics"
         ],
         "name": "app",
         "stores": [
@@ -34,7 +35,8 @@
             "StoreRoute",
             "StoreEth",
             "StoreMask",
-            "StoreOperateLog"
+            "StoreOperateLog",
+            "StoreStatistics"
         ],
         "views": [
             "MainView",
@@ -52,7 +54,8 @@
             "RoutemgrView",
             "UsermgrView",
             "UserAddWindow",
-            "OperateLogView"
+            "OperateLogView",
+            "StatisticsView"
         ]
     },
     "name": "Application",

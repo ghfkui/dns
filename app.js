@@ -29,7 +29,8 @@ Ext.application({
         'Interface',
         'UserModel',
         'RouteModel',
-        'OperateLog'
+        'OperateLog',
+        'Statistics'
     ],
     stores: [
         'StoreZones',
@@ -42,7 +43,8 @@ Ext.application({
         'StoreRoute',
         'StoreEth',
         'StoreMask',
-        'StoreOperateLog'
+        'StoreOperateLog',
+        'StoreStatistics'
     ],
     views: [
         'MainView',
@@ -60,7 +62,8 @@ Ext.application({
         'RoutemgrView',
         'UsermgrView',
         'UserAddWindow',
-        'OperateLogView'
+        'OperateLogView',
+        'StatisticsView'
     ],
     controllers: [
         'MainController'

@@ -113,14 +113,7 @@ Ext.define('app.view.MainView', {
                                 {
                                     xtype: 'menuitem',
                                     getRefView: function() {
-                                        return 'TrafficView';
-                                    },
-                                    text: '流量监控'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    getRefView: function() {
-                                        return '';
+                                        return 'statisticsview';
                                     },
                                     text: '查询统计 '
                                 }

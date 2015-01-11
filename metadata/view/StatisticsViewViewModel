@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "statisticsview",
+        "designer|userClassName": "StatisticsViewViewModel"
+    },
+    "name": "LogViewViewModel1",
+    "designerId": "e9641525-59b9-45c4-8986-4801e601bccd"
+}

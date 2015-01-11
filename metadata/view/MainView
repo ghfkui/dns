@@ -296,37 +296,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "text": "流量监控"
-                                    },
-                                    "name": "MyMenuItem7",
-                                    "designerId": "3475efc3-9da5-4513-a311-15ae6e8cfbee",
-                                    "cn": [
-                                        {
-                                            "type": "basicfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "getRefView",
-                                                "implHandler": [
-                                                    "return 'TrafficView';"
-                                                ]
-                                            },
-                                            "name": "getRefView",
-                                            "designerId": "6260cd65-7108-444d-803b-26e741991416"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
                                         "text": "查询统计 "
                                     },
                                     "name": "MyMenuItem8",
@@ -342,7 +311,7 @@
                                             "userConfig": {
                                                 "fn": "getRefView",
                                                 "implHandler": [
-                                                    "return '';"
+                                                    "return 'statisticsview';"
                                                 ]
                                             },
                                             "name": "getRefView",
