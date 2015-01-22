@@ -24,7 +24,7 @@ Ext.define('app.view.MainView', {
         'app.view.ToolView',
         'app.view.SystemInfoView',
         'app.view.NetworkConfigs',
-        'app.view.routemgr',
+        'app.view.RoutemgrView',
         'Ext.menu.Menu',
         'Ext.menu.Item'
     ],
@@ -199,7 +199,7 @@ Ext.define('app.view.MainView', {
                     xtype: 'NetworkConfigs'
                 },
                 {
-                    xtype: 'routemgr'
+                    xtype: 'RoutemgrView'
                 }
             ]
         }

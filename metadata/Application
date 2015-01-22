@@ -24,7 +24,8 @@
             "StoreRecord",
             "StoreRType",
             "StoreDNSLog",
-            "StoreNetTraffic"
+            "StoreNetTraffic",
+            "StoreUser"
         ],
         "views": [
             "MainView",

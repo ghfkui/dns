@@ -18,12 +18,65 @@ Ext.define('app.view.UsermgrView', {
     alias: 'widget.UsermgrView',
 
     requires: [
-        'app.view.UsermgrViewViewModel'
+        'app.view.UsermgrViewViewModel',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Date',
+        'Ext.grid.View',
+        'Ext.grid.column.Action'
     ],
 
     viewModel: {
         type: 'usermgrview'
     },
-    title: '用户管理'
+    itemId: 'usermgr',
+    title: '用户管理',
+
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'button',
+                    text: '添加用户'
+                }
+            ]
+        }
+    ],
+    items: [
+        {
+            xtype: 'gridpanel',
+            title: 'My Grid Panel',
+            store: 'StoreUser',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'userName',
+                    text: '用户名'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'email',
+                    text: '邮箱'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'createTime',
+                    text: '创建时间'
+                },
+                {
+                    xtype: 'actioncolumn',
+                    emptyCellText: '操作',
+                    items: [
+                        {
+
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 
 });

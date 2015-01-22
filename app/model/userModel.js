@@ -14,5 +14,35 @@
  */
 
 Ext.define('app.model.userModel', {
-    extend: 'Ext.data.Model'
+    extend: 'Ext.data.Model',
+    alias: 'model.usermodel',
+
+    requires: [
+        'Ext.data.field.Integer',
+        'Ext.data.field.String',
+        'Ext.data.field.Date'
+    ],
+
+    fields: [
+        {
+            type: 'int',
+            name: 'id'
+        },
+        {
+            type: 'string',
+            name: 'userName'
+        },
+        {
+            type: 'string',
+            name: 'password'
+        },
+        {
+            type: 'string',
+            name: 'email'
+        },
+        {
+            type: 'date',
+            name: 'createTime'
+        }
+    ]
 });

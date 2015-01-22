@@ -34,7 +34,8 @@ Ext.application({
         'StoreRecord',
         'StoreRType',
         'StoreDNSLog',
-        'StoreNetTraffic'
+        'StoreNetTraffic',
+        'StoreUser'
     ],
     views: [
         'MainView',
