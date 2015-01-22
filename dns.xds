@@ -1,0 +1,56 @@
+{
+    "name": "dnsdemo",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/dnsdemo/",
+        "exportPath": "E:/nginx-1.5.6/html/x",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1835,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext50",
+    "viewOrderMap": {
+        "view": [
+            "ccf11f1b-c72a-44fc-9803-344ace6f3349",
+            "f4941368-9963-4383-b809-d66d6516ffe3",
+            "4611ed12-d628-4ff4-91cd-baa29154d036"
+        ],
+        "store": [
+            "bb494aae-9dbb-4e76-9ac7-77fbd51ccfc2"
+        ],
+        "controller": [
+            "bff5d8da-2211-4c09-a84e-e858425ea3b7"
+        ],
+        "model": [
+            "38250c49-4f82-430c-aef0-028bb3ce5b67"
+        ],
+        "resource": [
+            "ed1b2218-96e3-4f67-afee-45be463f92e9",
+            "7611664c-b8e7-4e17-a267-a48b95e94992",
+            "dfe22059-2216-41d4-a412-9bbffa48d325"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

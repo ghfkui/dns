@@ -1,0 +1,611 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "RecordView",
+        "designer|userClassName": "RecordView",
+        "header": false,
+        "layout": "anchor",
+        "title": "当前域名"
+    },
+    "name": "MyPanel1",
+    "designerId": "4310b5dd-b8af-45b1-87ae-e3b256849094",
+    "viewControllerInstanceId": "04b6c1ab-06e0-4f88-9cf5-d3515f254d4f",
+    "viewModelInstanceId": "70820b84-4af7-4f67-8be9-2661f9b804ef",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|anchor": "0 18%",
+                "margin": 10,
+                "title": "当前域名"
+            },
+            "name": "MyPanel1",
+            "designerId": "cdc1b721-1643-4da7-bceb-355430f4ca85",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "header": false,
+                        "title": "My Form"
+                    },
+                    "name": "MyForm",
+                    "designerId": "39d31ed3-8f26-4d27-95cd-0b1c6f93dc0b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "当前域名",
+                                "layout|anchor": "100%",
+                                "name": "domain",
+                                "value": "www.baidu.com"
+                            },
+                            "name": "MyDisplayField",
+                            "designerId": "5902d34f-8c10-48c9-9a9e-077fb7039c38"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "fit",
+                "layout|anchor": "0 37%",
+                "margin": 10,
+                "overlapHeader": false,
+                "title": "快速添加"
+            },
+            "name": "MyPanel8",
+            "designerId": "c8f4d373-6808-4754-8771-b06d226d0eeb",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": "5 5 20 20",
+                        "container|align": "stretch",
+                        "dock": null,
+                        "header": false,
+                        "jsonSubmit": true,
+                        "layout": "vbox",
+                        "title": "My Form",
+                        "url": "../record/add"
+                    },
+                    "name": "MyForm1",
+                    "designerId": "7ca18871-e5ba-4720-a3fe-438f38394687",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "anchorSize": null,
+                                "container|pack": "center",
+                                "fieldLabel": "Label",
+                                "height": 61,
+                                "hideLabel": true,
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "width": 400
+                            },
+                            "name": "MyFieldContainer1",
+                            "designerId": "c7737eda-0301-4bbc-8c2c-4c54d89b5555",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "主机记录",
+                                        "layout|flex": 1,
+                                        "margin": "10 10 10 10",
+                                        "name": "RecordTitle"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "3e061f5b-e21f-4475-9fc7-e3f87018c8f9"
+                                },
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "decimalPrecision": 0,
+                                        "fieldLabel": "TTL",
+                                        "hideTrigger": true,
+                                        "layout|flex": 1,
+                                        "margin": 10,
+                                        "name": "TTL",
+                                        "value": [
+                                            "3600"
+                                        ]
+                                    },
+                                    "name": "MyNumberField6",
+                                    "designerId": "e9cbd2f4-3708-4477-80c0-abd7d5bc2d2b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": "center",
+                                "fieldLabel": "Label",
+                                "height": 120,
+                                "hideLabel": true,
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "width": 400
+                            },
+                            "name": "MyFieldContainer3",
+                            "designerId": "87110001-9981-46ee-ac85-e94977554245",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "类型",
+                                        "layout|flex": 1,
+                                        "margin": 10,
+                                        "name": "Type",
+                                        "queryMode": "local",
+                                        "store": "StoreRType",
+                                        "valueField": "value"
+                                    },
+                                    "name": "MyComboBox",
+                                    "designerId": "563f3e06-ec1b-45f7-b07f-54ecfc88539d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "allowDecimals": false,
+                                        "fieldLabel": "优先级",
+                                        "hideTrigger": true,
+                                        "layout|flex": 1,
+                                        "margin": 10,
+                                        "name": "Priority",
+                                        "value": [
+                                            "0"
+                                        ]
+                                    },
+                                    "name": "MyNumberField7",
+                                    "designerId": "38bede6d-18ed-4c0c-bc8c-e99331f67d29"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": "center",
+                                "fieldLabel": "Label",
+                                "height": 120,
+                                "hideLabel": true,
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "width": 400
+                            },
+                            "name": "MyFieldContainer2",
+                            "designerId": "12d86921-6b25-4797-9de8-99df4d88046b",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "记录值",
+                                        "layout|flex": 1,
+                                        "margin": 10,
+                                        "name": "Value"
+                                    },
+                                    "name": "MyTextField5",
+                                    "designerId": "79a65a2b-cd29-4c4f-a52a-7716474e4b3d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "height": 160,
+                                "hideLabel": true,
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "margin": "",
+                                "width": 400
+                            },
+                            "name": "MyFieldContainer4",
+                            "designerId": "d4338cb7-0742-4b7f-bebe-30c4d16b9904",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "margin": 8,
+                                        "text": "确定"
+                                    },
+                                    "name": "MyButton2",
+                                    "designerId": "acb3ecf8-1939-4321-ab06-9c24e4238330",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在保存',",
+                                                    "    scope: {",
+                                                    "        store: this.up(\"RecordView\").query(\"gridpanel\")[0].store",
+                                                    "    },",
+                                                    "    success: function(form, action) {",
+                                                    "        this.store.load();",
+                                                    "        Ext.Msg.alert('成功', action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function(form, action) {",
+                                                    "        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "5b89f00b-adc0-4e5e-a4cc-667ad467d2ab"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "layout|flex": 1,
+                                "name": "ZoneID"
+                            },
+                            "name": "MyHiddenField",
+                            "designerId": "5732048f-9e5c-4807-8a1b-f6a3fc001928"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "fit",
+                "layout|anchor": "0 50%",
+                "margin": 10,
+                "title": "纪录列表"
+            },
+            "name": "MyPanel9",
+            "designerId": "e685bb93-de11-4b9a-9608-4e55017b5f7e",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|createAlias": "",
+                        "designer|displayName": "gird",
+                        "dock": null,
+                        "header": false,
+                        "store": "StoreRecord",
+                        "title": "My Grid Panel"
+                    },
+                    "name": "MyGridPanel1",
+                    "designerId": "b36c8073-a097-4bf4-99dd-d117a6e61c27",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "RecordTitle",
+                                "sortable": false,
+                                "text": "主机纪录",
+                                "width": null
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "46a40081-e35e-4838-bd8a-80a428446a7e"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "TTL",
+                                "format": "0000",
+                                "text": "TTL"
+                            },
+                            "name": "MyNumberColumn1",
+                            "designerId": "2a8e8b2b-ff8c-42d7-9a72-bc3eff07316a"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "IN",
+                                "text": "IN"
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "4dba71cf-7f84-4052-b572-5a8c20850056"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Type",
+                                "text": "类型"
+                            },
+                            "name": "MyColumn4",
+                            "designerId": "710e2771-41f1-4b22-a061-c2331891aedb"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Priority",
+                                "format": "0000",
+                                "text": "优先级"
+                            },
+                            "name": "MyNumberColumn2",
+                            "designerId": "1bef0164-af99-4b28-8d51-3fdf94aa5a39"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Value",
+                                "defaultWidth": 200,
+                                "text": "纪录值",
+                                "width": "20%"
+                            },
+                            "name": "MyColumn5",
+                            "designerId": "cfc177df-8d6a-4466-8a5c-505ddcde79f7"
+                        },
+                        {
+                            "type": "Ext.grid.column.Action",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "操作"
+                            },
+                            "name": "MyActionColumn1",
+                            "designerId": "827ecbea-7848-42c6-936c-bf274fbd5b57",
+                            "cn": [
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "delete",
+                                        "icon": "image/delete.gif",
+                                        "tooltip": "删除"
+                                    },
+                                    "name": "MyActionColumnItem3",
+                                    "designerId": "1e9cf6d7-72ae-4321-ba60-1e81a64fbeec",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var record= view.getStore().getAt(rowIndex).data;",
+                                                    "var config = {",
+                                                    "    title: \"确认删除\",",
+                                                    "    msg: \"请确认是否删除，删除记录将无法找回\",",
+                                                    "    closable: false,",
+                                                    "    buttons: Ext.MessageBox.YESNO,",
+                                                    "    icon: Ext.MessageBox.WARNING,",
+                                                    "    fn: function(btn) {",
+                                                    "        if (btn == \"yes\") {",
+                                                    "            Ext.Ajax.request({",
+                                                    "                url: '../record/remove',",
+                                                    "                success: function(data, a1, a2) {",
+                                                    "                    this.view.getStore().load();",
+                                                    "                    var result = Ext.decode(data.responseText);",
+                                                    "                    if (result.success) {",
+                                                    "                        Ext.Msg.alert('成功', result.msg);",
+                                                    "                    }",
+                                                    "                },",
+                                                    "                failure: function(data) {",
+                                                    "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                                    "                },",
+                                                    "                jsonData: {",
+                                                    "                    ID: this.record.ID,",
+                                                    "                    ZoneID: this.record.ZoneID",
+                                                    "                },",
+                                                    "                scope: {",
+                                                    "                    record: this.record,",
+                                                    "                    view: this.view",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        record: record,",
+                                                    "        view: view",
+                                                    "    },",
+                                                    "};",
+                                                    "Ext.MessageBox.show(config, this);"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "77981ddd-fe1f-4cf0-9482-6c03b7212404"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "fe579493-997d-4ad9-ac55-2a7021996e78"
+                        },
+                        {
+                            "type": "Ext.toolbar.Paging",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayInfo": true,
+                                "dock": "bottom",
+                                "firstText": "第一页",
+                                "lastText": "最后一页",
+                                "store": "StoreRecord",
+                                "width": 360
+                            },
+                            "name": "MyPagingToolbar1",
+                            "designerId": "cffa21cc-1dfc-405a-98c9-d7b438a5b64a"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,204 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "SystemInfoView",
+        "designer|userClassName": "SystemInfoView",
+        "height": null,
+        "margin": "",
+        "title": "系统信息",
+        "width": null
+    },
+    "name": "MyPanel16",
+    "designerId": "34dc8762-d239-48cd-8eda-cb85efe46973",
+    "viewControllerInstanceId": "b0b233ff-d150-4413-93ef-c22ff36e6a7c",
+    "viewModelInstanceId": "d81245ca-4ee2-43d3-88b8-c12a63111265",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "margin": 10
+            },
+            "name": "MyTabPanel2",
+            "designerId": "1931cf65-ccdf-48e9-8726-b1b24ac06d44",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "系统信息"
+                    },
+                    "name": "MyPanel16",
+                    "designerId": "6308134f-a5ba-4eb7-9560-eace7f31ba4d",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig7",
+                            "designerId": "6d0fdfb7-0cf1-47b5-bdb8-52806440a546"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "margin": 10,
+                                "method": "get",
+                                "title": "系统资源",
+                                "url": "../system/info"
+                            },
+                            "name": "MyForm6",
+                            "designerId": "2fb4a084-74a1-44b4-8edf-a90b057827c4",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "CPU使用率",
+                                        "layout|anchor": "100%",
+                                        "name": "cpu",
+                                        "value": "-"
+                                    },
+                                    "name": "MyDisplayField1",
+                                    "designerId": "323139f9-3469-4f1b-9d24-6d4fdb5feab5"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "内存",
+                                        "layout|anchor": "100%",
+                                        "name": "memorydisplay",
+                                        "value": "-"
+                                    },
+                                    "name": "MyDisplayField2",
+                                    "designerId": "0873caac-0107-456f-8a7f-47d9dbab887d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelBeforeActivate",
+                                "implHandler": [
+                                    "  this.down(\"form\").getForm().load();"
+                                ],
+                                "name": "beforeactivate",
+                                "scope": "me"
+                            },
+                            "name": "onPanelBeforeActivate",
+                            "designerId": "2967f511-7952-4f46-a3c1-d6a732b63589"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "trafficview1",
+                    "designerId": "888707ae-0d95-4596-820f-8763dce03f97",
+                    "masterInstanceId": "bb1a661f-a7e3-4bff-8b81-08c562a5a1b1",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig11",
+                            "designerId": "73b2fbb0-e568-407f-af2d-3bff118d240d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "图形统计"
+                    },
+                    "name": "MyPanel18",
+                    "designerId": "7c3410f2-a7d7-4ba7-95c5-34f905cb687e",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig9",
+                            "designerId": "31908d30-2fd2-432d-8e89-3cff68cf619a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "查询统计"
+                    },
+                    "name": "MyPanel19",
+                    "designerId": "02e48bc0-3ad9-4d5d-b9e2-cbef8fa35b07",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig10",
+                            "designerId": "50961984-6a45-4411-ad35-7cbcd7b0b7d4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

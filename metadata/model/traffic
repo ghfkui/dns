@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "traffic"
+    },
+    "name": "MyModel",
+    "designerId": "83db31b9-489b-4dab-b5b7-7d8ded07a8a2",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "time"
+            },
+            "name": "MyField",
+            "designerId": "f4164a80-e1da-4764-adce-75b413092c81"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sent"
+            },
+            "name": "MyInteger4",
+            "designerId": "eae2be19-a7fc-4b37-8f15-b828f1ec3220"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "received"
+            },
+            "name": "MyField2",
+            "designerId": "9fc806d9-a944-42e6-a937-0b7695064a09"
+        }
+    ]
+}

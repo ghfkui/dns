@@ -1,0 +1,97 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "DomainWindows",
+        "designer|userClassName": "DomainWindows",
+        "height": 510,
+        "title": "域名管理",
+        "width": 642
+    },
+    "name": "MyWindow",
+    "designerId": "472ea8f8-2735-4ec4-b71a-dc26f496deda",
+    "viewControllerInstanceId": "f1b09bf0-400e-48e8-86cc-8fbf99965992",
+    "viewModelInstanceId": "3f701238-b109-45b0-a1a8-b1b254db0811",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|createAlias": "DomainAdd",
+                "designer|displayName": "DomainAdd"
+            },
+            "name": "domainadd",
+            "designerId": "fe00a7fd-d03a-4dc0-8290-351052b68c14",
+            "masterInstanceId": "b45436cc-e514-4511-a8be-645d849ab452"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowBeforeShow",
+                "implHandler": [
+                    "if (this.down(\"DomainAdd\").RowUpdate!==true)",
+                    "  {",
+                    "     this.down(\"DomainAdd\").query(\"numberfield[name=Serial]\")[0].setValue(Ext.util.Format.date(new Date(), \"Ymd01\")); ",
+                    "  }",
+                    ""
+                ],
+                "name": "beforeshow",
+                "scope": "me"
+            },
+            "name": "onWindowBeforeShow",
+            "designerId": "8d131a6c-3ca6-498c-9e76-a26eebe06c68"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "zone"
+                ],
+                "fn": "setzone",
+                "implHandler": [
+                    "this.down(\"DomainAdd\").RowUpdate=true;",
+                    "this.down(\"DomainAdd\").query(\"textfield[name=Domain]\")[0].readOnly=true;",
+                    "this.down(\"form\").getForm().setValues(zone);"
+                ]
+            },
+            "name": "setzone",
+            "designerId": "e57c2d53-0eab-42af-9e91-3875d47af9ec"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowActivate",
+                "implHandler": [
+                    "this.down(\"DomainAdd\").query(\"numberfield[name=Serial]\")[0].value =Ext.util.Format.date(new Date(), \"Ymd01\");"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onWindowActivate",
+            "designerId": "e7e6f5ce-04c0-4134-b9fa-0b2e4c527e9c"
+        }
+    ]
+}

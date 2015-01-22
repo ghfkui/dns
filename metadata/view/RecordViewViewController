@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "recordview",
+        "designer|userClassName": "RecordViewViewController"
+    },
+    "designerId": "04b6c1ab-06e0-4f88-9cf5-d3515f254d4f"
+}

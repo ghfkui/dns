@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "trafficview",
+        "designer|userClassName": "TrafficViewViewModel"
+    },
+    "designerId": "60b4f991-7c6a-45ba-a0e5-e468b0cf19b7"
+}

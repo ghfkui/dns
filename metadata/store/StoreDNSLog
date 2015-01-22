@@ -1,0 +1,45 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreDNSLog",
+        "model": "dnslog",
+        "storeId": "StoreDNSLog"
+    },
+    "name": "MyJsonStore",
+    "designerId": "2dc492b0-01ec-4d1d-bccc-a80ef84999c6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../log/dns"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "5700f1c6-d413-43c6-830c-df713c499459",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "12132199-325e-463d-94f7-59452e8ed07f"
+                }
+            ]
+        }
+    ]
+}

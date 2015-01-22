@@ -1,0 +1,48 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "MainController"
+        ],
+        "models": [
+            "domianModel",
+            "recordModel",
+            "recordTypeModel",
+            "dnslog",
+            "traffic",
+            "interface",
+            "userModel"
+        ],
+        "name": "app",
+        "stores": [
+            "StoreZones",
+            "StoreRecord",
+            "StoreRType",
+            "StoreDNSLog",
+            "StoreNetTraffic"
+        ],
+        "views": [
+            "MainView",
+            "DomainView",
+            "DomainAdd",
+            "DomainWindows",
+            "RecordWindows",
+            "RecordView",
+            "PagingToolbar",
+            "LogView",
+            "ToolView",
+            "SystemInfoView",
+            "TrafficView",
+            "NetworkConfigs",
+            "RoutemgrView",
+            "UsermgrView"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

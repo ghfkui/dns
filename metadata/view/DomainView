@@ -1,0 +1,477 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "domainview",
+        "designer|userClassName": "DomainView",
+        "title": "域名管理"
+    },
+    "name": "MyPanel1",
+    "designerId": "1f00274b-dcb8-4697-a43b-742491e3fcdd",
+    "viewControllerInstanceId": "0137a864-5b5b-469f-a4c9-0be64a1bcf5c",
+    "viewModelInstanceId": "f2963fbe-85e4-468f-8bfa-ceaacf62a974",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "activeTab": 0,
+                "margin": 10
+            },
+            "name": "MyTabPanel",
+            "designerId": "63f615ed-f6e1-4e6d-9056-9806636f2372",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoad": true,
+                        "autoScroll": true,
+                        "columnLines": false,
+                        "designer|displayName": "domainGrid",
+                        "enableColumnHide": false,
+                        "margin": 10,
+                        "scroll": "none",
+                        "sortableColumns": false,
+                        "store": "StoreZones",
+                        "title": "域名列表"
+                    },
+                    "name": "MyGridPanel",
+                    "designerId": "e82acc1c-fe4d-41e2-9c5c-fa55ffa50b88",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Domain",
+                                "text": "域名",
+                                "width": "70%"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "f2b0dec3-57d5-41cc-8e69-1e8c3850f06d"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "RecordCount",
+                                "format": "0000",
+                                "text": "记录"
+                            },
+                            "name": "MyNumberColumn",
+                            "designerId": "1b51de8f-3e94-4e4b-bc49-97f95a00fbf7"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "域名状态"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "028deb21-aeda-4456-8b5b-130d12d33236",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            " if (record.data.Enable==1)",
+                                            "                                return '<font color=\"#00FF00\">正常解析</font>';",
+                                            "                                else",
+                                            "                                return '<font color=\"#FF0000\">停止解析</font>';"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "9e4f3708-6f6a-4d69-9e03-d1c1c62f98d7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Action",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "AcitonColumn",
+                                "text": "操作"
+                            },
+                            "name": "MyActionColumn",
+                            "designerId": "c0eb639d-d549-447c-9a58-08b85238fa1e",
+                            "cn": [
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "altText": "",
+                                        "designer|displayName": "edit",
+                                        "icon": "image/edit.gif",
+                                        "tooltip": "编辑"
+                                    },
+                                    "name": "MyActionColumnItem",
+                                    "designerId": "75955685-6c4d-4d94-8b9b-639d3d6d2e8e",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    " var win = new Ext.create('app.view.DomainWindows');",
+                                                    "win.setzone(view.getStore().getAt(rowIndex).data);",
+                                                    "win.show();"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "1d86c785-d5a6-4ddf-b3f6-ac7c30f8aafb"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "delete",
+                                        "icon": "image/delete.gif",
+                                        "tooltip": "删除"
+                                    },
+                                    "name": "MyActionColumnItem1",
+                                    "designerId": "3151962a-469d-433c-9085-fa713262d092",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var zone = view.getStore().getAt(rowIndex).data;",
+                                                    "var config = {",
+                                                    "    title: \"确认删除\",",
+                                                    "    msg: \"请确认是否删除，删除后改域名下记录也将全部删除\",",
+                                                    "    closable: false,",
+                                                    "    buttons: Ext.MessageBox.YESNO,",
+                                                    "    icon: Ext.MessageBox.WARNING,",
+                                                    "    fn: function(btn) {",
+                                                    "        if (btn == \"yes\") {",
+                                                    "            Ext.Ajax.request({",
+                                                    "                url: '../zone/remove',",
+                                                    "                success: function(data, a1, a2) {",
+                                                    "                    this.view.getStore().load();",
+                                                    "                    var result = Ext.decode(data.responseText);",
+                                                    "                    if (result.success) {",
+                                                    "                        Ext.Msg.alert('成功', result.msg);",
+                                                    "                    }",
+                                                    "                },",
+                                                    "                failure: function(data) {",
+                                                    "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                                    "                },",
+                                                    "                jsonData: {",
+                                                    "                    Domain: this.zone.Domain",
+                                                    "                },",
+                                                    "                scope: {",
+                                                    "                    zone: this.zone,",
+                                                    "                    view: this.view",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        zone: zone,",
+                                                    "        view: view",
+                                                    "    },",
+                                                    "};",
+                                                    "Ext.MessageBox.show(config, this);"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "9f068d92-630f-43c9-99b8-b9be587850c2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "record",
+                                        "icon": "image/accept.png"
+                                    },
+                                    "name": "MyActionColumnItem2",
+                                    "designerId": "44c9e65b-d457-4403-a7d4-394167daf9d9",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var win = new Ext.create('app.view.RecordWindows');",
+                                                    "win.setzone(view.getStore().getAt(rowIndex).data);",
+                                                    "win.show();"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "b0c2c15f-0eee-42cd-8296-e0dfd4d6ae39"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "bottom"
+                            },
+                            "name": "pagingtoolbar",
+                            "designerId": "edebd609-8ba7-4eba-b37c-97b5705f3a84",
+                            "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView",
+                            "designerId": "7ad259fd-5f9b-4f16-be54-98bf4caacc7b"
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig3",
+                            "designerId": "fcd687dd-d793-4fc0-aaa6-d3826687623f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Toolbar",
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "8ff6c485-84ad-4d5e-9f00-cf57bb3f5878",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "创建域名"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "a6754bf5-736b-4aaa-a181-4369ec2e864e",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            " var win = new Ext.create('app.view.DomainWindows');",
+                                            "     win.show();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "26b18bb9-b824-4470-bb9d-1a1232b753d5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "TabConfig",
+                            "designerId": "b379b13d-5608-4313-b2b9-fcb2087b0def"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "应用设置"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "caa0b28d-52d8-440a-ba44-413637e1baaf",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var config = {",
+                                            "    title: \"确认删除\",",
+                                            "    msg: \"请确认应用设置，应用设置后更改的记录将生效\",",
+                                            "    closable: false,",
+                                            "    buttons: Ext.MessageBox.YESNO,",
+                                            "    icon: Ext.MessageBox.WARNING,",
+                                            "    fn: function(btn) {",
+                                            "        if (btn == \"yes\") {",
+                                            "            Ext.Ajax.request({",
+                                            "                url: '../server/apply',",
+                                            "                success: function(data, a1, a2) {",
+                                            "                    var result = Ext.decode(data.responseText);",
+                                            "                    if (result.success) {",
+                                            "                        Ext.Msg.alert('成功', result.msg);",
+                                            "                    }",
+                                            "                },",
+                                            "                failure: function(data) {",
+                                            "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                            "                },",
+                                            "                jsonData: {",
+                                            "                    ",
+                                            "                },",
+                                            "            });",
+                                            "        }",
+                                            "    },",
+                                            "",
+                                            "};",
+                                            "Ext.MessageBox.show(config, this);"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "7451e297-db79-42b0-ab52-04c8636b8b19"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

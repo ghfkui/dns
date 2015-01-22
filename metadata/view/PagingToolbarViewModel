@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "pagingtoolbar",
+        "designer|userClassName": "PagingToolbarViewModel"
+    },
+    "designerId": "9f94b64a-e6ec-4f53-b74d-90b6a4ca63fc"
+}

@@ -1,0 +1,56 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "domianmodel",
+        "designer|userClassName": "domianModel",
+        "idProperty": "Domain"
+    },
+    "name": "MyModel",
+    "designerId": "38250c49-4f82-430c-aef0-028bb3ce5b67",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Domain"
+            },
+            "name": "MyString",
+            "designerId": "49c43e70-a3ed-4ff0-9fe0-c6e12b488b2a"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RecordCount"
+            },
+            "name": "MyInteger",
+            "designerId": "07f099bd-1f13-4af9-9bcf-ec80b5d0ecb5"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Enable"
+            },
+            "name": "MyBoolean",
+            "designerId": "b402c271-f743-4d95-8fef-66138bc619ce"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systeminfoview",
+        "designer|userClassName": "SystemInfoViewViewController"
+    },
+    "designerId": "b0b233ff-d150-4413-93ef-c22ff36e6a7c"
+}

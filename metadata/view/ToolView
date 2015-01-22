@@ -1,0 +1,771 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ToolView",
+        "designer|userClassName": "ToolView",
+        "title": "实用工具"
+    },
+    "name": "MyPanel12",
+    "designerId": "a3cc9e80-3e80-4179-9051-78d91d80b078",
+    "viewControllerInstanceId": "a6b3a13b-53fd-49eb-8d95-32c7fc241488",
+    "viewModelInstanceId": "6452e920-6716-4a14-8ab1-81c82e941c1a",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "activeTab": 0,
+                "margin": 10
+            },
+            "name": "MyTabPanel1",
+            "designerId": "a0f68ded-37bc-4020-aea5-f26f58a5c51a",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "DIG"
+                    },
+                    "name": "MyPanel13",
+                    "designerId": "883c1d5b-2d7a-4e01-8be0-5b3c1ba9fdae",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig1",
+                            "designerId": "fa220d65-9d11-4dfa-8b4e-6401b7c8bdc2"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "header": false,
+                                "jsonSubmit": true,
+                                "title": "My Form",
+                                "url": "../tool/dig"
+                            },
+                            "name": "MyForm1",
+                            "designerId": "80ef139f-5608-4758-8493-244d64533e5a",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "DIG域名",
+                                        "layout|anchor": "100%",
+                                        "name": "domain"
+                                    },
+                                    "name": "MyTextField2",
+                                    "designerId": "461c8d19-3bc7-498b-be41-5c79b8e6c5e2"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "查询类型",
+                                        "layout|anchor": "100%",
+                                        "name": "type",
+                                        "queryMode": "local",
+                                        "store": "StoreRType"
+                                    },
+                                    "name": "MyComboBox1",
+                                    "designerId": "8445d9ff-2754-4861-9aa1-8760cae2ff02"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "DNS服务器",
+                                        "layout|anchor": "100%",
+                                        "name": "dnsserver"
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "b7ae0118-1826-4d4f-8ae6-5e7056f68be9"
+                                },
+                                {
+                                    "type": "Ext.form.field.Checkbox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "开启",
+                                        "fieldLabel": "跟踪查询",
+                                        "layout|anchor": "100%",
+                                        "name": "trace"
+                                    },
+                                    "name": "MyCheckbox1",
+                                    "designerId": "11366b4c-7682-4e05-b50a-b4ded74e367f"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton4",
+                                    "designerId": "852496e5-115b-41f7-b59b-123799b8ede3",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在查询',",
+                                                    "    success: function (form, action) {",
+                                                    "       this.result.setValue(action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "                        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        result:  this.up(\"form\").query(\"[id=result]\")[0]",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "b6515935-912a-4c95-84ae-1ce4c7d8f2fd"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "结果",
+                                        "height": 400,
+                                        "id": "result",
+                                        "labelAlign": "top",
+                                        "layout|anchor": "100%",
+                                        "submitValue": false
+                                    },
+                                    "name": "MyTextArea",
+                                    "designerId": "b6f1f774-793b-4499-81fd-9eca9f13f623"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "WHOIS"
+                    },
+                    "name": "MyPanel14",
+                    "designerId": "2f50fb06-24a0-46a7-8d1e-698ae84ee607",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig2",
+                            "designerId": "b704d23f-e1fe-430d-906a-aa6b04fa93dd"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "header": false,
+                                "jsonSubmit": true,
+                                "title": "My Form",
+                                "url": "../tool/whois"
+                            },
+                            "name": "MyForm2",
+                            "designerId": "91519a2e-50fc-4b80-b0fe-a798e44fead6",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "域名",
+                                        "layout|anchor": "100%",
+                                        "name": "domain"
+                                    },
+                                    "name": "MyTextField4",
+                                    "designerId": "9ac0e2cb-d1c0-4d7e-b09e-0f2e41aa7c9a"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton5",
+                                    "designerId": "10b718db-4841-4a3e-a1c9-20941c3d016a",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在查询',",
+                                                    "    success: function (form, action) {",
+                                                    "       this.result.setValue(action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "                        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        result:  this.up(\"form\").query(\"[id=whoisresult]\")[0]",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "8116331c-1388-4f02-bb24-e6624d65be49"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "结果",
+                                        "height": 400,
+                                        "id": "whoisresult",
+                                        "labelAlign": "top",
+                                        "layout|anchor": "100%",
+                                        "submitValue": false
+                                    },
+                                    "name": "MyTextArea1",
+                                    "designerId": "5f4d6180-2c57-4b19-ad1d-9f9fafcec9f9"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "PING"
+                    },
+                    "name": "MyPanel15",
+                    "designerId": "d7861402-0eed-4e7b-9930-f0fbbde1da13",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig4",
+                            "designerId": "f5b0f574-7093-40d0-b7f3-7d0e7032df67"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "header": false,
+                                "jsonSubmit": true,
+                                "title": "My Form",
+                                "url": "../tool/ping"
+                            },
+                            "name": "MyForm3",
+                            "designerId": "ec00c5ea-4a53-4fb7-bcff-d4546d6d6095",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "域名或主机",
+                                        "layout|anchor": "100%",
+                                        "name": "domain"
+                                    },
+                                    "name": "MyTextField6",
+                                    "designerId": "9bb63adb-2867-455f-8735-acd6c0484583"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton6",
+                                    "designerId": "d66ace5d-32db-4c09-9b7a-bc40e9ec2d82",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在查询',",
+                                                    "    success: function (form, action) {",
+                                                    "       this.result.setValue(action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "                        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        result:  this.up(\"form\").query(\"[id=pingresult]\")[0]",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "73433587-cb3c-4f9c-aee5-ccc013dad5df"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "结果",
+                                        "height": 400,
+                                        "id": "pingresult",
+                                        "labelAlign": "top",
+                                        "layout|anchor": "100%",
+                                        "submitValue": false
+                                    },
+                                    "name": "MyTextArea2",
+                                    "designerId": "ca62cfcc-9973-45a4-9f58-8cbc4fe28ce3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "NTP"
+                    },
+                    "name": "MyPanel11",
+                    "designerId": "d0bf1639-5e02-4d3d-a906-25adbe73e681",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig5",
+                            "designerId": "59de65b3-4f1e-435c-807a-3b7061082c97"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "header": false,
+                                "jsonSubmit": true,
+                                "title": "My Form",
+                                "url": "../tool/ntp"
+                            },
+                            "name": "MyForm4",
+                            "designerId": "ee88bd45-fafa-461e-ac06-ba88967e7f94",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "NTP 服务器",
+                                        "layout|anchor": "100%",
+                                        "name": "ntpserver",
+                                        "value": [
+                                            "pool.ntp.org"
+                                        ]
+                                    },
+                                    "name": "MyTextField7",
+                                    "designerId": "54fe0678-80af-4387-b5cc-2bf2dadacf16"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton7",
+                                    "designerId": "ce5956ef-9f40-4f75-a6dd-4700966c6ac8",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在查询',",
+                                                    "    success: function (form, action) {",
+                                                    "       this.result.setValue(action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "                        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        result:  this.up(\"form\").query(\"[id=ntpresult]\")[0]",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "39087117-32e2-4c76-94ff-b051193560b4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "结果",
+                                        "id": "ntpresult",
+                                        "labelAlign": "top",
+                                        "layout|anchor": "100%",
+                                        "submitValue": false
+                                    },
+                                    "name": "MyTextArea3",
+                                    "designerId": "fc5df0f1-3949-4ba6-a652-fcb2c3876895"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "转码工具"
+                    },
+                    "name": "MyPanel12",
+                    "designerId": "d79a325e-900e-4ded-b7ac-c5929109b696",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig6",
+                            "designerId": "fe7cdced-36f5-4fb1-9766-3b08c6551b47"
+                        },
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "bodyPadding": 10,
+                                "header": false,
+                                "jsonSubmit": true,
+                                "title": "My Form",
+                                "url": "../tool/code"
+                            },
+                            "name": "MyForm5",
+                            "designerId": "1bb398fc-2004-43b8-ac14-8cfe7fe139c8",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "输入字符串",
+                                        "layout|anchor": "100%",
+                                        "name": "text"
+                                    },
+                                    "name": "MyTextField8",
+                                    "designerId": "a6e7fe0c-2c5b-402f-92e7-0f36a8a97d2d"
+                                },
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": " ",
+                                        "labelSeparator": " ",
+                                        "width": 400
+                                    },
+                                    "name": "MyRadioGroup",
+                                    "designerId": "26a6b401-86c7-4b5d-898a-f4a8be527ddc",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "转为Punycode",
+                                                "checked": true,
+                                                "fieldLabel": null,
+                                                "inputValue": "1",
+                                                "name": "method"
+                                            },
+                                            "name": "MyRadio",
+                                            "designerId": "eb21b268-d381-4842-b4dc-56ef7fadb739"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "转为中文",
+                                                "fieldLabel": null,
+                                                "inputValue": "2",
+                                                "name": "method"
+                                            },
+                                            "name": "MyRadio1",
+                                            "designerId": "db4ea13e-7196-45a6-9e80-18a9075f15fc"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton8",
+                                    "designerId": "ab1239c2-177c-4499-bc83-f8a7b4500384",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var Valid = this.up(\"form\").getForm().isValid();",
+                                                    "if (!Valid) return;",
+                                                    "",
+                                                    "this.up(\"form\").getForm().submit({",
+                                                    "    waitMsg: '正在查询',",
+                                                    "    success: function (form, action) {",
+                                                    "       this.result.setValue(action.result.msg);",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "                        Ext.Msg.alert('失败', action.result.msg);",
+                                                    "    },",
+                                                    "    scope: {",
+                                                    "        result:  this.up(\"form\").query(\"[id=coderesult]\")[0]",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "ce8db8d0-4e02-44c7-8910-770615b5c950"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "结果",
+                                        "id": "coderesult",
+                                        "layout|anchor": "100%",
+                                        "submitValue": false
+                                    },
+                                    "name": "MyTextField9",
+                                    "designerId": "4b9e0929-5628-4d22-90c6-4026529266a4"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

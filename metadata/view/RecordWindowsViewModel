@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "recordwindows",
+        "designer|userClassName": "RecordWindowsViewModel"
+    },
+    "designerId": "7574f349-249f-4357-8dd5-a409a4cf464e"
+}

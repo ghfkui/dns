@@ -1,0 +1,100 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainController"
+    },
+    "name": "MyController",
+    "designerId": "bff5d8da-2211-4c09-a84e-e858425ea3b7",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control({",
+                    "    \"menuitem\": {",
+                    "        click: this.changeview",
+                    "    },",
+                    "});"
+                ]
+            },
+            "name": "init",
+            "designerId": "3912a546-9a52-498a-b7c3-83a8f4d07306"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "menuitem"
+                ],
+                "fn": "changeview",
+                "implHandler": [
+                    "var layout = this.getContent().getLayout();",
+                    "var cardid = 0;",
+                    "if (menuitem.id ==\"networkcfg\")",
+                    "{",
+                    "    cardid=5;",
+                    "}",
+                    "if (menuitem.id ==\"routermgr\")",
+                    "{",
+                    "    cardid=6;",
+                    "}",
+                    "if (menuitem.id ==\"domainmgr\")",
+                    "{",
+                    "    cardid=1;",
+                    "}",
+                    "",
+                    "if (menuitem.id ==\"dnslog\")",
+                    "{",
+                    "    cardid=2;",
+                    "}",
+                    "",
+                    "",
+                    "if (menuitem.id ==\"tools\")",
+                    "{",
+                    "    cardid=3;",
+                    "}",
+                    "if (menuitem.id ==\"systeminfo\")",
+                    "{",
+                    "     cardid=4;",
+                    "}",
+                    "layout.setActiveItem(cardid);"
+                ]
+            },
+            "name": "changeview",
+            "designerId": "3a415a97-5e24-4a90-82b2-4c1e6d858eb8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "content",
+                "selector": "panel#contentPanel"
+            },
+            "name": "content",
+            "designerId": "768c9054-cbea-43e2-a05b-17fbad334865"
+        }
+    ]
+}

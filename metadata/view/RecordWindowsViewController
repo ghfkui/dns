@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "recordwindows",
+        "designer|userClassName": "RecordWindowsViewController"
+    },
+    "designerId": "bf1264d8-5fc6-4b2a-a230-601a2a05de0b"
+}

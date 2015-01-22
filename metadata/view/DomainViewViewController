@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "domainview",
+        "designer|userClassName": "DomainViewViewController"
+    },
+    "designerId": "0137a864-5b5b-469f-a4c9-0be64a1bcf5c"
+}

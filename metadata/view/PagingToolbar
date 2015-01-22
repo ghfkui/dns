@@ -1,0 +1,29 @@
+{
+    "type": "Ext.toolbar.Paging",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "afterPageText": "- {0}",
+        "beforePageText": "页数",
+        "designer|userAlias": "pagingtoolbar",
+        "designer|userClassName": "PagingToolbar",
+        "displayInfo": true,
+        "displayMsg": "显示 {0} - {1}  总计  {2}",
+        "emptyMsg": "无数据",
+        "firstText": "第一页",
+        "lastText": "最后一页",
+        "nextText": "下一页",
+        "prependButtons": true,
+        "prevText": "上一页",
+        "refreshText": "刷新",
+        "store": "StoreZones",
+        "width": 360
+    },
+    "name": "MyPagingToolbar",
+    "designerId": "40325ae5-e6ff-42f0-9102-2dbf216cd896",
+    "viewControllerInstanceId": "d179ef9c-ce39-494f-bd5e-c78332ffdd04",
+    "viewModelInstanceId": "9f94b64a-e6ec-4f53-b74d-90b6a4ca63fc"
+}

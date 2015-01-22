@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "networkconfigs",
+        "designer|userClassName": "NetworkConfigsViewController"
+    },
+    "designerId": "aa03d1ed-ad27-4f2e-b849-47515440d0d3"
+}

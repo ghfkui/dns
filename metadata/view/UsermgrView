@@ -1,0 +1,19 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "UsermgrView",
+        "designer|userClassName": "UsermgrView",
+        "height": null,
+        "title": "用户管理",
+        "width": null
+    },
+    "name": "MyPanel",
+    "designerId": "4993a855-3696-48ab-8b5e-bf05474f5776",
+    "viewControllerInstanceId": "eb8695b9-506f-41db-a959-5bede9edabc1",
+    "viewModelInstanceId": "02ed402f-074c-4186-b4e7-487c33abd614"
+}

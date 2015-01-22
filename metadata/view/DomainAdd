@@ -1,0 +1,305 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "RowUpdate": false,
+        "bodyPadding": 10,
+        "designer|userAlias": "DomainAdd",
+        "designer|userClassName": "DomainAdd",
+        "header": false,
+        "jsonSubmit": true,
+        "padding": 20,
+        "title": "创建域名",
+        "url": "../zone/add",
+        "urlUpdate": "../zone/update"
+    },
+    "name": "MyForm1",
+    "configAlternates": {
+        "RowUpdate": "boolean"
+    },
+    "designerId": "b45436cc-e514-4511-a8be-645d849ab452",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "RowUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "urlUpdate",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "347a5875-d00a-4796-9568-376fc41b5a5b",
+    "viewModelInstanceId": "9112cdf7-1029-4624-84fd-8f89dbddaf43",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "border": 1,
+                "fieldLabel": "基本选项",
+                "height": 120
+            },
+            "name": "MyFieldContainer",
+            "designerId": "dabdb231-5bd9-4acf-90a5-bf16bb7448f4",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "输入域名",
+                        "name": "Domain",
+                        "width": ""
+                    },
+                    "name": "MyTextField",
+                    "designerId": "1d995893-dc09-4c4c-baa0-c8ebda2c96fa"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "开启解析",
+                        "checked": true,
+                        "designer|displayName": "Enable",
+                        "fieldLabel": "Label",
+                        "hideLabel": true,
+                        "inputValue": "1",
+                        "name": "Enable",
+                        "uncheckedValue": "0",
+                        "value": [
+                            "1"
+                        ]
+                    },
+                    "name": "MyCheckbox",
+                    "designerId": "4810b2cd-dc46-47f5-9cca-a3cbba3371b4"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsible": true,
+                "title": "高级选项"
+            },
+            "name": "MyFieldSet",
+            "designerId": "479927e1-e4e4-41ad-84dc-93582275cfcf",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "序列号",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "Serial",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "width": ""
+                    },
+                    "name": "MyNumberField",
+                    "designerId": "dee47ee4-a105-4639-886c-9e541bb6301d"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "刷新时间 (秒)",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "Refresh",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "value": [
+                            "28800"
+                        ]
+                    },
+                    "name": "MyNumberField1",
+                    "designerId": "7e811fd3-576d-4d94-a70b-5a0987f3327e"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "重试时间(秒)",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "Retry",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "value": [
+                            "7200"
+                        ]
+                    },
+                    "name": "MyNumberField4",
+                    "designerId": "40c66680-e1e4-4cd7-9b81-dcb1809d4a08"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "过期时间(秒)",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "Expire",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "value": [
+                            "604800"
+                        ]
+                    },
+                    "name": "MyNumberField3",
+                    "designerId": "3e1cb313-e04d-4b9c-9a81-edd3e0add148"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "最小TTL",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "MinimumTTL",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "value": [
+                            "3600",
+                            ""
+                        ]
+                    },
+                    "name": "MyNumberField2",
+                    "designerId": "e2ba3be2-eee8-4787-84c7-eae6d57c5231"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "全局TTL:",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "name": "TTL",
+                        "spinDownEnabled": false,
+                        "spinUpEnabled": false,
+                        "value": [
+                            "3600"
+                        ]
+                    },
+                    "name": "MyNumberField5",
+                    "configAlternates": {
+                        "rowadd": "boolean"
+                    },
+                    "designerId": "4278a2c7-a5b9-4b6d-9adc-53fd3e6eafbc",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "rowadd",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "text": "保存"
+            },
+            "name": "MyButton",
+            "designerId": "4c830fa5-8ae9-4e85-ac10-0b75aadda3e7",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "button",
+                            "e"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "var Valid = this.up(\"form\").getForm().isValid();",
+                            "if (!Valid) return;",
+                            "",
+                            "var rowupdate = this.up(\"DomainAdd\").RowUpdate;",
+                            "if (rowupdate)",
+                            "{",
+                            "    this.up(\"form\").getForm().url=this.up(\"DomainAdd\").urlUpdate;",
+                            "}",
+                            "this.up(\"form\").getForm().submit({",
+                            "     waitMsg: '正在保存',",
+                            "    success: function (form, action) {",
+                            "        Ext.Msg.alert('成功', action.result.msg);",
+                            "    },",
+                            "      failure: function (form, action) {",
+                            "                        Ext.Msg.alert('失败', action.result.msg);",
+                            "                    }",
+                            "});"
+                        ]
+                    },
+                    "name": "handler",
+                    "designerId": "3175d8d1-a8fe-4c03-b80f-aded31a23ad9"
+                }
+            ]
+        }
+    ]
+}

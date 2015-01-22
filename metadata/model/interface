@@ -1,0 +1,145 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "interface"
+    },
+    "name": "MyModel",
+    "designerId": "de270c9f-30b6-48cf-810f-d0f35dbdee47",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyString1",
+            "designerId": "95464d1d-39b4-4a6f-8525-088a3f205c82"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ip"
+            },
+            "name": "MyString2",
+            "designerId": "29950f03-2681-417b-93b7-7846455d8262"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bytes_recv"
+            },
+            "name": "MyInteger5",
+            "designerId": "d9d95c26-0239-452a-9834-1c94a9f92fdb"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bytes_sent"
+            },
+            "name": "MyInteger6",
+            "designerId": "06c058e8-d5a9-436b-a075-2feecb727d71"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "packets_recv"
+            },
+            "name": "MyInteger7",
+            "designerId": "44e08eab-37e6-443c-9b68-19766c0edbf6"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "packets_sent"
+            },
+            "name": "MyInteger8",
+            "designerId": "32c25d26-9403-4585-a47d-427a0d9e935d"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dropin"
+            },
+            "name": "MyInteger9",
+            "designerId": "0ed84de7-2fee-416c-acfd-0bfaa3b6b43a"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dropout"
+            },
+            "name": "MyInteger10",
+            "designerId": "c061238e-9834-4773-b880-b1c08af654be"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "errin"
+            },
+            "name": "MyInteger11",
+            "designerId": "a035c1af-122b-41e1-8d75-6036ff72e695"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "errout"
+            },
+            "name": "MyInteger12",
+            "designerId": "f38ceafd-d8b4-4d16-90b5-3035eb201c29"
+        }
+    ]
+}

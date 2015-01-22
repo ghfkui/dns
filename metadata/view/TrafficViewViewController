@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "trafficview",
+        "designer|userClassName": "TrafficViewViewController"
+    },
+    "designerId": "777e4b9e-f180-4703-a1fc-57a81b8771c4"
+}

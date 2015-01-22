@@ -1,0 +1,40 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "data": [
+            "[",
+            "                {",
+            "                    text: 'A',",
+            "                    value: 'A'",
+            "                },",
+            "                {",
+            "                    text: 'MX',",
+            "                    value: 'MX'",
+            "                },",
+            "                {",
+            "                    text: 'NS',",
+            "                    value: 'NS'",
+            "                },",
+            "                {",
+            "                    text: 'TXT',",
+            "                    value: 'TXT'",
+            "                },",
+            "                {",
+            "                    text: 'CNAME',",
+            "                    value: 'CNAME'",
+            "                }",
+            "            ]"
+        ],
+        "designer|userClassName": "StoreRType",
+        "model": "recordTypeModel",
+        "storeId": "StoreRType"
+    },
+    "name": "MyStore",
+    "designerId": "bc6256ad-fbc3-4341-8dce-7c86f266d6f9"
+}

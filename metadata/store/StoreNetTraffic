@@ -1,0 +1,45 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreNetTraffic",
+        "model": "traffic",
+        "storeId": "StoreNetTraffic"
+    },
+    "name": "MyJsonStore",
+    "designerId": "6c9d68ef-e188-4406-afaf-f34cba1dc086",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../system/traffic"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "da1c33e9-5ea7-4b2c-bac8-37c25478fd90",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "d775cf2f-6bf6-4667-8b20-f742405c004d"
+                }
+            ]
+        }
+    ]
+}

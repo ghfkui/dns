@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "pagingtoolbar",
+        "designer|userClassName": "PagingToolbarViewController"
+    },
+    "designerId": "d179ef9c-ce39-494f-bd5e-c78332ffdd04"
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "routemgrview",
+        "designer|userClassName": "RoutemgrViewViewController"
+    },
+    "designerId": "520b6b51-5aa6-48c1-84b9-8528cef807ed"
+}

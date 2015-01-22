@@ -1,0 +1,208 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "TrafficView",
+        "designer|userClassName": "TrafficView",
+        "style": null,
+        "title": "流量监控"
+    },
+    "name": "MyPanel17",
+    "designerId": "bb1a661f-a7e3-4bff-8b81-08c562a5a1b1",
+    "viewControllerInstanceId": "777e4b9e-f180-4703-a1fc-57a81b8771c4",
+    "viewModelInstanceId": "60b4f991-7c6a-45ba-a0e5-e468b0cf19b7",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelBeforeActivate1",
+                "implHandler": [
+                    "var chart =this.down('chart');",
+                    "var dataArr = [];",
+                    "var sendByte = -1;",
+                    "var rtByte = -1;",
+                    "var store = new Ext.data.ArrayStore({",
+                    "            fields: ['received','sent', 'time'],",
+                    "            data: dataArr",
+                    "});",
+                    "this.query(\"cartesian[id=trafficeline]\")[0].setStore(store);",
+                    "Ext.require('app.store.StoreNetTraffic',function(){",
+                    "    var s = Ext.create('app.store.StoreNetTraffic');",
+                    "",
+                    "    var task = {",
+                    "       run: function(){",
+                    "        s.load({callback:function(r){",
+                    "            if (sendByte == -1)",
+                    "            {",
+                    "                sendByte = r[0].data.sent;",
+                    "                rtByte = r[0].data.received;",
+                    "                return ;",
+                    "            }",
+                    "",
+                    "            dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);",
+                    "            if (dataArr.length>20)",
+                    "            {",
+                    "               dataArr = dataArr.slice(1);",
+                    "            }",
+                    "            sendByte = r[0].data.sent;",
+                    "            rtByte = r[0].data.received;",
+                    "            store.loadData(dataArr);",
+                    "            chart.redraw();",
+                    "        }});",
+                    "    },",
+                    "        interval: 3000",
+                    "    };",
+                    "    task.run();",
+                    "    Ext.TaskManager.start(task);",
+                    "",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "beforeactivate",
+                "scope": "me"
+            },
+            "name": "onPanelBeforeActivate1",
+            "designerId": "465aa53e-0dee-4323-8679-e195c32a8233"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "header": false,
+                "title": "My Form"
+            },
+            "name": "MyForm7",
+            "designerId": "36d6ee28-3efb-4a48-96a9-939404621adb",
+            "cn": [
+                {
+                    "type": "Ext.chart.CartesianChart",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "animation": [
+                            "false"
+                        ],
+                        "colors": [
+                            "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                        ],
+                        "height": 300,
+                        "id": "trafficeline",
+                        "shadow": true,
+                        "store": "StoreNetTraffic"
+                    },
+                    "name": "MyLineChart",
+                    "designerId": "a1be5fd2-76ab-4f27-8440-d1fb60470f5a",
+                    "isBuiltIn": true,
+                    "iconCls": "icon-line-chart",
+                    "autoName": "MyLineChart",
+                    "cn": [
+                        {
+                            "type": "Ext.chart.axis.Category",
+                            "reference": {
+                                "name": "axes",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fields": [
+                                    "time"
+                                ],
+                                "title": null
+                            },
+                            "name": "MyCategoryAxis1",
+                            "designerId": "096284d6-1fc6-4d04-9edf-5b56e3576794"
+                        },
+                        {
+                            "type": "Ext.chart.axis.Numeric",
+                            "reference": {
+                                "name": "axes",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "increment": null,
+                                "labelInSpan": false,
+                                "maximum": null,
+                                "minimum": 0,
+                                "position": "left",
+                                "title": null
+                            },
+                            "name": "MyNumericAxis1",
+                            "designerId": "f0526d4c-0851-42de-b335-073fe472f7be"
+                        },
+                        {
+                            "type": "Ext.chart.series.Line",
+                            "reference": {
+                                "name": "series",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "smooth": 3,
+                                "style": [
+                                    " {",
+                                    "     stroke: '#ff0000'",
+                                    "}"
+                                ],
+                                "xField": "time",
+                                "yField": [
+                                    "sent"
+                                ]
+                            },
+                            "name": "MyLineSeries2",
+                            "designerId": "36211cfa-b941-463f-9651-db8db959c078"
+                        },
+                        {
+                            "type": "Ext.chart.interactions.PanZoom",
+                            "reference": {
+                                "name": "interactions",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyPanZoomInteraction1",
+                            "designerId": "a9c21d33-694f-48e2-baa0-37e68f954a73"
+                        },
+                        {
+                            "type": "Ext.chart.series.Line",
+                            "reference": {
+                                "name": "series",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "smooth": 3,
+                                "style": [
+                                    "{stroke:'#00FF00'}"
+                                ],
+                                "xField": "time",
+                                "yField": [
+                                    "received"
+                                ]
+                            },
+                            "name": "MyLineSeries",
+                            "designerId": "046bd4e6-97f1-4bec-860b-a842b6379c4a"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

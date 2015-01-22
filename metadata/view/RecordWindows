@@ -1,0 +1,56 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "RecordWindows",
+        "designer|userClassName": "RecordWindows",
+        "height": 605,
+        "layout": "fit",
+        "title": "纪录管理",
+        "width": 818
+    },
+    "name": "MyWindow",
+    "designerId": "cba5d575-7b8e-49ca-838c-ec4ff4a1618d",
+    "viewControllerInstanceId": "bf1264d8-5fc6-4b2a-a230-601a2a05de0b",
+    "viewModelInstanceId": "7574f349-249f-4357-8dd5-a409a4cf464e",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "recordview",
+            "designerId": "8bcb3f14-595d-45cd-be7d-cedf0c8973fe",
+            "masterInstanceId": "4310b5dd-b8af-45b1-87ae-e3b256849094"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "zone"
+                ],
+                "fn": "setzone",
+                "implHandler": [
+                    "var store = this.down(\"RecordView\").query(\"gridpanel\")[0].store;",
+                    "this.down(\"RecordView\").query(\"displayfield[name=domain]\")[0].setValue(zone.Domain);",
+                    "this.down(\"RecordView\").query(\"hiddenfield[name=ZoneID]\")[0].setValue(zone.ID);",
+                    "store.getProxy().setExtraParam('zone', zone.ID);",
+                    "store.load()"
+                ]
+            },
+            "name": "setzone",
+            "designerId": "d4218273-ba27-44b7-a16e-ca6235b33d4c"
+        }
+    ]
+}
