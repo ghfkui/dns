@@ -16,7 +16,7 @@
         "exportPath": "D:/nginx/html/d",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
-        "buildShouldOverwriteIndex": true,
+        "buildShouldOverwriteIndex": false,
         "generateArchitectVersion": true,
         "spacesToIndent": 4,
         "lineEnding": "CRLF",
