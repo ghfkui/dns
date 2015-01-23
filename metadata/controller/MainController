@@ -95,48 +95,6 @@
             },
             "name": "content",
             "designerId": "768c9054-cbea-43e2-a05b-17fbad334865"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "usermgrView",
-                "selector": "#usermgr"
-            },
-            "name": "usermgrView",
-            "designerId": "b772123f-97aa-448a-9186-1e22967dcf22"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "routemgrView",
-                "selector": "#mypanel17"
-            },
-            "name": "routemgrView",
-            "designerId": "5d2eabbe-4b6f-45c9-b90c-a37362ab1861"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "usermgrView2",
-                "selector": "#usermgr"
-            },
-            "name": "usermgrView2",
-            "designerId": "9b5cd7d5-3240-4953-aa8e-f4cf637992b1"
         }
     ]
 }
