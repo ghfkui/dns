@@ -6,8 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "designer|userAlias": "Domainview",
         "designer|userClassName": "DomainView",
+        "layout": "vbox",
         "title": "域名管理"
     },
     "name": "MyPanel1",
@@ -24,6 +26,7 @@
             "codeClass": null,
             "userConfig": {
                 "activeTab": 0,
+                "layout|flex": 1,
                 "margin": 10
             },
             "name": "MyTabPanel",
@@ -251,7 +254,7 @@
                                                     "    scope: {",
                                                     "        zone: zone,",
                                                     "        view: view",
-                                                    "    },",
+                                                    "    }",
                                                     "};",
                                                     "Ext.MessageBox.show(config, this);"
                                                 ]
@@ -316,7 +319,7 @@
                             "userConfig": {
                                 "dock": "bottom"
                             },
-                            "name": "pagingtoolbar2",
+                            "name": "pagingtoolbar8",
                             "designerId": "edebd609-8ba7-4eba-b37c-97b5705f3a84",
                             "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                         },
@@ -454,11 +457,11 @@
                                             "                    Ext.Msg.alert('失败', \"删除失败\");",
                                             "                },",
                                             "                jsonData: {",
-                                            "                    ",
-                                            "                },",
+                                            "",
+                                            "                }",
                                             "            });",
                                             "        }",
-                                            "    },",
+                                            "    }",
                                             "",
                                             "};",
                                             "Ext.MessageBox.show(config, this);"
