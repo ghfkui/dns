@@ -36,9 +36,14 @@ Ext.define('app.view.DomainView', {
     title: '域名管理',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     items: [
         {
             xtype: 'tabpanel',
+            flex: 1,
             margin: 10,
             activeTab: 0,
             items: [
@@ -126,7 +131,7 @@ Ext.define('app.view.DomainView', {
                                             scope: {
                                                 zone: zone,
                                                 view: view
-                                            },
+                                            }
                                         };
                                         Ext.MessageBox.show(config, this);
                                     },
@@ -189,10 +194,10 @@ Ext.define('app.view.DomainView', {
                                                 },
                                                 jsonData: {
 
-                                                },
+                                                }
                                             });
                                         }
-                                    },
+                                    }
 
                                 };
                                 Ext.MessageBox.show(config, this);

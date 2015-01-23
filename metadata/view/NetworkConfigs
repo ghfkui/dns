@@ -80,6 +80,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "frameHeader": false,
                 "header": false,
                 "layout|flex": 1,

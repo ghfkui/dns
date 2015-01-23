@@ -309,7 +309,7 @@ Ext.define('app.view.RecordView', {
                                             scope: {
                                                 record: record,
                                                 view: view
-                                            },
+                                            }
                                         };
                                         Ext.MessageBox.show(config, this);
                                     },

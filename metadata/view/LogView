@@ -6,8 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "designer|userAlias": "LogView",
         "designer|userClassName": "LogView",
+        "layout": "vbox",
         "title": "DNS日志"
     },
     "name": "MyPanel11",
@@ -24,8 +26,10 @@
             "codeClass": null,
             "userConfig": {
                 "autoLoad": true,
+                "autoScroll": true,
                 "header": false,
                 "id": "dnsloggrid",
+                "layout|flex": 1,
                 "scroll": "vertical",
                 "store": "StoreDNSLog",
                 "title": "My Grid Panel"
@@ -85,7 +89,7 @@
                         "dock": "bottom",
                         "store": "StoreDNSLog"
                     },
-                    "name": "pagingtoolbar2",
+                    "name": "pagingtoolbar1",
                     "designerId": "84fd1cbe-b27f-4920-9219-fb2cf51a16d6",
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }

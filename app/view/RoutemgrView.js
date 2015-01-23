@@ -45,22 +45,35 @@ Ext.define('app.view.RoutemgrView', {
     title: '路由管理',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     items: [
         {
             xtype: 'tabpanel',
+            flex: 1,
             margin: 10,
             activeTab: 0,
             items: [
                 {
                     xtype: 'panel',
+                    autoScroll: true,
                     title: '路由列表',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'gridpanel',
+                            flex: 1,
+                            autoScroll: true,
                             itemId: 'routeList',
                             header: false,
                             title: 'routeList',
                             autoLoad: true,
+                            scroll: 'vertical',
                             store: 'StoreRoute',
                             columns: [
                                 {
@@ -158,7 +171,7 @@ Ext.define('app.view.RoutemgrView', {
                                                     scope: {
                                                         route: route,
                                                         view: view
-                                                    },
+                                                    }
                                                 };
                                                 Ext.MessageBox.show(confirm, this);
                                             },

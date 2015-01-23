@@ -563,7 +563,7 @@
                                                     "    scope: {",
                                                     "        record: record,",
                                                     "        view: view",
-                                                    "    },",
+                                                    "    }",
                                                     "};",
                                                     "Ext.MessageBox.show(config, this);"
                                                 ]

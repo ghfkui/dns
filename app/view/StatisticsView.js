@@ -32,9 +32,14 @@ Ext.define('app.view.StatisticsView', {
     title: '查询统计',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     items: [
         {
             xtype: 'gridpanel',
+            flex: 1,
             id: 'statisticsgrid',
             header: false,
             title: 'My Grid Panel',

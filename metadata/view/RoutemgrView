@@ -6,8 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "designer|userAlias": "RoutemgrView",
         "designer|userClassName": "RoutemgrView",
+        "layout": "vbox",
         "rowUpdate": false,
         "title": "路由管理",
         "urlUpdate": "../route/update"
@@ -41,6 +43,7 @@
             "codeClass": null,
             "userConfig": {
                 "activeTab": 0,
+                "layout|flex": 1,
                 "margin": 10
             },
             "name": "MyTabPanel3",
@@ -54,6 +57,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
                         "title": "路由列表"
                     },
                     "name": "MyPanel17",
@@ -78,8 +84,11 @@
                             "codeClass": null,
                             "userConfig": {
                                 "autoLoad": true,
+                                "autoScroll": true,
                                 "header": false,
                                 "itemId": "routeList",
+                                "layout|flex": 1,
+                                "scroll": "vertical",
                                 "store": "StoreRoute",
                                 "title": "routeList"
                             },
@@ -346,7 +355,7 @@
                                                             "    scope: {",
                                                             "        route: route,",
                                                             "        view: view",
-                                                            "    },",
+                                                            "    }",
                                                             "};",
                                                             "Ext.MessageBox.show(confirm, this);"
                                                         ]
@@ -369,7 +378,7 @@
                                         "dock": "bottom",
                                         "store": "StoreRoute"
                                     },
-                                    "name": "pagingtoolbar6",
+                                    "name": "pagingtoolbar7",
                                     "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
                                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                                 },

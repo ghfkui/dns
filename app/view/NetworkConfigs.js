@@ -52,6 +52,7 @@ Ext.define('app.view.NetworkConfigs', {
         {
             xtype: 'panel',
             flex: 1,
+            autoScroll: true,
             frameHeader: false,
             header: false,
             title: 'My Panel',

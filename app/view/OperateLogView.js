@@ -33,6 +33,10 @@ Ext.define('app.view.OperateLogView', {
     title: '操作日志',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     dockedItems: [
         {
             xtype: 'toolbar',
@@ -52,6 +56,7 @@ Ext.define('app.view.OperateLogView', {
     items: [
         {
             xtype: 'gridpanel',
+            flex: 1,
             itemId: 'operateLogGrid',
             title: '日志列表',
             autoLoad: true,

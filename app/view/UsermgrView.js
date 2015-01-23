@@ -34,6 +34,10 @@ Ext.define('app.view.UsermgrView', {
     title: '用户管理',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     dockedItems: [
         {
             xtype: 'toolbar',
@@ -52,6 +56,7 @@ Ext.define('app.view.UsermgrView', {
     items: [
         {
             xtype: 'gridpanel',
+            flex: 1,
             autoScroll: true,
             title: '用户列表',
             autoLoad: true,
@@ -115,7 +120,7 @@ Ext.define('app.view.UsermgrView', {
                                     scope: {
                                         user: user,
                                         view: view
-                                    },
+                                    }
                                 };
                                 Ext.MessageBox.show(confirm, this);
                             },

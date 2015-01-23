@@ -8,6 +8,7 @@
     "userConfig": {
         "designer|userAlias": "TrafficView",
         "designer|userClassName": "TrafficView",
+        "layout": null,
         "style": null,
         "title": "流量监控"
     },

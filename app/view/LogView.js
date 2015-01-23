@@ -32,9 +32,15 @@ Ext.define('app.view.LogView', {
     title: 'DNS日志',
     defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     items: [
         {
             xtype: 'gridpanel',
+            flex: 1,
+            autoScroll: true,
             id: 'dnsloggrid',
             header: false,
             title: 'My Grid Panel',

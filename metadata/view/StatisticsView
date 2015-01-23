@@ -6,8 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "designer|userAlias": "statisticsview",
         "designer|userClassName": "StatisticsView",
+        "layout": "vbox",
         "title": "查询统计"
     },
     "name": "LogView1",
@@ -26,6 +28,7 @@
                 "autoLoad": true,
                 "header": false,
                 "id": "statisticsgrid",
+                "layout|flex": 1,
                 "scroll": "vertical",
                 "store": "StoreStatistics",
                 "title": "My Grid Panel"
