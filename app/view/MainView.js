@@ -19,12 +19,6 @@ Ext.define('app.view.MainView', {
 
     requires: [
         'app.view.MainViewViewModel',
-        'app.view.DomainView',
-        'app.view.LogView',
-        'app.view.ToolView',
-        'app.view.SystemInfoView',
-        'app.view.NetworkConfigs',
-        'app.view.RoutemgrView',
         'Ext.menu.Menu',
         'Ext.menu.Item'
     ],
@@ -57,16 +51,23 @@ Ext.define('app.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'networkcfg',
+                                    getRefView: function() {
+                                        return 'NetworkConfigs';
+                                    },
                                     text: '网络设置'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'routermgr',
+                                    getRefView: function() {
+                                        return 'RoutemgrView';
+                                    },
                                     text: '路由设置'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '安全设置'
                                 }
                             ]
@@ -84,11 +85,16 @@ Ext.define('app.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'domainmgr',
+                                    getRefView: function() {
+                                        return 'Domainview';
+                                    },
                                     text: '域名管理'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '导入导出'
                                 }
                             ]
@@ -106,15 +112,23 @@ Ext.define('app.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'systeminfo',
+                                    getRefView: function() {
+                                        return 'SystemInfoView';
+                                    },
                                     text: '系统信息'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '流量监控'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '查询统计 '
                                 }
                             ]
@@ -131,7 +145,9 @@ Ext.define('app.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'dnslog',
+                                    getRefView: function() {
+                                        return 'LogView';
+                                    },
                                     text: ' DNS日志'
                                 }
                             ]
@@ -149,19 +165,30 @@ Ext.define('app.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'tools',
+                                    getRefView: function() {
+                                        return 'ToolView';
+                                    },
                                     text: '实用工具'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '数据备份和恢复'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return '';
+                                    },
                                     text: '系统升级'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return 'UsermgrView';
+                                    },
                                     text: '用户管理'
                                 }
                             ]
@@ -175,31 +202,13 @@ Ext.define('app.view.MainView', {
             flex: 1,
             region: 'center',
             itemId: 'contentPanel',
-            layout: 'card',
+            layout: 'fit',
             header: false,
             title: '-',
             items: [
                 {
                     xtype: 'panel',
                     title: 'index'
-                },
-                {
-                    xtype: 'domainview'
-                },
-                {
-                    xtype: 'LogView'
-                },
-                {
-                    xtype: 'ToolView'
-                },
-                {
-                    xtype: 'SystemInfoView'
-                },
-                {
-                    xtype: 'NetworkConfigs'
-                },
-                {
-                    xtype: 'RoutemgrView'
                 }
             ]
         }

@@ -42,7 +42,8 @@
             "TrafficView",
             "NetworkConfigs",
             "RoutemgrView",
-            "UsermgrView"
+            "UsermgrView",
+            "MyMenuItem"
         ]
     },
     "name": "Application",

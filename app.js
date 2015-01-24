@@ -52,7 +52,8 @@ Ext.application({
         'TrafficView',
         'NetworkConfigs',
         'RoutemgrView',
-        'UsermgrView'
+        'UsermgrView',
+        'MyMenuItem'
     ],
     controllers: [
         'MainController'

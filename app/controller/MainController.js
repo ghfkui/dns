@@ -20,45 +20,28 @@ Ext.define('app.controller.MainController', {
         content: 'panel#contentPanel'
     },
 
-    init: function(application) {
-        this.control({
-            "menuitem": {
-                click: this.changeview
-            },
-        });
+    control: {
+        "menuitem": {
+            click: 'changeView'
+        }
     },
 
-    changeview: function(menuitem) {
-        var layout = this.getContent().getLayout();
-        var cardid = 0;
-        if (menuitem.id =="networkcfg")
-        {
-            cardid=5;
+    changeView: function(item, e, eOpts) {
+        var content = this.getContent(),
+        	viewType = item.getRefView && item.getRefView(),
+            view;
+        if(viewType){
+            view = Ext.createWidget(viewType);
         }
-        if (menuitem.id =="routermgr")
-        {
-            cardid=6;
-        }
-        if (menuitem.id =="domainmgr")
-        {
-            cardid=1;
+        if(!view){
+            view = Ext.create({
+                xtype: 'panel',
+                title: 'index'
+            });
         }
 
-        if (menuitem.id =="dnslog")
-        {
-            cardid=2;
-        }
-
-
-        if (menuitem.id =="tools")
-        {
-            cardid=3;
-        }
-        if (menuitem.id =="systeminfo")
-        {
-             cardid=4;
-        }
-        layout.setActiveItem(cardid);
+        content.removeAll();
+        content.insert(view);
     }
 
 });

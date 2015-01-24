@@ -73,11 +73,30 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "networkcfg",
+                                        "id": null,
+                                        "itemId": null,
                                         "text": "网络设置"
                                     },
                                     "name": "MyMenuItem",
-                                    "designerId": "8e7d8619-35b1-4071-a445-94d64931dc8d"
+                                    "designerId": "8e7d8619-35b1-4071-a445-94d64931dc8d",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'NetworkConfigs';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "24e5a1fe-72e5-4114-b360-27d7621b8780"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -87,11 +106,29 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "routermgr",
+                                        "id": null,
                                         "text": "路由设置"
                                     },
                                     "name": "MyMenuItem1",
-                                    "designerId": "e34d3196-d2b5-4c4e-96b1-c5b9d2b5b6c7"
+                                    "designerId": "e34d3196-d2b5-4c4e-96b1-c5b9d2b5b6c7",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'RoutemgrView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "f08e43b2-8295-442d-a976-5fa750645af6"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -104,7 +141,25 @@
                                         "text": "安全设置"
                                     },
                                     "name": "MyMenuItem2",
-                                    "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be"
+                                    "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "98a619da-8182-42fd-b769-ce4adad68a98"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -146,11 +201,29 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "domainmgr",
+                                        "id": null,
                                         "text": "域名管理"
                                     },
                                     "name": "MyMenuItem3",
-                                    "designerId": "c770dbb5-a50a-473c-8a44-23d286934911"
+                                    "designerId": "c770dbb5-a50a-473c-8a44-23d286934911",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'Domainview';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "6e5d72e9-3ebb-42bb-9ce2-4b18cc64cd2c"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -163,7 +236,25 @@
                                         "text": "导入导出"
                                     },
                                     "name": "MyMenuItem5",
-                                    "designerId": "cfe59057-3ba4-4721-9511-6d7cda87e10c"
+                                    "designerId": "cfe59057-3ba4-4721-9511-6d7cda87e10c",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "34295aa0-b66d-475f-bd78-a27f706efc15"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -205,11 +296,29 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "systeminfo",
+                                        "id": null,
                                         "text": "系统信息"
                                     },
                                     "name": "MyMenuItem6",
-                                    "designerId": "58af5433-8fcd-4e1e-8b72-393dacbac634"
+                                    "designerId": "58af5433-8fcd-4e1e-8b72-393dacbac634",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'SystemInfoView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "de18a291-4cbd-47f9-9202-0a2af2ba1476"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -222,7 +331,25 @@
                                         "text": "流量监控"
                                     },
                                     "name": "MyMenuItem7",
-                                    "designerId": "3475efc3-9da5-4513-a311-15ae6e8cfbee"
+                                    "designerId": "3475efc3-9da5-4513-a311-15ae6e8cfbee",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "6260cd65-7108-444d-803b-26e741991416"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -235,7 +362,25 @@
                                         "text": "查询统计 "
                                     },
                                     "name": "MyMenuItem8",
-                                    "designerId": "6dc1aefe-13fa-4d16-85c0-2a2b3d86ebf7"
+                                    "designerId": "6dc1aefe-13fa-4d16-85c0-2a2b3d86ebf7",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "b431e252-ae15-45c4-a918-e406b367158e"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -276,11 +421,29 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "dnslog",
+                                        "id": null,
                                         "text": " DNS日志"
                                     },
                                     "name": "MyMenuItem4",
-                                    "designerId": "7a00af6c-e668-4748-b186-850e069a1bfd"
+                                    "designerId": "7a00af6c-e668-4748-b186-850e069a1bfd",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'LogView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "4e8e3b1e-bc85-478a-a2d1-bb22607e947c"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -321,11 +484,29 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "id": "tools",
+                                        "id": null,
                                         "text": "实用工具"
                                     },
                                     "name": "MyMenuItem12",
-                                    "designerId": "361831c5-0486-4cd2-b616-6bb8bbd74dca"
+                                    "designerId": "361831c5-0486-4cd2-b616-6bb8bbd74dca",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'ToolView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "d186aee9-a2e8-462a-99d7-5bc42f283151"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -338,7 +519,25 @@
                                         "text": "数据备份和恢复"
                                     },
                                     "name": "MyMenuItem10",
-                                    "designerId": "79cba573-ddbe-4c72-be5b-aec576837e28"
+                                    "designerId": "79cba573-ddbe-4c72-be5b-aec576837e28",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "4325abc1-4358-478d-8d28-0b5db95ba7dc"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -351,7 +550,25 @@
                                         "text": "系统升级"
                                     },
                                     "name": "MyMenuItem11",
-                                    "designerId": "67d5ea85-94ab-424d-8e36-32e311dea12d"
+                                    "designerId": "67d5ea85-94ab-424d-8e36-32e311dea12d",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return '';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "b2b36fc1-15c0-424a-9cc8-a9054fbf759e"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -364,7 +581,25 @@
                                         "text": "用户管理"
                                     },
                                     "name": "MyMenuItem9",
-                                    "designerId": "638637b8-d98b-477f-b971-3e382eb313ec"
+                                    "designerId": "638637b8-d98b-477f-b971-3e382eb313ec",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'UsermgrView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "809fcfb0-6bd5-47f9-a904-cd7cf6c7bf7b"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -385,7 +620,7 @@
                 "designer|uiInterfaceName": "default",
                 "header": false,
                 "itemId": "contentPanel",
-                "layout": "card",
+                "layout": "fit",
                 "layout|flex": 1,
                 "layout|region": "center",
                 "title": "-"
@@ -406,75 +641,6 @@
                     },
                     "name": "MyPanel7",
                     "designerId": "b8701b31-0bd3-40d3-8eda-f3a30c343ef7"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "domainview",
-                    "designerId": "baebe88d-ec88-47c7-b3b3-d2edef6ec31f",
-                    "masterInstanceId": "1f00274b-dcb8-4697-a43b-742491e3fcdd"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "logview",
-                    "designerId": "0c6987a7-9d3c-4300-9ba7-1fa4e26eddd8",
-                    "masterInstanceId": "d20c984c-e876-4a4b-90ce-d8e44751473a"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "toolview",
-                    "designerId": "47e1ab2a-2c6f-43cc-a8d7-1ee0fbacf7e3",
-                    "masterInstanceId": "a3cc9e80-3e80-4179-9051-78d91d80b078"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "systeminfoview",
-                    "designerId": "829768c2-6fe6-4a98-af31-1c17f90cb614",
-                    "masterInstanceId": "34dc8762-d239-48cd-8eda-cb85efe46973"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|displayName": "网络设置"
-                    },
-                    "name": "networkconfigs",
-                    "designerId": "fab1dcef-05f3-41eb-afef-9269b04ad3e7",
-                    "masterInstanceId": "e7daf57c-9363-4eb2-8f91-4c05a87b587e"
-                },
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "routemgr1",
-                    "designerId": "6e50c529-099b-46ad-b0d0-1ce07b986538",
-                    "masterInstanceId": "bb12f71f-3f45-4249-bf47-0c7864d0cee2"
                 }
             ]
         }

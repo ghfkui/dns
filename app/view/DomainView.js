@@ -15,7 +15,7 @@
 
 Ext.define('app.view.DomainView', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.domainview',
+    alias: 'widget.Domainview',
 
     requires: [
         'app.view.DomainViewViewModel',
