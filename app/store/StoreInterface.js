@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreInterface', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreInterface',
 
     requires: [
         'app.model.Interface',

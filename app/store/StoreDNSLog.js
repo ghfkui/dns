@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreDNSLog', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreDNSLog',
 
     requires: [
         'app.model.Dnslog',

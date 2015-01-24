@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreUser', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreUser',
 
     requires: [
         'app.model.UserModel',

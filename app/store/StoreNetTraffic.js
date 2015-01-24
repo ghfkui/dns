@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreNetTraffic', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreNetTraffic',
 
     requires: [
         'app.model.Traffic',

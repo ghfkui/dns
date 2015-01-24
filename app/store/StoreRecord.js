@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreRecord', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreRecord',
 
     requires: [
         'app.model.RecordModel',
@@ -27,7 +28,6 @@ Ext.define('app.store.StoreRecord', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreRecord',
-            autoLoad: false,
             model: 'app.model.RecordModel',
             proxy: {
                 type: 'rest',

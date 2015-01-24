@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "StoreDNSLog",
         "designer|userClassName": "StoreDNSLog",
         "model": "Dnslog",
         "storeId": "StoreDNSLog"

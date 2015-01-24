@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreZones', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreZones',
 
     requires: [
         'app.model.Domianmodel',
@@ -27,8 +28,6 @@ Ext.define('app.store.StoreZones', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreZones',
-            autoLoad: true,
-            autoSync: true,
             model: 'app.model.Domianmodel',
             proxy: {
                 type: 'ajax',

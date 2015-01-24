@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": false,
+        "autoLoad": null,
+        "designer|userAlias": "StoreRecord",
         "designer|userClassName": "StoreRecord",
         "model": "RecordModel",
         "storeId": "StoreRecord"

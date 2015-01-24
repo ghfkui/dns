@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "",
+        "designer|userAlias": "StoreInterface",
         "designer|userClassName": "StoreInterface",
         "model": "Interface",
         "storeId": "StoreInterface"

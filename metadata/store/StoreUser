@@ -45,6 +45,7 @@
             "    }",
             "]"
         ],
+        "designer|userAlias": "StoreUser",
         "designer|userClassName": "StoreUser",
         "model": "UserModel",
         "storeId": "StoreUser"

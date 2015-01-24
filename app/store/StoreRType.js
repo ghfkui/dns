@@ -15,6 +15,7 @@
 
 Ext.define('app.store.StoreRType', {
     extend: 'Ext.data.Store',
+    alias: 'store.StoreRType',
 
     requires: [
         'app.model.RecordTypeModel'
@@ -25,7 +26,6 @@ Ext.define('app.store.StoreRType', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreRType',
-            autoLoad: false,
             model: 'app.model.RecordTypeModel',
             data: [
                 {

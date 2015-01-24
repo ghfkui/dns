@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
-        "autoSync": true,
+        "autoLoad": null,
+        "autoSync": null,
+        "designer|userAlias": "StoreZones",
         "designer|userClassName": "StoreZones",
         "model": "Domianmodel",
         "storeId": "StoreZones"
