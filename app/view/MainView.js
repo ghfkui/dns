@@ -86,7 +86,7 @@ Ext.define('app.view.MainView', {
                                 {
                                     xtype: 'menuitem',
                                     getRefView: function() {
-                                        return '';
+                                        return 'importandexport';
                                     },
                                     text: '导入导出'
                                 }

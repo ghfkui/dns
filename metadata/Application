@@ -55,7 +55,8 @@
             "UsermgrView",
             "UserAddWindow",
             "OperateLogView",
-            "StatisticsView"
+            "StatisticsView",
+            "ImportAndExport"
         ]
     },
     "name": "Application",

@@ -216,7 +216,7 @@
                                             "userConfig": {
                                                 "fn": "getRefView",
                                                 "implHandler": [
-                                                    "return '';"
+                                                    "return 'importandexport';"
                                                 ]
                                             },
                                             "name": "getRefView",

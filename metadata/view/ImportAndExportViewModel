@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "importandexport",
+        "designer|userClassName": "ImportAndExportViewModel"
+    },
+    "designerId": "70085711-ead6-4ae1-9670-baf0148643e5"
+}

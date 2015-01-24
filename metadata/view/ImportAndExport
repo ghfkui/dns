@@ -1,0 +1,147 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "importandexport",
+        "designer|userClassName": "ImportAndExport",
+        "height": null,
+        "title": "导入导出",
+        "width": null
+    },
+    "name": "MyPanel",
+    "designerId": "46e78338-914b-4b0f-97b4-67c3664cd432",
+    "viewControllerInstanceId": "ccdd27ab-e961-4ff0-9af4-476515b2b1c5",
+    "viewModelInstanceId": "70085711-ead6-4ae1-9670-baf0148643e5",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|padding": 10,
+                "designer|displayName": "tool",
+                "dock": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "2ad45109-c289-4324-a90b-dbf2b7f04f65",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "margin": "0 50 0 0",
+                        "padding": "5 15",
+                        "text": "导入"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "529636f8-a214-447e-8daf-341af55bc061",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onImportClick",
+                                "implHandler": [
+                                    "this.openUrl('http://120.27.34.89:8090/zones/import');"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onImportClick",
+                            "designerId": "5e380473-432b-4993-9aa2-896cc568c437"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "padding": "5 15",
+                        "text": "导出"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "08b8d0eb-a4ac-44fa-bb4b-2ce9943095ed",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onExportClick",
+                                "implHandler": [
+                                    "this.openUrl('http://120.27.34.89:8090/zones/export', '_self');"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onExportClick",
+                            "designerId": "3aa12144-b5f9-440a-9571-5e3faf69daea"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "href",
+                    "target"
+                ],
+                "fn": "openUrl",
+                "implHandler": [
+                    "if(!this.aTag){",
+                    "    this.aTag = document.createElement('a');",
+                    "}",
+                    "var aTag = this.aTag;",
+                    "aTag.setAttribute('href', href);",
+                    "aTag.setAttribute('target', target | '_blank');",
+                    "if(document.all){// IE浏览器",
+                    "    aTag.setAttribute('style', 'display: none;');",
+                    "    document.body.appendChild(aTag);",
+                    "}",
+                    "if(aTag.click){",
+                    "    aTag.click();",
+                    "}else if(aTag.fireEvent){",
+                    "    aTag.fireEvent('onclick');",
+                    "}else{",
+                    "    var ev = document.createEvent('HTMLEvents');",
+                    "    ev.initEvent('click', false, true);",
+                    "    aTag.dispatchEvent(ev);",
+                    "}"
+                ]
+            },
+            "name": "openUrl",
+            "designerId": "58ff03d3-9472-477f-992e-8f8e188b6645"
+        }
+    ]
+}

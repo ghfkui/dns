@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "importandexport",
+        "designer|userClassName": "ImportAndExportViewController"
+    },
+    "designerId": "ccdd27ab-e961-4ff0-9af4-476515b2b1c5"
+}

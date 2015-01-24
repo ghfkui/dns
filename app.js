@@ -63,7 +63,8 @@ Ext.application({
         'UsermgrView',
         'UserAddWindow',
         'OperateLogView',
-        'StatisticsView'
+        'StatisticsView',
+        'ImportAndExport'
     ],
     controllers: [
         'MainController'
