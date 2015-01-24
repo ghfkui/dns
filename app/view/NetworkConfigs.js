@@ -19,79 +19,26 @@ Ext.define('app.view.NetworkConfigs', {
 
     requires: [
         'app.view.NetworkConfigsViewModel',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
-        'Ext.grid.View',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.grid.View'
     ],
 
     viewModel: {
         type: 'networkconfigs'
     },
-    margin: '',
     title: '网络设置',
-    defaultListenerScope: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch',
+        padding: '10 0'
+    },
     items: [
         {
-            xtype: 'gridpanel',
-            id: 'interfacegrid',
-            margin: 10,
-            title: '网络接口',
-            store: 'StoreInterface',
-            columns: [
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'name',
-                    text: '接口'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'ip',
-                    text: 'IP'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'packets_recv',
-                    text: '接收包数'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'errin',
-                    text: '接收错误包'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'dropin',
-                    text: '接收丢弃包'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'packets_sent',
-                    text: '发送包数'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'errout',
-                    text: '发送错误包'
-                },
-                {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'dropout',
-                    text: '发送丢弃包'
-                }
-            ]
-        }
-    ],
-    listeners: {
-        beforeactivate: 'onPanelBeforeActivate'
-    },
-    dockedItems: [
-        {
             xtype: 'toolbar',
-            dock: 'top',
-            margin: 10,
             items: [
                 {
                     xtype: 'button',
@@ -101,11 +48,66 @@ Ext.define('app.view.NetworkConfigs', {
                     text: '刷新'
                 }
             ]
+        },
+        {
+            xtype: 'panel',
+            flex: 1,
+            frameHeader: false,
+            header: false,
+            title: 'My Panel',
+            items: [
+                {
+                    xtype: 'gridpanel',
+                    id: 'interfacegrid',
+                    margin: 10,
+                    title: '网络接口',
+                    autoLoad: true,
+                    store: 'StoreInterface',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'name',
+                            text: '接口'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'ip',
+                            text: 'IP'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'packets_recv',
+                            text: '接收包数'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'errin',
+                            text: '接收错误包'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'dropin',
+                            text: '接收丢弃包'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'packets_sent',
+                            text: '发送包数'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'errout',
+                            text: '发送错误包'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'dropout',
+                            text: '发送丢弃包'
+                        }
+                    ]
+                }
+            ]
         }
-    ],
-
-    onPanelBeforeActivate: function(component, eOpts) {
-        this.query("gridpanel[id=interfacegrid]")[0].store.load();
-    }
+    ]
 
 });
