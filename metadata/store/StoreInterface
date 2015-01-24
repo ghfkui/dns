@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "",
         "designer|userClassName": "StoreInterface",
-        "model": "interface",
+        "model": "Interface",
         "storeId": "StoreInterface"
     },
     "name": "MyJsonStore",

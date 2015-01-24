@@ -1162,7 +1162,7 @@
                 }
             ]
         },
-        "controller": true,
+        "controller": false,
         "bff5d8da-2211-4c09-a84e-e858425ea3b7": {
             "id": "bff5d8da-2211-4c09-a84e-e858425ea3b7",
             "cn": [
@@ -1192,16 +1192,26 @@
         }
     },
     "tabState": {
-        "openTabs": []
+        "openTabs": [
+            "application",
+            "bb1a661f-a7e3-4bff-8b81-08c562a5a1b1",
+            "2caa8596-c2be-4e9b-a22e-9062bfa88417",
+            "38250c49-4f82-430c-aef0-028bb3ce5b67",
+            "de270c9f-30b6-48cf-810f-d0f35dbdee47",
+            "a2b52a53-e4ed-46ce-ac72-ff2ce7e310eb",
+            "b1240a8f-72a5-4482-877a-228fcab85bc3",
+            "83db31b9-489b-4dab-b5b7-7d8ded07a8a2",
+            "221e0f20-23dd-488d-a900-2d994093dd92"
+        ]
     },
     "canvasState": {
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": null,
-        "selectedInstance": null
+        "topInstance": "ccf11f1b-c72a-44fc-9803-344ace6f3349",
+        "selectedInstance": "bba14e45-2837-4d8e-a872-662c5091881c"
     },
-    "editMode": "design",
+    "editMode": "code",
     "userSettings": {
         "no-cmd": true
     }

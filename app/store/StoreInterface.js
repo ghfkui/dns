@@ -17,7 +17,7 @@ Ext.define('app.store.StoreInterface', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.interface',
+        'app.model.Interface',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
@@ -27,7 +27,7 @@ Ext.define('app.store.StoreInterface', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreInterface',
-            model: 'app.model.interface',
+            model: 'app.model.Interface',
             proxy: {
                 type: 'ajax',
                 url: '../system/device',

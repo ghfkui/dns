@@ -17,7 +17,7 @@ Ext.define('app.store.StoreNetTraffic', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.traffic',
+        'app.model.Traffic',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
@@ -27,7 +27,7 @@ Ext.define('app.store.StoreNetTraffic', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreNetTraffic',
-            model: 'app.model.traffic',
+            model: 'app.model.Traffic',
             proxy: {
                 type: 'ajax',
                 url: '../system/traffic',

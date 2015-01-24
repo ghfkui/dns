@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "interface"
+        "designer|userAlias": "Interface",
+        "designer|userClassName": "Interface"
     },
     "name": "MyModel",
     "designerId": "de270c9f-30b6-48cf-810f-d0f35dbdee47",

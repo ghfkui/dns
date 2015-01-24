@@ -17,7 +17,7 @@ Ext.define('app.store.StoreRecord', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.recordModel',
+        'app.model.RecordModel',
         'Ext.data.proxy.Rest',
         'Ext.data.reader.Json'
     ],
@@ -28,7 +28,7 @@ Ext.define('app.store.StoreRecord', {
         me.callParent([Ext.apply({
             storeId: 'StoreRecord',
             autoLoad: false,
-            model: 'app.model.recordModel',
+            model: 'app.model.RecordModel',
             proxy: {
                 type: 'rest',
                 url: '../records',

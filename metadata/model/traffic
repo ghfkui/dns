@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "traffic"
+        "designer|userAlias": "Traffic",
+        "designer|userClassName": "Traffic"
     },
     "name": "MyModel",
     "designerId": "83db31b9-489b-4dab-b5b7-7d8ded07a8a2",

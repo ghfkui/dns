@@ -17,7 +17,7 @@ Ext.define('app.store.StoreUser', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.userModel',
+        'app.model.UserModel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
@@ -27,7 +27,7 @@ Ext.define('app.store.StoreUser', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreUser',
-            model: 'app.model.userModel',
+            model: 'app.model.UserModel',
             data: [
                 {
                     id: 26,

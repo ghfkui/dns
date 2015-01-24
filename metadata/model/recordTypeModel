@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "recordTypeModel"
+        "designer|userAlias": "RecordTypeModel",
+        "designer|userClassName": "RecordTypeModel"
     },
     "name": "MyModel",
     "designerId": "b1240a8f-72a5-4482-877a-228fcab85bc3",

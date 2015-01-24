@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "dnslog"
+        "designer|userAlias": "Dnslog",
+        "designer|userClassName": "Dnslog"
     },
     "name": "MyModel",
     "designerId": "2caa8596-c2be-4e9b-a22e-9062bfa88417",

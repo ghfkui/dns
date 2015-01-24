@@ -17,7 +17,7 @@ Ext.define('app.store.StoreRType', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.recordTypeModel'
+        'app.model.RecordTypeModel'
     ],
 
     constructor: function(cfg) {
@@ -26,7 +26,7 @@ Ext.define('app.store.StoreRType', {
         me.callParent([Ext.apply({
             storeId: 'StoreRType',
             autoLoad: false,
-            model: 'app.model.recordTypeModel',
+            model: 'app.model.RecordTypeModel',
             data: [
                 {
                     text: 'A',

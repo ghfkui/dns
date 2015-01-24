@@ -32,7 +32,7 @@
             "            ]"
         ],
         "designer|userClassName": "StoreRType",
-        "model": "recordTypeModel",
+        "model": "RecordTypeModel",
         "storeId": "StoreRType"
     },
     "name": "MyStore",

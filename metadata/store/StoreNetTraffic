@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "StoreNetTraffic",
-        "model": "traffic",
+        "model": "Traffic",
         "storeId": "StoreNetTraffic"
     },
     "name": "MyJsonStore",

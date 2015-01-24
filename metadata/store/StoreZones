@@ -9,7 +9,7 @@
         "autoLoad": true,
         "autoSync": true,
         "designer|userClassName": "StoreZones",
-        "model": "domianModel",
+        "model": "Domianmodel",
         "storeId": "StoreZones"
     },
     "name": "MyArrayStore",

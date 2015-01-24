@@ -25,7 +25,8 @@
             "StoreRType",
             "StoreDNSLog",
             "StoreNetTraffic",
-            "StoreUser"
+            "StoreUser",
+            "StoreInterface"
         ],
         "views": [
             "MainView",

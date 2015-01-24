@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "StoreDNSLog",
-        "model": "dnslog",
+        "model": "Dnslog",
         "storeId": "StoreDNSLog"
     },
     "name": "MyJsonStore",

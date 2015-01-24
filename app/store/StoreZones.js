@@ -17,7 +17,7 @@ Ext.define('app.store.StoreZones', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.domianModel',
+        'app.model.Domianmodel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
@@ -29,7 +29,7 @@ Ext.define('app.store.StoreZones', {
             storeId: 'StoreZones',
             autoLoad: true,
             autoSync: true,
-            model: 'app.model.domianModel',
+            model: 'app.model.Domianmodel',
             proxy: {
                 type: 'ajax',
                 url: '../zones',

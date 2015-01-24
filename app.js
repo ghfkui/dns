@@ -21,13 +21,13 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'domianModel',
-        'recordModel',
-        'recordTypeModel',
-        'dnslog',
-        'traffic',
-        'interface',
-        'userModel'
+        'Domianmodel',
+        'RecordModel',
+        'RecordTypeModel',
+        'Dnslog',
+        'Traffic',
+        'Interface',
+        'UserModel'
     ],
     stores: [
         'StoreZones',
@@ -35,7 +35,8 @@ Ext.application({
         'StoreRType',
         'StoreDNSLog',
         'StoreNetTraffic',
-        'StoreUser'
+        'StoreUser',
+        'StoreInterface'
     ],
     views: [
         'MainView',

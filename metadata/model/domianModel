@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "domianmodel",
-        "designer|userClassName": "domianModel",
+        "designer|userAlias": "Domianmodel",
+        "designer|userClassName": "Domianmodel",
         "idProperty": "Domain"
     },
     "name": "MyModel",

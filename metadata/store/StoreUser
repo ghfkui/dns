@@ -46,7 +46,7 @@
             "]"
         ],
         "designer|userClassName": "StoreUser",
-        "model": "userModel",
+        "model": "UserModel",
         "storeId": "StoreUser"
     },
     "name": "MyJsonStore",

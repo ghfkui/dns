@@ -17,7 +17,7 @@ Ext.define('app.store.StoreDNSLog', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'app.model.dnslog',
+        'app.model.Dnslog',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json'
     ],
@@ -27,7 +27,7 @@ Ext.define('app.store.StoreDNSLog', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreDNSLog',
-            model: 'app.model.dnslog',
+            model: 'app.model.Dnslog',
             proxy: {
                 type: 'ajax',
                 url: '../log/dns',

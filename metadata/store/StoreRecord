@@ -8,7 +8,7 @@
     "userConfig": {
         "autoLoad": false,
         "designer|userClassName": "StoreRecord",
-        "model": "recordModel",
+        "model": "RecordModel",
         "storeId": "StoreRecord"
     },
     "name": "MyJsonStore",
