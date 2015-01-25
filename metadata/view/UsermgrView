@@ -43,7 +43,28 @@
                         "text": "添加用户"
                     },
                     "name": "MyButton",
-                    "designerId": "9bda095b-db8d-490a-999b-9c355561c601"
+                    "designerId": "9bda095b-db8d-490a-999b-9c355561c601",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var addWin = new Ext.create('app.view.UserAddWindow');",
+                                    "addWin.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "54103392-3fd2-4621-96ce-7e0e0cae6b45"
+                        }
+                    ]
                 }
             ]
         },
@@ -56,7 +77,7 @@
             "codeClass": null,
             "userConfig": {
                 "store": "StoreUser",
-                "title": "My Grid Panel"
+                "title": "用户列表"
             },
             "name": "MyGridPanel2",
             "designerId": "3e18828a-64b1-4a38-940c-f99512cd9238",
@@ -70,7 +91,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "userName",
-                        "text": "用户名"
+                        "text": "用户名",
+                        "width": "20%"
                     },
                     "name": "MyColumn6",
                     "designerId": "30b9437f-ef55-471a-bf46-48a7fe487f25"
@@ -84,7 +106,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "email",
-                        "text": "邮箱"
+                        "shrinkWrap": 1,
+                        "text": "邮箱",
+                        "width": "30%"
                     },
                     "name": "MyColumn7",
                     "designerId": "71ac4527-9e76-4049-b477-3615b8983c98"
@@ -98,7 +122,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "createTime",
-                        "text": "创建时间"
+                        "text": "创建时间",
+                        "width": "20%"
                     },
                     "name": "MyDateColumn",
                     "designerId": "b46cc481-960a-414e-b387-4fba01985117"
@@ -121,7 +146,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyCellText": "操作"
+                        "emptyCellText": null,
+                        "text": "操作",
+                        "width": "20%"
                     },
                     "name": "MyActionColumn2",
                     "designerId": "343bd125-2a9c-4961-8b0f-1decb0bbc93d",
@@ -133,8 +160,122 @@
                                 "type": "array"
                             },
                             "codeClass": null,
+                            "userConfig": {
+                                "altText": "编辑",
+                                "designer|createAlias": null,
+                                "designer|displayName": "edit",
+                                "icon": "image/edit.gif",
+                                "tooltip": "编辑"
+                            },
                             "name": "MyActionColumnItem4",
-                            "designerId": "4116510d-f2b1-4e63-81ba-03921c25d5b7"
+                            "designerId": "4116510d-f2b1-4e63-81ba-03921c25d5b7",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var updateWin = new Ext.create('app.view.UserAddWindow');",
+                                            "updateWin.setUser(record.getData());",
+                                            "updateWin.show();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "edb23704-cae5-41f3-85a8-dcb1b628ced2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "delete",
+                                "icon": "image/delete.gif",
+                                "tooltip": "删除"
+                            },
+                            "name": "MyActionColumnItem5",
+                            "designerId": "1e09db5a-0bde-49bd-9694-65d32e6e75ca",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var user = record.data;",
+                                            "var confirm = {",
+                                            "    title: \"确认删除\",",
+                                            "    msg: \"请确认是否删除这个用户\",",
+                                            "    closable: false,",
+                                            "    buttons: Ext.MessageBox.YESNO,",
+                                            "    icon: Ext.MessageBox.WARNING,",
+                                            "    fn: function(btn) {",
+                                            "        if (btn == \"yes\") {",
+                                            "            Ext.Ajax.request({",
+                                            "                url: '../user/remove',",
+                                            "                success: function(data, a1, a2) {",
+                                            "                    view.getStore().load();",
+                                            "                    var result = Ext.decode(data.responseText);",
+                                            "                    if (result.success) {",
+                                            "                        Ext.Msg.alert('成功', result.msg);",
+                                            "                    }",
+                                            "                },",
+                                            "                failure: function(data) {",
+                                            "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                            "                },",
+                                            "                jsonData: {",
+                                            "                    User: this.user",
+                                            "                },",
+                                            "                scope: {",
+                                            "                    user: this.user,",
+                                            "                    view: this.view",
+                                            "                }",
+                                            "            });",
+                                            "         }",
+                                            "    },",
+                                            "    scope: {",
+                                            "        user: user,",
+                                            "        view: view",
+                                            "    },",
+                                            "};",
+                                            "Ext.MessageBox.show(confirm, this);"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "00ad7c25-87db-4aca-bb6b-674623daa400"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -53,7 +53,7 @@ Ext.application({
         'NetworkConfigs',
         'RoutemgrView',
         'UsermgrView',
-        'MyMenuItem'
+        'UserAddWindow'
     ],
     controllers: [
         'MainController'

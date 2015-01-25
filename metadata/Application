@@ -10,13 +10,13 @@
             "MainController"
         ],
         "models": [
-            "domianModel",
-            "recordModel",
-            "recordTypeModel",
-            "dnslog",
-            "traffic",
-            "interface",
-            "userModel"
+            "Domianmodel",
+            "RecordModel",
+            "RecordTypeModel",
+            "Dnslog",
+            "Traffic",
+            "Interface",
+            "UserModel"
         ],
         "name": "app",
         "stores": [
@@ -43,7 +43,7 @@
             "NetworkConfigs",
             "RoutemgrView",
             "UsermgrView",
-            "MyMenuItem"
+            "UserAddWindow"
         ]
     },
     "name": "Application",

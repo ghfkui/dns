@@ -32,6 +32,7 @@ Ext.define('app.view.UsermgrView', {
     },
     itemId: 'usermgr',
     title: '用户管理',
+    defaultListenerScope: true,
 
     dockedItems: [
         {
@@ -40,7 +41,10 @@ Ext.define('app.view.UsermgrView', {
             items: [
                 {
                     xtype: 'button',
-                    text: '添加用户'
+                    text: '添加用户',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
                 }
             ]
         }
@@ -48,35 +52,95 @@ Ext.define('app.view.UsermgrView', {
     items: [
         {
             xtype: 'gridpanel',
-            title: 'My Grid Panel',
+            title: '用户列表',
             store: 'StoreUser',
             columns: [
                 {
                     xtype: 'gridcolumn',
+                    width: '20%',
                     dataIndex: 'userName',
                     text: '用户名'
                 },
                 {
                     xtype: 'gridcolumn',
+                    shrinkWrap: 1,
+                    width: '30%',
                     dataIndex: 'email',
                     text: '邮箱'
                 },
                 {
                     xtype: 'datecolumn',
+                    width: '20%',
                     dataIndex: 'createTime',
                     text: '创建时间'
                 },
                 {
                     xtype: 'actioncolumn',
-                    emptyCellText: '操作',
+                    width: '20%',
+                    text: '操作',
                     items: [
                         {
-
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var updateWin = new Ext.create('app.view.UserAddWindow');
+                                updateWin.setUser(record.getData());
+                                updateWin.show();
+                            },
+                            altText: '编辑',
+                            icon: 'image/edit.gif',
+                            tooltip: '编辑'
+                        },
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var user = record.data;
+                                var confirm = {
+                                    title: "确认删除",
+                                    msg: "请确认是否删除这个用户",
+                                    closable: false,
+                                    buttons: Ext.MessageBox.YESNO,
+                                    icon: Ext.MessageBox.WARNING,
+                                    fn: function(btn) {
+                                        if (btn == "yes") {
+                                            Ext.Ajax.request({
+                                                url: '../user/remove',
+                                                success: function(data, a1, a2) {
+                                                    view.getStore().load();
+                                                    var result = Ext.decode(data.responseText);
+                                                    if (result.success) {
+                                                        Ext.Msg.alert('成功', result.msg);
+                                                    }
+                                                },
+                                                failure: function(data) {
+                                                    Ext.Msg.alert('失败', "删除失败");
+                                                },
+                                                jsonData: {
+                                                    User: this.user
+                                                },
+                                                scope: {
+                                                    user: this.user,
+                                                    view: this.view
+                                                }
+                                            });
+                                        }
+                                    },
+                                    scope: {
+                                        user: user,
+                                        view: view
+                                    },
+                                };
+                                Ext.MessageBox.show(confirm, this);
+                            },
+                            icon: 'image/delete.gif',
+                            tooltip: '删除'
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+
+    onButtonClick: function(button, e, eOpts) {
+        var addWin = new Ext.create('app.view.UserAddWindow');
+        addWin.show();
+    }
 
 });
