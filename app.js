@@ -61,7 +61,7 @@ Ext.application({
     name: 'app',
 
     launch: function() {
-        Ext.create('app.view.MainView');
+        Ext.create('app.view.LoginView');
     }
 
 });

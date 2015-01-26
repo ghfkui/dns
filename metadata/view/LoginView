@@ -1,0 +1,163 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "LoginView",
+        "designer|userClassName": "LoginView",
+        "layout": "fit"
+    },
+    "name": "MyViewport",
+    "designerId": "dee1e68c-e8a2-4f67-848e-9da2508f7038",
+    "viewControllerInstanceId": "5f931e05-2887-47b9-8f3d-c24f1ca7d427",
+    "viewModelInstanceId": "03064a72-c1d6-4803-a3d6-c0c465c030f0",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "container|pack": "center",
+                "layout": "vbox",
+                "title": "DNS管理系统"
+            },
+            "name": "MyPanel",
+            "designerId": "265d8939-5141-4556-a923-6f59ea0a8112",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "designer|uiInterfaceName": "default-framed",
+                        "frame": true,
+                        "itemId": "loginForm",
+                        "layout|flex": null,
+                        "title": "登录",
+                        "url": "../user/login",
+                        "width": 305
+                    },
+                    "name": "MyForm",
+                    "designerId": "d59302a9-c8fc-4e1e-84e1-7d615ba42212",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "用户名",
+                                "layout|anchor": "100%",
+                                "name": "userName"
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "8b8d3fb0-2dfa-4947-9738-1850d47feb70"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "密码",
+                                "layout|anchor": "100%",
+                                "name": "password"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "ad07f907-7218-47b3-9911-677da424e22c"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "middle",
+                                "container|pack": "end",
+                                "designer|displayName": "loginToolbar",
+                                "dock": "bottom",
+                                "frame": false
+                            },
+                            "name": "MyToolbar",
+                            "designerId": "8ffa35da-bb9e-433b-9fd8-e6351ae84e98",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "text": "登录"
+                                    },
+                                    "name": "MyButton1",
+                                    "designerId": "584fa3ee-7671-4039-b9cc-b3fc191977dc",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onButtonClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "",
+                                                    "    form = me.down('form#loginForm'),",
+                                                    "    valid = form.isValid();",
+                                                    "",
+                                                    "if(!valid){",
+                                                    "     return false;",
+                                                    "}",
+                                                    "",
+                                                    "form.submit({",
+                                                    "    waitMsg: '正在保存',",
+                                                    "    success: function (form, action) {",
+                                                    "        Ext.Msg.alert('成功', '保存成功');",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "        //Ext.Msg.alert('失败', '保存失败');",
+                                                    "        Ext.create('app.view.MainView');",
+                                                    "    }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onButtonClick",
+                                            "designerId": "cb9827f5-761e-46d3-9bbb-5ad9014b6fc4"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

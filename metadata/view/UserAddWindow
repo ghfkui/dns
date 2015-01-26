@@ -1,0 +1,201 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "UserAddWindow",
+        "designer|userClassName": "UserAddWindow",
+        "height": null,
+        "rowUpdate": false,
+        "title": "用户管理",
+        "urlUpdate": "../user/update",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "configAlternates": {
+        "rowUpdate": "boolean"
+    },
+    "designerId": "b8a8aaad-8bcc-46a2-aaa6-d1d7c629784d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "urlUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "rowUpdate",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "7e141e03-36c2-4c41-ba0e-b9977c507cc2",
+    "viewModelInstanceId": "ad08e00f-f282-46f5-beca-f1048c5355cc",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "frameHeader": false,
+                "header": false,
+                "height": null,
+                "itemId": "userForm",
+                "jsonSubmit": true,
+                "title": "My Form",
+                "url": "../user/add"
+            },
+            "name": "MyForm9",
+            "configAlternates": {
+                "RowUpdate": "boolean"
+            },
+            "designerId": "2ea6816b-249d-476d-982d-123d1baab85c",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "用户名",
+                        "formBind": null,
+                        "layout|anchor": "100%",
+                        "name": "userName"
+                    },
+                    "name": "MyTextField15",
+                    "designerId": "8e978c9e-bdf1-4d1e-9303-fc11d7b05287"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "邮箱",
+                        "layout|anchor": "100%",
+                        "name": "email"
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "37385d63-692f-4e22-af7b-c4639b491fc1"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "密码",
+                        "layout|anchor": "100%",
+                        "name": "password"
+                    },
+                    "name": "MyTextField17",
+                    "designerId": "53eb4ac8-cdbe-483e-9a62-2f6b434a0ff5"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "designer|displayName": "saveToolbar",
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "275b5bb7-3732-42eb-99c5-482c86166fac",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "saveBtn",
+                                "layout|flex": null,
+                                "text": "保存"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "bb6ecafd-3a1e-44ea-b3d5-0838a2ceb0e2",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSaveBtnClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    form = me.down('form#userForm'),",
+                                            "    valid = form.isValid();",
+                                            "if(!valid){",
+                                            "    return false;",
+                                            "}",
+                                            "if(me.rowUpdate){",
+                                            "    form.getForm().url = me.urlUpdate;",
+                                            "}",
+                                            "form.submit({",
+                                            "    waitMsg: '正在保存',",
+                                            "    success: function (form, action) {",
+                                            "        Ext.Msg.alert('成功', '保存成功');",
+                                            "    },",
+                                            "    failure: function (form, action) {",
+                                            "        Ext.Msg.alert('失败', '保存失败');",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSaveBtnClick",
+                                    "designerId": "7cecc862-d4bd-45fd-a927-9f845a795e59"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "user"
+                ],
+                "fn": "setUser",
+                "implHandler": [
+                    "var me = this,",
+                    "    form = me.down('form#userForm');",
+                    "me.rowUpdate = true;",
+                    "form.getForm().setValues(user);"
+                ]
+            },
+            "name": "setUser",
+            "designerId": "1796694b-a719-4bf0-82a6-bade05a98ceb"
+        }
+    ]
+}

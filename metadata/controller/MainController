@@ -51,8 +51,8 @@
                     "    });",
                     "}",
                     "",
-                    "content.removeAll();",
-                    "content.insert(view);"
+                    "content.removeAll(true);",
+                    "content.add(view);"
                 ],
                 "name": "click",
                 "scope": "me"

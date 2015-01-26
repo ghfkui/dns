@@ -40,8 +40,8 @@ Ext.define('app.controller.MainController', {
             });
         }
 
-        content.removeAll();
-        content.insert(view);
+        content.removeAll(true);
+        content.add(view);
     }
 
 });
