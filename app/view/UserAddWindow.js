@@ -65,7 +65,8 @@ Ext.define('app.view.UserAddWindow', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: '密码',
-                    name: 'password'
+                    name: 'password',
+                    inputType: 'password'
                 }
             ],
             dockedItems: [
