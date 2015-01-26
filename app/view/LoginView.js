@@ -55,21 +55,23 @@ Ext.define('app.view.LoginView', {
                             anchor: '100%',
                             fieldLabel: '用户名',
                             name: 'userName',
-                            allowBlank: false
+                            allowBlank: false,
+                            emptyText: 'userName'
                         },
                         {
                             xtype: 'textfield',
                             anchor: '100%',
                             fieldLabel: '密码',
                             name: 'password',
-                            allowBlank: false
+                            inputType: 'password',
+                            allowBlank: false,
+                            emptyText: 'password'
                         }
                     ],
                     dockedItems: [
                         {
                             xtype: 'toolbar',
                             dock: 'bottom',
-                            frame: false,
                             layout: {
                                 type: 'hbox',
                                 align: 'middle',
@@ -102,12 +104,13 @@ Ext.define('app.view.LoginView', {
         }
 
         form.submit({
-            waitMsg: '正在保存',
+            waitMsg: '正在登录',
             success: function (form, action) {
-                Ext.Msg.alert('成功', '保存成功');
+                Ext.Msg.alert('成功', '登录成功');
             },
             failure: function (form, action) {
                 //Ext.Msg.alert('失败', '保存失败');
+                me.destroy();
                 Ext.create('app.view.MainView');
             }
         });

@@ -6,9 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
+        "application": null,
         "controllers": [
             "MainController"
         ],
+        "listen": null,
         "models": [
             "Domianmodel",
             "RecordModel",

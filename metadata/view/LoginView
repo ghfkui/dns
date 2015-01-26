@@ -61,6 +61,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "allowBlank": false,
+                                "emptyText": "userName",
                                 "fieldLabel": "用户名",
                                 "layout|anchor": "100%",
                                 "name": "userName"
@@ -77,7 +78,9 @@
                             "codeClass": null,
                             "userConfig": {
                                 "allowBlank": false,
+                                "emptyText": "password",
                                 "fieldLabel": "密码",
+                                "inputType": "password",
                                 "layout|anchor": "100%",
                                 "name": "password"
                             },
@@ -96,7 +99,7 @@
                                 "container|pack": "end",
                                 "designer|displayName": "loginToolbar",
                                 "dock": "bottom",
-                                "frame": false
+                                "frame": null
                             },
                             "name": "MyToolbar",
                             "designerId": "8ffa35da-bb9e-433b-9fd8-e6351ae84e98",
@@ -109,6 +112,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "cls": null,
                                         "layout|flex": null,
                                         "text": "登录"
                                     },
@@ -135,12 +139,13 @@
                                                     "}",
                                                     "",
                                                     "form.submit({",
-                                                    "    waitMsg: '正在保存',",
+                                                    "    waitMsg: '正在登录',",
                                                     "    success: function (form, action) {",
-                                                    "        Ext.Msg.alert('成功', '保存成功');",
+                                                    "        Ext.Msg.alert('成功', '登录成功');",
                                                     "    },",
                                                     "    failure: function (form, action) {",
                                                     "        //Ext.Msg.alert('失败', '保存失败');",
+                                                    "        me.destroy();",
                                                     "        Ext.create('app.view.MainView');",
                                                     "    }",
                                                     "});"
