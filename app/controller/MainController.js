@@ -28,7 +28,7 @@ Ext.define('app.controller.MainController', {
 
     changeView: function(item, e, eOpts) {
         var content = this.getContent(),
-        	viewType = item.getRefView && item.getRefView(),
+            viewType = item.getRefView && item.getRefView(),
             view;
         if(viewType){
             view = Ext.createWidget(viewType);

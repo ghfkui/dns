@@ -28,6 +28,7 @@ Ext.define('app.view.LoginView', {
     viewModel: {
         type: 'loginview'
     },
+    itemId: 'loginView',
     layout: 'fit',
     defaultListenerScope: true,
 

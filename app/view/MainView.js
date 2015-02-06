@@ -120,7 +120,7 @@ Ext.define('app.view.MainView', {
                                 {
                                     xtype: 'menuitem',
                                     getRefView: function() {
-                                        return '';
+                                        return 'TrafficView';
                                     },
                                     text: '流量监控'
                                 },

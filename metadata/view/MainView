@@ -342,7 +342,7 @@
                                             "userConfig": {
                                                 "fn": "getRefView",
                                                 "implHandler": [
-                                                    "return '';"
+                                                    "return 'TrafficView';"
                                                 ]
                                             },
                                             "name": "getRefView",

@@ -39,7 +39,7 @@
                 "fn": "changeView",
                 "implHandler": [
                     "var content = this.getContent(),",
-                    "\tviewType = item.getRefView && item.getRefView(),",
+                    "    viewType = item.getRefView && item.getRefView(),",
                     "    view;",
                     "if(viewType){",
                     "    view = Ext.createWidget(viewType);",

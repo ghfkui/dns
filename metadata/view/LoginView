@@ -9,6 +9,7 @@
         "designer|initialView": true,
         "designer|userAlias": "LoginView",
         "designer|userClassName": "LoginView",
+        "itemId": "loginView",
         "layout": "fit"
     },
     "name": "MyViewport",
