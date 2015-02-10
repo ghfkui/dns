@@ -19,12 +19,12 @@ Ext.define('app.view.UsermgrView', {
 
     requires: [
         'app.view.UsermgrViewViewModel',
-        'Ext.toolbar.Toolbar',
+        'app.view.PagingToolbar',
         'Ext.button.Button',
         'Ext.grid.Panel',
-        'Ext.grid.column.Date',
         'Ext.grid.View',
-        'Ext.grid.column.Action'
+        'Ext.grid.column.Action',
+        'Ext.toolbar.Paging'
     ],
 
     viewModel: {
@@ -52,27 +52,17 @@ Ext.define('app.view.UsermgrView', {
     items: [
         {
             xtype: 'gridpanel',
+            autoScroll: true,
             title: '用户列表',
+            autoLoad: true,
+            sortableColumns: false,
             store: 'StoreUser',
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    width: '20%',
-                    dataIndex: 'userName',
+                    dataIndex: 'name',
+                    width: '70%',
                     text: '用户名'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    shrinkWrap: 1,
-                    width: '30%',
-                    dataIndex: 'email',
-                    text: '邮箱'
-                },
-                {
-                    xtype: 'datecolumn',
-                    width: '20%',
-                    dataIndex: 'createTime',
-                    text: '创建时间'
                 },
                 {
                     xtype: 'actioncolumn',
@@ -106,14 +96,14 @@ Ext.define('app.view.UsermgrView', {
                                                     view.getStore().load();
                                                     var result = Ext.decode(data.responseText);
                                                     if (result.success) {
-                                                        Ext.Msg.alert('成功', result.msg);
+                                                        Ext.Msg.alert('成功', '删除成功');
                                                     }
                                                 },
                                                 failure: function(data) {
                                                     Ext.Msg.alert('失败', "删除失败");
                                                 },
                                                 jsonData: {
-                                                    User: this.user
+                                                    id: this.user.id
                                                 },
                                                 scope: {
                                                     user: this.user,
@@ -135,6 +125,9 @@ Ext.define('app.view.UsermgrView', {
                     ]
                 }
             ]
+        },
+        {
+            xtype: 'pagingtoolbar'
         }
     ],
 

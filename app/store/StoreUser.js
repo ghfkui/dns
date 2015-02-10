@@ -29,47 +29,12 @@ Ext.define('app.store.StoreUser', {
         me.callParent([Ext.apply({
             storeId: 'StoreUser',
             model: 'app.model.UserModel',
-            data: [
-                {
-                    id: 26,
-                    userName: 'provident',
-                    password: 'zFGEjrHBLCI',
-                    email: 'rsnyder@skajo.name',
-                    createTime: '4/4/2007'
-                },
-                {
-                    id: 54,
-                    userName: 'provident',
-                    password: 'IThjiM0w0eRO',
-                    email: 'phayes@twitterbeat.info',
-                    createTime: '1/8/2008'
-                },
-                {
-                    id: 751,
-                    userName: 'est',
-                    password: 'I59OLvg',
-                    email: 'rreed@gabspot.org',
-                    createTime: '8/13/2006'
-                },
-                {
-                    id: 377,
-                    userName: 'laboriosam',
-                    password: 'xwKGwKo47m',
-                    email: 'jrussell@blogspan.com',
-                    createTime: '6/23/2008'
-                },
-                {
-                    id: 1,
-                    userName: 'vel',
-                    password: 'lSwDzR6CONi',
-                    email: 'srose@viva.name',
-                    createTime: '10/16/2004'
-                }
-            ],
             proxy: {
                 type: 'ajax',
+                url: '../users',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    rootProperty: 'data'
                 }
             }
         }, cfg)]);

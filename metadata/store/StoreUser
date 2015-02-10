@@ -52,6 +52,11 @@
     },
     "name": "MyJsonStore",
     "designerId": "4a40ecbe-b949-4931-96db-eec8b0e9e48b",
+    "configMeta": {
+        "data": {
+            "mock": true
+        }
+    },
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -60,6 +65,9 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "url": "../users"
+            },
             "name": "MyAjaxProxy",
             "designerId": "d48749ed-aa95-4409-9784-a895a45c0b60",
             "cn": [
@@ -70,6 +78,9 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
                     "name": "MyJsonReader",
                     "designerId": "80ef636b-3481-4087-ac5e-ae733c576b6e"
                 }

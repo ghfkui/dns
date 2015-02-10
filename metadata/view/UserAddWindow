@@ -69,7 +69,7 @@
                         "fieldLabel": "用户名",
                         "formBind": null,
                         "layout|anchor": "100%",
-                        "name": "userName"
+                        "name": "name"
                     },
                     "name": "MyTextField15",
                     "designerId": "8e978c9e-bdf1-4d1e-9303-fc11d7b05287"
@@ -82,25 +82,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "邮箱",
-                        "layout|anchor": "100%",
-                        "name": "email"
-                    },
-                    "name": "MyTextField16",
-                    "designerId": "37385d63-692f-4e22-af7b-c4639b491fc1"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
                         "fieldLabel": "密码",
                         "inputType": "password",
                         "layout|anchor": "100%",
-                        "name": "password"
+                        "name": "passwd"
                     },
                     "name": "MyTextField17",
                     "designerId": "53eb4ac8-cdbe-483e-9a62-2f6b434a0ff5"
@@ -157,10 +142,11 @@
                                             "form.submit({",
                                             "    waitMsg: '正在保存',",
                                             "    success: function (form, action) {",
-                                            "        Ext.Msg.alert('成功', '保存成功');",
+                                            "        Ext.Msg.alert('成功', '用户保存成功');",
+                                            "",
                                             "    },",
                                             "    failure: function (form, action) {",
-                                            "        Ext.Msg.alert('失败', '保存失败');",
+                                            "        Ext.Msg.alert('失败',  action.result.msg);",
                                             "    }",
                                             "});"
                                         ],

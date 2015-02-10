@@ -49,13 +49,14 @@ Ext.define('app.view.LoginView', {
                     width: 305,
                     bodyPadding: 10,
                     title: '登录',
+                    jsonSubmit: true,
                     url: '../user/login',
                     items: [
                         {
                             xtype: 'textfield',
                             anchor: '100%',
                             fieldLabel: '用户名',
-                            name: 'userName',
+                            name: 'name',
                             allowBlank: false,
                             emptyText: 'userName'
                         },
@@ -63,7 +64,7 @@ Ext.define('app.view.LoginView', {
                             xtype: 'textfield',
                             anchor: '100%',
                             fieldLabel: '密码',
-                            name: 'password',
+                            name: 'passwd',
                             inputType: 'password',
                             allowBlank: false,
                             emptyText: 'password'
@@ -107,12 +108,11 @@ Ext.define('app.view.LoginView', {
         form.submit({
             waitMsg: '正在登录',
             success: function (form, action) {
-                Ext.Msg.alert('成功', '登录成功');
-            },
-            failure: function (form, action) {
-                //Ext.Msg.alert('失败', '保存失败');
                 me.destroy();
                 Ext.create('app.view.MainView');
+            },
+            failure: function (form, action) {
+                Ext.Msg.alert('失败', action.result.msg);
             }
         });
     }

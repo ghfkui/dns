@@ -8,8 +8,7 @@
     "userConfig": {
         "application": null,
         "controllers": [
-            "MainController",
-            "LoginController"
+            "MainController"
         ],
         "listen": null,
         "models": [

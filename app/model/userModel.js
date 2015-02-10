@@ -19,8 +19,7 @@ Ext.define('app.model.UserModel', {
 
     requires: [
         'Ext.data.field.Integer',
-        'Ext.data.field.String',
-        'Ext.data.field.Date'
+        'Ext.data.field.String'
     ],
 
     fields: [
@@ -30,19 +29,11 @@ Ext.define('app.model.UserModel', {
         },
         {
             type: 'string',
-            name: 'userName'
+            name: 'name'
         },
         {
             type: 'string',
-            name: 'password'
-        },
-        {
-            type: 'string',
-            name: 'email'
-        },
-        {
-            type: 'date',
-            name: 'createTime'
+            name: 'passwd'
         }
     ]
 });

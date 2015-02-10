@@ -52,20 +52,14 @@ Ext.define('app.view.UserAddWindow', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: '用户名',
-                    name: 'userName',
+                    name: 'name',
                     allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     anchor: '100%',
-                    fieldLabel: '邮箱',
-                    name: 'email'
-                },
-                {
-                    xtype: 'textfield',
-                    anchor: '100%',
                     fieldLabel: '密码',
-                    name: 'password',
+                    name: 'passwd',
                     inputType: 'password'
                 }
             ],
@@ -105,10 +99,11 @@ Ext.define('app.view.UserAddWindow', {
         form.submit({
             waitMsg: '正在保存',
             success: function (form, action) {
-                Ext.Msg.alert('成功', '保存成功');
+                Ext.Msg.alert('成功', '用户保存成功');
+
             },
             failure: function (form, action) {
-                Ext.Msg.alert('失败', '保存失败');
+                Ext.Msg.alert('失败',  action.result.msg);
             }
         });
     },

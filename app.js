@@ -56,8 +56,7 @@ Ext.application({
         'UserAddWindow'
     ],
     controllers: [
-        'MainController',
-        'LoginController'
+        'MainController'
     ],
     name: 'app',
 

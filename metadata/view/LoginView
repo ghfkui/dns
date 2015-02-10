@@ -45,6 +45,7 @@
                         "designer|uiInterfaceName": "default-framed",
                         "frame": true,
                         "itemId": "loginForm",
+                        "jsonSubmit": true,
                         "layout|flex": null,
                         "title": "登录",
                         "url": "../user/login",
@@ -65,7 +66,7 @@
                                 "emptyText": "userName",
                                 "fieldLabel": "用户名",
                                 "layout|anchor": "100%",
-                                "name": "userName"
+                                "name": "name"
                             },
                             "name": "MyTextField1",
                             "designerId": "8b8d3fb0-2dfa-4947-9738-1850d47feb70"
@@ -83,7 +84,7 @@
                                 "fieldLabel": "密码",
                                 "inputType": "password",
                                 "layout|anchor": "100%",
-                                "name": "password"
+                                "name": "passwd"
                             },
                             "name": "MyTextField2",
                             "designerId": "ad07f907-7218-47b3-9911-677da424e22c"
@@ -142,12 +143,11 @@
                                                     "form.submit({",
                                                     "    waitMsg: '正在登录',",
                                                     "    success: function (form, action) {",
-                                                    "        Ext.Msg.alert('成功', '登录成功');",
-                                                    "    },",
-                                                    "    failure: function (form, action) {",
-                                                    "        //Ext.Msg.alert('失败', '保存失败');",
                                                     "        me.destroy();",
                                                     "        Ext.create('app.view.MainView');",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "        Ext.Msg.alert('失败', action.result.msg);",
                                                     "    }",
                                                     "});"
                                                 ],
