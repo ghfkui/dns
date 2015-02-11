@@ -19,8 +19,13 @@ Ext.define('app.view.RoutemgrView', {
 
     requires: [
         'app.view.RoutemgrViewViewModel',
+        'app.view.PagingToolbar',
         'Ext.tab.Panel',
         'Ext.tab.Tab',
+        'Ext.grid.Panel',
+        'Ext.grid.View',
+        'Ext.grid.column.Action',
+        'Ext.toolbar.Paging',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
@@ -41,7 +46,120 @@ Ext.define('app.view.RoutemgrView', {
             items: [
                 {
                     xtype: 'panel',
-                    title: '路由列表'
+                    title: '路由列表',
+                    items: [
+                        {
+                            xtype: 'gridpanel',
+                            itemId: 'routeList',
+                            header: false,
+                            title: 'routeList',
+                            autoLoad: true,
+                            store: 'StoreRoute',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'route',
+                                    text: '名称'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    text: '网卡'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'address',
+                                    text: '网络地址'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'gateway',
+                                    text: '网关地址'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                        if(record.enabled == 1){
+                                            return '<a href="#">启用</a>';
+                                        }else{
+                                            return '<a href="#">停用</a>';
+                                        }
+                                    },
+                                    dataIndex: 'enabled',
+                                    text: '状态'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'memo',
+                                    text: '备注'
+                                },
+                                {
+                                    xtype: 'actioncolumn',
+                                    text: '操作',
+                                    items: [
+                                        {
+                                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+
+                                            },
+                                            altText: '修改',
+                                            icon: 'image/edit.gif',
+                                            tooltip: '修改'
+                                        },
+                                        {
+                                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                var route = record.data;
+                                                var confirm = {
+                                                    title: "确认删除",
+                                                    msg: "请确认是否删除这个路由",
+                                                    closable: false,
+                                                    buttons: Ext.MessageBox.YESNO,
+                                                    icon: Ext.MessageBox.WARNING,
+                                                    fn: function(btn) {
+                                                        if (btn == "yes") {
+                                                            Ext.Ajax.request({
+                                                                url: '../route/remove',
+                                                                success: function(data, a1, a2) {
+                                                                    view.getStore().load();
+                                                                    var result = Ext.decode(data.responseText);
+                                                                    if (result.success) {
+                                                                        Ext.Msg.alert('成功', result.msg);
+                                                                    }
+                                                                },
+                                                                failure: function(data) {
+                                                                    Ext.Msg.alert('失败', "删除失败");
+                                                                },
+                                                                jsonData: {
+                                                                    id: this.route.id
+                                                                },
+                                                                scope: {
+                                                                    route: this.route,
+                                                                    view: this.view
+                                                                }
+                                                            });
+                                                        }
+                                                    },
+                                                    scope: {
+                                                        route: route,
+                                                        view: view
+                                                    },
+                                                };
+                                                Ext.MessageBox.show(confirm, this);
+                                            },
+                                            altText: '删除',
+                                            icon: 'image/delete.gif',
+                                            tooltip: '删除'
+                                        }
+                                    ]
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'pagingtoolbar',
+                                    dock: 'bottom',
+                                    store: 'StoreRoute'
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     xtype: 'panel',

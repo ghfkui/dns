@@ -113,10 +113,10 @@
                                         ],
                                         "fn": "renderer",
                                         "implHandler": [
-                                            " if (record.data.Enable==1)",
-                                            "                                return '<font color=\"#00FF00\">正常解析</font>';",
-                                            "                                else",
-                                            "                                return '<font color=\"#FF0000\">停止解析</font>';"
+                                            "if (record.data.Enable==1)",
+                                            "    return '<font color=\"#00FF00\">正常解析</font>';",
+                                            "else",
+                                            "    return '<font color=\"#FF0000\">停止解析</font>';"
                                         ]
                                     },
                                     "name": "renderer",

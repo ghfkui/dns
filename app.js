@@ -27,7 +27,8 @@ Ext.application({
         'Dnslog',
         'Traffic',
         'Interface',
-        'UserModel'
+        'UserModel',
+        'RouteModel'
     ],
     stores: [
         'StoreZones',
@@ -36,7 +37,8 @@ Ext.application({
         'StoreDNSLog',
         'StoreNetTraffic',
         'StoreUser',
-        'StoreInterface'
+        'StoreInterface',
+        'StoreRoute'
     ],
     views: [
         'MainView',

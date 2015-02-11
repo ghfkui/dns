@@ -51,6 +51,299 @@
                             "codeClass": null,
                             "name": "TabConfig8",
                             "designerId": "77300649-6176-4322-8927-0cd2cef4a5ce"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoLoad": true,
+                                "header": false,
+                                "itemId": "routeList",
+                                "store": "StoreRoute",
+                                "title": "routeList"
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "3ca46991-597b-472b-a52d-b5e937140b03",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "route",
+                                        "text": "名称"
+                                    },
+                                    "name": "MyColumn3",
+                                    "designerId": "e205fb38-6ccf-4075-b27d-55a17693a14d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "网卡"
+                                    },
+                                    "name": "MyColumn",
+                                    "designerId": "5ba55432-5981-4eae-a644-14731d1a1994"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "address",
+                                        "text": "网络地址"
+                                    },
+                                    "name": "MyColumn5",
+                                    "designerId": "e4e267f3-a3cc-4aeb-9ea4-3335cba1cac8"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "gateway",
+                                        "text": "网关地址"
+                                    },
+                                    "name": "MyColumn4",
+                                    "designerId": "e7b769bb-6397-4ebb-b86e-fff001b0cd3c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "enabled",
+                                        "text": "状态"
+                                    },
+                                    "name": "MyColumn7",
+                                    "designerId": "cd7b6808-3630-43b8-a58c-9a33e03235ac",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if(record.enabled == 1){",
+                                                    "    return '<a href=\"#\">启用</a>';",
+                                                    "}else{",
+                                                    "    return '<a href=\"#\">停用</a>';   ",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "e7b4fb99-9daf-4470-8b97-a5f1b823bf36"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "memo",
+                                        "text": "备注"
+                                    },
+                                    "name": "MyColumn8",
+                                    "designerId": "03fe8b36-e270-4ada-923d-1ab37253d759"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView",
+                                    "designerId": "98fc1ae8-75a8-4260-85bc-7a59e0aaa311"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Action",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "操作"
+                                    },
+                                    "name": "MyActionColumn",
+                                    "designerId": "1f8c53c4-1f0e-4a10-8f06-32641c80d5aa",
+                                    "cn": [
+                                        {
+                                            "type": "actioncolumnitem",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "altText": "修改",
+                                                "designer|displayName": "edit",
+                                                "icon": "image/edit.gif",
+                                                "tooltip": "修改"
+                                            },
+                                            "name": "MyActionColumnItem",
+                                            "designerId": "fb4aabba-e192-454d-9ef2-9f23ef36821b",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": null
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "396a0dd7-099c-4666-a4c4-6e24fc2542df"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "actioncolumnitem",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "altText": "删除",
+                                                "designer|displayName": "delete",
+                                                "icon": "image/delete.gif",
+                                                "tooltip": "删除"
+                                            },
+                                            "name": "MyActionColumnItem3",
+                                            "designerId": "865a5ef0-a161-4985-a02c-d64a52ec6cc4",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var route = record.data;",
+                                                            "var confirm = {",
+                                                            "    title: \"确认删除\",",
+                                                            "    msg: \"请确认是否删除这个路由\",",
+                                                            "    closable: false,",
+                                                            "    buttons: Ext.MessageBox.YESNO,",
+                                                            "    icon: Ext.MessageBox.WARNING,",
+                                                            "    fn: function(btn) {",
+                                                            "        if (btn == \"yes\") {",
+                                                            "            Ext.Ajax.request({",
+                                                            "                url: '../route/remove',",
+                                                            "                success: function(data, a1, a2) {",
+                                                            "                    view.getStore().load();",
+                                                            "                    var result = Ext.decode(data.responseText);",
+                                                            "                    if (result.success) {",
+                                                            "                        Ext.Msg.alert('成功', result.msg);",
+                                                            "                    }",
+                                                            "                },",
+                                                            "                failure: function(data) {",
+                                                            "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                                            "                },",
+                                                            "                jsonData: {",
+                                                            "                    id: this.route.id",
+                                                            "                },",
+                                                            "                scope: {",
+                                                            "                    route: this.route,",
+                                                            "                    view: this.view",
+                                                            "                }",
+                                                            "            });",
+                                                            "        }",
+                                                            "    },",
+                                                            "    scope: {",
+                                                            "        route: route,",
+                                                            "        view: view",
+                                                            "    },",
+                                                            "};",
+                                                            "Ext.MessageBox.show(confirm, this);"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "50d749c3-8c3c-4553-8e50-285049aa3309"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": "bottom",
+                                        "store": "StoreRoute"
+                                    },
+                                    "name": "pagingtoolbar4",
+                                    "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
+                                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                                }
+                            ]
                         }
                     ]
                 },

@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RouteModel"
+    },
+    "name": "MyModel",
+    "designerId": "a2a32a1e-32aa-4d1f-9d44-2c1001cd25e8",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyInteger1",
+            "designerId": "b37794f1-405f-4a98-825e-6762de9a10b1"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "route"
+            },
+            "name": "MyString2",
+            "designerId": "34e47990-a40e-45e9-b446-daaab7c1cb56"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "gateway"
+            },
+            "name": "MyString3",
+            "designerId": "4655cc29-a45f-40fe-ab53-00ca1bf7731d"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "address"
+            },
+            "name": "MyString4",
+            "designerId": "9ccf550e-7b27-44ba-b0ee-a7564bc35870"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "enabled"
+            },
+            "name": "MyInteger2",
+            "designerId": "99dceac0-6386-4112-9d48-c73b5f99f296"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "memo"
+            },
+            "name": "MyString5",
+            "designerId": "672ad70e-bd4b-463b-9c34-7b2ddbe8f79d"
+        }
+    ]
+}

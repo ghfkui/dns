@@ -18,7 +18,8 @@
             "Dnslog",
             "Traffic",
             "Interface",
-            "UserModel"
+            "UserModel",
+            "RouteModel"
         ],
         "name": "app",
         "stores": [
@@ -28,7 +29,8 @@
             "StoreDNSLog",
             "StoreNetTraffic",
             "StoreUser",
-            "StoreInterface"
+            "StoreInterface",
+            "StoreRoute"
         ],
         "views": [
             "MainView",

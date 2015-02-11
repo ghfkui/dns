@@ -1,0 +1,45 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreRoute",
+        "model": "RouteModel",
+        "storeId": "StoreRoute"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f708ee0d-093d-4e8f-8db6-95836401012e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../routes"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "d6fb3169-b5ab-47f1-abdc-7c4451349844",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "6e63cb88-64e3-445d-91a9-481340690512"
+                }
+            ]
+        }
+    ]
+}

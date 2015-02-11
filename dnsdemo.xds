@@ -13,7 +13,7 @@
             }
         },
         "urlPrefix": "http://localhost/dnsdemo/",
-        "exportPath": "D:/nginx/html/d",
+        "exportPath": "C:/nginx-1.7.9/html/d",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "buildShouldOverwriteIndex": false,
@@ -87,10 +87,10 @@
             "bc6256ad-fbc3-4341-8dce-7c86f266d6f9",
             "04d6ffaa-ede5-4ef6-b17b-c452e575c464",
             "bb494aae-9dbb-4e76-9ac7-77fbd51ccfc2",
-            "4a40ecbe-b949-4931-96db-eec8b0e9e48b"
+            "4a40ecbe-b949-4931-96db-eec8b0e9e48b",
+            "f708ee0d-093d-4e8f-8db6-95836401012e"
         ],
         "controller": [
-            "baaa3bab-699e-4fa5-bde5-e0372ec3ed0f",
             "bff5d8da-2211-4c09-a84e-e858425ea3b7"
         ],
         "model": [
@@ -100,7 +100,8 @@
             "b1240a8f-72a5-4482-877a-228fcab85bc3",
             "83db31b9-489b-4dab-b5b7-7d8ded07a8a2",
             "38250c49-4f82-430c-aef0-028bb3ce5b67",
-            "221e0f20-23dd-488d-a900-2d994093dd92"
+            "221e0f20-23dd-488d-a900-2d994093dd92",
+            "a2a32a1e-32aa-4d1f-9d44-2c1001cd25e8"
         ],
         "resource": [
             "2237e27c-c861-43b3-9a9b-f7e6afcba6f6",
