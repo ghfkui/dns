@@ -124,10 +124,14 @@ Ext.define('app.view.UsermgrView', {
                         }
                     ]
                 }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'pagingtoolbar',
+                    dock: 'bottom',
+                    store: 'StoreUser'
+                }
             ]
-        },
-        {
-            xtype: 'pagingtoolbar'
         }
     ],
 

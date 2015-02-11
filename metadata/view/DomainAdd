@@ -286,13 +286,13 @@
                             "    this.up(\"form\").getForm().url=this.up(\"DomainAdd\").urlUpdate;",
                             "}",
                             "this.up(\"form\").getForm().submit({",
-                            "     waitMsg: '正在保存',",
+                            "    waitMsg: '正在保存',",
                             "    success: function (form, action) {",
                             "        Ext.Msg.alert('成功', action.result.msg);",
                             "    },",
-                            "      failure: function (form, action) {",
-                            "                        Ext.Msg.alert('失败', action.result.msg);",
-                            "                    }",
+                            "    failure: function (form, action) {",
+                            "        Ext.Msg.alert('失败', action.result.msg);",
+                            "    }",
                             "});"
                         ]
                     },

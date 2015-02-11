@@ -250,19 +250,23 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "store": "StoreUser"
+                    },
+                    "name": "pagingtoolbar3",
+                    "designerId": "02dc8757-dd1f-473b-b095-04c36fcd93f0",
+                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }
             ]
-        },
-        {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "name": "pagingtoolbar1",
-            "designerId": "5bc40396-1fa3-4ce1-80ef-20ea78df03ef",
-            "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
         }
     ]
 }
