@@ -38,6 +38,7 @@ Ext.define('app.view.LogView', {
             id: 'dnsloggrid',
             header: false,
             title: 'My Grid Panel',
+            autoLoad: true,
             scroll: 'vertical',
             store: 'StoreDNSLog',
             columns: [

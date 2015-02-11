@@ -60,8 +60,8 @@ Ext.define('app.view.UsermgrView', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'name',
                     width: '70%',
+                    dataIndex: 'name',
                     text: '用户名'
                 },
                 {

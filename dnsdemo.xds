@@ -13,7 +13,7 @@
             }
         },
         "urlPrefix": "http://localhost/dnsdemo/",
-        "exportPath": "C:/nginx-1.7.9/html/d",
+        "exportPath": "D:/nginx/html/d",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "buildShouldOverwriteIndex": false,
@@ -90,6 +90,7 @@
             "4a40ecbe-b949-4931-96db-eec8b0e9e48b"
         ],
         "controller": [
+            "baaa3bab-699e-4fa5-bde5-e0372ec3ed0f",
             "bff5d8da-2211-4c09-a84e-e858425ea3b7"
         ],
         "model": [
