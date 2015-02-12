@@ -69,11 +69,13 @@ Ext.define('app.view.RoutemgrView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    width: '20%',
                                     dataIndex: 'address',
                                     text: '网络地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    width: '20%',
                                     dataIndex: 'gateway',
                                     text: '网关地址'
                                 },
@@ -100,7 +102,7 @@ Ext.define('app.view.RoutemgrView', {
                                     items: [
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-
+                                                console.log('a')
                                             },
                                             altText: '修改',
                                             icon: 'image/edit.gif',
@@ -171,9 +173,9 @@ Ext.define('app.view.RoutemgrView', {
                     items: [
                         {
                             xtype: 'form',
+                            itemId: 'routeAddForm',
                             bodyPadding: 10,
                             header: false,
-                            title: 'routeAddForm',
                             jsonSubmit: true,
                             url: '../route/add',
                             items: [
@@ -181,7 +183,8 @@ Ext.define('app.view.RoutemgrView', {
                                     xtype: 'textfield',
                                     anchor: '60%',
                                     fieldLabel: '路由名称',
-                                    name: 'route'
+                                    name: 'route',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'combobox',
@@ -189,7 +192,8 @@ Ext.define('app.view.RoutemgrView', {
                                     fieldLabel: '选择网卡',
                                     name: 'eth',
                                     displayField: 'eth',
-                                    store: 'StoreEth'
+                                    store: 'StoreEth',
+                                    valueField: 'eth'
                                 },
                                 {
                                     xtype: 'fieldcontainer',
@@ -200,7 +204,8 @@ Ext.define('app.view.RoutemgrView', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: '网络地址'
+                                            fieldLabel: '网络地址',
+                                            name: 'address'
                                         },
                                         {
                                             xtype: 'combobox',
@@ -216,8 +221,10 @@ Ext.define('app.view.RoutemgrView', {
                                 {
                                     xtype: 'textfield',
                                     anchor: '60%',
+                                    modelValidation: false,
                                     fieldLabel: '网关',
-                                    name: 'gateway'
+                                    name: 'gateway',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textareafield',

@@ -106,7 +106,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "address",
-                                        "text": "网络地址"
+                                        "text": "网络地址",
+                                        "width": "20%"
                                     },
                                     "name": "MyColumn5",
                                     "designerId": "e4e267f3-a3cc-4aeb-9ea4-3335cba1cac8"
@@ -120,7 +121,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "gateway",
-                                        "text": "网关地址"
+                                        "text": "网关地址",
+                                        "width": "20%"
                                     },
                                     "name": "MyColumn4",
                                     "designerId": "e7b769bb-6397-4ebb-b86e-fff001b0cd3c"
@@ -241,7 +243,9 @@
                                                             "row"
                                                         ],
                                                         "fn": "handler",
-                                                        "implHandler": null
+                                                        "implHandler": [
+                                                            "console.log('a')"
+                                                        ]
                                                     },
                                                     "name": "handler",
                                                     "designerId": "396a0dd7-099c-4666-a4c4-6e24fc2542df"
@@ -340,7 +344,7 @@
                                         "dock": "bottom",
                                         "store": "StoreRoute"
                                     },
-                                    "name": "pagingtoolbar1",
+                                    "name": "pagingtoolbar",
                                     "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
                                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                                 }
@@ -395,8 +399,9 @@
                             "userConfig": {
                                 "bodyPadding": 10,
                                 "header": false,
+                                "itemId": "routeAddForm",
                                 "jsonSubmit": true,
-                                "title": "routeAddForm",
+                                "title": null,
                                 "url": "../route/add"
                             },
                             "name": "MyForm8",
@@ -410,6 +415,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "allowBlank": false,
                                         "fieldLabel": "路由名称",
                                         "layout|anchor": "60%",
                                         "name": "route"
@@ -429,7 +435,9 @@
                                         "fieldLabel": "选择网卡",
                                         "layout|anchor": "60%",
                                         "name": "eth",
-                                        "store": "StoreEth"
+                                        "store": "StoreEth",
+                                        "valueField": "eth",
+                                        "width": null
                                     },
                                     "name": "MyComboBox2",
                                     "designerId": "e08cc408-882c-4b70-aff1-803daceb9a05"
@@ -458,7 +466,8 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "网络地址"
+                                                "fieldLabel": "网络地址",
+                                                "name": "address"
                                             },
                                             "name": "MyTextField11",
                                             "designerId": "d67be1b3-cc68-486e-be15-20c409fdabf7"
@@ -491,8 +500,10 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "allowBlank": false,
                                         "fieldLabel": "网关",
                                         "layout|anchor": "60%",
+                                        "modelValidation": false,
                                         "name": "gateway"
                                     },
                                     "name": "MyTextField",
