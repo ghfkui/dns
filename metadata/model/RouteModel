@@ -45,6 +45,19 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "eth"
+            },
+            "name": "MyString1",
+            "designerId": "e2737b8a-746b-4bf7-a516-200d110ad7a1"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "gateway"
             },
             "name": "MyString3",

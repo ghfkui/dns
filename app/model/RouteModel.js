@@ -32,6 +32,10 @@ Ext.define('app.model.RouteModel', {
         },
         {
             type: 'string',
+            name: 'eth'
+        },
+        {
+            type: 'string',
             name: 'gateway'
         },
         {

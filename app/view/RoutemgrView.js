@@ -37,6 +37,7 @@ Ext.define('app.view.RoutemgrView', {
         type: 'routemgrview'
     },
     title: '路由管理',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -63,6 +64,7 @@ Ext.define('app.view.RoutemgrView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'eth',
                                     text: '网卡'
                                 },
                                 {
@@ -154,8 +156,8 @@ Ext.define('app.view.RoutemgrView', {
                             dockedItems: [
                                 {
                                     xtype: 'pagingtoolbar',
-                                    dock: 'bottom',
-                                    store: 'StoreRoute'
+                                    store: 'StoreRoute',
+                                    dock: 'bottom'
                                 }
                             ]
                         }
@@ -163,23 +165,31 @@ Ext.define('app.view.RoutemgrView', {
                 },
                 {
                     xtype: 'panel',
+                    rowUpdate: 'false',
+                    urlUpdate: '../route/update',
                     title: '添加路由',
                     items: [
                         {
                             xtype: 'form',
                             bodyPadding: 10,
                             header: false,
-                            title: 'My Form',
+                            title: 'routeAddForm',
+                            jsonSubmit: true,
+                            url: '../route/add',
                             items: [
                                 {
                                     xtype: 'textfield',
                                     anchor: '60%',
-                                    fieldLabel: '路由名称'
+                                    fieldLabel: '路由名称',
+                                    name: 'route'
                                 },
                                 {
                                     xtype: 'combobox',
                                     anchor: '60%',
-                                    fieldLabel: '选择网卡'
+                                    fieldLabel: '选择网卡',
+                                    name: 'eth',
+                                    displayField: 'eth',
+                                    store: 'StoreEth'
                                 },
                                 {
                                     xtype: 'fieldcontainer',
@@ -198,24 +208,36 @@ Ext.define('app.view.RoutemgrView', {
                                             fieldLabel: '        /',
                                             labelPad: 10,
                                             labelSeparator: ' ',
-                                            labelWidth: 10
+                                            labelWidth: 10,
+                                            name: 'address'
                                         }
                                     ]
                                 },
                                 {
+                                    xtype: 'textfield',
+                                    anchor: '60%',
+                                    fieldLabel: '网关',
+                                    name: 'gateway'
+                                },
+                                {
                                     xtype: 'textareafield',
                                     anchor: '60%',
-                                    fieldLabel: '描述'
+                                    fieldLabel: '描述',
+                                    name: 'memo'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     anchor: '100%',
                                     fieldLabel: '生效设置',
+                                    name: 'enabled',
                                     boxLabel: '立即启用'
                                 },
                                 {
                                     xtype: 'button',
-                                    text: '添加'
+                                    text: '添加',
+                                    listeners: {
+                                        click: 'onButtonClick'
+                                    }
                                 }
                             ]
                         }
@@ -223,6 +245,28 @@ Ext.define('app.view.RoutemgrView', {
                 }
             ]
         }
-    ]
+    ],
+
+    onButtonClick: function(button, e, eOpts) {
+         var me = this,
+             form = me.down('form#routeAddForm'),
+             valid = form.isValid();
+        if(!valid){
+            return false;
+        }
+        if(me.rowUpdate){
+            form.getForm().url = me.urlUpdate;
+        }
+        form.submit({
+            waitMsg: '正在保存',
+            success: function (form, action) {
+                Ext.Msg.alert('成功', '路由保存成功');
+
+            },
+            failure: function (form, action) {
+                Ext.Msg.alert('失败',  action.result.msg);
+            }
+        });
+    }
 
 });

@@ -38,7 +38,8 @@ Ext.application({
         'StoreNetTraffic',
         'StoreUser',
         'StoreInterface',
-        'StoreRoute'
+        'StoreRoute',
+        'StoreEth'
     ],
     views: [
         'MainView',

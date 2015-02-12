@@ -91,6 +91,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "dataIndex": "eth",
                                         "text": "网卡"
                                     },
                                     "name": "MyColumn",
@@ -339,7 +340,7 @@
                                         "dock": "bottom",
                                         "store": "StoreRoute"
                                     },
-                                    "name": "pagingtoolbar4",
+                                    "name": "pagingtoolbar1",
                                     "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
                                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                                 }
@@ -355,10 +356,24 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "添加路由"
+                        "rowUpdate": "false",
+                        "title": "添加路由",
+                        "urlUpdate": "../route/update"
                     },
                     "name": "MyPanel20",
                     "designerId": "b28b11e4-712c-4df6-be05-4954fe059e18",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "rowUpdate",
+                            "type": "string"
+                        },
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "urlUpdate",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "Ext.tab.Tab",
@@ -380,7 +395,9 @@
                             "userConfig": {
                                 "bodyPadding": 10,
                                 "header": false,
-                                "title": "My Form"
+                                "jsonSubmit": true,
+                                "title": "routeAddForm",
+                                "url": "../route/add"
                             },
                             "name": "MyForm8",
                             "designerId": "eaa8e615-f1ed-4d58-bd6e-f8956b47b084",
@@ -394,7 +411,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "路由名称",
-                                        "layout|anchor": "60%"
+                                        "layout|anchor": "60%",
+                                        "name": "route"
                                     },
                                     "name": "MyTextField10",
                                     "designerId": "adf4db1d-f229-41cf-8ae4-c5ef81921edb"
@@ -407,8 +425,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "displayField": "eth",
                                         "fieldLabel": "选择网卡",
-                                        "layout|anchor": "60%"
+                                        "layout|anchor": "60%",
+                                        "name": "eth",
+                                        "store": "StoreEth"
                                     },
                                     "name": "MyComboBox2",
                                     "designerId": "e08cc408-882c-4b70-aff1-803daceb9a05"
@@ -454,12 +475,28 @@
                                                 "labelPad": 10,
                                                 "labelSeparator": " ",
                                                 "labelWidth": 10,
+                                                "name": "address",
                                                 "padding": 10
                                             },
                                             "name": "MyComboBox3",
                                             "designerId": "33dafdce-f1a5-48fa-b218-a3c63ae212b8"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "网关",
+                                        "layout|anchor": "60%",
+                                        "name": "gateway"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "40667bec-75c8-4608-9ca8-e9ecaa500658"
                                 },
                                 {
                                     "type": "Ext.form.field.TextArea",
@@ -470,7 +507,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "描述",
-                                        "layout|anchor": "60%"
+                                        "layout|anchor": "60%",
+                                        "name": "memo"
                                     },
                                     "name": "MyTextArea4",
                                     "designerId": "9f47591f-f85f-465f-bbc7-457b4525ef38"
@@ -485,7 +523,8 @@
                                     "userConfig": {
                                         "boxLabel": "立即启用",
                                         "fieldLabel": "生效设置",
-                                        "layout|anchor": "100%"
+                                        "layout|anchor": "100%",
+                                        "name": "enabled"
                                     },
                                     "name": "MyCheckbox2",
                                     "designerId": "c3f571b3-807e-4e7f-b295-200d6a7ef612"
@@ -501,7 +540,45 @@
                                         "text": "添加"
                                     },
                                     "name": "MyButton10",
-                                    "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832"
+                                    "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onButtonClick",
+                                                "implHandler": [
+                                                    " var me = this,",
+                                                    "     form = me.down('form#routeAddForm'),",
+                                                    "     valid = form.isValid();",
+                                                    "if(!valid){",
+                                                    "    return false;",
+                                                    "}",
+                                                    "if(me.rowUpdate){",
+                                                    "    form.getForm().url = me.urlUpdate;",
+                                                    "}",
+                                                    "form.submit({",
+                                                    "    waitMsg: '正在保存',",
+                                                    "    success: function (form, action) {",
+                                                    "        Ext.Msg.alert('成功', '路由保存成功');",
+                                                    "",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                    "    }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onButtonClick",
+                                            "designerId": "534ed035-42ce-480e-a2d1-1e0dc67144a3"
+                                        }
+                                    ]
                                 }
                             ]
                         }
