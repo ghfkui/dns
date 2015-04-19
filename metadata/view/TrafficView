@@ -30,6 +30,12 @@
                     "var dataArr = [];",
                     "var sendByte = -1;",
                     "var rtByte = -1;",
+                    "var date = new Date();",
+                    "date.setDate(date.getDate()-1);",
+                    "for(var i=0;i<20;i++){",
+                    "    date.setSeconds(date.getSeconds()+1);",
+                    "    dataArr.push([0,0,Ext.Date.format(date,'Y-m-d H:i:s')]);",
+                    "}",
                     "var store = new Ext.data.ArrayStore({",
                     "            fields: ['received','sent', 'time'],",
                     "            data: dataArr",
@@ -49,7 +55,7 @@
                     "            }",
                     "",
                     "            dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);",
-                    "            if (dataArr.length>20)",
+                    "            if (dataArr.length>21)",
                     "            {",
                     "               dataArr = dataArr.slice(1);",
                     "            }",
@@ -101,9 +107,9 @@
                             "false"
                         ],
                         "colors": [
-                            "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                            "['#ff0000', '#00FF00', \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
                         ],
-                        "height": 300,
+                        "height": 500,
                         "id": "trafficeline",
                         "shadow": true,
                         "store": "StoreNetTraffic"
@@ -122,12 +128,17 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "time",
                                 "fields": [
                                     "time"
                                 ],
-                                "title": null
+                                "grid": true,
+                                "label": null
                             },
                             "name": "MyCategoryAxis1",
+                            "configAlternates": {
+                                "grid": "boolean"
+                            },
                             "designerId": "096284d6-1fc6-4d04-9edf-5b56e3576794"
                         },
                         {
@@ -138,14 +149,26 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "speed",
+                                "fields": [
+                                    "received",
+                                    "sent"
+                                ],
+                                "grid": true,
                                 "increment": null,
                                 "labelInSpan": false,
                                 "maximum": null,
                                 "minimum": 0,
                                 "position": "left",
-                                "title": null
+                                "title": [
+                                    "{text: '单位: kbps'}"
+                                ],
+                                "titleMargin": 20
                             },
                             "name": "MyNumericAxis1",
+                            "configAlternates": {
+                                "grid": "boolean"
+                            },
                             "designerId": "f0526d4c-0851-42de-b335-073fe472f7be"
                         },
                         {
@@ -161,6 +184,9 @@
                                     " {",
                                     "     stroke: '#ff0000'",
                                     "}"
+                                ],
+                                "title": [
+                                    "上传速度"
                                 ],
                                 "xField": "time",
                                 "yField": [
@@ -192,6 +218,9 @@
                                 "style": [
                                     "{stroke:'#00FF00'}"
                                 ],
+                                "title": [
+                                    "下载速度"
+                                ],
                                 "xField": "time",
                                 "yField": [
                                     "received"
@@ -199,6 +228,52 @@
                             },
                             "name": "MyLineSeries",
                             "designerId": "046bd4e6-97f1-4bec-860b-a842b6379c4a"
+                        },
+                        {
+                            "type": "Ext.chart.Legend",
+                            "reference": {
+                                "name": "legend",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemSelector": null
+                            },
+                            "name": "MyLegend",
+                            "designerId": "647a54e0-3454-4dd0-8723-7cc1db6a541d",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "tpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "tpl",
+                                        "implHandler": [
+                                            "<div class=\"",
+                                            "x-",
+                                            "legend-container\">",
+                                            "<tpl for=\".\">",
+                                            "<div class=\"",
+                                            "x-",
+                                            "legend-item\">",
+                                            "<span ",
+                                            "class=\"",
+                                            "x-",
+                                            "legend-item-marker {[ values.disabled ? Ext.baseCSSPrefix + 'legend-inactive' : '' ]}\" ",
+                                            "style=\"float:left;margin:7px;height:1px;width:20px;background:{mark};\">",
+                                            "</span>{name}",
+                                            "</div>",
+                                            "</tpl>",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl",
+                                    "designerId": "10da4ac1-0396-44e2-b735-01560bf0b066"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -24,7 +24,9 @@ Ext.define('app.view.TrafficView', {
         'Ext.chart.axis.Category',
         'Ext.chart.axis.Numeric',
         'Ext.chart.series.Line',
-        'Ext.chart.interactions.PanZoom'
+        'Ext.chart.interactions.PanZoom',
+        'Ext.chart.Legend',
+        'Ext.XTemplate'
     ],
 
     viewModel: {
@@ -46,12 +48,12 @@ Ext.define('app.view.TrafficView', {
                 {
                     xtype: 'cartesian',
                     shadow: true,
-                    height: 300,
+                    height: 500,
                     id: 'trafficeline',
                     animation: false,
                     colors: [
-                        '#115fa6',
-                        '#94ae0a',
+                        '#ff0000',
+                        '#00FF00',
                         '#a61120',
                         '#ff8809',
                         '#ffd13e',
@@ -67,13 +69,23 @@ Ext.define('app.view.TrafficView', {
                             fields: [
                                 'time'
                             ],
+                            grid: true,
                             position: 'bottom'
                         },
                         {
                             type: 'numeric',
+                            fields: [
+                                'received',
+                                'sent'
+                            ],
+                            grid: true,
                             labelInSpan: false,
                             minimum: 0,
-                            position: 'left'
+                            position: 'left',
+                            title: {
+                                text: '单位: kbps'
+                            },
+                            titleMargin: 20
                         }
                     ],
                     series: [
@@ -82,6 +94,7 @@ Ext.define('app.view.TrafficView', {
                             style: {
                                 stroke: '#ff0000'
                             },
+                            title: '上传速度',
                             xField: 'time',
                             yField: [
                                 'sent'
@@ -93,6 +106,7 @@ Ext.define('app.view.TrafficView', {
                             style: {
                                 stroke: '#00FF00'
                             },
+                            title: '下载速度',
                             xField: 'time',
                             yField: [
                                 'received'
@@ -104,7 +118,28 @@ Ext.define('app.view.TrafficView', {
                         {
                             type: 'panzoom'
                         }
-                    ]
+                    ],
+                    legend: {
+                        xtype: 'legend',
+                        tpl: [
+                            '<div class="',
+                            'x-',
+                            'legend-container">',
+                            '<tpl for=".">',
+                            '<div class="',
+                            'x-',
+                            'legend-item">',
+                            '<span ',
+                            'class="',
+                            'x-',
+                            'legend-item-marker {[ values.disabled ? Ext.baseCSSPrefix + \'legend-inactive\' : \'\' ]}" ',
+                            'style="float:left;margin:7px;height:1px;width:20px;background:{mark};">',
+                            '</span>{name}',
+                            '</div>',
+                            '</tpl>',
+                            '</div>'
+                        ]
+                    }
                 }
             ]
         }
@@ -115,6 +150,12 @@ Ext.define('app.view.TrafficView', {
         var dataArr = [];
         var sendByte = -1;
         var rtByte = -1;
+        var date = new Date();
+        date.setDate(date.getDate()-1);
+        for(var i=0;i<20;i++){
+            date.setSeconds(date.getSeconds()+1);
+            dataArr.push([0,0,Ext.Date.format(date,'Y-m-d H:i:s')]);
+        }
         var store = new Ext.data.ArrayStore({
                     fields: ['received','sent', 'time'],
                     data: dataArr
@@ -134,7 +175,7 @@ Ext.define('app.view.TrafficView', {
                     }
 
                     dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);
-                    if (dataArr.length>20)
+                    if (dataArr.length>21)
                     {
                        dataArr = dataArr.slice(1);
                     }

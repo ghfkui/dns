@@ -133,7 +133,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "trafficview1",
+                    "name": "trafficview",
                     "designerId": "888707ae-0d95-4596-820f-8763dce03f97",
                     "masterInstanceId": "bb1a661f-a7e3-4bff-8b81-08c562a5a1b1",
                     "cn": [
