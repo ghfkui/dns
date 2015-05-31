@@ -9,6 +9,7 @@
         "designer|userAlias": "UserAddWindow",
         "designer|userClassName": "UserAddWindow",
         "height": null,
+        "modal": true,
         "rowUpdate": false,
         "title": "用户管理",
         "urlUpdate": "../user/update",

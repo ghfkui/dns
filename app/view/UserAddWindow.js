@@ -35,6 +35,7 @@ Ext.define('app.view.UserAddWindow', {
     },
     width: 400,
     title: '用户管理',
+    modal: true,
     defaultListenerScope: true,
 
     items: [

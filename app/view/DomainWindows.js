@@ -29,6 +29,7 @@ Ext.define('app.view.DomainWindows', {
     height: 510,
     width: 642,
     title: '域名管理',
+    modal: true,
     defaultListenerScope: true,
 
     items: [

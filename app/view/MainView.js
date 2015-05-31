@@ -52,9 +52,23 @@ Ext.define('app.view.MainView', {
                                 {
                                     xtype: 'menuitem',
                                     getRefView: function() {
+                                        return 'Generalconfig';
+                                    },
+                                    text: '常规设置'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    getRefView: function() {
                                         return 'NetworkConfigs';
                                     },
                                     text: '网络设置'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return 'SecuritymgrView';
+                                    },
+                                    text: '安全设置'
                                 },
                                 {
                                     xtype: 'menuitem',

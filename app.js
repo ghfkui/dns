@@ -59,12 +59,14 @@ Ext.application({
         'SystemInfoView',
         'TrafficView',
         'NetworkConfigs',
-        'RoutemgrView',
+        'SecuritymgrView',
         'UsermgrView',
         'UserAddWindow',
         'OperateLogView',
         'StatisticsView',
-        'ImportAndExport'
+        'ImportAndExport',
+        'RoutemgrView',
+        'Generalconfig'
     ],
     controllers: [
         'MainController'

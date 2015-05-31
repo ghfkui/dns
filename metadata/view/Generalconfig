@@ -1,0 +1,759 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "container|padding": 10,
+        "designer|userAlias": "Generalconfig",
+        "designer|userClassName": "Generalconfig",
+        "layout": "vbox",
+        "margin": null,
+        "title": "常规设置"
+    },
+    "name": "NetworkConfigs1",
+    "designerId": "ddbbec94-25a8-4fd7-b3d9-dd2a30930097",
+    "viewControllerInstanceId": "44f1ee66-4bae-4bb8-8a69-96cfde98da5f",
+    "viewModelInstanceId": "175cedc0-c859-401a-9f2c-8d169f3a8ff0",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "header": false,
+                "layout|flex": 1,
+                "title": "My Panel"
+            },
+            "name": "MyPanel23",
+            "designerId": "a3a8e310-89e6-4fa4-8428-50f5c882d12e",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "header": false,
+                        "jsonSubmit": true,
+                        "title": "My Panel",
+                        "url": "../settiing/save"
+                    },
+                    "name": "MyForm9",
+                    "designerId": "ecbad315-6a85-42c3-ba53-55924fb30bb5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "name",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox",
+                                "width": null
+                            },
+                            "name": "MyFieldContainer",
+                            "designerId": "a01768c4-9af0-4ee0-84d2-c453393469ff",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "主机名称"
+                                    },
+                                    "name": "MyTextField10",
+                                    "designerId": "27c800e9-8c52-4a08-bfbf-d1d8b6c2b4ff"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|margins": null,
+                                        "margin": "3 0 0 20",
+                                        "text": "这是服务器的名称，这里不要填写域名"
+                                    },
+                                    "name": "MyLabel2",
+                                    "designerId": "851d4bed-09ec-446f-b83d-d0a354a606f8"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "domain",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer15",
+                            "designerId": "59ff1558-c713-48c9-b062-d79b845fa7ec",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "域名"
+                                    },
+                                    "name": "MyTextField13",
+                                    "designerId": "9671c4bc-894b-4b89-9b6e-0d81d0baca16"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "margin": "3 0 0 20",
+                                        "text": "指定域名，如fercase.com.cn"
+                                    },
+                                    "name": "MyLabel4",
+                                    "designerId": "23c10730-5962-4c71-ae99-e15ccc7282a4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "protocol",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer16",
+                            "designerId": "f9da6d2c-21f2-45b9-981d-e801d11df431",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "WEB协议"
+                                    },
+                                    "name": "MyRadioGroup1",
+                                    "designerId": "33b895c0-db9c-4481-9473-ea7010468c64",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "HTTP",
+                                                "fieldLabel": null
+                                            },
+                                            "name": "MyRadio2",
+                                            "designerId": "a284f7f1-84a2-4355-8735-d246839f0929"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "HTTPS",
+                                                "fieldLabel": null
+                                            },
+                                            "name": "MyRadio3",
+                                            "designerId": "5950b532-4bed-4841-aff0-172cadc4ab2d"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "margin": "3 0 0 20",
+                                        "text": "选择连接方式"
+                                    },
+                                    "name": "MyLabel5",
+                                    "designerId": "1c8d42a9-a75c-4142-9eb2-7062378f5886"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "port",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer17",
+                            "designerId": "d93b68e8-3050-4ffd-b001-865a75ea87b9",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "WEB端口",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyNumberField9",
+                                    "designerId": "1cd24822-99a3-469f-a4da-1fd76abcabc9"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "margin": "3 0 0 20",
+                                        "text": "指定WEB访问端口"
+                                    },
+                                    "name": "MyLabel6",
+                                    "designerId": "d7c23f50-a57b-41c7-ab49-5e2f10763465"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "logintype",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer18",
+                            "designerId": "47555bf5-a6c9-4be6-a5c4-b9ab103c4e45",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "登录方式",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyRadioGroup2",
+                                    "designerId": "6c7f4464-56f9-44ea-aacd-75f92c15ae67",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "COOKIE",
+                                                "fieldLabel": null
+                                            },
+                                            "name": "MyRadio4",
+                                            "designerId": "2afb5275-8a6d-4881-b5f4-fccfd5f18208"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "HTTP",
+                                                "fieldLabel": null
+                                            },
+                                            "name": "MyRadio5",
+                                            "designerId": "1fcb7867-2a71-45cd-80a1-01680419fa98"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "timesetting",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer19",
+                            "designerId": "caaf4d6c-61e0-436c-85ff-82f1f92f02e0",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "时间设置",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyDateField",
+                                    "designerId": "d6a93f67-73ab-47df-8e87-40bc6ff0cd47"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "timezone",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer20",
+                            "designerId": "a748f2c4-dc0f-48b3-b97f-4423e39faaaa",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "选择时区",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyComboBox4",
+                                    "designerId": "6b9c9d7a-1d14-4dde-8d4e-14fe075be8e5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "timesync",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer21",
+                            "designerId": "a8059456-e51b-426d-ba0a-e2822046c611",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Number",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "时间同步",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyNumberField10",
+                                    "designerId": "c64be6ca-b5a5-4b19-a873-e615e961dc59"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "margin": "0 0 0 5",
+                                        "padding": "5 0",
+                                        "text": "分钟",
+                                        "width": 30
+                                    },
+                                    "name": "MyLabel7",
+                                    "designerId": "d45891a4-cde1-4f30-bacc-e95f893c4cdb"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "margin": "5 0 0 15",
+                                        "text": "指定每次同步间隔时间，如果设置为0，则不同步时间，建议按默认（300）设置"
+                                    },
+                                    "name": "MyLabel8",
+                                    "designerId": "05940309-d49f-41dc-a995-0bc72443a2ad"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "timeserver",
+                                "height": null,
+                                "hideLabel": true,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer22",
+                            "designerId": "3afd360a-028c-4757-8092-c7c06983ce27",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "时间服务器",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyTextField14",
+                                    "designerId": "c0bb6df0-0d29-4f14-9632-7de30ac9fc55"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": 1,
+                                        "margin": "3 0 0 20",
+                                        "text": "指定从那里同步时间"
+                                    },
+                                    "name": "MyLabel9",
+                                    "designerId": "7bde6dd9-2f3b-4be8-a8fa-5c81cff77eb2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "fieldLabel": "日志设置",
+                                "height": null,
+                                "layout": "hbox"
+                            },
+                            "name": "MyFieldContainer6",
+                            "designerId": "ab5feda4-c4ed-45e2-a0f0-d2f6c682ac51",
+                            "cn": [
+                                {
+                                    "type": "Ext.container.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|align": "stretch",
+                                        "layout": "vbox",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyContainer",
+                                    "designerId": "3ecf6bae-072b-4460-873a-6c37ee80e0b9",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": null,
+                                                "style": [
+                                                    "{font-weight:bold;}"
+                                                ],
+                                                "text": "启用日志"
+                                            },
+                                            "name": "MyLabel",
+                                            "designerId": "2ff89cea-3176-4e0a-a787-f44d24ee919e"
+                                        },
+                                        {
+                                            "type": "Ext.form.CheckboxGroup",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": null,
+                                                "layout|flex": 1
+                                            },
+                                            "name": "MyCheckboxGroup",
+                                            "designerId": "598b52f6-6909-47bc-9615-e211b14889ac",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "防火墙日志",
+                                                        "fieldLabel": null
+                                                    },
+                                                    "name": "MyCheckbox3",
+                                                    "designerId": "443a4b68-0c31-4970-af5e-2310b45edd0d"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "DNS日志",
+                                                        "fieldLabel": null
+                                                    },
+                                                    "name": "MyCheckbox4",
+                                                    "designerId": "1a3ff828-83bf-49b8-96a5-0774d5b79d8c"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "系统日志",
+                                                        "fieldLabel": null
+                                                    },
+                                                    "name": "MyCheckbox5",
+                                                    "designerId": "1f337539-0133-4bdd-bd65-3b9726bccac2"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "margin": null,
+                                                "style": [
+                                                    "{font-weight:bold;}"
+                                                ],
+                                                "text": "远程日志"
+                                            },
+                                            "name": "MyLabel1",
+                                            "designerId": "485299eb-ccea-4acb-ad23-5cc1968dc045"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": "服务器",
+                                                "layout|flex": 1
+                                            },
+                                            "name": "MyTextField15",
+                                            "designerId": "4f6dce5c-6887-45a3-8822-c5518207974f"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldContainer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|align": "middle",
+                                        "fieldLabel": "info",
+                                        "height": null,
+                                        "hideLabel": true,
+                                        "layout": "hbox",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyFieldContainer23",
+                                    "designerId": "c5b0d662-b18b-4d03-b072-2de3282970c2",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 20",
+                                                "text": "输入远程存储日志的服务器，如果为空，则不启用远程日志服务"
+                                            },
+                                            "name": "MyLabel10",
+                                            "designerId": "cc2bc1c1-5fdc-487e-9be5-fdc28dfbb430"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": null,
+                                "dock": "bottom"
+                            },
+                            "name": "MyToolbar2",
+                            "designerId": "fac6996c-c4de-4517-898e-28ec8bbbd5af",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "saveBtn",
+                                        "layout|flex": null,
+                                        "text": "保存"
+                                    },
+                                    "name": "MyButton11",
+                                    "designerId": "e32ce275-f09c-4c89-87f3-00496203bde4",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onButtonClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    form = me.down('form');",
+                                                    "form.submit({",
+                                                    "    waitMsg: '正在保存',",
+                                                    "    success: function (form, action) {",
+                                                    "        Ext.Msg.alert('成功', '保存成功');",
+                                                    "    },",
+                                                    "    failure: function (form, action) {",
+                                                    "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                    "    }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onButtonClick",
+                                            "designerId": "8a4d5e26-704f-4368-a9c0-263fbfc3235c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

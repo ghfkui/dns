@@ -19,11 +19,18 @@ Ext.define('app.view.NetworkConfigs', {
 
     requires: [
         'app.view.NetworkConfigsViewModel',
+        'Ext.tab.Panel',
+        'Ext.tab.Tab',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
-        'Ext.grid.View'
+        'Ext.grid.View',
+        'Ext.form.Panel',
+        'Ext.form.RadioGroup',
+        'Ext.form.field.Radio',
+        'Ext.form.field.ComboBox',
+        'Ext.form.Label',
+        'Ext.grid.column.Action'
     ],
 
     viewModel: {
@@ -38,72 +45,336 @@ Ext.define('app.view.NetworkConfigs', {
     },
     items: [
         {
-            xtype: 'toolbar',
-            items: [
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        this.up().up().query("gridpanel[id=interfacegrid]")[0].store.load();
-                    },
-                    text: '刷新'
-                }
-            ]
-        },
-        {
-            xtype: 'panel',
+            xtype: 'tabpanel',
             flex: 1,
-            autoScroll: true,
-            frameHeader: false,
-            header: false,
-            title: 'My Panel',
+            activeTab: 0,
             items: [
                 {
-                    xtype: 'gridpanel',
-                    id: 'interfacegrid',
-                    margin: 10,
-                    title: '网络接口',
-                    autoLoad: true,
-                    store: 'StoreInterface',
-                    columns: [
+                    xtype: 'panel',
+                    title: '网卡状态',
+                    items: [
                         {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'name',
-                            text: '接口'
+                            xtype: 'panel',
+                            autoScroll: true,
+                            frameHeader: false,
+                            header: false,
+                            title: 'My Panel',
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            handler: function(button, e) {
+                                                this.up().up().query("gridpanel[id=interfacegrid]")[0].store.load();
+                                            },
+                                            text: '刷新'
+                                        }
+                                    ]
+                                }
+                            ],
+                            items: [
+                                {
+                                    xtype: 'gridpanel',
+                                    id: 'interfacegrid',
+                                    margin: 10,
+                                    title: '网络接口',
+                                    autoLoad: true,
+                                    store: 'StoreInterface',
+                                    columns: [
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'name',
+                                            text: '接口'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'ip',
+                                            text: 'IP'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'packets_recv',
+                                            text: '接收包数'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'errin',
+                                            text: '接收错误包'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'dropin',
+                                            text: '接收丢弃包'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'packets_sent',
+                                            text: '发送包数'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'errout',
+                                            text: '发送错误包'
+                                        },
+                                        {
+                                            xtype: 'numbercolumn',
+                                            dataIndex: 'dropout',
+                                            text: '发送丢弃包'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    title: 'WAN接口',
+                    items: [
+                        {
+                            xtype: 'form',
+                            margin: '0 10',
+                            title: '网卡配置',
+                            items: [
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'ipprotocol',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'radiogroup',
+                                            width: 400,
+                                            fieldLabel: 'IP协议',
+                                            items: [
+                                                {
+                                                    xtype: 'radiofield',
+                                                    boxLabel: 'IPv4'
+                                                },
+                                                {
+                                                    xtype: 'radiofield',
+                                                    boxLabel: 'IPv6'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'ipaddress',
+                                    hideLabel: true,
+                                    layout: {
+                                        type: 'hbox',
+                                        align: 'stretch'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '网络地址'
+                                        },
+                                        {
+                                            xtype: 'combobox',
+                                            margin: '0 0 0 5',
+                                            width: 60,
+                                            fieldLabel: '    /',
+                                            labelSeparator: '/',
+                                            labelWidth: 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'gateway',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '网关'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'safety',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'checkboxfield',
+                                            fieldLabel: '安全',
+                                            boxLabel: '阻止私有网络'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'webmgr',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'checkboxfield',
+                                            fieldLabel: 'WEB管理',
+                                            boxLabel: '启用'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'dnsservice',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'checkboxfield',
+                                            fieldLabel: 'DNS服务',
+                                            boxLabel: '启用'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    padding: '10 10',
+                                    fieldLabel: 'allowping',
+                                    hideLabel: true,
+                                    items: [
+                                        {
+                                            xtype: 'checkboxfield',
+                                            fieldLabel: '允许PING',
+                                            boxLabel: '启用'
+                                        }
+                                    ]
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'bottom',
+                                    layout: {
+                                        type: 'hbox',
+                                        pack: 'center'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            text: '保存'
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'ip',
-                            text: 'IP'
+                            xtype: 'panel',
+                            title: '相关IP列表'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    padding: '10 0',
+                    title: '接口管理',
+                    items: [
+                        {
+                            xtype: 'form',
+                            margin: '0 10',
+                            padding: '',
+                            bodyPadding: '10 0 0 10',
+                            title: '添加接口',
+                            jsonSubmit: true,
+                            layout: {
+                                type: 'vbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'fieldcontainer',
+                                    fieldLabel: 'Label',
+                                    hideLabel: true,
+                                    layout: {
+                                        type: 'hbox',
+                                        align: 'stretch'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: '名称'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            margin: '3 0 0 20',
+                                            text: '接口名称，3-10位英文字母'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    fieldLabel: 'Label',
+                                    hideLabel: true,
+                                    layout: {
+                                        type: 'hbox',
+                                        align: 'stretch'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'combobox',
+                                            fieldLabel: '网卡'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            margin: '3 0 0 20',
+                                            text: '选择对应的网卡绑定到该接口'
+                                        }
+                                    ]
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'bottom',
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            text: '添加接口'
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'packets_recv',
-                            text: '接收包数'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'errin',
-                            text: '接收错误包'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'dropin',
-                            text: '接收丢弃包'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'packets_sent',
-                            text: '发送包数'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'errout',
-                            text: '发送错误包'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'dropout',
-                            text: '发送丢弃包'
+                            xtype: 'gridpanel',
+                            margin: 10,
+                            padding: '10 0',
+                            title: '接口列表',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'string',
+                                    text: '接口名称'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'string',
+                                    text: '接口网卡'
+                                },
+                                {
+                                    xtype: 'actioncolumn',
+                                    text: '操作',
+                                    items: [
+                                        {
+                                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                console.log('删除接口');
+                                            },
+                                            altText: '删除',
+                                            icon: 'image/delete.gif',
+                                            tooltip: '删除'
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }

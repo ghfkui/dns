@@ -51,12 +51,14 @@
             "SystemInfoView",
             "TrafficView",
             "NetworkConfigs",
-            "RoutemgrView",
+            "SecuritymgrView",
             "UsermgrView",
             "UserAddWindow",
             "OperateLogView",
             "StatisticsView",
-            "ImportAndExport"
+            "ImportAndExport",
+            "RoutemgrView",
+            "Generalconfig"
         ]
     },
     "name": "Application",

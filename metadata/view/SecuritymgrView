@@ -1,0 +1,1453 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "SecuritymgrView",
+        "designer|userClassName": "SecuritymgrView",
+        "layout": "vbox",
+        "rowUpdate": false,
+        "title": "安全管理",
+        "urlUpdate": "../route/update"
+    },
+    "name": "MyPanel17",
+    "configAlternates": {
+        "rowUpdate": "boolean"
+    },
+    "designerId": "bb12f71f-3f45-4249-bf47-0c7864d0cee2",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rowUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "urlUpdate",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "520b6b51-5aa6-48c1-84b9-8528cef807ed",
+    "viewModelInstanceId": "3c957f11-1a8f-47d1-984b-caf75234268f",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "activeTab": 0,
+                "layout|flex": 1,
+                "margin": 10
+            },
+            "name": "MyTabPanel3",
+            "designerId": "1ec95ab4-ce4a-4c0e-afb1-f2050d7df74d",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "title": "规则列表"
+                    },
+                    "name": "MyPanel17",
+                    "designerId": "e8011003-a21a-4154-9f53-1908f1c1f158",
+                    "cn": [
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig8",
+                            "designerId": "77300649-6176-4322-8927-0cd2cef4a5ce"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoLoad": true,
+                                "autoScroll": true,
+                                "header": false,
+                                "itemId": "ruleList",
+                                "layout|flex": 1,
+                                "store": "StoreRoute",
+                                "title": "routeList"
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "3ca46991-597b-472b-a52d-b5e937140b03",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Number",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "ID"
+                                    },
+                                    "name": "MyNumberColumn8",
+                                    "designerId": "9db3b50a-716b-4523-b8fd-1b79c2004a95"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "route",
+                                        "text": "网站接口",
+                                        "width": "10%"
+                                    },
+                                    "name": "MyColumn3",
+                                    "designerId": "e205fb38-6ccf-4075-b27d-55a17693a14d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "eth",
+                                        "text": "来源地址"
+                                    },
+                                    "name": "MyColumn",
+                                    "designerId": "5ba55432-5981-4eae-a644-14731d1a1994"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "address",
+                                        "text": "目标地址",
+                                        "width": "20%"
+                                    },
+                                    "name": "MyColumn5",
+                                    "designerId": "e4e267f3-a3cc-4aeb-9ea4-3335cba1cac8"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "gateway",
+                                        "text": "协议/版本",
+                                        "width": "20%"
+                                    },
+                                    "name": "MyColumn4",
+                                    "designerId": "e7b769bb-6397-4ebb-b86e-fff001b0cd3c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "enabled",
+                                        "text": "方向"
+                                    },
+                                    "name": "MyColumn7",
+                                    "designerId": "cd7b6808-3630-43b8-a58c-9a33e03235ac",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if(record.data.enabled == 1){",
+                                                    "    return '<a href=\"#\" class=\"enable\">启用</a>';",
+                                                    "}else{",
+                                                    "    return '<a href=\"#\" class=\"disable\">停用</a>';",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "e7b4fb99-9daf-4470-8b97-a5f1b823bf36"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "memo",
+                                        "text": "执行属性"
+                                    },
+                                    "name": "MyColumn8",
+                                    "designerId": "03fe8b36-e270-4ada-923d-1ab37253d759"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "enabled",
+                                        "text": "日志"
+                                    },
+                                    "name": "MyColumn14",
+                                    "designerId": "c8640225-e740-49ba-ab86-1a1ed8e8ba55",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if(record.data.enabled == 1){",
+                                                    "    return '<a href=\"#\" class=\"enable\">启用</a>';",
+                                                    "}else{",
+                                                    "    return '<a href=\"#\" class=\"disable\">停用</a>';",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "17f8881c-52e6-456a-90f5-e39acf2f20e0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "enabled",
+                                        "text": "状态"
+                                    },
+                                    "name": "MyColumn15",
+                                    "designerId": "b8630f25-d344-4eb1-a814-b3dad6715193",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if(record.data.enabled == 1){",
+                                                    "    return '<a href=\"#\" class=\"enable\">启用</a>';",
+                                                    "}else{",
+                                                    "    return '<a href=\"#\" class=\"disable\">停用</a>';",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "317360c5-d453-4a07-9b09-badca6842da5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView",
+                                    "designerId": "98fc1ae8-75a8-4260-85bc-7a59e0aaa311"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Action",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "操作"
+                                    },
+                                    "name": "MyActionColumn",
+                                    "designerId": "1f8c53c4-1f0e-4a10-8f06-32641c80d5aa",
+                                    "cn": [
+                                        {
+                                            "type": "actioncolumnitem",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "altText": "修改",
+                                                "designer|displayName": "edit",
+                                                "icon": "image/edit.gif",
+                                                "tooltip": "修改"
+                                            },
+                                            "name": "MyActionColumnItem",
+                                            "designerId": "fb4aabba-e192-454d-9ef2-9f23ef36821b",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "console.log('a');",
+                                                            "var tabpanel = view.up('tabpanel'),",
+                                                            "    routeAddForm = tabpanel.down(\"form#routeAddForm\"),",
+                                                            "    panel = tabpanel.up(\"panel\");",
+                                                            "panel.rowUpdate = true;",
+                                                            "routeAddForm.getForm().setValues(record.data);",
+                                                            "routeAddForm.down(\"textfield[name=route]\").setDisabled(true);",
+                                                            "tabpanel.setActiveItem(1);"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "396a0dd7-099c-4666-a4c4-6e24fc2542df"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "actioncolumnitem",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "altText": "删除",
+                                                "designer|displayName": "delete",
+                                                "icon": "image/delete.gif",
+                                                "tooltip": "删除"
+                                            },
+                                            "name": "MyActionColumnItem3",
+                                            "designerId": "865a5ef0-a161-4985-a02c-d64a52ec6cc4",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var route = record.data;",
+                                                            "var confirm = {",
+                                                            "    title: \"确认删除\",",
+                                                            "    msg: \"请确认是否删除这个路由\",",
+                                                            "    closable: false,",
+                                                            "    buttons: Ext.MessageBox.YESNO,",
+                                                            "    icon: Ext.MessageBox.WARNING,",
+                                                            "    fn: function(btn) {",
+                                                            "        if (btn == \"yes\") {",
+                                                            "            Ext.Ajax.request({",
+                                                            "                url: '../route/remove',",
+                                                            "                success: function(data, a1, a2) {",
+                                                            "                    view.getStore().load();",
+                                                            "                    var result = Ext.decode(data.responseText);",
+                                                            "                    if (result.success) {",
+                                                            "                        Ext.Msg.alert('成功', result.msg);",
+                                                            "                    }",
+                                                            "                },",
+                                                            "                failure: function(data) {",
+                                                            "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                                            "                },",
+                                                            "                jsonData: {",
+                                                            "                    id: this.route.id",
+                                                            "                },",
+                                                            "                scope: {",
+                                                            "                    route: this.route,",
+                                                            "                    view: this.view",
+                                                            "                }",
+                                                            "            });",
+                                                            "        }",
+                                                            "    },",
+                                                            "    scope: {",
+                                                            "        route: route,",
+                                                            "        view: view",
+                                                            "    }",
+                                                            "};",
+                                                            "Ext.MessageBox.show(confirm, this);"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "50d749c3-8c3c-4553-8e50-285049aa3309"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": "bottom",
+                                        "store": "StoreRoute"
+                                    },
+                                    "name": "pagingtoolbar8",
+                                    "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
+                                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onRouteListCellClick",
+                                        "implHandler": [
+                                            "var target = e.target,",
+                                            "    route = record.data,",
+                                            "    enabled = 0;",
+                                            "if(target && target.className.indexOf(\"disable\") != -1){",
+                                            "    enabled = 1;",
+                                            "}",
+                                            "Ext.Ajax.request({",
+                                            "    url: '../route/status',",
+                                            "    success: function(data, a1, a2) {",
+                                            "",
+                                            "        var result = Ext.decode(data.responseText);",
+                                            "        if (result.success) {",
+                                            "            this.route.enabled = this.enabled;",
+                                            "            this.view.refresh();",
+                                            "        }",
+                                            "    },",
+                                            "    failure: function(data) {",
+                                            "        Ext.Msg.alert('失败', \"操作失败\");",
+                                            "    },",
+                                            "    jsonData: {",
+                                            "        id: route.id,",
+                                            "        enabled: enabled",
+                                            "    },",
+                                            "    scope: {",
+                                            "        route: route,",
+                                            "        enabled: enabled,",
+                                            "        view: tableview",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "cellclick",
+                                        "scope": "me"
+                                    },
+                                    "name": "onRouteListCellClick",
+                                    "designerId": "7b4e86f8-4b85-4e30-91d4-4313ced97d9a"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "rowUpdate": null,
+                        "title": "添加规则"
+                    },
+                    "name": "MyPanel20",
+                    "designerId": "b28b11e4-712c-4df6-be05-4954fe059e18",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "rowUpdate",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "header": false,
+                                "title": "My Panel"
+                            },
+                            "name": "MyPanel22",
+                            "designerId": "15cefb19-f9aa-46ea-a97d-01043a582509",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "bodyPadding": 10,
+                                        "header": false,
+                                        "itemId": "ruleAddForm",
+                                        "jsonSubmit": true,
+                                        "title": null,
+                                        "url": "../route/add"
+                                    },
+                                    "name": "MyForm8",
+                                    "designerId": "eaa8e615-f1ed-4d58-bd6e-f8956b47b084",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "forbidrule",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer24",
+                                            "designerId": "19f346bb-fb64-4161-9c01-190455ef1ebe",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "禁止规则",
+                                                        "fieldLabel": "禁止规则",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyCheckbox7",
+                                                    "designerId": "9854eb23-f355-4310-adf2-3a22a9ee1deb"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": "选中后，这条规则将不会生效"
+                                                    },
+                                                    "name": "MyLabel11",
+                                                    "designerId": "0f24e71e-f2d6-4402-9bce-c27d893e5839"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "ipversion",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer25",
+                                            "designerId": "3bb17ccf-2b9b-4ca8-9665-afa8420ab8ea",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "IP版本",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyComboBox7",
+                                                    "designerId": "acb2adc1-b91d-4485-8774-e870c8f34203"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "actionproperty",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer28",
+                                            "designerId": "d75d028a-55b9-4426-bed5-8b619e79ceb0",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "执行属性",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyComboBox7",
+                                                    "designerId": "d8a91421-1a2d-455e-ae9c-e06803ebb48c"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "ruledirection",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer29",
+                                            "designerId": "0a1cfc74-ac69-42cc-b373-bd3364ca00c1",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "规则方向",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyComboBox7",
+                                                    "designerId": "7c81b634-5bb0-4829-ac57-3285c8692193"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "selectinterface",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer30",
+                                            "designerId": "76506c21-28b0-4cf7-90de-437ddf33b533",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "选择接口",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyComboBox7",
+                                                    "designerId": "fe740e59-0a1e-4c22-840e-ed3706381c24"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "selectprotocol",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer31",
+                                            "designerId": "bf406a25-5742-4f23-804b-0d6bd48f0c23",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "选择协议",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyComboBox7",
+                                                    "designerId": "f26eb5a0-5df3-4a33-8a1c-fc6b6896bb6a"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "来源地址",
+                                                "height": null,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer26",
+                                            "designerId": "43f1cea0-a192-4bb8-a017-9bd0a6496d3b",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.container.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "container|align": "stretch",
+                                                        "layout": "vbox",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyContainer1",
+                                                    "designerId": "7715e0bf-9b5d-4b5c-b901-70d21f5a0d36",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.form.field.ComboBox",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "Label",
+                                                                "hideLabel": true,
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyComboBox8",
+                                                            "designerId": "bbc6fc3c-5534-41e0-bb90-31a9c21e778b"
+                                                        },
+                                                        {
+                                                            "type": "Ext.form.FieldContainer",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "container|align": "stretch",
+                                                                "fieldLabel": "Label",
+                                                                "height": null,
+                                                                "hideLabel": true,
+                                                                "layout": "hbox",
+                                                                "layout|flex": 1,
+                                                                "width": 400
+                                                            },
+                                                            "name": "MyFieldContainer34",
+                                                            "designerId": "90e39756-37b3-45c0-872b-bc0dc4f8f0a7",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "Ext.form.field.Text",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fieldLabel": null
+                                                                    },
+                                                                    "name": "MyTextField21",
+                                                                    "designerId": "4fd56488-f92c-4cdc-8825-2c5f46114a7c"
+                                                                },
+                                                                {
+                                                                    "type": "Ext.form.field.ComboBox",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fieldLabel": "   /",
+                                                                        "labelSeparator": "/",
+                                                                        "labelWidth": 5,
+                                                                        "margin": "0 0 0 5",
+                                                                        "width": 60
+                                                                    },
+                                                                    "name": "MyComboBox9",
+                                                                    "designerId": "cfd34c45-b771-4e48-ab08-cfa7570c9525"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel12",
+                                                    "designerId": "3d7239f4-6e1e-4779-9ffb-d5715103ce7b"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "来源端口",
+                                                "height": null,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer36",
+                                            "designerId": "2ddeaeac-dc63-4b93-b13f-2f0a1b41f80d",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.container.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "container|align": "stretch",
+                                                        "layout": "vbox",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyContainer1",
+                                                    "designerId": "24080100-c535-4acd-9920-50ca5cf0b114",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.form.field.ComboBox",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "选择常用端口",
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyComboBox8",
+                                                            "designerId": "9bae8cdf-7c8b-4d78-b6ce-ffeaeae85493"
+                                                        },
+                                                        {
+                                                            "type": "Ext.form.field.Text",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "自定义端口",
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyTextField22",
+                                                            "designerId": "d9470f12-b03c-4a6b-8946-bc66fa2ffd19"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel12",
+                                                    "designerId": "b4e45015-1bd9-49b1-a739-ab2e2952db9d"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "目标地址",
+                                                "height": null,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer35",
+                                            "designerId": "e5f1a66e-7f8f-407b-940e-be2f3de5815a",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.container.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "container|align": "stretch",
+                                                        "layout": "vbox",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyContainer1",
+                                                    "designerId": "a890b7bc-e801-49b1-a6ec-3246487f073c",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.form.field.ComboBox",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "Label",
+                                                                "hideLabel": true,
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyComboBox8",
+                                                            "designerId": "d7b57f74-b35e-41f3-92f3-cdbc0f0370f0"
+                                                        },
+                                                        {
+                                                            "type": "Ext.form.FieldContainer",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "container|align": "stretch",
+                                                                "fieldLabel": "Label",
+                                                                "height": null,
+                                                                "hideLabel": true,
+                                                                "layout": "hbox",
+                                                                "layout|flex": 1,
+                                                                "width": 400
+                                                            },
+                                                            "name": "MyFieldContainer34",
+                                                            "designerId": "618a41d5-c3f9-4a53-818e-4db61e54c1d9",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "Ext.form.field.Text",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fieldLabel": null
+                                                                    },
+                                                                    "name": "MyTextField21",
+                                                                    "designerId": "128303ff-b99d-4bc2-89c9-7733c17ca0d4"
+                                                                },
+                                                                {
+                                                                    "type": "Ext.form.field.ComboBox",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fieldLabel": "   /",
+                                                                        "labelSeparator": "/",
+                                                                        "labelWidth": 5,
+                                                                        "margin": "0 0 0 5",
+                                                                        "width": 60
+                                                                    },
+                                                                    "name": "MyComboBox9",
+                                                                    "designerId": "b83bfaf4-eee3-4786-994e-b78d0be7b6d0"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel12",
+                                                    "designerId": "f1114fa6-4424-43c3-b378-7e654872f6ce"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "目标端口",
+                                                "height": null,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer37",
+                                            "designerId": "d8cef410-558d-46f0-bfde-f1365b48a695",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.container.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "container|align": "stretch",
+                                                        "layout": "vbox",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyContainer1",
+                                                    "designerId": "fc54ea3a-79d7-452c-b258-03634d7f5657",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.form.field.ComboBox",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "选择常用端口",
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyComboBox8",
+                                                            "designerId": "4d09e57d-a880-49f8-a245-24c6c0d8942d"
+                                                        },
+                                                        {
+                                                            "type": "Ext.form.field.Text",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fieldLabel": "自定义端口",
+                                                                "layout|flex": 1
+                                                            },
+                                                            "name": "MyTextField22",
+                                                            "designerId": "e9001bc2-0595-4315-bd32-63dfd89023b5"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel12",
+                                                    "designerId": "0f853b7e-8717-4dbc-964b-3217aa0b8319"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "chip",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer32",
+                                            "designerId": "2949cf13-e799-41ba-9951-5cce19bf0d3f",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "碎片过滤",
+                                                        "fieldLabel": "碎片选型",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyCheckbox7",
+                                                    "designerId": "01bf467f-48b1-46d9-829c-beffaded2c18"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": "选中后，这条规则将不会生效"
+                                                    },
+                                                    "name": "MyLabel11",
+                                                    "designerId": "897acd33-2157-4696-b12b-1f94f03fb2a4"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "log",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer33",
+                                            "designerId": "aff2e7d2-4969-4aef-ba6d-78138121a296",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "为该规则记录日志",
+                                                        "fieldLabel": "日志选项",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyCheckbox7",
+                                                    "designerId": "ac4c0ac2-ab0d-4e60-9fba-b87980a1ab7a"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "text": "选中后，这条规则将不会生效"
+                                                    },
+                                                    "name": "MyLabel11",
+                                                    "designerId": "dd8107df-03eb-4619-8af5-fc3e35d55677"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldContainer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "stretch",
+                                                "fieldLabel": "ruledescription",
+                                                "height": null,
+                                                "hideLabel": true,
+                                                "layout": "hbox"
+                                            },
+                                            "name": "MyFieldContainer27",
+                                            "designerId": "00b786ea-ef77-469c-9ea0-e07e27177e80",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Text",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "规则描述",
+                                                        "layout|flex": 1
+                                                    },
+                                                    "name": "MyTextField20",
+                                                    "designerId": "c3488427-f36c-4786-9215-db8a154aab05"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Toolbar",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|align": "bottom",
+                                                "container|padding": null,
+                                                "dock": "bottom"
+                                            },
+                                            "name": "MyToolbar3",
+                                            "designerId": "09287fad-d1f7-43ed-94b9-151b8d52544c",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "add",
+                                                        "layout|flex": null,
+                                                        "text": "添加"
+                                                    },
+                                                    "name": "MyButton10",
+                                                    "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832",
+                                                    "cn": [
+                                                        {
+                                                            "type": "basiceventbinding",
+                                                            "reference": {
+                                                                "name": "listeners",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "onAddClick",
+                                                                "implHandler": [
+                                                                    " var me = this,",
+                                                                    "     form = me.down('form#ruleAddForm'),",
+                                                                    "     valid = form.isValid();",
+                                                                    "if(!valid){",
+                                                                    "    return false;",
+                                                                    "}",
+                                                                    "if(me.rowUpdate){",
+                                                                    "    form.getForm().url = me.urlUpdate;",
+                                                                    "}",
+                                                                    "form.submit({",
+                                                                    "    waitMsg: '正在保存',",
+                                                                    "    success: function (form, action) {",
+                                                                    "        Ext.Msg.alert('成功', '路由保存成功');",
+                                                                    "",
+                                                                    "        if(me.rowUpdate){",
+                                                                    "            me.down(\"pagingtoolbar\").doRefresh();",
+                                                                    "        }else{",
+                                                                    "            me.down(\"gridpanel#ruleList\").getStore().load();",
+                                                                    "        }",
+                                                                    "        me.resetForm();",
+                                                                    "",
+                                                                    "    },",
+                                                                    "    failure: function (form, action) {",
+                                                                    "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                                    "    }",
+                                                                    "});"
+                                                                ],
+                                                                "name": "click",
+                                                                "scope": "me"
+                                                            },
+                                                            "name": "onAddClick",
+                                                            "designerId": "e75298ca-1f7f-49b0-9ad6-255d6a2052b0"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig12",
+                            "designerId": "94f65aed-73d7-4233-902e-7a811115d181"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelDeactivate",
+                                "implHandler": [
+                                    "this.resetForm();"
+                                ],
+                                "name": "deactivate",
+                                "scope": "me"
+                            },
+                            "name": "onPanelDeactivate",
+                            "designerId": "140ca114-c165-4400-b9f9-c38516e7f9a5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "resetForm",
+                "implHandler": [
+                    "var me = this,",
+                    "    tabpanel = me.down(\"tabpanel\"),",
+                    "    ruleAddForm = me.down(\"form#ruleAddForm\");",
+                    "//tabpanel.setActiveItem(0);",
+                    "//routeAddForm.down(\"textfield[name=route]\").setDisabled(false);",
+                    "//routeAddForm.reset();"
+                ]
+            },
+            "name": "resetForm",
+            "designerId": "afe02faf-f641-4876-8291-027616b25c36"
+        }
+    ]
+}

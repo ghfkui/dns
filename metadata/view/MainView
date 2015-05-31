@@ -74,7 +74,7 @@
                                     "userConfig": {
                                         "id": null,
                                         "itemId": null,
-                                        "text": "网络设置"
+                                        "text": "常规设置"
                                     },
                                     "name": "MyMenuItem",
                                     "designerId": "8e7d8619-35b1-4071-a445-94d64931dc8d",
@@ -89,7 +89,7 @@
                                             "userConfig": {
                                                 "fn": "getRefView",
                                                 "implHandler": [
-                                                    "return 'NetworkConfigs';"
+                                                    "return 'Generalconfig';"
                                                 ]
                                             },
                                             "name": "getRefView",
@@ -106,10 +106,75 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "id": null,
-                                        "text": "路由设置"
+                                        "itemId": null,
+                                        "text": "网络设置"
+                                    },
+                                    "name": "MyMenuItem2",
+                                    "designerId": "5fb57aa4-732a-426b-84e3-dc03081bbbf7",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'NetworkConfigs';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "ea772f24-91ec-4408-9af7-83a7499c1c65"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "id": null,
+                                        "text": "安全设置"
                                     },
                                     "name": "MyMenuItem1",
                                     "designerId": "e34d3196-d2b5-4c4e-96b1-c5b9d2b5b6c7",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "getRefView",
+                                                "implHandler": [
+                                                    "return 'SecuritymgrView';"
+                                                ]
+                                            },
+                                            "name": "getRefView",
+                                            "designerId": "f08e43b2-8295-442d-a976-5fa750645af6"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "id": null,
+                                        "text": "路由设置"
+                                    },
+                                    "name": "MyMenuItem14",
+                                    "designerId": "8dc9742c-00ce-41b2-9ca2-e3ea16508a49",
                                     "cn": [
                                         {
                                             "type": "basicfunction",
@@ -125,7 +190,7 @@
                                                 ]
                                             },
                                             "name": "getRefView",
-                                            "designerId": "f08e43b2-8295-442d-a976-5fa750645af6"
+                                            "designerId": "c2c46776-d415-4b1e-b4f2-e740fd4235b9"
                                         }
                                     ]
                                 }
