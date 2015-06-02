@@ -301,12 +301,14 @@ Ext.define('app.view.Generalconfig', {
                                         },
                                         {
                                             xtype: 'label',
+                                            hidden: true,
                                             style: '{font-weight:bold;}',
                                             text: '远程日志'
                                         },
                                         {
                                             xtype: 'textfield',
                                             flex: 1,
+                                            hidden: true,
                                             fieldLabel: '服务器'
                                         }
                                     ]

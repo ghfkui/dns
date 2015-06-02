@@ -30,7 +30,8 @@ Ext.application({
         'UserModel',
         'RouteModel',
         'OperateLog',
-        'Statistics'
+        'Statistics',
+        'General'
     ],
     stores: [
         'StoreZones',
@@ -44,7 +45,8 @@ Ext.application({
         'StoreEth',
         'StoreMask',
         'StoreOperateLog',
-        'StoreStatistics'
+        'StoreStatistics',
+        'General'
     ],
     views: [
         'MainView',

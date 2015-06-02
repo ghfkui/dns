@@ -1,0 +1,171 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "General"
+    },
+    "name": "Dnslog1",
+    "designerId": "6c37ae8e-5f64-4e23-83f5-6169a43285b5",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "HOST_NAME"
+            },
+            "name": "MyString6",
+            "designerId": "114e733d-bfea-45a6-b9f0-6f6b882b7529"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DOMAIN_NAME"
+            },
+            "name": "MyString8",
+            "designerId": "e40cfdde-03e3-41a6-a665-c9bbc8918797"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "WEB_PROTOCOL"
+            },
+            "name": "MyString7",
+            "designerId": "83de2010-fc21-4f37-bd51-ac829ff37ee4"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "WEB_PORT"
+            },
+            "name": "MyString10",
+            "designerId": "21eab2a0-fc5c-4889-a55e-19f4d4c68c8b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LOGIN_TYPE"
+            },
+            "name": "MyString11",
+            "designerId": "007c1d58-e8e6-47b5-87fd-3346114b0995"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TIME"
+            },
+            "name": "MyString12",
+            "designerId": "78b534ab-3436-4dbb-a9e5-97671b8f8669"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TIME_ZONE"
+            },
+            "name": "MyString13",
+            "designerId": "fb968a8c-7834-45fa-99a6-345e408e7b7d"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "NTP"
+            },
+            "name": "MyString14",
+            "designerId": "576e708e-b851-420e-913b-36895cb92ab7"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "NTP_SERVER"
+            },
+            "name": "MyString15",
+            "designerId": "29b3bf84-901c-41d3-9168-f0c00c583ef9"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LOG_FIREWALL"
+            },
+            "name": "MyString16",
+            "designerId": "3f66f7f9-e16b-4cc8-9537-da0e6bec68c4"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LOG_DNS"
+            },
+            "name": "MyString17",
+            "designerId": "4cfc4dca-9461-4b27-bbe8-98e2013cc871"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LOG_SYSTEM"
+            },
+            "name": "MyString18",
+            "designerId": "549eaf65-1918-401d-b622-05515840f53f"
+        }
+    ]
+}

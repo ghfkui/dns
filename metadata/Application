@@ -21,7 +21,8 @@
             "UserModel",
             "RouteModel",
             "OperateLog",
-            "Statistics"
+            "Statistics",
+            "General"
         ],
         "name": "app",
         "stores": [
@@ -36,7 +37,8 @@
             "StoreEth",
             "StoreMask",
             "StoreOperateLog",
-            "StoreStatistics"
+            "StoreStatistics",
+            "General"
         ],
         "views": [
             "MainView",

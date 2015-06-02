@@ -1,0 +1,45 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "General",
+        "model": "General",
+        "storeId": "General"
+    },
+    "name": "StoreEth1",
+    "designerId": "48609a6a-d552-4603-ac04-cfb5931e0324",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../system/config"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "59b4967a-7a18-4e8c-94fa-a696889a7912",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "7f069004-37bb-4625-841b-a934fd6dddd8"
+                }
+            ]
+        }
+    ]
+}

@@ -12,6 +12,8 @@
         "designer|userClassName": "Generalconfig",
         "layout": "vbox",
         "margin": null,
+        "reference": null,
+        "referenceHolder": null,
         "title": "常规设置"
     },
     "name": "NetworkConfigs1",
@@ -628,6 +630,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "hidden": true,
                                                 "margin": null,
                                                 "style": [
                                                     "{font-weight:bold;}"
@@ -646,6 +649,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "服务器",
+                                                "hidden": true,
                                                 "layout|flex": 1
                                             },
                                             "name": "MyTextField15",
