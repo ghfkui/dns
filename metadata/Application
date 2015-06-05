@@ -38,7 +38,8 @@
             "StoreMask",
             "StoreOperateLog",
             "StoreStatistics",
-            "General"
+            "General",
+            "StoreTimezone"
         ],
         "views": [
             "MainView",

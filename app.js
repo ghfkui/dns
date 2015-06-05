@@ -46,7 +46,8 @@ Ext.application({
         'StoreMask',
         'StoreOperateLog',
         'StoreStatistics',
-        'General'
+        'General',
+        'StoreTimezone'
     ],
     views: [
         'MainView',

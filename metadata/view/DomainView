@@ -319,7 +319,7 @@
                             "userConfig": {
                                 "dock": "bottom"
                             },
-                            "name": "pagingtoolbar2",
+                            "name": "pagingtoolbar",
                             "designerId": "edebd609-8ba7-4eba-b37c-97b5705f3a84",
                             "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                         },

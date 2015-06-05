@@ -49,7 +49,7 @@
                         "header": false,
                         "jsonSubmit": true,
                         "title": "My Panel",
-                        "url": "../settiing/save"
+                        "url": "../system/config"
                     },
                     "name": "MyForm9",
                     "designerId": "ecbad315-6a85-42c3-ba53-55924fb30bb5",
@@ -80,7 +80,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "主机名称"
+                                        "fieldLabel": "主机名称",
+                                        "name": "HOST_NAME"
                                     },
                                     "name": "MyTextField10",
                                     "designerId": "27c800e9-8c52-4a08-bfbf-d1d8b6c2b4ff"
@@ -127,7 +128,8 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "域名"
+                                        "fieldLabel": "域名",
+                                        "name": "DOMAIN_NAME"
                                     },
                                     "name": "MyTextField13",
                                     "designerId": "9671c4bc-894b-4b89-9b6e-0d81d0baca16"
@@ -187,7 +189,9 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "HTTP",
-                                                "fieldLabel": null
+                                                "fieldLabel": null,
+                                                "inputValue": "1",
+                                                "name": "WEB_PROTOCOL"
                                             },
                                             "name": "MyRadio2",
                                             "designerId": "a284f7f1-84a2-4355-8735-d246839f0929"
@@ -201,7 +205,9 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "HTTPS",
-                                                "fieldLabel": null
+                                                "fieldLabel": null,
+                                                "inputValue": "0",
+                                                "name": "WEB_PROTOCOL"
                                             },
                                             "name": "MyRadio3",
                                             "designerId": "5950b532-4bed-4841-aff0-172cadc4ab2d"
@@ -251,7 +257,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "WEB端口",
-                                        "layout|flex": 1
+                                        "layout|flex": 1,
+                                        "name": "WEB_PORT"
                                     },
                                     "name": "MyNumberField9",
                                     "designerId": "1cd24822-99a3-469f-a4da-1fd76abcabc9"
@@ -313,7 +320,9 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "COOKIE",
-                                                "fieldLabel": null
+                                                "fieldLabel": null,
+                                                "inputValue": "1",
+                                                "name": "LOGIN_TYPE"
                                             },
                                             "name": "MyRadio4",
                                             "designerId": "2afb5275-8a6d-4881-b5f4-fccfd5f18208"
@@ -327,7 +336,9 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "HTTP",
-                                                "fieldLabel": null
+                                                "fieldLabel": null,
+                                                "inputValue": "0",
+                                                "name": "LOGIN_TYPE"
                                             },
                                             "name": "MyRadio5",
                                             "designerId": "1fcb7867-2a71-45cd-80a1-01680419fa98"
@@ -354,7 +365,7 @@
                             "designerId": "caaf4d6c-61e0-436c-85ff-82f1f92f02e0",
                             "cn": [
                                 {
-                                    "type": "Ext.form.field.Date",
+                                    "type": "Ext.form.field.Text",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -362,9 +373,10 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "时间设置",
-                                        "layout|flex": 1
+                                        "layout|flex": 1,
+                                        "name": "TIME"
                                     },
-                                    "name": "MyDateField",
+                                    "name": "MyTextField23",
                                     "designerId": "d6a93f67-73ab-47df-8e87-40bc6ff0cd47"
                                 }
                             ]
@@ -395,7 +407,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "选择时区",
-                                        "layout|flex": 1
+                                        "layout|flex": 1,
+                                        "name": "TIME_ZONE",
+                                        "store": "StoreTimezone"
                                     },
                                     "name": "MyComboBox4",
                                     "designerId": "6b9c9d7a-1d14-4dde-8d4e-14fe075be8e5"
@@ -428,7 +442,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "时间同步",
-                                        "layout|flex": 1
+                                        "layout|flex": 1,
+                                        "name": "NTP"
                                     },
                                     "name": "MyNumberField10",
                                     "designerId": "c64be6ca-b5a5-4b19-a873-e615e961dc59"
@@ -493,7 +508,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "时间服务器",
-                                        "layout|flex": 1
+                                        "layout|flex": 1,
+                                        "name": "NTP_SERVER"
                                     },
                                     "name": "MyTextField14",
                                     "designerId": "c0bb6df0-0d29-4f14-9632-7de30ac9fc55"
@@ -587,7 +603,8 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "boxLabel": "防火墙日志",
-                                                        "fieldLabel": null
+                                                        "fieldLabel": null,
+                                                        "name": "LOG_FIREWALL"
                                                     },
                                                     "name": "MyCheckbox3",
                                                     "designerId": "443a4b68-0c31-4970-af5e-2310b45edd0d"
@@ -601,7 +618,8 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "boxLabel": "DNS日志",
-                                                        "fieldLabel": null
+                                                        "fieldLabel": null,
+                                                        "name": "LOG_DNS"
                                                     },
                                                     "name": "MyCheckbox4",
                                                     "designerId": "1a3ff828-83bf-49b8-96a5-0774d5b79d8c"
@@ -615,7 +633,8 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "boxLabel": "系统日志",
-                                                        "fieldLabel": null
+                                                        "fieldLabel": null,
+                                                        "name": "LOG_SYSTEM"
                                                     },
                                                     "name": "MyCheckbox5",
                                                     "designerId": "1f337539-0133-4bdd-bd65-3b9726bccac2"
@@ -758,6 +777,36 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelBeforeRender",
+                "implHandler": [
+                    "var store = Ext.data.StoreManager.get('General'),",
+                    "    form = this.down('form').getForm();",
+                    "store.load({",
+                    "    scope: this,",
+                    "    callback: function(records, options, success){",
+                    "        if(success){",
+                    "            var record = records[0];",
+                    "            form.setValues(record.getData());",
+                    "        }",
+                    "    }",
+                    "",
+                    "});",
+                    ""
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "onPanelBeforeRender",
+            "designerId": "0a926849-0a60-4ef7-9007-ff22df76f421"
         }
     ]
 }

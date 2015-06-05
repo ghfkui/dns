@@ -24,7 +24,6 @@ Ext.define('app.view.Generalconfig', {
         'Ext.form.RadioGroup',
         'Ext.form.field.Radio',
         'Ext.form.field.Number',
-        'Ext.form.field.Date',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
@@ -55,7 +54,7 @@ Ext.define('app.view.Generalconfig', {
                     header: false,
                     title: 'My Panel',
                     jsonSubmit: true,
-                    url: '../settiing/save',
+                    url: '../system/config',
                     items: [
                         {
                             xtype: 'fieldcontainer',
@@ -68,7 +67,8 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: '主机名称'
+                                    fieldLabel: '主机名称',
+                                    name: 'HOST_NAME'
                                 },
                                 {
                                     xtype: 'label',
@@ -88,7 +88,8 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: '域名'
+                                    fieldLabel: '域名',
+                                    name: 'DOMAIN_NAME'
                                 },
                                 {
                                     xtype: 'label',
@@ -112,11 +113,15 @@ Ext.define('app.view.Generalconfig', {
                                     items: [
                                         {
                                             xtype: 'radiofield',
-                                            boxLabel: 'HTTP'
+                                            name: 'WEB_PROTOCOL',
+                                            boxLabel: 'HTTP',
+                                            inputValue: '1'
                                         },
                                         {
                                             xtype: 'radiofield',
-                                            boxLabel: 'HTTPS'
+                                            name: 'WEB_PROTOCOL',
+                                            boxLabel: 'HTTPS',
+                                            inputValue: '0'
                                         }
                                     ]
                                 },
@@ -140,7 +145,8 @@ Ext.define('app.view.Generalconfig', {
                                 {
                                     xtype: 'numberfield',
                                     flex: 1,
-                                    fieldLabel: 'WEB端口'
+                                    fieldLabel: 'WEB端口',
+                                    name: 'WEB_PORT'
                                 },
                                 {
                                     xtype: 'label',
@@ -166,11 +172,15 @@ Ext.define('app.view.Generalconfig', {
                                     items: [
                                         {
                                             xtype: 'radiofield',
-                                            boxLabel: 'COOKIE'
+                                            name: 'LOGIN_TYPE',
+                                            boxLabel: 'COOKIE',
+                                            inputValue: '1'
                                         },
                                         {
                                             xtype: 'radiofield',
-                                            boxLabel: 'HTTP'
+                                            name: 'LOGIN_TYPE',
+                                            boxLabel: 'HTTP',
+                                            inputValue: '0'
                                         }
                                     ]
                                 }
@@ -186,9 +196,10 @@ Ext.define('app.view.Generalconfig', {
                             },
                             items: [
                                 {
-                                    xtype: 'datefield',
+                                    xtype: 'textfield',
                                     flex: 1,
-                                    fieldLabel: '时间设置'
+                                    fieldLabel: '时间设置',
+                                    name: 'TIME'
                                 }
                             ]
                         },
@@ -204,7 +215,9 @@ Ext.define('app.view.Generalconfig', {
                                 {
                                     xtype: 'combobox',
                                     flex: 1,
-                                    fieldLabel: '选择时区'
+                                    fieldLabel: '选择时区',
+                                    name: 'TIME_ZONE',
+                                    store: 'StoreTimezone'
                                 }
                             ]
                         },
@@ -220,7 +233,8 @@ Ext.define('app.view.Generalconfig', {
                                 {
                                     xtype: 'numberfield',
                                     flex: 1,
-                                    fieldLabel: '时间同步'
+                                    fieldLabel: '时间同步',
+                                    name: 'NTP'
                                 },
                                 {
                                     xtype: 'label',
@@ -249,7 +263,8 @@ Ext.define('app.view.Generalconfig', {
                                 {
                                     xtype: 'textfield',
                                     flex: 1,
-                                    fieldLabel: '时间服务器'
+                                    fieldLabel: '时间服务器',
+                                    name: 'NTP_SERVER'
                                 },
                                 {
                                     xtype: 'label',
@@ -287,14 +302,17 @@ Ext.define('app.view.Generalconfig', {
                                             items: [
                                                 {
                                                     xtype: 'checkboxfield',
+                                                    name: 'LOG_FIREWALL',
                                                     boxLabel: '防火墙日志'
                                                 },
                                                 {
                                                     xtype: 'checkboxfield',
+                                                    name: 'LOG_DNS',
                                                     boxLabel: 'DNS日志'
                                                 },
                                                 {
                                                     xtype: 'checkboxfield',
+                                                    name: 'LOG_SYSTEM',
                                                     boxLabel: '系统日志'
                                                 }
                                             ]
@@ -354,6 +372,9 @@ Ext.define('app.view.Generalconfig', {
             ]
         }
     ],
+    listeners: {
+        beforerender: 'onPanelBeforeRender'
+    },
 
     onButtonClick: function(button, e, eOpts) {
         var me = this,
@@ -367,6 +388,22 @@ Ext.define('app.view.Generalconfig', {
                 Ext.Msg.alert('失败',  action.result.msg);
             }
         });
+    },
+
+    onPanelBeforeRender: function(component, eOpts) {
+        var store = Ext.data.StoreManager.get('General'),
+            form = this.down('form').getForm();
+        store.load({
+            scope: this,
+            callback: function(records, options, success){
+                if(success){
+                    var record = records[0];
+                    form.setValues(record.getData());
+                }
+            }
+
+        });
+
     }
 
 });
