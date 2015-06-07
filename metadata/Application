@@ -22,7 +22,9 @@
             "RouteModel",
             "OperateLog",
             "Statistics",
-            "General"
+            "General",
+            "Connector",
+            "NCard"
         ],
         "name": "app",
         "stores": [
@@ -39,7 +41,9 @@
             "StoreOperateLog",
             "StoreStatistics",
             "General",
-            "StoreTimezone"
+            "StoreTimezone",
+            "StoreNcard",
+            "StoreConnector"
         ],
         "views": [
             "MainView",

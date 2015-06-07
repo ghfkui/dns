@@ -6,6 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
+        "connectorUpdate": false,
+        "connectorUpdateUrl": "../interfaces/update",
         "container|align": "stretch",
         "container|padding": "10 0",
         "designer|userAlias": "NetworkConfigs",
@@ -15,7 +17,22 @@
         "title": "网络设置"
     },
     "name": "MyPanel17",
+    "configAlternates": {
+        "connectorUpdate": "boolean"
+    },
     "designerId": "e7daf57c-9363-4eb2-8f91-4c05a87b587e",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "connectorUpdate",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "connectorUpdateUrl",
+            "type": "string"
+        }
+    ],
     "viewControllerInstanceId": "aa03d1ed-ad27-4f2e-b849-47515440d0d3",
     "viewModelInstanceId": "87663e21-d141-4f0f-9e1c-d91d306355ee",
     "cn": [
@@ -666,13 +683,18 @@
                             "userConfig": {
                                 "bodyPadding": "10 0 0 10",
                                 "container|align": "stretch",
+                                "itemId": "addConnectorForm",
                                 "jsonSubmit": true,
                                 "layout": "vbox",
                                 "margin": "0 10",
                                 "padding": "",
-                                "title": "添加接口"
+                                "title": "添加接口",
+                                "url": "../interfaces/add"
                             },
                             "name": "MyForm11",
+                            "configAlternates": {
+                                "connectorUpdate": "boolean"
+                            },
                             "designerId": "6da87b95-07e6-4058-8e30-e56834e5abb3",
                             "cn": [
                                 {
@@ -702,7 +724,8 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "名称",
-                                                "margin": null
+                                                "margin": null,
+                                                "name": "key"
                                             },
                                             "name": "MyTextField16",
                                             "designerId": "27405c6b-e313-44dd-9ead-30bc775e1dab"
@@ -750,8 +773,13 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "displayField": "name",
+                                                "editable": false,
                                                 "fieldLabel": "网卡",
-                                                "margin": null
+                                                "margin": null,
+                                                "name": "value",
+                                                "store": "StoreNcard",
+                                                "valueField": "value"
                                             },
                                             "name": "MyComboBox5",
                                             "designerId": "2fe2134c-cfc8-47c7-b6a0-606278aa87b4"
@@ -794,11 +822,49 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "itemId": "add",
                                                 "layout|flex": null,
                                                 "text": "添加接口"
                                             },
                                             "name": "MyButton13",
-                                            "designerId": "52e1868d-6ad5-428e-a995-dc578aa6ca27"
+                                            "designerId": "52e1868d-6ad5-428e-a995-dc578aa6ca27",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onAddClick",
+                                                        "implHandler": [
+                                                            "var me = this,",
+                                                            "    form = me.down('form#addConnectorForm'),",
+                                                            "    connectorStore = me.down('grid#connectorGrid').getStore();",
+                                                            "if(me.connectorUpdate){",
+                                                            "    form.getForm().url = me.connectorUpdateUrl;",
+                                                            "}",
+                                                            "form.submit({",
+                                                            "    waitMsg: '正在保存',",
+                                                            "    success: function (form, action) {",
+                                                            "        Ext.Msg.alert('成功', '保存成功', function(){",
+                                                            "            form.reset();",
+                                                            "            connectorStore.load();",
+                                                            "        });",
+                                                            "    },",
+                                                            "    failure: function (form, action) {",
+                                                            "        Ext.Msg.alert('失败',  action.result.msg);",
+                                                            "    }",
+                                                            "});"
+                                                        ],
+                                                        "name": "click",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onAddClick",
+                                                    "designerId": "a3fcb5a1-6a37-4bd0-8122-8df5e4c16a47"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -812,8 +878,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "autoLoad": true,
+                                "itemId": "connectorGrid",
                                 "margin": 10,
                                 "padding": "10 0",
+                                "store": "StoreConnector",
                                 "title": "接口列表"
                             },
                             "name": "MyGridPanel3",
@@ -827,7 +896,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "string",
+                                        "dataIndex": "key",
                                         "text": "接口名称"
                                     },
                                     "name": "MyColumn12",
@@ -841,7 +910,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "string",
+                                        "dataIndex": "value",
                                         "text": "接口网卡"
                                     },
                                     "name": "MyColumn13",
@@ -860,6 +929,50 @@
                                     "name": "MyActionColumn2",
                                     "designerId": "2044c5ff-1402-430e-b5b5-cd21f778b954",
                                     "cn": [
+                                        {
+                                            "type": "actioncolumnitem",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "altText": "编辑",
+                                                "icon": "image/edit.gif",
+                                                "tooltip": "编辑"
+                                            },
+                                            "name": "MyActionColumnItem6",
+                                            "designerId": "c6971b51-2f44-4d4b-bc59-40f2ca5932b0",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "//this.setConnector(record.getData());",
+                                                            "console.log('修改');",
+                                                            ""
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "9e83e3b5-4dc7-489f-ac4e-3c8111a917eb"
+                                                }
+                                            ]
+                                        },
                                         {
                                             "type": "actioncolumnitem",
                                             "reference": {
@@ -894,7 +1007,44 @@
                                                         ],
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "console.log('删除接口');"
+                                                            "var connector = record.data;",
+                                                            "var confirm = {",
+                                                            "    title: \"确认删除\",",
+                                                            "    msg: \"请确认是否删除这个接口\",",
+                                                            "    closable: false,",
+                                                            "    buttons: Ext.MessageBox.YESNO,",
+                                                            "    icon: Ext.MessageBox.WARNING,",
+                                                            "    fn: function(btn) {",
+                                                            "        if (btn == \"yes\") {",
+                                                            "            Ext.Ajax.request({",
+                                                            "                url: '../interfaces/remove',",
+                                                            "                success: function(data, a1, a2){",
+                                                            "                    var result = Ext.decode(data.responseText);",
+                                                            "                    if (result.success) {",
+                                                            "                        Ext.Msg.alert('成功', result.msg, function(){",
+                                                            "                            view.getStore().load();",
+                                                            "                        });",
+                                                            "                    }",
+                                                            "                },",
+                                                            "                failure: function(data) {",
+                                                            "                    Ext.Msg.alert('失败', \"删除失败\");",
+                                                            "                },",
+                                                            "                jsonData: {",
+                                                            "                    key: this.connector.key",
+                                                            "                },",
+                                                            "                scope: {",
+                                                            "                    connector: this.connector,",
+                                                            "                    view: this.view",
+                                                            "                }",
+                                                            "            });",
+                                                            "        }",
+                                                            "    },",
+                                                            "    scope: {",
+                                                            "        connector: connector,",
+                                                            "        view: view",
+                                                            "    }",
+                                                            "};",
+                                                            "Ext.MessageBox.show(confirm, this);"
                                                         ]
                                                     },
                                                     "name": "handler",
@@ -919,6 +1069,28 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "connector"
+                ],
+                "fn": "setConnector",
+                "implHandler": [
+                    "var me = this,",
+                    "    form = this.down('form#addConnectorForm');",
+                    "me.connectorUpdate = true;",
+                    "form.getForm().setValues(connector);"
+                ]
+            },
+            "name": "setConnector",
+            "designerId": "77bfebf7-01a4-421c-9f3b-79510e2266f9"
         }
     ]
 }

@@ -31,7 +31,9 @@ Ext.application({
         'RouteModel',
         'OperateLog',
         'Statistics',
-        'General'
+        'General',
+        'Connector',
+        'NCard'
     ],
     stores: [
         'StoreZones',
@@ -47,7 +49,9 @@ Ext.application({
         'StoreOperateLog',
         'StoreStatistics',
         'General',
-        'StoreTimezone'
+        'StoreTimezone',
+        'StoreNcard',
+        'StoreConnector'
     ],
     views: [
         'MainView',

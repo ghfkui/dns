@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NCard"
+    },
+    "name": "RecordTypeModel1",
+    "designerId": "1a951c51-db8f-43cf-91e6-b401787280b7",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyString6",
+            "designerId": "bf45ec03-4bae-43f7-a655-cdd70e110e38"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyString7",
+            "designerId": "e6777250-d36a-4ded-a9c5-e3957ed3de05"
+        }
+    ]
+}

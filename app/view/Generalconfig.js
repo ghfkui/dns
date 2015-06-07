@@ -24,6 +24,7 @@ Ext.define('app.view.Generalconfig', {
         'Ext.form.RadioGroup',
         'Ext.form.field.Radio',
         'Ext.form.field.Number',
+        'Ext.toolbar.Spacer',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
@@ -50,7 +51,7 @@ Ext.define('app.view.Generalconfig', {
             items: [
                 {
                     xtype: 'form',
-                    bodyPadding: 10,
+                    bodyPadding: '10 25',
                     header: false,
                     title: 'My Panel',
                     jsonSubmit: true,
@@ -62,16 +63,19 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
                                     xtype: 'textfield',
+                                    flex: 1,
                                     fieldLabel: '主机名称',
                                     name: 'HOST_NAME'
                                 },
                                 {
                                     xtype: 'label',
+                                    flex: 1,
                                     margin: '3 0 0 20',
                                     text: '这是服务器的名称，这里不要填写域名'
                                 }
@@ -83,16 +87,19 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
                                     xtype: 'textfield',
+                                    flex: 1,
                                     fieldLabel: '域名',
                                     name: 'DOMAIN_NAME'
                                 },
                                 {
                                     xtype: 'label',
+                                    flex: 1,
                                     margin: '3 0 0 20',
                                     text: '指定域名，如fercase.com.cn'
                                 }
@@ -104,11 +111,13 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
                                     xtype: 'radiogroup',
+                                    flex: 1,
                                     fieldLabel: 'WEB协议',
                                     items: [
                                         {
@@ -139,7 +148,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -162,7 +172,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -173,16 +184,20 @@ Ext.define('app.view.Generalconfig', {
                                         {
                                             xtype: 'radiofield',
                                             name: 'LOGIN_TYPE',
-                                            boxLabel: 'COOKIE',
+                                            boxLabel: 'HTTP',
                                             inputValue: '1'
                                         },
                                         {
                                             xtype: 'radiofield',
                                             name: 'LOGIN_TYPE',
-                                            boxLabel: 'HTTP',
+                                            boxLabel: 'COOKIE',
                                             inputValue: '0'
                                         }
                                     ]
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    flex: 1
                                 }
                             ]
                         },
@@ -192,7 +207,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -200,6 +216,10 @@ Ext.define('app.view.Generalconfig', {
                                     flex: 1,
                                     fieldLabel: '时间设置',
                                     name: 'TIME'
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    flex: 1
                                 }
                             ]
                         },
@@ -209,7 +229,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -218,6 +239,10 @@ Ext.define('app.view.Generalconfig', {
                                     fieldLabel: '选择时区',
                                     name: 'TIME_ZONE',
                                     store: 'StoreTimezone'
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    flex: 1
                                 }
                             ]
                         },
@@ -227,7 +252,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -240,13 +266,13 @@ Ext.define('app.view.Generalconfig', {
                                     xtype: 'label',
                                     margin: '0 0 0 5',
                                     padding: '5 0',
-                                    width: 30,
+                                    width: 15,
                                     text: '分钟'
                                 },
                                 {
                                     xtype: 'label',
                                     flex: 1,
-                                    margin: '5 0 0 15',
+                                    margin: '3 0 0 5',
                                     text: '指定每次同步间隔时间，如果设置为0，则不同步时间，建议按默认（300）设置'
                                 }
                             ]
@@ -257,7 +283,8 @@ Ext.define('app.view.Generalconfig', {
                             hideLabel: true,
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -279,7 +306,8 @@ Ext.define('app.view.Generalconfig', {
                             fieldLabel: '日志设置',
                             layout: {
                                 type: 'hbox',
-                                align: 'stretch'
+                                align: 'stretch',
+                                padding: '5 0'
                             },
                             items: [
                                 {
@@ -293,6 +321,7 @@ Ext.define('app.view.Generalconfig', {
                                         {
                                             xtype: 'label',
                                             flex: 1,
+                                            margin: '5 0 5',
                                             style: '{font-weight:bold;}',
                                             text: '启用日志'
                                         },
@@ -360,6 +389,7 @@ Ext.define('app.view.Generalconfig', {
                                 {
                                     xtype: 'button',
                                     itemId: 'saveBtn',
+                                    margin: '0 0 0 20',
                                     text: '保存',
                                     listeners: {
                                         click: 'onButtonClick'

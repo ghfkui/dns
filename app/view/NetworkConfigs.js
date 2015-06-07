@@ -33,10 +33,16 @@ Ext.define('app.view.NetworkConfigs', {
         'Ext.grid.column.Action'
     ],
 
+    config: {
+        connectorUpdate: false,
+        connectorUpdateUrl: '../interfaces/update'
+    },
+
     viewModel: {
         type: 'networkconfigs'
     },
     title: '网络设置',
+    defaultListenerScope: true,
 
     layout: {
         type: 'vbox',
@@ -280,11 +286,13 @@ Ext.define('app.view.NetworkConfigs', {
                     items: [
                         {
                             xtype: 'form',
+                            itemId: 'addConnectorForm',
                             margin: '0 10',
                             padding: '',
                             bodyPadding: '10 0 0 10',
                             title: '添加接口',
                             jsonSubmit: true,
+                            url: '../interfaces/add',
                             layout: {
                                 type: 'vbox',
                                 align: 'stretch'
@@ -301,7 +309,8 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: '名称'
+                                            fieldLabel: '名称',
+                                            name: 'key'
                                         },
                                         {
                                             xtype: 'label',
@@ -321,7 +330,12 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             xtype: 'combobox',
-                                            fieldLabel: '网卡'
+                                            fieldLabel: '网卡',
+                                            name: 'value',
+                                            editable: false,
+                                            displayField: 'name',
+                                            store: 'StoreNcard',
+                                            valueField: 'value'
                                         },
                                         {
                                             xtype: 'label',
@@ -338,7 +352,11 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             xtype: 'button',
-                                            text: '添加接口'
+                                            itemId: 'add',
+                                            text: '添加接口',
+                                            listeners: {
+                                                click: 'onAddClick'
+                                            }
                                         }
                                     ]
                                 }
@@ -346,18 +364,21 @@ Ext.define('app.view.NetworkConfigs', {
                         },
                         {
                             xtype: 'gridpanel',
+                            itemId: 'connectorGrid',
                             margin: 10,
                             padding: '10 0',
                             title: '接口列表',
+                            autoLoad: true,
+                            store: 'StoreConnector',
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'string',
+                                    dataIndex: 'key',
                                     text: '接口名称'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'string',
+                                    dataIndex: 'value',
                                     text: '接口网卡'
                                 },
                                 {
@@ -366,7 +387,54 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                console.log('删除接口');
+                                                //this.setConnector(record.getData());
+                                                console.log('修改');
+
+                                            },
+                                            altText: '编辑',
+                                            icon: 'image/edit.gif',
+                                            tooltip: '编辑'
+                                        },
+                                        {
+                                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                var connector = record.data;
+                                                var confirm = {
+                                                    title: "确认删除",
+                                                    msg: "请确认是否删除这个接口",
+                                                    closable: false,
+                                                    buttons: Ext.MessageBox.YESNO,
+                                                    icon: Ext.MessageBox.WARNING,
+                                                    fn: function(btn) {
+                                                        if (btn == "yes") {
+                                                            Ext.Ajax.request({
+                                                                url: '../interfaces/remove',
+                                                                success: function(data, a1, a2){
+                                                                    var result = Ext.decode(data.responseText);
+                                                                    if (result.success) {
+                                                                        Ext.Msg.alert('成功', result.msg, function(){
+                                                                            view.getStore().load();
+                                                                        });
+                                                                    }
+                                                                },
+                                                                failure: function(data) {
+                                                                    Ext.Msg.alert('失败', "删除失败");
+                                                                },
+                                                                jsonData: {
+                                                                    key: this.connector.key
+                                                                },
+                                                                scope: {
+                                                                    connector: this.connector,
+                                                                    view: this.view
+                                                                }
+                                                            });
+                                                        }
+                                                    },
+                                                    scope: {
+                                                        connector: connector,
+                                                        view: view
+                                                    }
+                                                };
+                                                Ext.MessageBox.show(confirm, this);
                                             },
                                             altText: '删除',
                                             icon: 'image/delete.gif',
@@ -380,6 +448,34 @@ Ext.define('app.view.NetworkConfigs', {
                 }
             ]
         }
-    ]
+    ],
+
+    onAddClick: function(button, e, eOpts) {
+        var me = this,
+            form = me.down('form#addConnectorForm'),
+            connectorStore = me.down('grid#connectorGrid').getStore();
+        if(me.connectorUpdate){
+            form.getForm().url = me.connectorUpdateUrl;
+        }
+        form.submit({
+            waitMsg: '正在保存',
+            success: function (form, action) {
+                Ext.Msg.alert('成功', '保存成功', function(){
+                    form.reset();
+                    connectorStore.load();
+                });
+            },
+            failure: function (form, action) {
+                Ext.Msg.alert('失败',  action.result.msg);
+            }
+        });
+    },
+
+    setConnector: function(connector) {
+        var me = this,
+            form = this.down('form#addConnectorForm');
+        me.connectorUpdate = true;
+        form.getForm().setValues(connector);
+    }
 
 });

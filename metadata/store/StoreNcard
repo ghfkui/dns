@@ -1,0 +1,45 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreNcard",
+        "model": "NCard",
+        "storeId": "StoreNcard"
+    },
+    "designerId": "fe5d55c8-63a1-4a58-9ce6-236449cc4507",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../system/interface"
+            },
+            "name": "MyAjaxProxy4",
+            "designerId": "c1a0f6de-e892-434f-a02f-f657a0fb31ee",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": null,
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader4",
+                    "designerId": "9a5112bb-99fb-47ef-b755-a333277fd2be"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Connector"
+    },
+    "name": "RouteModel1",
+    "designerId": "3d11c456-1261-40d4-aefa-286bc3933394",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "key"
+            },
+            "name": "MyString19",
+            "designerId": "30763ebf-a729-45d1-81d5-fd9974b3ac53"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyString2",
+            "designerId": "80226999-ec22-4465-9018-84835d82fa85"
+        }
+    ]
+}
