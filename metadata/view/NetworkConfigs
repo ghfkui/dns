@@ -824,7 +824,7 @@
                                             "userConfig": {
                                                 "itemId": "add",
                                                 "layout|flex": null,
-                                                "text": "添加接口"
+                                                "text": "保存接口"
                                             },
                                             "name": "MyButton13",
                                             "designerId": "52e1868d-6ad5-428e-a995-dc578aa6ca27",
@@ -841,11 +841,14 @@
                                                         "implHandler": [
                                                             "var me = this,",
                                                             "    form = me.down('form#addConnectorForm'),",
-                                                            "    connectorStore = me.down('grid#connectorGrid').getStore();",
+                                                            "    connectorStore = me.down('grid#connectorGrid').getStore(),",
+                                                            "    url = '../interfaces/add';",
                                                             "if(me.connectorUpdate){",
-                                                            "    form.getForm().url = me.connectorUpdateUrl;",
+                                                            "    url = me.connectorUpdateUrl;",
+                                                            "    me.connectorUpdate = false;",
                                                             "}",
                                                             "form.submit({",
+                                                            "    url: url,",
                                                             "    waitMsg: '正在保存',",
                                                             "    success: function (form, action) {",
                                                             "        Ext.Msg.alert('成功', '保存成功', function(){",
@@ -963,9 +966,7 @@
                                                         ],
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "//this.setConnector(record.getData());",
-                                                            "console.log('修改');",
-                                                            ""
+                                                            "this.up('NetworkConfigs').setConnector(record.getData());"
                                                         ]
                                                     },
                                                     "name": "handler",

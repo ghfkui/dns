@@ -353,7 +353,7 @@ Ext.define('app.view.NetworkConfigs', {
                                         {
                                             xtype: 'button',
                                             itemId: 'add',
-                                            text: '添加接口',
+                                            text: '保存接口',
                                             listeners: {
                                                 click: 'onAddClick'
                                             }
@@ -387,9 +387,7 @@ Ext.define('app.view.NetworkConfigs', {
                                     items: [
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                //this.setConnector(record.getData());
-                                                console.log('修改');
-
+                                                this.up('NetworkConfigs').setConnector(record.getData());
                                             },
                                             altText: '编辑',
                                             icon: 'image/edit.gif',
@@ -453,11 +451,14 @@ Ext.define('app.view.NetworkConfigs', {
     onAddClick: function(button, e, eOpts) {
         var me = this,
             form = me.down('form#addConnectorForm'),
-            connectorStore = me.down('grid#connectorGrid').getStore();
+            connectorStore = me.down('grid#connectorGrid').getStore(),
+            url = '../interfaces/add';
         if(me.connectorUpdate){
-            form.getForm().url = me.connectorUpdateUrl;
+            url = me.connectorUpdateUrl;
+            me.connectorUpdate = false;
         }
         form.submit({
+            url: url,
             waitMsg: '正在保存',
             success: function (form, action) {
                 Ext.Msg.alert('成功', '保存成功', function(){
