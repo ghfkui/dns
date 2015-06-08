@@ -1,0 +1,45 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreFirewall",
+        "model": "Firewall",
+        "storeId": "StoreFirewall"
+    },
+    "name": "StoreEth1",
+    "designerId": "ff343230-f96a-4aae-bd61-52fdcfa8542d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../firewall/add"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "18458bdf-f2e7-4512-baed-850dabd7ea23",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "52812a4d-58a9-4dc7-9412-2345d6cc5f36"
+                }
+            ]
+        }
+    ]
+}

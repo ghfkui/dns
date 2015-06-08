@@ -65,13 +65,22 @@ Ext.define('app.view.OperateLogView', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    width: '40%',
+                    width: '35%',
+                    dataIndex: 'ip',
+                    text: 'IP'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        return Ext.Date.format(value, "Y-m-d H:i:s");
+                    },
+                    width: '30%',
                     dataIndex: 'time',
                     text: '时间'
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: '95%',
+                    width: '35%',
                     dataIndex: 'log',
                     text: '操作名称'
                 }
@@ -79,7 +88,7 @@ Ext.define('app.view.OperateLogView', {
             dockedItems: [
                 {
                     xtype: 'pagingtoolbar',
-                    store: 'StoreDNSLog',
+                    store: 'StoreOperateLog',
                     dock: 'bottom'
                 }
             ]

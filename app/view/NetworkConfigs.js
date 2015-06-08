@@ -26,9 +26,9 @@ Ext.define('app.view.NetworkConfigs', {
         'Ext.grid.column.Number',
         'Ext.grid.View',
         'Ext.form.Panel',
-        'Ext.form.RadioGroup',
-        'Ext.form.field.Radio',
+        'Ext.form.FieldContainer',
         'Ext.form.field.ComboBox',
+        'Ext.form.field.Checkbox',
         'Ext.form.Label',
         'Ext.grid.column.Action'
     ],
@@ -138,7 +138,7 @@ Ext.define('app.view.NetworkConfigs', {
                 {
                     xtype: 'panel',
                     padding: '10 0',
-                    title: 'WAN接口',
+                    title: '接口配置',
                     layout: {
                         type: 'vbox',
                         align: 'stretch'
@@ -155,27 +155,21 @@ Ext.define('app.view.NetworkConfigs', {
                                 {
                                     xtype: 'fieldcontainer',
                                     padding: '10 10',
-                                    fieldLabel: 'ipprotocol',
+                                    fieldLabel: 'connectorselect',
                                     hideLabel: true,
                                     items: [
                                         {
-                                            xtype: 'radiogroup',
-                                            width: 400,
-                                            fieldLabel: 'IP协议',
-                                            items: [
-                                                {
-                                                    xtype: 'radiofield',
-                                                    name: 'protocol',
-                                                    boxLabel: 'IPv4',
-                                                    inputValue: '1'
-                                                },
-                                                {
-                                                    xtype: 'radiofield',
-                                                    name: 'protocol',
-                                                    boxLabel: 'IPv6',
-                                                    inputValue: '1'
-                                                }
-                                            ]
+                                            xtype: 'combobox',
+                                            itemId: 'key',
+                                            fieldLabel: '选择接口',
+                                            name: 'key',
+                                            editable: false,
+                                            displayField: 'key',
+                                            store: 'StoreConnector',
+                                            valueField: 'value',
+                                            listeners: {
+                                                select: 'onSelectKey'
+                                            }
                                         }
                                     ]
                                 },
@@ -306,12 +300,6 @@ Ext.define('app.view.NetworkConfigs', {
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            xtype: 'panel',
-                            flex: 1,
-                            margin: '0 10',
-                            title: '相关IP列表'
                         }
                     ]
                 },
@@ -491,6 +479,25 @@ Ext.define('app.view.NetworkConfigs', {
             ]
         }
     ],
+
+    onSelectKey: function(combo, records, eOpts) {
+        var me = this,
+            key = records && records[0].get('key'),
+            storeConnector = Ext.StoreManager.get('ConnectorForAdd'),
+            form = me.down('form#ncardconfig');
+        form.mask('正在load数据!');
+        storeConnector.load({
+            url: '../interfaces/ip',
+            params: {eth: key},
+            callback: function(datas, option, success){
+                form.unmask();
+                if(success){
+                    form.getForm().setValues(datas && datas[0].getData());
+                }
+            },
+            scope: me
+        });
+    },
 
     onSaveClick: function(button, e, eOpts) {
         var me = this,

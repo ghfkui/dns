@@ -17,11 +17,15 @@ Ext.define('app.model.OperateLog', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'Ext.data.field.Date',
-        'Ext.data.field.String'
+        'Ext.data.field.String',
+        'Ext.data.field.Date'
     ],
 
     fields: [
+        {
+            type: 'string',
+            name: 'ip'
+        },
         {
             type: 'date',
             name: 'time'

@@ -254,6 +254,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
                                                     fieldLabel: '禁止规则',
+                                                    name: 'enable',
                                                     boxLabel: '禁止规则'
                                                 },
                                                 {
@@ -291,7 +292,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'combobox',
                                                     flex: 1,
-                                                    fieldLabel: '执行属性'
+                                                    fieldLabel: '执行属性',
+                                                    name: 'action'
                                                 }
                                             ]
                                         },
@@ -307,7 +309,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'combobox',
                                                     flex: 1,
-                                                    fieldLabel: '规则方向'
+                                                    fieldLabel: '规则方向',
+                                                    name: 'direction'
                                                 }
                                             ]
                                         },
@@ -323,7 +326,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'combobox',
                                                     flex: 1,
-                                                    fieldLabel: '选择接口'
+                                                    fieldLabel: '选择接口',
+                                                    name: 'interface'
                                                 }
                                             ]
                                         },
@@ -339,7 +343,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'combobox',
                                                     flex: 1,
-                                                    fieldLabel: '选择协议'
+                                                    fieldLabel: '选择协议',
+                                                    name: 'procotol'
                                                 }
                                             ]
                                         },
@@ -377,7 +382,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                             },
                                                             items: [
                                                                 {
-                                                                    xtype: 'textfield'
+                                                                    xtype: 'textfield',
+                                                                    name: 'source_ip'
                                                                 },
                                                                 {
                                                                     xtype: 'combobox',
@@ -385,7 +391,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                                     width: 60,
                                                                     fieldLabel: '   /',
                                                                     labelSeparator: '/',
-                                                                    labelWidth: 5
+                                                                    labelWidth: 5,
+                                                                    name: 'source_port'
                                                                 }
                                                             ]
                                                         }

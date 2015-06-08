@@ -12,6 +12,19 @@
     "designerId": "6510339f-c16f-4610-b748-8cd6dec77e4a",
     "cn": [
         {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ip"
+            },
+            "name": "MyString10",
+            "designerId": "3eb905a7-bd91-4502-a27b-07b11f79a8c3"
+        },
+        {
             "type": "Ext.data.field.Date",
             "reference": {
                 "name": "fields",
@@ -21,8 +34,8 @@
             "userConfig": {
                 "name": "time"
             },
-            "name": "MyDate1",
-            "designerId": "3eb905a7-bd91-4502-a27b-07b11f79a8c3"
+            "name": "MyDate",
+            "designerId": "93d9bb94-689f-456a-ac12-5e09bfdd630c"
         },
         {
             "type": "Ext.data.field.String",

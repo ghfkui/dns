@@ -110,12 +110,54 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "ip",
+                        "text": "IP",
+                        "width": "35%"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "36e34fd9-e2df-453a-8201-cf8d8b1f7e08"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "time",
                         "text": "时间",
-                        "width": "40%"
+                        "width": "30%"
                     },
                     "name": "MyColumn10",
-                    "designerId": "0d74f777-2413-46b5-809e-693ec5e56aa7"
+                    "designerId": "0d74f777-2413-46b5-809e-693ec5e56aa7",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return Ext.Date.format(value, \"Y-m-d H:i:s\");"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "6ff9e3d6-784f-4420-9df2-02570a4c24f8"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -127,7 +169,7 @@
                     "userConfig": {
                         "dataIndex": "log",
                         "text": "操作名称",
-                        "width": "95%"
+                        "width": "35%"
                     },
                     "name": "MyColumn6",
                     "designerId": "2d27b5c3-f515-423f-bc5a-f0fc6c9182cd"
@@ -151,9 +193,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "dock": "bottom",
-                        "store": "StoreDNSLog"
+                        "store": "StoreOperateLog"
                     },
-                    "name": "pagingtoolbar3",
+                    "name": "pagingtoolbar9",
                     "designerId": "5e28688a-6b22-4188-b2b3-62fc7c0802ad",
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }

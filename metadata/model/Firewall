@@ -1,0 +1,184 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Firewall"
+    },
+    "name": "NCard1",
+    "designerId": "391f62bb-ccac-4ab5-ae0e-fef7ebc0db11",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "enable"
+            },
+            "name": "MyInteger14",
+            "designerId": "a772f524-45ef-4f48-8ba6-2d6a7c14bad0"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyString7",
+            "designerId": "9c93487e-ec0f-4655-80df-fc56b715d450"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "action"
+            },
+            "name": "MyString20",
+            "designerId": "b1888881-086b-4c91-8378-17a40d41099d"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "direction"
+            },
+            "name": "MyString21",
+            "designerId": "fcae39cd-3b06-4eb6-aeae-c474d4ba70af"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "interface"
+            },
+            "name": "MyString22",
+            "designerId": "52d55a98-c810-4ff7-94e2-7b82bdaceedb"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "protocol"
+            },
+            "name": "MyString23",
+            "designerId": "91f7c208-f172-4b0a-9525-93d9b534b612"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "source_ip"
+            },
+            "name": "MyString24",
+            "designerId": "224b6186-c099-432c-afba-8c1dba29026f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "source_port"
+            },
+            "name": "MyString25",
+            "designerId": "d23a726b-0817-49bf-a7a2-2c8e6f9b58a2"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "targer_ip"
+            },
+            "name": "MyString26",
+            "designerId": "b2e71871-98ba-49c4-9d29-f9e066ce1557"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "targer_port"
+            },
+            "name": "MyString27",
+            "designerId": "a107bc42-ca8f-419a-8da9-dd933103656b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "filter"
+            },
+            "name": "MyString28",
+            "designerId": "74795f85-f824-4676-b4e0-0dfd9884ca8a"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "log"
+            },
+            "name": "MyString29",
+            "designerId": "f986fc9e-4a30-4c6b-9091-521306760c93"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "describe"
+            },
+            "name": "MyString30",
+            "designerId": "e90fdd12-8b6a-4db0-b6d0-6e82c04ee8f6"
+        }
+    ]
+}

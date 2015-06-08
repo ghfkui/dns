@@ -24,7 +24,8 @@
             "Statistics",
             "General",
             "Connector",
-            "NCard"
+            "NCard",
+            "Firewall"
         ],
         "name": "app",
         "stores": [
@@ -43,7 +44,9 @@
             "General",
             "StoreTimezone",
             "StoreNcard",
-            "StoreConnector"
+            "StoreConnector",
+            "ConnectorForAdd",
+            "StoreFirewall"
         ],
         "views": [
             "MainView",

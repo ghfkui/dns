@@ -298,7 +298,7 @@
                         "container|align": "stretch",
                         "layout": "vbox",
                         "padding": "10 0",
-                        "title": "WAN接口"
+                        "title": "接口配置"
                     },
                     "name": "MyPanel18",
                     "designerId": "3d8f3fe8-61b9-4153-b0df-25386a402697",
@@ -338,7 +338,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "ipprotocol",
+                                        "fieldLabel": "connectorselect",
                                         "height": null,
                                         "hideLabel": true,
                                         "padding": "10 10",
@@ -348,50 +348,57 @@
                                     "designerId": "f8ae6fdf-d1a0-4217-a6b7-6985235ecb64",
                                     "cn": [
                                         {
-                                            "type": "Ext.form.RadioGroup",
+                                            "type": "Ext.form.field.ComboBox",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fieldLabel": "IP协议",
-                                                "width": 400
+                                                "designer|displayName": null,
+                                                "displayField": "key",
+                                                "editable": false,
+                                                "fieldLabel": "选择接口",
+                                                "itemId": "key",
+                                                "name": "key",
+                                                "store": "StoreConnector",
+                                                "valueField": "value"
                                             },
-                                            "name": "MyRadioGroup3",
-                                            "designerId": "113daf5e-43d5-4179-a115-dc48749ed306",
+                                            "name": "MyComboBox",
+                                            "designerId": "c6712c84-1a50-4bc1-a0bd-742eff5cb5c3",
                                             "cn": [
                                                 {
-                                                    "type": "Ext.form.field.Radio",
+                                                    "type": "basiceventbinding",
                                                     "reference": {
-                                                        "name": "items",
+                                                        "name": "listeners",
                                                         "type": "array"
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "boxLabel": "IPv4",
-                                                        "fieldLabel": null,
-                                                        "inputValue": "1",
-                                                        "name": "protocol"
+                                                        "fn": "onSelectKey",
+                                                        "implHandler": [
+                                                            "var me = this,",
+                                                            "    key = records && records[0].get('key'),",
+                                                            "    storeConnector = Ext.StoreManager.get('ConnectorForAdd'),",
+                                                            "    form = me.down('form#ncardconfig');",
+                                                            "form.mask('正在load数据!');",
+                                                            "storeConnector.load({",
+                                                            "    url: '../interfaces/ip',",
+                                                            "    params: {eth: key},",
+                                                            "    callback: function(datas, option, success){",
+                                                            "        form.unmask();",
+                                                            "        if(success){",
+                                                            "            form.getForm().setValues(datas && datas[0].getData());",
+                                                            "        }",
+                                                            "    },",
+                                                            "    scope: me",
+                                                            "});"
+                                                        ],
+                                                        "name": "select",
+                                                        "scope": "me"
                                                     },
-                                                    "name": "MyRadio6",
-                                                    "designerId": "a329a0d9-dbd9-4735-be0d-a21fda77f443"
-                                                },
-                                                {
-                                                    "type": "Ext.form.field.Radio",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "boxLabel": "IPv6",
-                                                        "fieldLabel": null,
-                                                        "inputValue": "1",
-                                                        "name": "protocol"
-                                                    },
-                                                    "name": "MyRadio7",
-                                                    "designerId": "63234394-f65f-4224-b196-5fea0840741a"
+                                                    "name": "onSelectKey",
+                                                    "designerId": "a29aea56-0531-4f65-822b-9e1a9d0666a6"
                                                 }
                                             ]
                                         }
@@ -698,21 +705,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "type": "Ext.panel.Panel",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": 1,
-                                "margin": "0 10",
-                                "title": "相关IP列表"
-                            },
-                            "name": "MyPanel25",
-                            "designerId": "24c7c44f-2a15-416b-ba95-0a577a24636f"
                         }
                     ]
                 },

@@ -33,7 +33,8 @@ Ext.application({
         'Statistics',
         'General',
         'Connector',
-        'NCard'
+        'NCard',
+        'Firewall'
     ],
     stores: [
         'StoreZones',
@@ -51,7 +52,9 @@ Ext.application({
         'General',
         'StoreTimezone',
         'StoreNcard',
-        'StoreConnector'
+        'StoreConnector',
+        'ConnectorForAdd',
+        'StoreFirewall'
     ],
     views: [
         'MainView',
