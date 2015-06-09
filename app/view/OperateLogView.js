@@ -65,7 +65,13 @@ Ext.define('app.view.OperateLogView', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    width: '35%',
+                    width: '20%',
+                    dataIndex: 'user',
+                    text: '用户'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: '30%',
                     dataIndex: 'ip',
                     text: 'IP'
                 },
@@ -80,7 +86,7 @@ Ext.define('app.view.OperateLogView', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: '35%',
+                    width: '20%',
                     dataIndex: 'log',
                     text: '操作名称'
                 }

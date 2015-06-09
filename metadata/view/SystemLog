@@ -1,0 +1,117 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "SystemLog",
+        "designer|userClassName": "SystemLog",
+        "layout": "vbox",
+        "title": "系统日志"
+    },
+    "name": "LogView1",
+    "designerId": "98e273b1-ab87-44e0-b1db-cdd00fe740d9",
+    "viewControllerInstanceId": "f5310d65-0c26-466f-aa7c-6523c546b4bd",
+    "viewModelInstanceId": "4323847a-fad0-4798-9956-764f429a6d00",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoScroll": true,
+                "header": false,
+                "id": "systemloggrid",
+                "layout|flex": 1,
+                "scroll": "vertical",
+                "store": "StoreSystemLog",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel2",
+            "designerId": "043e1139-d3c8-4b33-9239-5988a1bcd718",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ID",
+                        "format": "0000",
+                        "text": "行号",
+                        "width": "5%"
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "00a42dea-845f-4e5c-afa1-c6a0b02d341d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "LOG",
+                        "text": "日志",
+                        "width": "95%"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "2bbaa32b-c775-4d73-a8a1-e94296eaebb7"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "2b24a16f-7ab4-418a-8f7e-decc452a807b"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "store": "StoreSystemLog"
+                    },
+                    "name": "pagingtoolbar7",
+                    "designerId": "4dc15701-80fd-4250-b4eb-e1290ca4b1df",
+                    "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelBeforeActivate",
+                "implHandler": [
+                    "this.query(\"gridpanel[id=systemloggrid]\")[0].store.load();"
+                ],
+                "name": "beforeactivate",
+                "scope": "me"
+            },
+            "name": "onPanelBeforeActivate",
+            "designerId": "eab8b3dd-2564-444b-a404-3c7b352e84f5"
+        }
+    ]
+}

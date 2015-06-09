@@ -54,7 +54,8 @@ Ext.application({
         'StoreNcard',
         'StoreConnector',
         'ConnectorForAdd',
-        'StoreFirewall'
+        'StoreFirewall',
+        'StoreSystemLog'
     ],
     views: [
         'MainView',
@@ -76,7 +77,8 @@ Ext.application({
         'StatisticsView',
         'ImportAndExport',
         'RoutemgrView',
-        'Generalconfig'
+        'Generalconfig',
+        'SystemLog'
     ],
     controllers: [
         'MainController'

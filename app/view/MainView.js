@@ -156,6 +156,13 @@ Ext.define('app.view.MainView', {
                                         return 'OperateLogView';
                                     },
                                     text: ' 操作日志'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    getRefView: function() {
+                                        return 'SystemLog';
+                                    },
+                                    text: ' 系统日志'
                                 }
                             ]
                         }

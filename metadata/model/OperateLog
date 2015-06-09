@@ -19,10 +19,23 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ip"
+                "name": "user"
             },
             "name": "MyString10",
             "designerId": "3eb905a7-bd91-4502-a27b-07b11f79a8c3"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ip"
+            },
+            "name": "MyString11",
+            "designerId": "233f696c-4f94-423c-a0a1-422fd01f4e9b"
         },
         {
             "type": "Ext.data.field.Date",

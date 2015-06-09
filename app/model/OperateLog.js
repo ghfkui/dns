@@ -24,6 +24,10 @@ Ext.define('app.model.OperateLog', {
     fields: [
         {
             type: 'string',
+            name: 'user'
+        },
+        {
+            type: 'string',
             name: 'ip'
         },
         {

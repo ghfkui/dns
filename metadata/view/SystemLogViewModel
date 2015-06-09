@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemlog",
+        "designer|userClassName": "SystemLogViewModel"
+    },
+    "name": "LogViewViewModel1",
+    "designerId": "4323847a-fad0-4798-9956-764f429a6d00"
+}

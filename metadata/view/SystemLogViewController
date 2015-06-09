@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemlog",
+        "designer|userClassName": "SystemLogViewController"
+    },
+    "name": "LogViewViewController1",
+    "designerId": "f5310d65-0c26-466f-aa7c-6523c546b4bd"
+}

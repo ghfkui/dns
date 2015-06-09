@@ -46,7 +46,8 @@
             "StoreNcard",
             "StoreConnector",
             "ConnectorForAdd",
-            "StoreFirewall"
+            "StoreFirewall",
+            "StoreSystemLog"
         ],
         "views": [
             "MainView",
@@ -68,7 +69,8 @@
             "StatisticsView",
             "ImportAndExport",
             "RoutemgrView",
-            "Generalconfig"
+            "Generalconfig",
+            "SystemLog"
         ]
     },
     "name": "Application",

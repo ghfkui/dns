@@ -110,12 +110,27 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "ip",
-                        "text": "IP",
-                        "width": "35%"
+                        "dataIndex": "user",
+                        "text": "用户",
+                        "width": "20%"
                     },
                     "name": "MyColumn1",
                     "designerId": "36e34fd9-e2df-453a-8201-cf8d8b1f7e08"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ip",
+                        "text": "IP",
+                        "width": "30%"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "e5eb5d99-3e8e-4452-8ec5-50a287c3114a"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -169,7 +184,7 @@
                     "userConfig": {
                         "dataIndex": "log",
                         "text": "操作名称",
-                        "width": "35%"
+                        "width": "20%"
                     },
                     "name": "MyColumn6",
                     "designerId": "2d27b5c3-f515-423f-bc5a-f0fc6c9182cd"
@@ -195,7 +210,7 @@
                         "dock": "bottom",
                         "store": "StoreOperateLog"
                     },
-                    "name": "pagingtoolbar9",
+                    "name": "pagingtoolbar1",
                     "designerId": "5e28688a-6b22-4188-b2b3-62fc7c0802ad",
                     "masterInstanceId": "40325ae5-e6ff-42f0-9102-2dbf216cd896"
                 }
