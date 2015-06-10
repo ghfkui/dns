@@ -584,7 +584,7 @@
                                         "itemId": "ruleAddForm",
                                         "jsonSubmit": true,
                                         "title": null,
-                                        "url": "../route/add"
+                                        "url": "../firewall/add"
                                     },
                                     "name": "MyForm8",
                                     "designerId": "eaa8e615-f1ed-4d58-bd6e-f8956b47b084",
@@ -616,8 +616,10 @@
                                                     "userConfig": {
                                                         "boxLabel": "禁止规则",
                                                         "fieldLabel": "禁止规则",
+                                                        "inputValue": "0",
                                                         "layout|flex": 1,
-                                                        "name": "enable"
+                                                        "name": "enable",
+                                                        "uncheckedValue": "1"
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "9854eb23-f355-4310-adf2-3a22a9ee1deb"
@@ -699,8 +701,11 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "执行属性",
+                                                        "forceSelection": true,
                                                         "layout|flex": 1,
-                                                        "name": "action"
+                                                        "name": "action",
+                                                        "store": "StoreAction",
+                                                        "valueField": "value"
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "d8a91421-1a2d-455e-ae9c-e06803ebb48c"
@@ -733,8 +738,11 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "规则方向",
+                                                        "forceSelection": true,
                                                         "layout|flex": 1,
-                                                        "name": "direction"
+                                                        "name": "direction",
+                                                        "store": "StoreDirection",
+                                                        "valueField": "value"
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "7c81b634-5bb0-4829-ac57-3285c8692193"
@@ -766,9 +774,13 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "displayField": "key",
                                                         "fieldLabel": "选择接口",
+                                                        "forceSelection": true,
                                                         "layout|flex": 1,
-                                                        "name": "interface"
+                                                        "name": "interface",
+                                                        "store": "StoreConnector",
+                                                        "valueField": "value"
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "fe740e59-0a1e-4c22-840e-ed3706381c24"
@@ -801,8 +813,11 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "选择协议",
+                                                        "forceSelection": true,
                                                         "layout|flex": 1,
-                                                        "name": "procotol"
+                                                        "name": "procotol",
+                                                        "store": "StoreProtocol",
+                                                        "valueField": "value"
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "f26eb5a0-5df3-4a33-8a1c-fc6b6896bb6a"
@@ -854,6 +869,7 @@
                                                                 "hideLabel": true,
                                                                 "itemId": "sourceAddr",
                                                                 "layout|flex": 1,
+                                                                "name": "source_address",
                                                                 "store": "StoreAddress",
                                                                 "valueField": "value"
                                                             },
@@ -903,7 +919,8 @@
                                                                     "userConfig": {
                                                                         "fn": "onSourceAddrAfterRender",
                                                                         "implHandler": [
-                                                                            "component.select(0);"
+                                                                            "component.select(0);",
+                                                                            "component.fireEvent('select');"
                                                                         ],
                                                                         "name": "afterrender",
                                                                         "scope": "me"
@@ -961,7 +978,7 @@
                                                                         "maxValue": 128,
                                                                         "minValue": 0,
                                                                         "name": "source_mask",
-                                                                        "width": 60
+                                                                        "width": 100
                                                                     },
                                                                     "name": "MyNumberField",
                                                                     "designerId": "cfd34c45-b771-4e48-ab08-cfa7570c9525"
@@ -1187,7 +1204,8 @@
                                                                     "userConfig": {
                                                                         "fn": "onTargetAddrAfterRender",
                                                                         "implHandler": [
-                                                                            "component.select(0);"
+                                                                            "component.select(0);",
+                                                                            "component.fireEvent('select');"
                                                                         ],
                                                                         "name": "afterrender",
                                                                         "scope": "me"
@@ -1245,7 +1263,7 @@
                                                                         "maxValue": 128,
                                                                         "minValue": 0,
                                                                         "name": "target_mask",
-                                                                        "width": 60
+                                                                        "width": 100
                                                                     },
                                                                     "name": "MyNumberField2",
                                                                     "designerId": "b83bfaf4-eee3-4786-994e-b78d0be7b6d0"
@@ -1403,7 +1421,10 @@
                                                     "userConfig": {
                                                         "boxLabel": "碎片过滤",
                                                         "fieldLabel": "碎片选型",
-                                                        "layout|flex": 1
+                                                        "inputValue": "1",
+                                                        "layout|flex": 1,
+                                                        "name": "filter",
+                                                        "uncheckedValue": "0"
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "01bf467f-48b1-46d9-829c-beffaded2c18"
@@ -1451,7 +1472,10 @@
                                                     "userConfig": {
                                                         "boxLabel": "为该规则记录日志",
                                                         "fieldLabel": "日志选项",
-                                                        "layout|flex": 1
+                                                        "inputValue": "1",
+                                                        "layout|flex": 1,
+                                                        "name": "log",
+                                                        "uncheckedValue": "0"
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "ac4c0ac2-ab0d-4e60-9fba-b87980a1ab7a"
@@ -1490,7 +1514,7 @@
                                             "designerId": "00b786ea-ef77-469c-9ea0-e07e27177e80",
                                             "cn": [
                                                 {
-                                                    "type": "Ext.form.field.Text",
+                                                    "type": "Ext.form.field.TextArea",
                                                     "reference": {
                                                         "name": "items",
                                                         "type": "array"
@@ -1498,9 +1522,10 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "规则描述",
-                                                        "layout|flex": 1
+                                                        "layout|flex": 1,
+                                                        "name": "describe"
                                                     },
-                                                    "name": "MyTextField20",
+                                                    "name": "MyTextArea5",
                                                     "designerId": "c3488427-f36c-4786-9215-db8a154aab05"
                                                 }
                                             ]

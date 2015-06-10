@@ -1,0 +1,57 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        text: 'ALL',",
+            "        value: 'ALL'",
+            "    },",
+            "    {",
+            "        text: 'IN',",
+            "        value: 'IN'",
+            "    },{",
+            "        text: 'OUT',",
+            "        value: 'OUT'",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StoreDirection",
+        "storeId": "StoreDirection"
+    },
+    "name": "StoreProtocol1",
+    "designerId": "fe7b1a40-1943-492d-be01-6c8be090a3e6",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "name": "MyField1",
+            "designerId": "45d92729-b4f2-46e0-aaa9-dca56c81a450"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField",
+            "designerId": "42f15073-153c-4fd9-8ba5-79320da0b648"
+        }
+    ]
+}

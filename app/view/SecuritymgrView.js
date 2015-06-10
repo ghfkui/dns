@@ -32,7 +32,8 @@ Ext.define('app.view.SecuritymgrView', {
         'Ext.form.field.Checkbox',
         'Ext.form.Label',
         'Ext.form.field.ComboBox',
-        'Ext.form.field.Number'
+        'Ext.form.field.Number',
+        'Ext.form.field.TextArea'
     ],
 
     config: {
@@ -240,7 +241,7 @@ Ext.define('app.view.SecuritymgrView', {
                                     bodyPadding: 10,
                                     header: false,
                                     jsonSubmit: true,
-                                    url: '../route/add',
+                                    url: '../firewall/add',
                                     items: [
                                         {
                                             xtype: 'fieldcontainer',
@@ -256,7 +257,9 @@ Ext.define('app.view.SecuritymgrView', {
                                                     flex: 1,
                                                     fieldLabel: '禁止规则',
                                                     name: 'enable',
-                                                    boxLabel: '禁止规则'
+                                                    boxLabel: '禁止规则',
+                                                    inputValue: '0',
+                                                    uncheckedValue: '1'
                                                 },
                                                 {
                                                     xtype: 'label',
@@ -296,7 +299,10 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: '执行属性',
-                                                    name: 'action'
+                                                    name: 'action',
+                                                    forceSelection: true,
+                                                    store: 'StoreAction',
+                                                    valueField: 'value'
                                                 }
                                             ]
                                         },
@@ -313,7 +319,10 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: '规则方向',
-                                                    name: 'direction'
+                                                    name: 'direction',
+                                                    forceSelection: true,
+                                                    store: 'StoreDirection',
+                                                    valueField: 'value'
                                                 }
                                             ]
                                         },
@@ -330,7 +339,11 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: '选择接口',
-                                                    name: 'interface'
+                                                    name: 'interface',
+                                                    displayField: 'key',
+                                                    forceSelection: true,
+                                                    store: 'StoreConnector',
+                                                    valueField: 'value'
                                                 }
                                             ]
                                         },
@@ -347,7 +360,10 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: '选择协议',
-                                                    name: 'procotol'
+                                                    name: 'procotol',
+                                                    forceSelection: true,
+                                                    store: 'StoreProtocol',
+                                                    valueField: 'value'
                                                 }
                                             ]
                                         },
@@ -373,6 +389,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                             itemId: 'sourceAddr',
                                                             fieldLabel: 'Label',
                                                             hideLabel: true,
+                                                            name: 'source_address',
                                                             editable: false,
                                                             autoLoadOnValue: true,
                                                             store: 'StoreAddress',
@@ -400,7 +417,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                                 {
                                                                     xtype: 'numberfield',
                                                                     margin: '0 0 0 5',
-                                                                    width: 60,
+                                                                    width: 100,
                                                                     fieldLabel: '   /',
                                                                     labelSeparator: '/',
                                                                     labelWidth: 5,
@@ -512,7 +529,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                                 {
                                                                     xtype: 'numberfield',
                                                                     margin: '0 0 0 5',
-                                                                    width: 60,
+                                                                    width: 100,
                                                                     fieldLabel: '   /',
                                                                     labelSeparator: '/',
                                                                     labelWidth: 5,
@@ -587,7 +604,10 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
                                                     fieldLabel: '碎片选型',
-                                                    boxLabel: '碎片过滤'
+                                                    name: 'filter',
+                                                    boxLabel: '碎片过滤',
+                                                    inputValue: '1',
+                                                    uncheckedValue: '0'
                                                 },
                                                 {
                                                     xtype: 'label',
@@ -609,7 +629,10 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
                                                     fieldLabel: '日志选项',
-                                                    boxLabel: '为该规则记录日志'
+                                                    name: 'log',
+                                                    boxLabel: '为该规则记录日志',
+                                                    inputValue: '1',
+                                                    uncheckedValue: '0'
                                                 },
                                                 {
                                                     xtype: 'label',
@@ -628,9 +651,10 @@ Ext.define('app.view.SecuritymgrView', {
                                             },
                                             items: [
                                                 {
-                                                    xtype: 'textfield',
+                                                    xtype: 'textareafield',
                                                     flex: 1,
-                                                    fieldLabel: '规则描述'
+                                                    fieldLabel: '规则描述',
+                                                    name: 'describe'
                                                 }
                                             ]
                                         }
@@ -720,6 +744,7 @@ Ext.define('app.view.SecuritymgrView', {
 
     onSourceAddrAfterRender: function(component, eOpts) {
         component.select(0);
+        component.fireEvent('select');
     },
 
     onSourcePortSelect: function(combo, records, eOpts) {
@@ -749,6 +774,7 @@ Ext.define('app.view.SecuritymgrView', {
 
     onTargetAddrAfterRender: function(component, eOpts) {
         component.select(0);
+        component.fireEvent('select');
     },
 
     onTargetPortSelect: function(combo, records, eOpts) {
