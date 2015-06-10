@@ -1,0 +1,94 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        text: '任意',",
+            "        value: '0'",
+            "    },",
+            "    {",
+            "        text: 'FTP',",
+            "        value: 21",
+            "    },",
+            "    {",
+            "        text: 'SSH',",
+            "        value: 22",
+            "    },",
+            "    {",
+            "        text: 'Telnet',",
+            "        value: 23",
+            "    },",
+            "    {",
+            "        text: 'SMTP',",
+            "        value: 25",
+            "    },",
+            "    {",
+            "        text: 'DNS',",
+            "        value: 53",
+            "    },",
+            "    {",
+            "        text: 'HTTP',",
+            "        value: 80",
+            "    },",
+            "    {",
+            "        text: 'POP3',",
+            "        value: 110",
+            "    },",
+            "    {",
+            "        text: 'IMAP',",
+            "        value: 143",
+            "    },",
+            "    {",
+            "        text: 'HTTPS',",
+            "        value: 443",
+            "    },",
+            "    {",
+            "        text: 'SNMP(UDP)',",
+            "        value: 161",
+            "    },",
+            "    {",
+            "        text: 'SNMP(TCP)',",
+            "        value: 191",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StorePort",
+        "storeId": "StorePort"
+    },
+    "name": "StoreEth1",
+    "designerId": "1d99645c-441c-44a7-a71b-f76e30a21568",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "name": "MyField1",
+            "designerId": "5741c7b2-d9e5-4b84-929e-59b4f1238eab"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField",
+            "designerId": "565c3081-da71-4c83-a634-e539d6b86e15"
+        }
+    ]
+}

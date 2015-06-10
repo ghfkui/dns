@@ -31,7 +31,8 @@ Ext.define('app.view.SecuritymgrView', {
         'Ext.form.FieldContainer',
         'Ext.form.field.Checkbox',
         'Ext.form.Label',
-        'Ext.form.field.ComboBox'
+        'Ext.form.field.ComboBox',
+        'Ext.form.field.Number'
     ],
 
     config: {
@@ -266,6 +267,7 @@ Ext.define('app.view.SecuritymgrView', {
                                         },
                                         {
                                             xtype: 'fieldcontainer',
+                                            hidden: true,
                                             fieldLabel: 'ipversion',
                                             hideLabel: true,
                                             layout: {
@@ -276,7 +278,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'combobox',
                                                     flex: 1,
-                                                    fieldLabel: 'IP版本'
+                                                    fieldLabel: 'IP版本',
+                                                    submitValue: false
                                                 }
                                             ]
                                         },
@@ -367,8 +370,17 @@ Ext.define('app.view.SecuritymgrView', {
                                                         {
                                                             xtype: 'combobox',
                                                             flex: 1,
+                                                            itemId: 'sourceAddr',
                                                             fieldLabel: 'Label',
-                                                            hideLabel: true
+                                                            hideLabel: true,
+                                                            editable: false,
+                                                            autoLoadOnValue: true,
+                                                            store: 'StoreAddress',
+                                                            valueField: 'value',
+                                                            listeners: {
+                                                                select: 'onSourceAddrSelect',
+                                                                afterrender: 'onSourceAddrAfterRender'
+                                                            }
                                                         },
                                                         {
                                                             xtype: 'fieldcontainer',
@@ -386,13 +398,15 @@ Ext.define('app.view.SecuritymgrView', {
                                                                     name: 'source_ip'
                                                                 },
                                                                 {
-                                                                    xtype: 'combobox',
+                                                                    xtype: 'numberfield',
                                                                     margin: '0 0 0 5',
                                                                     width: 60,
                                                                     fieldLabel: '   /',
                                                                     labelSeparator: '/',
                                                                     labelWidth: 5,
-                                                                    name: 'source_port'
+                                                                    name: 'source_mask',
+                                                                    maxValue: 128,
+                                                                    minValue: 0
                                                                 }
                                                             ]
                                                         }
@@ -423,12 +437,23 @@ Ext.define('app.view.SecuritymgrView', {
                                                         {
                                                             xtype: 'combobox',
                                                             flex: 1,
-                                                            fieldLabel: '选择常用端口'
+                                                            itemId: 'selectSourcePort',
+                                                            fieldLabel: '选择常用端口',
+                                                            submitValue: false,
+                                                            editable: false,
+                                                            store: 'StorePort',
+                                                            valueField: 'value',
+                                                            listeners: {
+                                                                select: 'onSourcePortSelect'
+                                                            }
                                                         },
                                                         {
-                                                            xtype: 'textfield',
+                                                            xtype: 'numberfield',
                                                             flex: 1,
-                                                            fieldLabel: '自定义端口'
+                                                            fieldLabel: '自定义端口',
+                                                            name: 'source_port',
+                                                            maxValue: 65535,
+                                                            minValue: 0
                                                         }
                                                     ]
                                                 },
@@ -457,8 +482,17 @@ Ext.define('app.view.SecuritymgrView', {
                                                         {
                                                             xtype: 'combobox',
                                                             flex: 1,
+                                                            itemId: 'targetAddr',
                                                             fieldLabel: 'Label',
-                                                            hideLabel: true
+                                                            hideLabel: true,
+                                                            name: 'target_address',
+                                                            editable: false,
+                                                            store: 'StoreAddress',
+                                                            valueField: 'value',
+                                                            listeners: {
+                                                                select: 'onTargetAddrSelect',
+                                                                afterrender: 'onTargetAddrAfterRender'
+                                                            }
                                                         },
                                                         {
                                                             xtype: 'fieldcontainer',
@@ -472,15 +506,19 @@ Ext.define('app.view.SecuritymgrView', {
                                                             },
                                                             items: [
                                                                 {
-                                                                    xtype: 'textfield'
+                                                                    xtype: 'textfield',
+                                                                    name: 'target_ip'
                                                                 },
                                                                 {
-                                                                    xtype: 'combobox',
+                                                                    xtype: 'numberfield',
                                                                     margin: '0 0 0 5',
                                                                     width: 60,
                                                                     fieldLabel: '   /',
                                                                     labelSeparator: '/',
-                                                                    labelWidth: 5
+                                                                    labelWidth: 5,
+                                                                    name: 'target_mask',
+                                                                    maxValue: 128,
+                                                                    minValue: 0
                                                                 }
                                                             ]
                                                         }
@@ -511,12 +549,22 @@ Ext.define('app.view.SecuritymgrView', {
                                                         {
                                                             xtype: 'combobox',
                                                             flex: 1,
-                                                            fieldLabel: '选择常用端口'
+                                                            fieldLabel: '选择常用端口',
+                                                            submitValue: false,
+                                                            editable: false,
+                                                            store: 'StorePort',
+                                                            valueField: 'value',
+                                                            listeners: {
+                                                                select: 'onTargetPortSelect'
+                                                            }
                                                         },
                                                         {
-                                                            xtype: 'textfield',
+                                                            xtype: 'numberfield',
                                                             flex: 1,
-                                                            fieldLabel: '自定义端口'
+                                                            fieldLabel: '自定义端口',
+                                                            name: 'target_port',
+                                                            maxValue: 65535,
+                                                            minValue: 0
                                                         }
                                                     ]
                                                 },
@@ -649,6 +697,64 @@ Ext.define('app.view.SecuritymgrView', {
                 view: tableview
             }
         });
+    },
+
+    onSourceAddrSelect: function(combo, records, eOpts) {
+        var ip = this.down('textfield[name=source_ip]'),
+            mask = this.down('numberfield[name=source_mask]'),
+            value = records && records[0] && records[0].getData() && records[0].getData().value || 0;
+        if(0 === value){
+            ip.setDisabled(true);
+            mask.setDisabled(true);
+            ip.setValue('');
+            mask.setValue();
+        }else if(1 === value){
+            ip.setDisabled(false);
+            mask.setDisabled(false);
+        }else if(2 === value){
+            ip.setDisabled(false);
+            mask.setDisabled(false);
+            mask.setValue(24);
+        }
+    },
+
+    onSourceAddrAfterRender: function(component, eOpts) {
+        component.select(0);
+    },
+
+    onSourcePortSelect: function(combo, records, eOpts) {
+        var port = this.down('numberfield[name=source_port]'),
+            value = records && records[0] && records[0].getData() && records[0].getData().value || 0;
+            port.setValue(value);
+    },
+
+    onTargetAddrSelect: function(combo, records, eOpts) {
+        var ip = this.down('textfield[name=target_ip]'),
+            mask = this.down('numberfield[name=target_mask]'),
+            value = records && records[0] && records[0].getData() && records[0].getData().value || 0;
+        if(0 === value){
+            ip.setDisabled(true);
+            mask.setDisabled(true);
+            ip.setValue('');
+            mask.setValue();
+        }else if(1 === value){
+            ip.setDisabled(false);
+            mask.setDisabled(false);
+        }else if(2 === value){
+            ip.setDisabled(false);
+            mask.setDisabled(false);
+            mask.setValue(24);
+        }
+    },
+
+    onTargetAddrAfterRender: function(component, eOpts) {
+        component.select(0);
+    },
+
+    onTargetPortSelect: function(combo, records, eOpts) {
+        var port = this.down('numberfield[name=target_port]'),
+            value = records && records[0] && records[0].getData() && records[0].getData().value || 0;
+            port.setValue(value);
     },
 
     onAddClick: function(button, e, eOpts) {

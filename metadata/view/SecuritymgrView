@@ -649,6 +649,7 @@
                                                 "container|align": "stretch",
                                                 "fieldLabel": "ipversion",
                                                 "height": null,
+                                                "hidden": true,
                                                 "hideLabel": true,
                                                 "layout": "hbox"
                                             },
@@ -664,7 +665,8 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "IP版本",
-                                                        "layout|flex": 1
+                                                        "layout|flex": 1,
+                                                        "submitValue": false
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "acb2adc1-b91d-4485-8774-e870c8f34203"
@@ -846,12 +848,70 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "autoLoadOnValue": true,
+                                                                "editable": false,
                                                                 "fieldLabel": "Label",
                                                                 "hideLabel": true,
-                                                                "layout|flex": 1
+                                                                "itemId": "sourceAddr",
+                                                                "layout|flex": 1,
+                                                                "store": "StoreAddress",
+                                                                "valueField": "value"
                                                             },
                                                             "name": "MyComboBox8",
-                                                            "designerId": "bbc6fc3c-5534-41e0-bb90-31a9c21e778b"
+                                                            "designerId": "bbc6fc3c-5534-41e0-bb90-31a9c21e778b",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onSourceAddrSelect",
+                                                                        "implHandler": [
+                                                                            "var ip = this.down('textfield[name=source_ip]'),",
+                                                                            "    mask = this.down('numberfield[name=source_mask]'),",
+                                                                            "    value = records && records[0] && records[0].getData() && records[0].getData().value || 0;",
+                                                                            "if(0 === value){",
+                                                                            "    ip.setDisabled(true);",
+                                                                            "    mask.setDisabled(true);",
+                                                                            "    ip.setValue('');",
+                                                                            "    mask.setValue();",
+                                                                            "}else if(1 === value){",
+                                                                            "    ip.setDisabled(false);",
+                                                                            "    mask.setDisabled(false);",
+                                                                            "}else if(2 === value){",
+                                                                            "    ip.setDisabled(false);",
+                                                                            "    mask.setDisabled(false);",
+                                                                            "    mask.setValue(24);",
+                                                                            "}"
+                                                                        ],
+                                                                        "name": "select",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onSourceAddrSelect",
+                                                                    "designerId": "bb2c20d0-de7e-4b71-9935-5dfb2e36e46e"
+                                                                },
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onSourceAddrAfterRender",
+                                                                        "implHandler": [
+                                                                            "component.select(0);"
+                                                                        ],
+                                                                        "name": "afterrender",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onSourceAddrAfterRender",
+                                                                    "designerId": "2b25cee9-ae13-47c9-bc39-96468c6d6bdd"
+                                                                }
+                                                            ]
                                                         },
                                                         {
                                                             "type": "Ext.form.FieldContainer",
@@ -887,7 +947,7 @@
                                                                     "designerId": "4fd56488-f92c-4cdc-8825-2c5f46114a7c"
                                                                 },
                                                                 {
-                                                                    "type": "Ext.form.field.ComboBox",
+                                                                    "type": "Ext.form.field.Number",
                                                                     "reference": {
                                                                         "name": "items",
                                                                         "type": "array"
@@ -898,10 +958,12 @@
                                                                         "labelSeparator": "/",
                                                                         "labelWidth": 5,
                                                                         "margin": "0 0 0 5",
-                                                                        "name": "source_port",
+                                                                        "maxValue": 128,
+                                                                        "minValue": 0,
+                                                                        "name": "source_mask",
                                                                         "width": 60
                                                                     },
-                                                                    "name": "MyComboBox9",
+                                                                    "name": "MyNumberField",
                                                                     "designerId": "cfd34c45-b771-4e48-ab08-cfa7570c9525"
                                                                 }
                                                             ]
@@ -963,14 +1025,41 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "editable": false,
                                                                 "fieldLabel": "选择常用端口",
-                                                                "layout|flex": 1
+                                                                "itemId": "selectSourcePort",
+                                                                "layout|flex": 1,
+                                                                "store": "StorePort",
+                                                                "submitValue": false,
+                                                                "valueField": "value"
                                                             },
                                                             "name": "MyComboBox8",
-                                                            "designerId": "9bae8cdf-7c8b-4d78-b6ce-ffeaeae85493"
+                                                            "designerId": "9bae8cdf-7c8b-4d78-b6ce-ffeaeae85493",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onSourcePortSelect",
+                                                                        "implHandler": [
+                                                                            "var port = this.down('numberfield[name=source_port]'),",
+                                                                            "    value = records && records[0] && records[0].getData() && records[0].getData().value || 0;",
+                                                                            "    port.setValue(value);"
+                                                                        ],
+                                                                        "name": "select",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onSourcePortSelect",
+                                                                    "designerId": "95c4e861-9344-418a-8e51-274ffcfa2608"
+                                                                }
+                                                            ]
                                                         },
                                                         {
-                                                            "type": "Ext.form.field.Text",
+                                                            "type": "Ext.form.field.Number",
                                                             "reference": {
                                                                 "name": "items",
                                                                 "type": "array"
@@ -978,9 +1067,12 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "fieldLabel": "自定义端口",
-                                                                "layout|flex": 1
+                                                                "layout|flex": 1,
+                                                                "maxValue": 65535,
+                                                                "minValue": 0,
+                                                                "name": "source_port"
                                                             },
-                                                            "name": "MyTextField22",
+                                                            "name": "MyNumberField1",
                                                             "designerId": "d9470f12-b03c-4a6b-8946-bc66fa2ffd19"
                                                         }
                                                     ]
@@ -1040,12 +1132,70 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "editable": false,
                                                                 "fieldLabel": "Label",
                                                                 "hideLabel": true,
-                                                                "layout|flex": 1
+                                                                "itemId": "targetAddr",
+                                                                "layout|flex": 1,
+                                                                "name": "target_address",
+                                                                "store": "StoreAddress",
+                                                                "valueField": "value"
                                                             },
                                                             "name": "MyComboBox8",
-                                                            "designerId": "d7b57f74-b35e-41f3-92f3-cdbc0f0370f0"
+                                                            "designerId": "d7b57f74-b35e-41f3-92f3-cdbc0f0370f0",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onTargetAddrSelect",
+                                                                        "implHandler": [
+                                                                            "var ip = this.down('textfield[name=target_ip]'),",
+                                                                            "    mask = this.down('numberfield[name=target_mask]'),",
+                                                                            "    value = records && records[0] && records[0].getData() && records[0].getData().value || 0;",
+                                                                            "if(0 === value){",
+                                                                            "    ip.setDisabled(true);",
+                                                                            "    mask.setDisabled(true);",
+                                                                            "    ip.setValue('');",
+                                                                            "    mask.setValue();",
+                                                                            "}else if(1 === value){",
+                                                                            "    ip.setDisabled(false);",
+                                                                            "    mask.setDisabled(false);",
+                                                                            "}else if(2 === value){",
+                                                                            "    ip.setDisabled(false);",
+                                                                            "    mask.setDisabled(false);",
+                                                                            "    mask.setValue(24);",
+                                                                            "}"
+                                                                        ],
+                                                                        "name": "select",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onTargetAddrSelect",
+                                                                    "designerId": "4d5dbb05-75cb-41fe-9bff-41937435a277"
+                                                                },
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onTargetAddrAfterRender",
+                                                                        "implHandler": [
+                                                                            "component.select(0);"
+                                                                        ],
+                                                                        "name": "afterrender",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onTargetAddrAfterRender",
+                                                                    "designerId": "34ac70b7-f0cb-46ca-85a3-293b673521d1"
+                                                                }
+                                                            ]
                                                         },
                                                         {
                                                             "type": "Ext.form.FieldContainer",
@@ -1074,13 +1224,14 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "fieldLabel": null
+                                                                        "fieldLabel": null,
+                                                                        "name": "target_ip"
                                                                     },
                                                                     "name": "MyTextField21",
                                                                     "designerId": "128303ff-b99d-4bc2-89c9-7733c17ca0d4"
                                                                 },
                                                                 {
-                                                                    "type": "Ext.form.field.ComboBox",
+                                                                    "type": "Ext.form.field.Number",
                                                                     "reference": {
                                                                         "name": "items",
                                                                         "type": "array"
@@ -1091,9 +1242,12 @@
                                                                         "labelSeparator": "/",
                                                                         "labelWidth": 5,
                                                                         "margin": "0 0 0 5",
+                                                                        "maxValue": 128,
+                                                                        "minValue": 0,
+                                                                        "name": "target_mask",
                                                                         "width": 60
                                                                     },
-                                                                    "name": "MyComboBox9",
+                                                                    "name": "MyNumberField2",
                                                                     "designerId": "b83bfaf4-eee3-4786-994e-b78d0be7b6d0"
                                                                 }
                                                             ]
@@ -1155,14 +1309,40 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "editable": false,
                                                                 "fieldLabel": "选择常用端口",
-                                                                "layout|flex": 1
+                                                                "layout|flex": 1,
+                                                                "store": "StorePort",
+                                                                "submitValue": false,
+                                                                "valueField": "value"
                                                             },
                                                             "name": "MyComboBox8",
-                                                            "designerId": "4d09e57d-a880-49f8-a245-24c6c0d8942d"
+                                                            "designerId": "4d09e57d-a880-49f8-a245-24c6c0d8942d",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onTargetPortSelect",
+                                                                        "implHandler": [
+                                                                            "var port = this.down('numberfield[name=target_port]'),",
+                                                                            "    value = records && records[0] && records[0].getData() && records[0].getData().value || 0;",
+                                                                            "    port.setValue(value);"
+                                                                        ],
+                                                                        "name": "select",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "name": "onTargetPortSelect",
+                                                                    "designerId": "d2753c7b-69f3-4caf-9c6d-2bd071bf8c23"
+                                                                }
+                                                            ]
                                                         },
                                                         {
-                                                            "type": "Ext.form.field.Text",
+                                                            "type": "Ext.form.field.Number",
                                                             "reference": {
                                                                 "name": "items",
                                                                 "type": "array"
@@ -1170,9 +1350,12 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "fieldLabel": "自定义端口",
-                                                                "layout|flex": 1
+                                                                "layout|flex": 1,
+                                                                "maxValue": 65535,
+                                                                "minValue": 0,
+                                                                "name": "target_port"
                                                             },
-                                                            "name": "MyTextField22",
+                                                            "name": "MyNumberField3",
                                                             "designerId": "e9001bc2-0595-4315-bd32-63dfd89023b5"
                                                         }
                                                     ]

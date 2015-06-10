@@ -55,7 +55,9 @@ Ext.application({
         'StoreConnector',
         'ConnectorForAdd',
         'StoreFirewall',
-        'StoreSystemLog'
+        'StoreSystemLog',
+        'StorePort',
+        'StoreAddress'
     ],
     views: [
         'MainView',
