@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "bodyPadding": null,
         "connectorUpdate": false,
         "connectorUpdateUrl": "../interfaces/update",
         "container|align": "stretch",
@@ -45,7 +46,9 @@
             "codeClass": null,
             "userConfig": {
                 "activeTab": 0,
-                "layout|flex": 1
+                "bodyPadding": null,
+                "layout|flex": 1,
+                "margin": 10
             },
             "name": "MyTabPanel3",
             "designerId": "3e6a3712-9fe2-48e1-bca6-034f03ea8a3c",
@@ -152,7 +155,7 @@
                                     "userConfig": {
                                         "autoLoad": true,
                                         "id": "interfacegrid",
-                                        "margin": 10,
+                                        "margin": null,
                                         "store": "StoreInterface",
                                         "title": "网络接口"
                                     },
@@ -321,11 +324,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "autoScroll": true,
+                                "container|align": "stretch",
                                 "itemId": "ncardconfig",
                                 "jsonSubmit": true,
-                                "margin": "0 10",
+                                "layout": "vbox",
+                                "layout|flex": 0.5,
+                                "margin": null,
                                 "title": "网卡配置",
-                                "url": "../interfaces/ip"
+                                "url": "../interfaces/ip",
+                                "width": null
                             },
                             "name": "MyForm10",
                             "designerId": "0c0e10d7-6df2-4fb5-b7dc-1a3086369b64",
@@ -338,9 +346,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "connectorselect",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -355,14 +365,17 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "allowBlank": false,
                                                 "designer|displayName": null,
                                                 "displayField": "key",
                                                 "editable": false,
                                                 "fieldLabel": "选择接口",
                                                 "itemId": "key",
+                                                "layout|flex": null,
                                                 "name": "key",
                                                 "store": "StoreConnector",
-                                                "valueField": "value"
+                                                "valueField": "value",
+                                                "width": 300
                                             },
                                             "name": "MyComboBox",
                                             "designerId": "c6712c84-1a50-4bc1-a0bd-742eff5cb5c3",
@@ -401,6 +414,22 @@
                                                     "designerId": "a29aea56-0531-4f65-822b-9e1a9d0666a6"
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 90",
+                                                "text": null,
+                                                "width": null
+                                            },
+                                            "name": "MyLabel19",
+                                            "designerId": "24532890-c429-4f06-a405-ff2f7d92ed0e"
                                         }
                                     ]
                                 },
@@ -432,7 +461,9 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "网络地址",
-                                                "name": "ip"
+                                                "name": "ip",
+                                                "regex": "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)($|(?!\\.$)\\.)){4}$/",
+                                                "width": 300
                                             },
                                             "name": "MyTextField18",
                                             "designerId": "4a98329c-22b0-49bc-9224-eb34bfb5690c"
@@ -448,6 +479,7 @@
                                                 "displayField": "mask",
                                                 "editable": false,
                                                 "fieldLabel": "    /",
+                                                "forceSelection": true,
                                                 "labelSeparator": "/",
                                                 "labelWidth": 5,
                                                 "margin": "0 0 0 5",
@@ -458,6 +490,22 @@
                                             },
                                             "name": "MyComboBox6",
                                             "designerId": "84784654-5384-49a8-8bb8-7221da9835e1"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 20",
+                                                "text": "",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel18",
+                                            "designerId": "8ba02bbd-222c-43f3-86ba-6a08029b705e"
                                         }
                                     ]
                                 },
@@ -469,9 +517,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "gateway",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -487,10 +537,29 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": "网关",
-                                                "name": "gateway"
+                                                "layout|flex": null,
+                                                "name": "gateway",
+                                                "regex": "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)($|(?!\\.$)\\.)){4}$/",
+                                                "width": 300
                                             },
                                             "name": "MyTextField19",
                                             "designerId": "2d70094d-d17e-44ad-961b-95627c91ca45"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 90",
+                                                "text": "",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel17",
+                                            "designerId": "58c388c4-8596-4c64-b59a-7fab3d467401"
                                         }
                                     ]
                                 },
@@ -502,9 +571,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "safety",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -522,11 +593,30 @@
                                                 "boxLabel": "阻止私有网络",
                                                 "fieldLabel": "安全",
                                                 "inputValue": "1",
+                                                "layout|flex": null,
                                                 "name": "private",
-                                                "uncheckedValue": "0"
+                                                "uncheckedValue": "0",
+                                                "width": 300
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "c6c485a9-c690-4e06-996c-11d031b93e8c"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "layout|margins": null,
+                                                "margin": "3 0 0 90",
+                                                "text": "这个设置可以阻止来自RFC1918定义的私有网络地址（10/8，172.16/12，192.168/16）的数据包，也包括回环地址（127/8）。通常外网启用这个设置，来拦截一些非法数据包。如果您的外网地址也是私有网络，则不要设置。",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel13",
+                                            "designerId": "3860ac91-29ff-441a-8114-ff17a8ce2d5b"
                                         }
                                     ]
                                 },
@@ -538,9 +628,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "webmgr",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -556,14 +648,31 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "启用",
-                                                "checked": true,
                                                 "fieldLabel": "WEB管理",
                                                 "inputValue": "1",
+                                                "layout|flex": null,
                                                 "name": "webmgr",
-                                                "uncheckedValue": "0"
+                                                "uncheckedValue": "0",
+                                                "width": 300
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d0b309e0-ef73-49bd-8178-f8d99fdc0171"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 90",
+                                                "text": "如果选择启用WEB管理，您将可以通过这个网卡绑定的IP地址来访问WEB管理界面。",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel14",
+                                            "designerId": "4d7c8fc9-c34d-4419-8dd5-1958bda468b3"
                                         }
                                     ]
                                 },
@@ -575,9 +684,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "dnsservice",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -596,11 +707,29 @@
                                                 "checked": true,
                                                 "fieldLabel": "DNS服务",
                                                 "inputValue": "1",
+                                                "layout|flex": null,
                                                 "name": "dns",
-                                                "uncheckedValue": "0"
+                                                "uncheckedValue": "0",
+                                                "width": 300
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "2b6d36cf-7579-4822-b9ff-5b27faaebf1e"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 90",
+                                                "text": "如果选择启用DNS服务，您将可以通过这个网卡绑定的IP地址来查询DNS服务。",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel15",
+                                            "designerId": "3f97731b-f0a3-44a9-9746-6bde9f9d96a4"
                                         }
                                     ]
                                 },
@@ -612,9 +741,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "container|align": "stretch",
                                         "fieldLabel": "allowping",
                                         "height": null,
                                         "hideLabel": true,
+                                        "layout": "hbox",
                                         "padding": "10 10",
                                         "width": null
                                     },
@@ -630,14 +761,31 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "启用",
-                                                "checked": true,
                                                 "fieldLabel": "允许PING",
                                                 "inputValue": "1",
+                                                "layout|flex": null,
                                                 "name": "ping",
-                                                "uncheckedValue": "0"
+                                                "uncheckedValue": "0",
+                                                "width": 300
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d5448631-fd7f-4aa4-b9c5-bb2e8cbcac23"
+                                        },
+                                        {
+                                            "type": "Ext.form.Label",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "margin": "3 0 0 90",
+                                                "text": "如果选择启用PING，您将可以PING通过这个网卡绑定的IP地址。",
+                                                "width": null
+                                            },
+                                            "name": "MyLabel16",
+                                            "designerId": "6b99cbd6-30bf-410f-a050-ebe798cae45b"
                                         }
                                     ]
                                 },
@@ -680,12 +828,16 @@
                                                         "fn": "onSaveClick",
                                                         "implHandler": [
                                                             "var me = this,",
-                                                            "    form = me.down('form#ncardconfig');",
+                                                            "    form = me.down('form#ncardconfig'),",
+                                                            "    valid = form.isValid();",
+                                                            "if(!valid){",
+                                                            "    return false;",
+                                                            "}",
                                                             "form.submit({",
                                                             "    waitMsg: '正在保存',",
                                                             "    success: function (form, action) {",
                                                             "        Ext.Msg.alert('成功', '保存成功', function(){",
-                                                            "            //form.reset();",
+                                                            "            form.reset();",
                                                             "            //connectorStore.load();",
                                                             "        });",
                                                             "    },",
@@ -747,7 +899,7 @@
                                 "itemId": "addConnectorForm",
                                 "jsonSubmit": true,
                                 "layout": "vbox",
-                                "margin": "0 10",
+                                "margin": null,
                                 "padding": "",
                                 "title": "添加接口",
                                 "url": "../interfaces/add"
@@ -784,9 +936,11 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "allowBlank": false,
                                                 "fieldLabel": "名称",
                                                 "margin": null,
-                                                "name": "key"
+                                                "name": "key",
+                                                "regex": "/^[a-zA-Z]{3,10}$/"
                                             },
                                             "name": "MyTextField16",
                                             "designerId": "27405c6b-e313-44dd-9ead-30bc775e1dab"
@@ -834,6 +988,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "allowBlank": false,
                                                 "displayField": "name",
                                                 "editable": false,
                                                 "fieldLabel": "网卡",
@@ -903,7 +1058,11 @@
                                                             "var me = this,",
                                                             "    form = me.down('form#addConnectorForm'),",
                                                             "    connectorStore = me.down('grid#connectorGrid').getStore(),",
-                                                            "    url = '../interfaces/add';",
+                                                            "    url = '../interfaces/add',",
+                                                            "    valid = form.isValid();",
+                                                            "if(!valid){",
+                                                            "    return false;",
+                                                            "}",
                                                             "if(me.connectorUpdate){",
                                                             "    url = me.connectorUpdateUrl;",
                                                             "    me.connectorUpdate = false;",
@@ -945,7 +1104,7 @@
                                 "autoLoad": true,
                                 "itemId": "connectorGrid",
                                 "layout|flex": 1,
-                                "margin": "10 10 0",
+                                "margin": null,
                                 "padding": "10 0 0",
                                 "store": "StoreConnector",
                                 "title": "接口列表"

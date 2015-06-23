@@ -255,16 +255,16 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'checkboxfield',
                                                     flex: 1,
-                                                    fieldLabel: '禁止规则',
+                                                    fieldLabel: '启动规则',
                                                     name: 'enable',
-                                                    boxLabel: '禁止规则',
+                                                    boxLabel: '启动规则',
                                                     inputValue: '0',
                                                     uncheckedValue: '1'
                                                 },
                                                 {
                                                     xtype: 'label',
                                                     flex: 1,
-                                                    text: '选中后，这条规则将不会生效'
+                                                    text: '选中后，这条规则将会生效'
                                                 }
                                             ]
                                         },
@@ -360,7 +360,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                     xtype: 'combobox',
                                                     flex: 1,
                                                     fieldLabel: '选择协议',
-                                                    name: 'procotol',
+                                                    name: 'protocol',
                                                     forceSelection: true,
                                                     store: 'StoreProtocol',
                                                     valueField: 'value'
@@ -412,7 +412,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                             items: [
                                                                 {
                                                                     xtype: 'textfield',
-                                                                    name: 'source_ip'
+                                                                    name: 'source_ip',
+                                                                    regex: /^((25[0-5]|2[0-4]\d|[01]?\d\d?)($|(?!\.$)\.)){4}$/
                                                                 },
                                                                 {
                                                                     xtype: 'numberfield',

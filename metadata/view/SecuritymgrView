@@ -614,8 +614,8 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "boxLabel": "禁止规则",
-                                                        "fieldLabel": "禁止规则",
+                                                        "boxLabel": "启动规则",
+                                                        "fieldLabel": "启动规则",
                                                         "inputValue": "0",
                                                         "layout|flex": 1,
                                                         "name": "enable",
@@ -633,7 +633,7 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "layout|flex": 1,
-                                                        "text": "选中后，这条规则将不会生效"
+                                                        "text": "选中后，这条规则将会生效"
                                                     },
                                                     "name": "MyLabel11",
                                                     "designerId": "0f24e71e-f2d6-4402-9bce-c27d893e5839"
@@ -815,7 +815,7 @@
                                                         "fieldLabel": "选择协议",
                                                         "forceSelection": true,
                                                         "layout|flex": 1,
-                                                        "name": "procotol",
+                                                        "name": "protocol",
                                                         "store": "StoreProtocol",
                                                         "valueField": "value"
                                                     },
@@ -958,7 +958,8 @@
                                                                     "codeClass": null,
                                                                     "userConfig": {
                                                                         "fieldLabel": null,
-                                                                        "name": "source_ip"
+                                                                        "name": "source_ip",
+                                                                        "regex": "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)($|(?!\\.$)\\.)){4}$/"
                                                                     },
                                                                     "name": "MyTextField21",
                                                                     "designerId": "4fd56488-f92c-4cdc-8825-2c5f46114a7c"
