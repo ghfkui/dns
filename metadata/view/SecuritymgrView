@@ -543,6 +543,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
                         "rowUpdate": null,
                         "title": "添加规则"
                     },
@@ -566,6 +568,7 @@
                             "userConfig": {
                                 "autoScroll": true,
                                 "header": false,
+                                "layout|flex": 1,
                                 "title": "My Panel"
                             },
                             "name": "MyPanel22",
@@ -583,6 +586,7 @@
                                         "header": false,
                                         "itemId": "ruleAddForm",
                                         "jsonSubmit": true,
+                                        "margin": null,
                                         "title": null,
                                         "url": "../firewall/add"
                                     },
@@ -617,9 +621,10 @@
                                                         "boxLabel": "启动规则",
                                                         "fieldLabel": "启动规则",
                                                         "inputValue": "0",
-                                                        "layout|flex": 1,
+                                                        "layout|flex": null,
                                                         "name": "enable",
-                                                        "uncheckedValue": "1"
+                                                        "uncheckedValue": "1",
+                                                        "width": 400
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "9854eb23-f355-4310-adf2-3a22a9ee1deb"
@@ -633,6 +638,7 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
                                                         "text": "选中后，这条规则将会生效"
                                                     },
                                                     "name": "MyLabel11",
@@ -667,6 +673,7 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "IP版本",
+                                                        "height": null,
                                                         "layout|flex": 1,
                                                         "submitValue": false
                                                     },
@@ -701,14 +708,33 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "执行属性",
-                                                        "forceSelection": true,
-                                                        "layout|flex": 1,
+                                                        "forceSelection": null,
+                                                        "height": null,
+                                                        "layout|flex": null,
+                                                        "maxHeight": 20,
                                                         "name": "action",
                                                         "store": "StoreAction",
-                                                        "valueField": "value"
+                                                        "valueField": "value",
+                                                        "width": 400
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "d8a91421-1a2d-455e-ae9c-e06803ebb48c"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "html": "block表示如果规则与包匹配，则丢弃包。<br>pass表示如果规则与包匹配，则允许包通过防火墙。",
+                                                        "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel",
+                                                    "designerId": "81a90964-bce1-4c32-a588-61d9fec27348"
                                                 }
                                             ]
                                         },
@@ -738,14 +764,32 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "规则方向",
-                                                        "forceSelection": true,
-                                                        "layout|flex": 1,
+                                                        "forceSelection": null,
+                                                        "layout|flex": null,
+                                                        "maxHeight": 20,
                                                         "name": "direction",
                                                         "store": "StoreDirection",
-                                                        "valueField": "value"
+                                                        "valueField": "value",
+                                                        "width": 400
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "7c81b634-5bb0-4829-ac57-3285c8692193"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "html": "in表示规则应被应用于刚刚从Internet公网上收到的数据包。<br>out表示规则应被用于即发出到Internet的数据包。",
+                                                        "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
+                                                        "text": null
+                                                    },
+                                                    "name": "MyLabel1",
+                                                    "designerId": "2b066f10-36b4-49ee-b648-3acc77179bdc"
                                                 }
                                             ]
                                         },
@@ -777,13 +821,31 @@
                                                         "displayField": "key",
                                                         "fieldLabel": "选择接口",
                                                         "forceSelection": true,
-                                                        "layout|flex": 1,
+                                                        "layout|flex": null,
+                                                        "margin": "5 0",
+                                                        "maxHeight": 20,
                                                         "name": "interface",
                                                         "store": "StoreConnector",
-                                                        "valueField": "value"
+                                                        "valueField": "value",
+                                                        "width": 400
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "fe740e59-0a1e-4c22-840e-ed3706381c24"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
+                                                        "text": "规则只会应用到选定的一个网络接口上的出入数据包上。"
+                                                    },
+                                                    "name": "MyLabel2",
+                                                    "designerId": "2efd02a2-b87c-4b51-a20e-4ab2cac2486f"
                                                 }
                                             ]
                                         },
@@ -814,13 +876,31 @@
                                                     "userConfig": {
                                                         "fieldLabel": "选择协议",
                                                         "forceSelection": true,
-                                                        "layout|flex": 1,
+                                                        "layout|flex": null,
+                                                        "margin": "5 0",
+                                                        "maxHeight": 20,
                                                         "name": "protocol",
                                                         "store": "StoreProtocol",
-                                                        "valueField": "value"
+                                                        "valueField": "value",
+                                                        "width": 400
                                                     },
                                                     "name": "MyComboBox7",
                                                     "designerId": "f26eb5a0-5df3-4a33-8a1c-fc6b6896bb6a"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
+                                                        "text": "这里选择规则匹配某个特定的协议。TCP/UDP可以同时匹配TCP或UDP包，避免过多重复规则。"
+                                                    },
+                                                    "name": "MyLabel3",
+                                                    "designerId": "5e5cc7a8-1b78-4761-9c4b-e5b36a835dff"
                                                 }
                                             ]
                                         },
@@ -850,7 +930,8 @@
                                                     "userConfig": {
                                                         "container|align": "stretch",
                                                         "layout": "vbox",
-                                                        "layout|flex": 1
+                                                        "layout|flex": null,
+                                                        "width": 295
                                                     },
                                                     "name": "MyContainer1",
                                                     "designerId": "7715e0bf-9b5d-4b5c-b901-70d21f5a0d36",
@@ -868,10 +949,11 @@
                                                                 "fieldLabel": "Label",
                                                                 "hideLabel": true,
                                                                 "itemId": "sourceAddr",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "name": "source_address",
                                                                 "store": "StoreAddress",
-                                                                "valueField": "value"
+                                                                "valueField": "value",
+                                                                "width": null
                                                             },
                                                             "name": "MyComboBox8",
                                                             "designerId": "bbc6fc3c-5534-41e0-bb90-31a9c21e778b",
@@ -943,8 +1025,8 @@
                                                                 "height": null,
                                                                 "hideLabel": true,
                                                                 "layout": "hbox",
-                                                                "layout|flex": 1,
-                                                                "width": 400
+                                                                "layout|flex": null,
+                                                                "width": null
                                                             },
                                                             "name": "MyFieldContainer34",
                                                             "designerId": "90e39756-37b3-45c0-872b-bc0dc4f8f0a7",
@@ -996,7 +1078,9 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "html": "选择或填写来源地址。单一主机，则是指定的一个IP地址掩码是32（255.255.255.255）。<br>子网络，则是指定一个子网，掩码是0-31。<br>如果是任意地址，则不需要填写IP和选择掩码。",
                                                         "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
                                                         "text": null
                                                     },
                                                     "name": "MyLabel12",
@@ -1030,7 +1114,8 @@
                                                     "userConfig": {
                                                         "container|align": "stretch",
                                                         "layout": "vbox",
-                                                        "layout|flex": 1
+                                                        "layout|flex": null,
+                                                        "width": 295
                                                     },
                                                     "name": "MyContainer1",
                                                     "designerId": "24080100-c535-4acd-9920-50ca5cf0b114",
@@ -1046,7 +1131,7 @@
                                                                 "editable": false,
                                                                 "fieldLabel": "选择常用端口",
                                                                 "itemId": "selectSourcePort",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "store": "StorePort",
                                                                 "submitValue": false,
                                                                 "valueField": "value"
@@ -1085,7 +1170,7 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "fieldLabel": "自定义端口",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "maxValue": 65535,
                                                                 "minValue": 0,
                                                                 "name": "source_port"
@@ -1103,7 +1188,9 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "html": "填写自定义端口，如果填写了自定义端口，前面选择的常用端口将不起作用。<br>可以指定一个端口范围，如9999到65535端口：9999：65535",
                                                         "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
                                                         "text": null
                                                     },
                                                     "name": "MyLabel12",
@@ -1137,7 +1224,8 @@
                                                     "userConfig": {
                                                         "container|align": "stretch",
                                                         "layout": "vbox",
-                                                        "layout|flex": 1
+                                                        "layout|flex": null,
+                                                        "width": 295
                                                     },
                                                     "name": "MyContainer1",
                                                     "designerId": "a890b7bc-e801-49b1-a6ec-3246487f073c",
@@ -1154,7 +1242,7 @@
                                                                 "fieldLabel": "Label",
                                                                 "hideLabel": true,
                                                                 "itemId": "targetAddr",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "name": "target_address",
                                                                 "store": "StoreAddress",
                                                                 "valueField": "value"
@@ -1229,7 +1317,7 @@
                                                                 "height": null,
                                                                 "hideLabel": true,
                                                                 "layout": "hbox",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "width": 400
                                                             },
                                                             "name": "MyFieldContainer34",
@@ -1281,7 +1369,9 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "html": "选择或填写目标地址。单一主机，则是指定的一个IP地址掩码是32（255.255.255.255）。<br>子网络，则是指定一个子网，掩码是0-31。<br>如果是任意地址，则不需要填写IP和选择掩码。",
                                                         "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
                                                         "text": null
                                                     },
                                                     "name": "MyLabel12",
@@ -1315,7 +1405,8 @@
                                                     "userConfig": {
                                                         "container|align": "stretch",
                                                         "layout": "vbox",
-                                                        "layout|flex": 1
+                                                        "layout|flex": null,
+                                                        "width": 295
                                                     },
                                                     "name": "MyContainer1",
                                                     "designerId": "fc54ea3a-79d7-452c-b258-03634d7f5657",
@@ -1330,7 +1421,7 @@
                                                             "userConfig": {
                                                                 "editable": false,
                                                                 "fieldLabel": "选择常用端口",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "store": "StorePort",
                                                                 "submitValue": false,
                                                                 "valueField": "value"
@@ -1369,7 +1460,7 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "fieldLabel": "自定义端口",
-                                                                "layout|flex": 1,
+                                                                "layout|flex": null,
                                                                 "maxValue": 65535,
                                                                 "minValue": 0,
                                                                 "name": "target_port"
@@ -1387,7 +1478,9 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "html": "填写自定义端口，如果填写了自定义端口，前面选择的常用端口将不起作用。<br>可以指定一个端口范围，如9999到65535端口：9999：65535",
                                                         "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
                                                         "text": null
                                                     },
                                                     "name": "MyLabel12",
@@ -1423,26 +1516,13 @@
                                                         "boxLabel": "碎片过滤",
                                                         "fieldLabel": "碎片选型",
                                                         "inputValue": "1",
-                                                        "layout|flex": 1,
+                                                        "layout|flex": null,
                                                         "name": "filter",
-                                                        "uncheckedValue": "0"
+                                                        "uncheckedValue": "0",
+                                                        "width": 400
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "01bf467f-48b1-46d9-829c-beffaded2c18"
-                                                },
-                                                {
-                                                    "type": "Ext.form.Label",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "layout|flex": 1,
-                                                        "text": "选中后，这条规则将不会生效"
-                                                    },
-                                                    "name": "MyLabel11",
-                                                    "designerId": "897acd33-2157-4696-b12b-1f94f03fb2a4"
                                                 }
                                             ]
                                         },
@@ -1474,9 +1554,10 @@
                                                         "boxLabel": "为该规则记录日志",
                                                         "fieldLabel": "日志选项",
                                                         "inputValue": "1",
-                                                        "layout|flex": 1,
+                                                        "layout|flex": null,
                                                         "name": "log",
-                                                        "uncheckedValue": "0"
+                                                        "uncheckedValue": "0",
+                                                        "width": 400
                                                     },
                                                     "name": "MyCheckbox7",
                                                     "designerId": "ac4c0ac2-ab0d-4e60-9fba-b87980a1ab7a"
@@ -1490,7 +1571,8 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "layout|flex": 1,
-                                                        "text": "选中后，这条规则将不会生效"
+                                                        "margin": "3 0 0 20",
+                                                        "text": "表示将与规则匹配的数据包头写入到ipl日志。"
                                                     },
                                                     "name": "MyLabel11",
                                                     "designerId": "dd8107df-03eb-4619-8af5-fc3e35d55677"
@@ -1523,11 +1605,27 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "fieldLabel": "规则描述",
-                                                        "layout|flex": 1,
-                                                        "name": "describe"
+                                                        "layout|flex": null,
+                                                        "name": "describe",
+                                                        "width": 400
                                                     },
                                                     "name": "MyTextArea5",
                                                     "designerId": "c3488427-f36c-4786-9215-db8a154aab05"
+                                                },
+                                                {
+                                                    "type": "Ext.form.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": 1,
+                                                        "margin": "3 0 0 20",
+                                                        "text": "简单描述该规则的用途或者其他说明"
+                                                    },
+                                                    "name": "MyLabel5",
+                                                    "designerId": "565af8cb-7b3e-4a03-9fb3-1bedb3dd0a00"
                                                 }
                                             ]
                                         },

@@ -83,8 +83,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "主机名称",
-                                        "layout|flex": 1,
-                                        "name": "HOST_NAME"
+                                        "layout|flex": null,
+                                        "name": "HOST_NAME",
+                                        "width": 400
                                     },
                                     "name": "MyTextField10",
                                     "designerId": "27c800e9-8c52-4a08-bfbf-d1d8b6c2b4ff"
@@ -135,8 +136,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "域名",
-                                        "layout|flex": 1,
-                                        "name": "DOMAIN_NAME"
+                                        "layout|flex": null,
+                                        "name": "DOMAIN_NAME",
+                                        "width": 400
                                     },
                                     "name": "MyTextField13",
                                     "designerId": "9671c4bc-894b-4b89-9b6e-0d81d0baca16"
@@ -185,7 +187,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "WEB协议",
-                                        "layout|flex": 1
+                                        "layout|flex": null,
+                                        "width": 400
                                     },
                                     "name": "MyRadioGroup1",
                                     "designerId": "33b895c0-db9c-4481-9473-ea7010468c64",
@@ -199,6 +202,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "HTTP",
+                                                "checked": true,
                                                 "fieldLabel": null,
                                                 "inputValue": "1",
                                                 "margin": null,
@@ -270,8 +274,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "WEB端口",
-                                        "layout|flex": 1,
-                                        "name": "WEB_PORT"
+                                        "layout|flex": null,
+                                        "name": "WEB_PORT",
+                                        "width": 400
                                     },
                                     "name": "MyNumberField9",
                                     "designerId": "1cd24822-99a3-469f-a4da-1fd76abcabc9"
@@ -320,7 +325,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "登录方式",
-                                        "layout|flex": 1
+                                        "layout|flex": null,
+                                        "width": 400
                                     },
                                     "name": "MyRadioGroup2",
                                     "designerId": "6c7f4464-56f9-44ea-aacd-75f92c15ae67",
@@ -334,6 +340,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "boxLabel": "HTTP",
+                                                "checked": true,
                                                 "fieldLabel": null,
                                                 "inputValue": "1",
                                                 "margin": null,
@@ -402,8 +409,10 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "时间设置",
-                                        "layout|flex": 1,
-                                        "name": "TIME"
+                                        "layout|flex": null,
+                                        "name": "TIME",
+                                        "regex": "/^((((1[6-9]|[2-9]\\d)\\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\\d|3[01]))|(((1[6-9]|[2-9]\\d)\\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\\d|30))|(((1[6-9]|[2-9]\\d)\\d{2})-0?2-(0?[1-9]|1\\d|2[0-8]))|(((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-)) (20|21|22|23|[0-1]?\\d):[0-5]?\\d:[0-5]?\\d$/",
+                                        "width": 400
                                     },
                                     "name": "MyTextField23",
                                     "designerId": "d6a93f67-73ab-47df-8e87-40bc6ff0cd47"
@@ -451,9 +460,11 @@
                                     "userConfig": {
                                         "editable": false,
                                         "fieldLabel": "选择时区",
-                                        "layout|flex": 1,
+                                        "layout|flex": null,
                                         "name": "TIME_ZONE",
-                                        "store": "StoreTimezone"
+                                        "regex": null,
+                                        "store": "StoreTimezone",
+                                        "width": 400
                                     },
                                     "name": "MyComboBox4",
                                     "designerId": "6b9c9d7a-1d14-4dde-8d4e-14fe075be8e5"
@@ -501,8 +512,9 @@
                                     "userConfig": {
                                         "fieldLabel": "时间同步",
                                         "labelAlign": null,
-                                        "layout|flex": 1,
-                                        "name": "NTP"
+                                        "layout|flex": null,
+                                        "name": "NTP",
+                                        "width": 365
                                     },
                                     "name": "MyNumberField10",
                                     "designerId": "c64be6ca-b5a5-4b19-a873-e615e961dc59"
@@ -519,7 +531,7 @@
                                         "margin": "0 0 0 5",
                                         "padding": "5 0",
                                         "text": "分钟",
-                                        "width": 15
+                                        "width": 30
                                     },
                                     "name": "MyLabel7",
                                     "designerId": "d45891a4-cde1-4f30-bacc-e95f893c4cdb"
@@ -533,7 +545,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "layout|flex": 1,
-                                        "margin": "3 0 0 5",
+                                        "margin": "3 0 0 20",
                                         "text": "指定每次同步间隔时间，如果设置为0，则不同步时间，建议按默认（300）设置"
                                     },
                                     "name": "MyLabel8",
@@ -568,8 +580,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "时间服务器",
-                                        "layout|flex": 1,
-                                        "name": "NTP_SERVER"
+                                        "layout|flex": null,
+                                        "name": "NTP_SERVER",
+                                        "width": 400
                                     },
                                     "name": "MyTextField14",
                                     "designerId": "c0bb6df0-0d29-4f14-9632-7de30ac9fc55"
@@ -618,7 +631,8 @@
                                     "userConfig": {
                                         "container|align": "stretch",
                                         "layout": "vbox",
-                                        "layout|flex": 1
+                                        "layout|flex": null,
+                                        "width": 295
                                     },
                                     "name": "MyContainer",
                                     "designerId": "3ecf6bae-072b-4460-873a-6c37ee80e0b9",

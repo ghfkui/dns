@@ -228,9 +228,14 @@ Ext.define('app.view.SecuritymgrView', {
                     xtype: 'panel',
                     autoScroll: true,
                     title: '添加规则',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
                     items: [
                         {
                             xtype: 'panel',
+                            flex: 1,
                             autoScroll: true,
                             header: false,
                             title: 'My Panel',
@@ -254,7 +259,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'checkboxfield',
-                                                    flex: 1,
+                                                    width: 400,
                                                     fieldLabel: '启动规则',
                                                     name: 'enable',
                                                     boxLabel: '启动规则',
@@ -264,6 +269,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'label',
                                                     flex: 1,
+                                                    margin: '3 0 0 20',
                                                     text: '选中后，这条规则将会生效'
                                                 }
                                             ]
@@ -297,12 +303,18 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'combobox',
-                                                    flex: 1,
+                                                    maxHeight: 20,
+                                                    width: 400,
                                                     fieldLabel: '执行属性',
                                                     name: 'action',
-                                                    forceSelection: true,
                                                     store: 'StoreAction',
                                                     valueField: 'value'
+                                                },
+                                                {
+                                                    xtype: 'label',
+                                                    flex: 1,
+                                                    html: 'block表示如果规则与包匹配，则丢弃包。<br>pass表示如果规则与包匹配，则允许包通过防火墙。',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -317,12 +329,18 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'combobox',
-                                                    flex: 1,
+                                                    maxHeight: 20,
+                                                    width: 400,
                                                     fieldLabel: '规则方向',
                                                     name: 'direction',
-                                                    forceSelection: true,
                                                     store: 'StoreDirection',
                                                     valueField: 'value'
+                                                },
+                                                {
+                                                    xtype: 'label',
+                                                    flex: 1,
+                                                    html: 'in表示规则应被应用于刚刚从Internet公网上收到的数据包。<br>out表示规则应被用于即发出到Internet的数据包。',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -337,13 +355,21 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'combobox',
-                                                    flex: 1,
+                                                    margin: '5 0',
+                                                    maxHeight: 20,
+                                                    width: 400,
                                                     fieldLabel: '选择接口',
                                                     name: 'interface',
                                                     displayField: 'key',
                                                     forceSelection: true,
                                                     store: 'StoreConnector',
                                                     valueField: 'value'
+                                                },
+                                                {
+                                                    xtype: 'label',
+                                                    flex: 1,
+                                                    margin: '3 0 0 20',
+                                                    text: '规则只会应用到选定的一个网络接口上的出入数据包上。'
                                                 }
                                             ]
                                         },
@@ -358,12 +384,20 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'combobox',
-                                                    flex: 1,
+                                                    margin: '5 0',
+                                                    maxHeight: 20,
+                                                    width: 400,
                                                     fieldLabel: '选择协议',
                                                     name: 'protocol',
                                                     forceSelection: true,
                                                     store: 'StoreProtocol',
                                                     valueField: 'value'
+                                                },
+                                                {
+                                                    xtype: 'label',
+                                                    flex: 1,
+                                                    margin: '3 0 0 20',
+                                                    text: '这里选择规则匹配某个特定的协议。TCP/UDP可以同时匹配TCP或UDP包，避免过多重复规则。'
                                                 }
                                             ]
                                         },
@@ -377,7 +411,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'container',
-                                                    flex: 1,
+                                                    width: 295,
                                                     layout: {
                                                         type: 'vbox',
                                                         align: 'stretch'
@@ -385,7 +419,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                     items: [
                                                         {
                                                             xtype: 'combobox',
-                                                            flex: 1,
                                                             itemId: 'sourceAddr',
                                                             fieldLabel: 'Label',
                                                             hideLabel: true,
@@ -401,8 +434,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                         },
                                                         {
                                                             xtype: 'fieldcontainer',
-                                                            flex: 1,
-                                                            width: 400,
                                                             fieldLabel: 'Label',
                                                             hideLabel: true,
                                                             layout: {
@@ -432,7 +463,9 @@ Ext.define('app.view.SecuritymgrView', {
                                                 },
                                                 {
                                                     xtype: 'label',
-                                                    flex: 1
+                                                    flex: 1,
+                                                    html: '选择或填写来源地址。单一主机，则是指定的一个IP地址掩码是32（255.255.255.255）。<br>子网络，则是指定一个子网，掩码是0-31。<br>如果是任意地址，则不需要填写IP和选择掩码。',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -446,7 +479,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'container',
-                                                    flex: 1,
+                                                    width: 295,
                                                     layout: {
                                                         type: 'vbox',
                                                         align: 'stretch'
@@ -454,7 +487,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                     items: [
                                                         {
                                                             xtype: 'combobox',
-                                                            flex: 1,
                                                             itemId: 'selectSourcePort',
                                                             fieldLabel: '选择常用端口',
                                                             submitValue: false,
@@ -467,7 +499,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                         },
                                                         {
                                                             xtype: 'numberfield',
-                                                            flex: 1,
                                                             fieldLabel: '自定义端口',
                                                             name: 'source_port',
                                                             maxValue: 65535,
@@ -477,7 +508,9 @@ Ext.define('app.view.SecuritymgrView', {
                                                 },
                                                 {
                                                     xtype: 'label',
-                                                    flex: 1
+                                                    flex: 1,
+                                                    html: '填写自定义端口，如果填写了自定义端口，前面选择的常用端口将不起作用。<br>可以指定一个端口范围，如9999到65535端口：9999：65535',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -491,7 +524,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'container',
-                                                    flex: 1,
+                                                    width: 295,
                                                     layout: {
                                                         type: 'vbox',
                                                         align: 'stretch'
@@ -499,7 +532,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                     items: [
                                                         {
                                                             xtype: 'combobox',
-                                                            flex: 1,
                                                             itemId: 'targetAddr',
                                                             fieldLabel: 'Label',
                                                             hideLabel: true,
@@ -514,7 +546,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                         },
                                                         {
                                                             xtype: 'fieldcontainer',
-                                                            flex: 1,
                                                             width: 400,
                                                             fieldLabel: 'Label',
                                                             hideLabel: true,
@@ -544,7 +575,9 @@ Ext.define('app.view.SecuritymgrView', {
                                                 },
                                                 {
                                                     xtype: 'label',
-                                                    flex: 1
+                                                    flex: 1,
+                                                    html: '选择或填写目标地址。单一主机，则是指定的一个IP地址掩码是32（255.255.255.255）。<br>子网络，则是指定一个子网，掩码是0-31。<br>如果是任意地址，则不需要填写IP和选择掩码。',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -558,7 +591,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'container',
-                                                    flex: 1,
+                                                    width: 295,
                                                     layout: {
                                                         type: 'vbox',
                                                         align: 'stretch'
@@ -566,7 +599,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                     items: [
                                                         {
                                                             xtype: 'combobox',
-                                                            flex: 1,
                                                             fieldLabel: '选择常用端口',
                                                             submitValue: false,
                                                             editable: false,
@@ -578,7 +610,6 @@ Ext.define('app.view.SecuritymgrView', {
                                                         },
                                                         {
                                                             xtype: 'numberfield',
-                                                            flex: 1,
                                                             fieldLabel: '自定义端口',
                                                             name: 'target_port',
                                                             maxValue: 65535,
@@ -588,7 +619,9 @@ Ext.define('app.view.SecuritymgrView', {
                                                 },
                                                 {
                                                     xtype: 'label',
-                                                    flex: 1
+                                                    flex: 1,
+                                                    html: '填写自定义端口，如果填写了自定义端口，前面选择的常用端口将不起作用。<br>可以指定一个端口范围，如9999到65535端口：9999：65535',
+                                                    margin: '3 0 0 20'
                                                 }
                                             ]
                                         },
@@ -603,17 +636,12 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'checkboxfield',
-                                                    flex: 1,
+                                                    width: 400,
                                                     fieldLabel: '碎片选型',
                                                     name: 'filter',
                                                     boxLabel: '碎片过滤',
                                                     inputValue: '1',
                                                     uncheckedValue: '0'
-                                                },
-                                                {
-                                                    xtype: 'label',
-                                                    flex: 1,
-                                                    text: '选中后，这条规则将不会生效'
                                                 }
                                             ]
                                         },
@@ -628,7 +656,7 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'checkboxfield',
-                                                    flex: 1,
+                                                    width: 400,
                                                     fieldLabel: '日志选项',
                                                     name: 'log',
                                                     boxLabel: '为该规则记录日志',
@@ -638,7 +666,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'label',
                                                     flex: 1,
-                                                    text: '选中后，这条规则将不会生效'
+                                                    margin: '3 0 0 20',
+                                                    text: '表示将与规则匹配的数据包头写入到ipl日志。'
                                                 }
                                             ]
                                         },
@@ -653,9 +682,15 @@ Ext.define('app.view.SecuritymgrView', {
                                             items: [
                                                 {
                                                     xtype: 'textareafield',
-                                                    flex: 1,
+                                                    width: 400,
                                                     fieldLabel: '规则描述',
                                                     name: 'describe'
+                                                },
+                                                {
+                                                    xtype: 'label',
+                                                    flex: 1,
+                                                    margin: '3 0 0 20',
+                                                    text: '简单描述该规则的用途或者其他说明'
                                                 }
                                             ]
                                         }

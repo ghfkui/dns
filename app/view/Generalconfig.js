@@ -69,7 +69,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '主机名称',
                                     name: 'HOST_NAME'
                                 },
@@ -93,7 +93,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '域名',
                                     name: 'DOMAIN_NAME'
                                 },
@@ -117,13 +117,14 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'radiogroup',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: 'WEB协议',
                                     items: [
                                         {
                                             xtype: 'radiofield',
                                             name: 'WEB_PROTOCOL',
                                             boxLabel: 'HTTP',
+                                            checked: true,
                                             inputValue: '1'
                                         },
                                         {
@@ -154,7 +155,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'numberfield',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: 'WEB端口',
                                     name: 'WEB_PORT'
                                 },
@@ -178,13 +179,14 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'radiogroup',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '登录方式',
                                     items: [
                                         {
                                             xtype: 'radiofield',
                                             name: 'LOGIN_TYPE',
                                             boxLabel: 'HTTP',
+                                            checked: true,
                                             inputValue: '1'
                                         },
                                         {
@@ -213,9 +215,10 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '时间设置',
-                                    name: 'TIME'
+                                    name: 'TIME',
+                                    regex: /^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-)) (20|21|22|23|[0-1]?\d):[0-5]?\d:[0-5]?\d$/
                                 },
                                 {
                                     xtype: 'tbspacer',
@@ -235,7 +238,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'combobox',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '选择时区',
                                     name: 'TIME_ZONE',
                                     editable: false,
@@ -259,7 +262,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'numberfield',
-                                    flex: 1,
+                                    width: 365,
                                     fieldLabel: '时间同步',
                                     name: 'NTP'
                                 },
@@ -267,13 +270,13 @@ Ext.define('app.view.Generalconfig', {
                                     xtype: 'label',
                                     margin: '0 0 0 5',
                                     padding: '5 0',
-                                    width: 15,
+                                    width: 30,
                                     text: '分钟'
                                 },
                                 {
                                     xtype: 'label',
                                     flex: 1,
-                                    margin: '3 0 0 5',
+                                    margin: '3 0 0 20',
                                     text: '指定每次同步间隔时间，如果设置为0，则不同步时间，建议按默认（300）设置'
                                 }
                             ]
@@ -290,7 +293,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    flex: 1,
+                                    width: 400,
                                     fieldLabel: '时间服务器',
                                     name: 'NTP_SERVER'
                                 },
@@ -313,7 +316,7 @@ Ext.define('app.view.Generalconfig', {
                             items: [
                                 {
                                     xtype: 'container',
-                                    flex: 1,
+                                    width: 295,
                                     layout: {
                                         type: 'vbox',
                                         align: 'stretch'

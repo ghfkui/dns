@@ -329,7 +329,7 @@
                                 "itemId": "ncardconfig",
                                 "jsonSubmit": true,
                                 "layout": "vbox",
-                                "layout|flex": 0.5,
+                                "layout|flex": null,
                                 "margin": null,
                                 "title": "网卡配置",
                                 "url": "../interfaces/ip",
@@ -375,7 +375,7 @@
                                                 "name": "key",
                                                 "store": "StoreConnector",
                                                 "valueField": "value",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyComboBox",
                                             "designerId": "c6712c84-1a50-4bc1-a0bd-742eff5cb5c3",
@@ -414,22 +414,6 @@
                                                     "designerId": "a29aea56-0531-4f65-822b-9e1a9d0666a6"
                                                 }
                                             ]
-                                        },
-                                        {
-                                            "type": "Ext.form.Label",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": 1,
-                                                "margin": "3 0 0 90",
-                                                "text": null,
-                                                "width": null
-                                            },
-                                            "name": "MyLabel19",
-                                            "designerId": "24532890-c429-4f06-a405-ff2f7d92ed0e"
                                         }
                                     ]
                                 },
@@ -463,7 +447,7 @@
                                                 "fieldLabel": "网络地址",
                                                 "name": "ip",
                                                 "regex": "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)($|(?!\\.$)\\.)){4}$/",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyTextField18",
                                             "designerId": "4a98329c-22b0-49bc-9224-eb34bfb5690c"
@@ -490,22 +474,6 @@
                                             },
                                             "name": "MyComboBox6",
                                             "designerId": "84784654-5384-49a8-8bb8-7221da9835e1"
-                                        },
-                                        {
-                                            "type": "Ext.form.Label",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": 1,
-                                                "margin": "3 0 0 20",
-                                                "text": "",
-                                                "width": null
-                                            },
-                                            "name": "MyLabel18",
-                                            "designerId": "8ba02bbd-222c-43f3-86ba-6a08029b705e"
                                         }
                                     ]
                                 },
@@ -540,26 +508,10 @@
                                                 "layout|flex": null,
                                                 "name": "gateway",
                                                 "regex": "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)($|(?!\\.$)\\.)){4}$/",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyTextField19",
                                             "designerId": "2d70094d-d17e-44ad-961b-95627c91ca45"
-                                        },
-                                        {
-                                            "type": "Ext.form.Label",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "layout|flex": 1,
-                                                "margin": "3 0 0 90",
-                                                "text": "",
-                                                "width": null
-                                            },
-                                            "name": "MyLabel17",
-                                            "designerId": "58c388c4-8596-4c64-b59a-7fab3d467401"
                                         }
                                     ]
                                 },
@@ -596,7 +548,7 @@
                                                 "layout|flex": null,
                                                 "name": "private",
                                                 "uncheckedValue": "0",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "c6c485a9-c690-4e06-996c-11d031b93e8c"
@@ -653,7 +605,7 @@
                                                 "layout|flex": null,
                                                 "name": "webmgr",
                                                 "uncheckedValue": "0",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d0b309e0-ef73-49bd-8178-f8d99fdc0171"
@@ -710,7 +662,7 @@
                                                 "layout|flex": null,
                                                 "name": "dns",
                                                 "uncheckedValue": "0",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "2b6d36cf-7579-4822-b9ff-5b27faaebf1e"
@@ -766,7 +718,7 @@
                                                 "layout|flex": null,
                                                 "name": "ping",
                                                 "uncheckedValue": "0",
-                                                "width": 300
+                                                "width": 400
                                             },
                                             "name": "MyCheckbox6",
                                             "designerId": "d5448631-fd7f-4aa4-b9c5-bb2e8cbcac23"
