@@ -327,6 +327,10 @@ Ext.define('app.view.RoutemgrView', {
             enabled = 0;
         if(target && target.className.indexOf("disable") != -1){
             enabled = 1;
+        }else if(target && target.className.indexOf("enable") != -1){
+            enabled = 0;
+        }else{
+            return false;
         }
         Ext.Ajax.request({
             url: '../route/status',

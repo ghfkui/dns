@@ -38,7 +38,7 @@ Ext.define('app.view.SecuritymgrView', {
 
     config: {
         rowUpdate: false,
-        urlUpdate: '../route/update'
+        urlUpdate: '../firewall/update'
     },
 
     viewModel: {
@@ -73,65 +73,47 @@ Ext.define('app.view.SecuritymgrView', {
                             autoScroll: true,
                             itemId: 'ruleList',
                             header: false,
-                            title: 'routeList',
+                            title: 'ruleList',
                             autoLoad: true,
-                            store: 'StoreRoute',
+                            store: 'StoreRules',
                             columns: [
                                 {
                                     xtype: 'numbercolumn',
+                                    dataIndex: 'id',
                                     text: 'ID'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     width: '10%',
-                                    dataIndex: 'route',
+                                    dataIndex: 'interface',
                                     text: '网站接口'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'eth',
+                                    dataIndex: 'source_address',
                                     text: '来源地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     width: '20%',
-                                    dataIndex: 'address',
+                                    dataIndex: 'target_address',
                                     text: '目标地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     width: '20%',
-                                    dataIndex: 'gateway',
-                                    text: '协议/版本'
+                                    dataIndex: 'protocol',
+                                    text: '协议'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                        if(record.data.enabled == 1){
-                                            return '<a href="#" class="enable">启用</a>';
-                                        }else{
-                                            return '<a href="#" class="disable">停用</a>';
-                                        }
-                                    },
-                                    dataIndex: 'enabled',
+                                    dataIndex: 'direction',
                                     text: '方向'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'memo',
+                                    dataIndex: 'action',
                                     text: '执行属性'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                        if(record.data.enabled == 1){
-                                            return '<a href="#" class="enable">启用</a>';
-                                        }else{
-                                            return '<a href="#" class="disable">停用</a>';
-                                        }
-                                    },
-                                    dataIndex: 'enabled',
-                                    text: '日志'
                                 },
                                 {
                                     xtype: 'gridcolumn',
@@ -153,11 +135,11 @@ Ext.define('app.view.SecuritymgrView', {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
                                                 console.log('a');
                                                 var tabpanel = view.up('tabpanel'),
-                                                    routeAddForm = tabpanel.down("form#routeAddForm"),
+                                                    ruleAddForm = tabpanel.down("form#ruleAddForm"),
                                                     panel = tabpanel.up("panel");
                                                 panel.rowUpdate = true;
-                                                routeAddForm.getForm().setValues(record.data);
-                                                routeAddForm.down("textfield[name=route]").setDisabled(true);
+                                                ruleAddForm.getForm().setValues(record.data);
+                                                ruleAddForm.down("textfield[name=route]").setDisabled(true);
                                                 tabpanel.setActiveItem(1);
                                             },
                                             altText: '修改',
@@ -166,17 +148,17 @@ Ext.define('app.view.SecuritymgrView', {
                                         },
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                var route = record.data;
+                                                var rule = record.data;
                                                 var confirm = {
                                                     title: "确认删除",
-                                                    msg: "请确认是否删除这个路由",
+                                                    msg: "请确认是否删除这个规则？",
                                                     closable: false,
                                                     buttons: Ext.MessageBox.YESNO,
                                                     icon: Ext.MessageBox.WARNING,
                                                     fn: function(btn) {
                                                         if (btn == "yes") {
                                                             Ext.Ajax.request({
-                                                                url: '../route/remove',
+                                                                url: '../firewall/remove',
                                                                 success: function(data, a1, a2) {
                                                                     view.getStore().load();
                                                                     var result = Ext.decode(data.responseText);
@@ -188,17 +170,17 @@ Ext.define('app.view.SecuritymgrView', {
                                                                     Ext.Msg.alert('失败', "删除失败");
                                                                 },
                                                                 jsonData: {
-                                                                    id: this.route.id
+                                                                    id: this.rule.id
                                                                 },
                                                                 scope: {
-                                                                    route: this.route,
+                                                                    rule: this.rule,
                                                                     view: this.view
                                                                 }
                                                             });
                                                         }
                                                     },
                                                     scope: {
-                                                        route: route,
+                                                        rule: rule,
                                                         view: view
                                                     }
                                                 };
@@ -219,7 +201,7 @@ Ext.define('app.view.SecuritymgrView', {
                                 }
                             ],
                             listeners: {
-                                cellclick: 'onRouteListCellClick'
+                                cellclick: 'onRuleListCellClick'
                             }
                         }
                     ]
@@ -727,20 +709,24 @@ Ext.define('app.view.SecuritymgrView', {
         }
     ],
 
-    onRouteListCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+    onRuleListCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
         var target = e.target,
-            route = record.data,
-            enabled = 0;
-        if(target && target.className.indexOf("disable") != -1){
-            enabled = 1;
+            rule = record.data,
+            enable = 0;
+        if(target.className.indexOf("disable") != -1){
+            enable = 1;
+        }else if(target.className.indexOf("enable") != -1){
+            enable = 0;
+        }else{
+            return false;
         }
         Ext.Ajax.request({
-            url: '../route/status',
+            url: '../filewall/enalbe',
             success: function(data, a1, a2) {
 
                 var result = Ext.decode(data.responseText);
                 if (result.success) {
-                    this.route.enabled = this.enabled;
+                    this.rule.enable = this.enable;
                     this.view.refresh();
                 }
             },
@@ -748,12 +734,12 @@ Ext.define('app.view.SecuritymgrView', {
                 Ext.Msg.alert('失败', "操作失败");
             },
             jsonData: {
-                id: route.id,
-                enabled: enabled
+                id: rule.id,
+                enable: enable
             },
             scope: {
-                route: route,
-                enabled: enabled,
+                rule: rule,
+                enable: enable,
                 view: tableview
             }
         });

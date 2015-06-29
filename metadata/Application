@@ -25,7 +25,8 @@
             "General",
             "Connector",
             "NCard",
-            "Firewall"
+            "Firewall",
+            "Rule"
         ],
         "name": "app",
         "stores": [
@@ -52,7 +53,8 @@
             "StoreAddress",
             "StoreAction",
             "StoreProtocol",
-            "StoreDirection"
+            "StoreDirection",
+            "StoreRules"
         ],
         "views": [
             "MainView",

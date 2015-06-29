@@ -34,7 +34,8 @@ Ext.application({
         'General',
         'Connector',
         'NCard',
-        'Firewall'
+        'Firewall',
+        'Rule'
     ],
     stores: [
         'StoreZones',
@@ -60,7 +61,8 @@ Ext.application({
         'StoreAddress',
         'StoreAction',
         'StoreProtocol',
-        'StoreDirection'
+        'StoreDirection',
+        'StoreRules'
     ],
     views: [
         'MainView',
