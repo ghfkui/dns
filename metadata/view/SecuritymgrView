@@ -12,7 +12,7 @@
         "layout": "vbox",
         "rowUpdate": false,
         "title": "安全管理",
-        "urlUpdate": "../firewall/update"
+        "urlUpdate": "../firewall/save"
     },
     "name": "MyPanel17",
     "configAlternates": {
@@ -95,20 +95,6 @@
                             "designerId": "3ca46991-597b-472b-a52d-b5e937140b03",
                             "cn": [
                                 {
-                                    "type": "Ext.grid.column.Number",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "id",
-                                        "text": "ID"
-                                    },
-                                    "name": "MyNumberColumn8",
-                                    "designerId": "9db3b50a-716b-4523-b8fd-1b79c2004a95"
-                                },
-                                {
                                     "type": "Ext.grid.column.Column",
                                     "reference": {
                                         "name": "columns",
@@ -117,11 +103,40 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dataIndex": "interface",
-                                        "text": "网站接口",
+                                        "text": "网络接口",
                                         "width": "10%"
                                     },
                                     "name": "MyColumn3",
-                                    "designerId": "e205fb38-6ccf-4075-b27d-55a17693a14d"
+                                    "designerId": "e205fb38-6ccf-4075-b27d-55a17693a14d",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "var storeConnector = Ext.data.StoreManager.get('StoreConnector'),",
+                                                    "    record = storeConnector.findRecord('value', value);",
+                                                    "return record ? record.get('key') : value;"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "1decd9b3-64b5-461c-aa2e-149baabe9cd7"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",
@@ -131,8 +146,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "source_address",
-                                        "text": "来源地址"
+                                        "dataIndex": "source",
+                                        "text": "来源地址",
+                                        "width": "20%"
                                     },
                                     "name": "MyColumn",
                                     "designerId": "5ba55432-5981-4eae-a644-14731d1a1994"
@@ -145,7 +161,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "dataIndex": "target_address",
+                                        "dataIndex": "target",
                                         "text": "目标地址",
                                         "width": "20%"
                                     },
@@ -162,7 +178,7 @@
                                     "userConfig": {
                                         "dataIndex": "protocol",
                                         "text": "协议",
-                                        "width": "20%"
+                                        "width": null
                                     },
                                     "name": "MyColumn4",
                                     "designerId": "e7b769bb-6397-4ebb-b86e-fff001b0cd3c"
@@ -228,7 +244,7 @@
                                                 ],
                                                 "fn": "renderer",
                                                 "implHandler": [
-                                                    "if(record.data.enabled == 1){",
+                                                    "if(record.data.enable == 1){",
                                                     "    return '<a href=\"#\" class=\"enable\">启用</a>';",
                                                     "}else{",
                                                     "    return '<a href=\"#\" class=\"disable\">停用</a>';",
@@ -298,13 +314,11 @@
                                                         ],
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "console.log('a');",
                                                             "var tabpanel = view.up('tabpanel'),",
                                                             "    ruleAddForm = tabpanel.down(\"form#ruleAddForm\"),",
                                                             "    panel = tabpanel.up(\"panel\");",
                                                             "panel.rowUpdate = true;",
                                                             "ruleAddForm.getForm().setValues(record.data);",
-                                                            "ruleAddForm.down(\"textfield[name=route]\").setDisabled(true);",
                                                             "tabpanel.setActiveItem(1);"
                                                         ]
                                                     },
@@ -403,7 +417,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "dock": "bottom",
-                                        "store": "StoreRoute"
+                                        "store": "StoreRules"
                                     },
                                     "name": "pagingtoolbar",
                                     "designerId": "20254d4b-1f7d-4290-a21e-435dcdb48367",
@@ -430,7 +444,7 @@
                                             "    return false;",
                                             "}",
                                             "Ext.Ajax.request({",
-                                            "    url: '../filewall/enalbe',",
+                                            "    url: '../firewall/enable',",
                                             "    success: function(data, a1, a2) {",
                                             "",
                                             "        var result = Ext.decode(data.responseText);",
@@ -549,10 +563,10 @@
                                                     "userConfig": {
                                                         "boxLabel": "启动规则",
                                                         "fieldLabel": "启动规则",
-                                                        "inputValue": "0",
+                                                        "inputValue": "1",
                                                         "layout|flex": null,
                                                         "name": "enable",
-                                                        "uncheckedValue": "1",
+                                                        "uncheckedValue": "0",
                                                         "width": 400
                                                     },
                                                     "name": "MyCheckbox7",
@@ -747,9 +761,10 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "autoLoadOnValue": true,
                                                         "displayField": "key",
                                                         "fieldLabel": "选择接口",
-                                                        "forceSelection": true,
+                                                        "forceSelection": null,
                                                         "layout|flex": null,
                                                         "margin": "5 0",
                                                         "maxHeight": 20,
@@ -1428,6 +1443,7 @@
                                                 "container|align": "stretch",
                                                 "fieldLabel": "chip",
                                                 "height": null,
+                                                "hidden": true,
                                                 "hideLabel": true,
                                                 "layout": "hbox"
                                             },
@@ -1447,6 +1463,7 @@
                                                         "inputValue": "1",
                                                         "layout|flex": null,
                                                         "name": "filter",
+                                                        "submitValue": false,
                                                         "uncheckedValue": "0",
                                                         "width": 400
                                                     },
@@ -1466,6 +1483,7 @@
                                                 "container|align": "stretch",
                                                 "fieldLabel": "log",
                                                 "height": null,
+                                                "hidden": true,
                                                 "hideLabel": true,
                                                 "layout": "hbox"
                                             },
@@ -1485,6 +1503,7 @@
                                                         "inputValue": "1",
                                                         "layout|flex": null,
                                                         "name": "log",
+                                                        "submitValue": false,
                                                         "uncheckedValue": "0",
                                                         "width": 400
                                                     },
@@ -1583,7 +1602,7 @@
                                                     "userConfig": {
                                                         "itemId": "add",
                                                         "layout|flex": null,
-                                                        "text": "添加"
+                                                        "text": "保存"
                                                     },
                                                     "name": "MyButton10",
                                                     "designerId": "fb6e673c-0aed-413d-9c5f-08e33bca2832",
@@ -1610,7 +1629,7 @@
                                                                     "form.submit({",
                                                                     "    waitMsg: '正在保存',",
                                                                     "    success: function (form, action) {",
-                                                                    "        Ext.Msg.alert('成功', '路由保存成功');",
+                                                                    "        Ext.Msg.alert('成功', '保存成功');",
                                                                     "",
                                                                     "        if(me.rowUpdate){",
                                                                     "            me.down(\"pagingtoolbar\").doRefresh();",
@@ -1684,9 +1703,8 @@
                     "var me = this,",
                     "    tabpanel = me.down(\"tabpanel\"),",
                     "    ruleAddForm = me.down(\"form#ruleAddForm\");",
-                    "//tabpanel.setActiveItem(0);",
-                    "//routeAddForm.down(\"textfield[name=route]\").setDisabled(false);",
-                    "//routeAddForm.reset();"
+                    "tabpanel.setActiveItem(0);",
+                    "ruleAddForm.reset();"
                 ]
             },
             "name": "resetForm",

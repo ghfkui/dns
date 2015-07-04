@@ -23,7 +23,6 @@ Ext.define('app.view.SecuritymgrView', {
         'Ext.tab.Panel',
         'Ext.tab.Tab',
         'Ext.grid.Panel',
-        'Ext.grid.column.Number',
         'Ext.grid.View',
         'Ext.grid.column.Action',
         'Ext.toolbar.Paging',
@@ -38,7 +37,7 @@ Ext.define('app.view.SecuritymgrView', {
 
     config: {
         rowUpdate: false,
-        urlUpdate: '../firewall/update'
+        urlUpdate: '../firewall/save'
     },
 
     viewModel: {
@@ -78,30 +77,30 @@ Ext.define('app.view.SecuritymgrView', {
                             store: 'StoreRules',
                             columns: [
                                 {
-                                    xtype: 'numbercolumn',
-                                    dataIndex: 'id',
-                                    text: 'ID'
-                                },
-                                {
                                     xtype: 'gridcolumn',
+                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                        var storeConnector = Ext.data.StoreManager.get('StoreConnector'),
+                                            record = storeConnector.findRecord('value', value);
+                                        return record ? record.get('key') : value;
+                                    },
                                     width: '10%',
                                     dataIndex: 'interface',
-                                    text: '网站接口'
+                                    text: '网络接口'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'source_address',
+                                    width: '20%',
+                                    dataIndex: 'source',
                                     text: '来源地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
                                     width: '20%',
-                                    dataIndex: 'target_address',
+                                    dataIndex: 'target',
                                     text: '目标地址'
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    width: '20%',
                                     dataIndex: 'protocol',
                                     text: '协议'
                                 },
@@ -118,7 +117,7 @@ Ext.define('app.view.SecuritymgrView', {
                                 {
                                     xtype: 'gridcolumn',
                                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                        if(record.data.enabled == 1){
+                                        if(record.data.enable == 1){
                                             return '<a href="#" class="enable">启用</a>';
                                         }else{
                                             return '<a href="#" class="disable">停用</a>';
@@ -133,13 +132,11 @@ Ext.define('app.view.SecuritymgrView', {
                                     items: [
                                         {
                                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                console.log('a');
                                                 var tabpanel = view.up('tabpanel'),
                                                     ruleAddForm = tabpanel.down("form#ruleAddForm"),
                                                     panel = tabpanel.up("panel");
                                                 panel.rowUpdate = true;
                                                 ruleAddForm.getForm().setValues(record.data);
-                                                ruleAddForm.down("textfield[name=route]").setDisabled(true);
                                                 tabpanel.setActiveItem(1);
                                             },
                                             altText: '修改',
@@ -196,7 +193,7 @@ Ext.define('app.view.SecuritymgrView', {
                             dockedItems: [
                                 {
                                     xtype: 'pagingtoolbar',
-                                    store: 'StoreRoute',
+                                    store: 'StoreRules',
                                     dock: 'bottom'
                                 }
                             ],
@@ -245,8 +242,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                     fieldLabel: '启动规则',
                                                     name: 'enable',
                                                     boxLabel: '启动规则',
-                                                    inputValue: '0',
-                                                    uncheckedValue: '1'
+                                                    inputValue: '1',
+                                                    uncheckedValue: '0'
                                                 },
                                                 {
                                                     xtype: 'label',
@@ -342,8 +339,8 @@ Ext.define('app.view.SecuritymgrView', {
                                                     width: 400,
                                                     fieldLabel: '选择接口',
                                                     name: 'interface',
+                                                    autoLoadOnValue: true,
                                                     displayField: 'key',
-                                                    forceSelection: true,
                                                     store: 'StoreConnector',
                                                     valueField: 'value'
                                                 },
@@ -609,6 +606,7 @@ Ext.define('app.view.SecuritymgrView', {
                                         },
                                         {
                                             xtype: 'fieldcontainer',
+                                            hidden: true,
                                             fieldLabel: 'chip',
                                             hideLabel: true,
                                             layout: {
@@ -621,6 +619,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                     width: 400,
                                                     fieldLabel: '碎片选型',
                                                     name: 'filter',
+                                                    submitValue: false,
                                                     boxLabel: '碎片过滤',
                                                     inputValue: '1',
                                                     uncheckedValue: '0'
@@ -629,6 +628,7 @@ Ext.define('app.view.SecuritymgrView', {
                                         },
                                         {
                                             xtype: 'fieldcontainer',
+                                            hidden: true,
                                             fieldLabel: 'log',
                                             hideLabel: true,
                                             layout: {
@@ -641,6 +641,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                     width: 400,
                                                     fieldLabel: '日志选项',
                                                     name: 'log',
+                                                    submitValue: false,
                                                     boxLabel: '为该规则记录日志',
                                                     inputValue: '1',
                                                     uncheckedValue: '0'
@@ -689,7 +690,7 @@ Ext.define('app.view.SecuritymgrView', {
                                                 {
                                                     xtype: 'button',
                                                     itemId: 'add',
-                                                    text: '添加',
+                                                    text: '保存',
                                                     listeners: {
                                                         click: 'onAddClick'
                                                     }
@@ -721,7 +722,7 @@ Ext.define('app.view.SecuritymgrView', {
             return false;
         }
         Ext.Ajax.request({
-            url: '../filewall/enalbe',
+            url: '../firewall/enable',
             success: function(data, a1, a2) {
 
                 var result = Ext.decode(data.responseText);
@@ -818,7 +819,7 @@ Ext.define('app.view.SecuritymgrView', {
         form.submit({
             waitMsg: '正在保存',
             success: function (form, action) {
-                Ext.Msg.alert('成功', '路由保存成功');
+                Ext.Msg.alert('成功', '保存成功');
 
                 if(me.rowUpdate){
                     me.down("pagingtoolbar").doRefresh();
@@ -842,9 +843,8 @@ Ext.define('app.view.SecuritymgrView', {
         var me = this,
             tabpanel = me.down("tabpanel"),
             ruleAddForm = me.down("form#ruleAddForm");
-        //tabpanel.setActiveItem(0);
-        //routeAddForm.down("textfield[name=route]").setDisabled(false);
-        //routeAddForm.reset();
+        tabpanel.setActiveItem(0);
+        ruleAddForm.reset();
     }
 
 });

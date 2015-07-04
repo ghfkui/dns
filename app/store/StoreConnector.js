@@ -27,6 +27,7 @@ Ext.define('app.store.StoreConnector', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreConnector',
+            autoLoad: true,
             model: 'app.model.Connector',
             proxy: {
                 type: 'ajax',
