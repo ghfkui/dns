@@ -29,6 +29,7 @@ Ext.define('app.store.StoreZones', {
         me.callParent([Ext.apply({
             storeId: 'StoreZones',
             model: 'app.model.Domianmodel',
+            pageSize: 16,
             proxy: {
                 type: 'ajax',
                 url: '../zones',
