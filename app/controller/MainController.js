@@ -29,8 +29,13 @@ Ext.define('app.controller.MainController', {
     changeView: function(item, e, eOpts) {
         var content = this.getContent(),
             viewType = item.getRefView && item.getRefView(),
-            view;
-        if(viewType){
+            view, originViewType;
+		
+		originViewType = this.view && this.view.getXType();
+		if(originViewType && (originViewType == viewType || !viewType)){
+			return;
+		}
+		if(viewType){
             view = Ext.createWidget(viewType);
         }
         if(!view){
@@ -39,7 +44,8 @@ Ext.define('app.controller.MainController', {
                 title: 'index'
             });
         }
-
+		
+		this.view = view;
         content.removeAll(true);
         content.add(view);
     }
