@@ -26,6 +26,7 @@ Ext.define('app.view.TrafficView', {
         'Ext.chart.series.Line',
         'Ext.chart.interactions.PanZoom',
         'Ext.chart.Legend',
+        'app.store.StoreNetTraffic',
         'Ext.XTemplate'
     ],
 
@@ -36,7 +37,9 @@ Ext.define('app.view.TrafficView', {
     defaultListenerScope: true,
 
     listeners: {
-        beforeactivate: 'onPanelBeforeActivate1'
+        beforeactivate: 'onPanelBeforeActivate1',
+        deactivate: 'stopTask',
+        removed: 'stopTask'
     },
     items: [
         {
@@ -161,38 +164,37 @@ Ext.define('app.view.TrafficView', {
                     data: dataArr
         });
         this.query("cartesian[id=trafficeline]")[0].setStore(store);
-        Ext.require('app.store.StoreNetTraffic',function(){
-            var s = Ext.create('app.store.StoreNetTraffic');
+        
+        var s = Ext.create('app.store.StoreNetTraffic');
 
-            var task = {
-               run: function(){
-                s.load({callback:function(r){
-                    if (sendByte == -1)
-                    {
-                        sendByte = r[0].data.sent;
-                        rtByte = r[0].data.received;
-                        return ;
-                    }
-
-                    dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);
-                    if (dataArr.length>21)
-                    {
-                       dataArr = dataArr.slice(1);
-                    }
+        var task = this.task = {
+           run: function(){
+            s.load({callback:function(r){
+                if (sendByte == -1)
+                {
                     sendByte = r[0].data.sent;
                     rtByte = r[0].data.received;
-                    store.loadData(dataArr);
-                    chart.redraw();
-                }});
-            },
-                interval: 3000
-            };
-            task.run();
-            Ext.TaskManager.start(task);
+                    return ;
+                }
 
-        });
-
-
+                dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);
+                if (dataArr.length>21)
+                {
+                   dataArr = dataArr.slice(1);
+                }
+                sendByte = r[0].data.sent;
+                rtByte = r[0].data.received;
+                store.loadData(dataArr);
+                chart.redraw();
+            }});
+        },
+            interval: 3000
+        };
+        task.run();
+        Ext.TaskManager.start(task);
+    },
+    stopTask: function() {
+        Ext.TaskManager.stop(this.task);
     }
 
 });
