@@ -54,7 +54,8 @@
             "StoreAction",
             "StoreProtocol",
             "StoreDirection",
-            "StoreRules"
+            "StoreRules",
+            "StoreSystemInfo"
         ],
         "views": [
             "MainView",

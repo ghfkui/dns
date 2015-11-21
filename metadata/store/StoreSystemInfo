@@ -1,0 +1,70 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreSystemInfo",
+        "storeId": "StoreSystemInfo"
+    },
+    "name": "StoreAction1",
+    "designerId": "36b0a430-6122-4728-baa9-1f3de0598afc",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "memorydisplay"
+            },
+            "name": "MyField1",
+            "designerId": "782e4478-8f39-4acb-82e8-79fc5aa06f05"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cpu"
+            },
+            "name": "MyField",
+            "designerId": "6bbfb3a5-a628-4d7f-bd18-1974736fb603"
+        },
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "../system/info"
+            },
+            "name": "MyAjaxProxy6",
+            "designerId": "f973e8ff-c474-47d8-8325-06f07d9f5cfa",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader6",
+                    "designerId": "aa6d6129-a552-4473-adcf-6ca2e605167b"
+                }
+            ]
+        }
+    ]
+}

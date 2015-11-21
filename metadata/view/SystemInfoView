@@ -10,6 +10,9 @@
         "designer|userClassName": "SystemInfoView",
         "height": null,
         "margin": "",
+        "requires": [
+            "app.store.StoreSystemInfo"
+        ],
         "title": "系统信息",
         "width": null
     },
@@ -65,9 +68,9 @@
                             "userConfig": {
                                 "bodyPadding": 10,
                                 "margin": 10,
-                                "method": "get",
+                                "method": null,
                                 "title": "系统资源",
-                                "url": "../system/info"
+                                "url": null
                             },
                             "name": "MyForm6",
                             "designerId": "2fb4a084-74a1-44b4-8edf-a90b057827c4",
@@ -116,13 +119,51 @@
                             "userConfig": {
                                 "fn": "onPanelBeforeActivate",
                                 "implHandler": [
-                                    "  this.down(\"form\").getForm().load();"
+                                    "  this.startTask();"
                                 ],
                                 "name": "beforeactivate",
                                 "scope": "me"
                             },
                             "name": "onPanelBeforeActivate",
                             "designerId": "2967f511-7952-4f46-a3c1-d6a732b63589"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "stopTask",
+                                "implHandler": [
+                                    "if (this.task) {",
+                                    "    Ext.TaskManager.stop(this.task);",
+                                    "}"
+                                ],
+                                "name": "beforedeactivate",
+                                "scope": "me"
+                            },
+                            "name": "stopTask",
+                            "designerId": "f2c977ea-d1dd-4fb1-b67d-91dde166d96a"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelRemoved",
+                                "implHandler": [
+                                    "this.stopTask();"
+                                ],
+                                "name": "removed",
+                                "scope": "me"
+                            },
+                            "name": "onPanelRemoved",
+                            "designerId": "20552b5e-426b-46f9-b9f2-a7d2b499a434"
                         }
                     ]
                 },
@@ -150,6 +191,36 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "startTask",
+                "implHandler": [
+                    "var me = this, form;",
+                    "var s = Ext.create('app.store.StoreSystemInfo');",
+                    "",
+                    "var task = me.task = {",
+                    "    run: function(){",
+                    "        s.load({callback:function(r){",
+                    "            if (me && (form = me.down('form')) && r.length) {",
+                    "                form.loadRecord(r[0]);",
+                    "            }",
+                    "        }});",
+                    "    },",
+                    "    interval: 3000",
+                    "};",
+                    "task.run();",
+                    "Ext.TaskManager.start(task);"
+                ]
+            },
+            "name": "startTask",
+            "designerId": "3119ed91-828c-4484-a2a3-52585e97a375"
         }
     ]
 }

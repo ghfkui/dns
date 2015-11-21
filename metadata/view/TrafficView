@@ -6,9 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
+        "defaultListenerScope": null,
         "designer|userAlias": "TrafficView",
         "designer|userClassName": "TrafficView",
         "layout": null,
+        "requires": [
+            "app.store.StoreNetTraffic"
+        ],
         "style": null,
         "title": "流量监控"
     },
@@ -25,60 +29,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onPanelBeforeActivate1",
+                "fn": "onPanelBeforeActivate",
                 "implHandler": [
-                    "var chart =this.down('chart');",
-                    "var dataArr = [];",
-                    "var sendByte = -1;",
-                    "var rtByte = -1;",
-                    "var date = new Date();",
-                    "date.setDate(date.getDate()-1);",
-                    "for(var i=0;i<20;i++){",
-                    "    date.setSeconds(date.getSeconds()+1);",
-                    "    dataArr.push([0,0,Ext.Date.format(date,'Y-m-d H:i:s')]);",
-                    "}",
-                    "var store = new Ext.data.ArrayStore({",
-                    "            fields: ['received','sent', 'time'],",
-                    "            data: dataArr",
-                    "});",
-                    "this.query(\"cartesian[id=trafficeline]\")[0].setStore(store);",
-                    "Ext.require('app.store.StoreNetTraffic',function(){",
-                    "    var s = Ext.create('app.store.StoreNetTraffic');",
-                    "",
-                    "    var task = {",
-                    "       run: function(){",
-                    "        s.load({callback:function(r){",
-                    "            if (sendByte == -1)",
-                    "            {",
-                    "                sendByte = r[0].data.sent;",
-                    "                rtByte = r[0].data.received;",
-                    "                return ;",
-                    "            }",
-                    "",
-                    "            dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);",
-                    "            if (dataArr.length>21)",
-                    "            {",
-                    "               dataArr = dataArr.slice(1);",
-                    "            }",
-                    "            sendByte = r[0].data.sent;",
-                    "            rtByte = r[0].data.received;",
-                    "            store.loadData(dataArr);",
-                    "            chart.redraw();",
-                    "        }});",
-                    "    },",
-                    "        interval: 3000",
-                    "    };",
-                    "    task.run();",
-                    "    Ext.TaskManager.start(task);",
-                    "",
-                    "});",
-                    "",
-                    ""
+                    "this.startTask();"
                 ],
                 "name": "beforeactivate",
                 "scope": "me"
             },
-            "name": "onPanelBeforeActivate1",
+            "name": "onPanelBeforeActivate",
             "designerId": "465aa53e-0dee-4323-8679-e195c32a8233"
         },
         {
@@ -279,6 +237,108 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "stopTask",
+                "implHandler": [
+                    "if (this.task) {",
+                    "    Ext.TaskManager.stop(this.task);",
+                    "}"
+                ],
+                "name": "beforedeactivate",
+                "scope": "me"
+            },
+            "name": "stopTask",
+            "designerId": "359aeddd-f799-48b0-8f2a-e83ffe6ae245"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelRemoved",
+                "implHandler": [
+                    "this.stopTask();"
+                ],
+                "name": "removed",
+                "scope": "me"
+            },
+            "name": "onPanelRemoved",
+            "designerId": "11b24533-7ae2-4148-823c-169c5b387d1f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "startTask"
+                ],
+                "fn": "startTask",
+                "implHandler": [
+                    "var me = this, chart;",
+                    "var dataArr = [];",
+                    "var sendByte = -1;",
+                    "var rtByte = -1;",
+                    "var date = new Date();",
+                    "date.setDate(date.getDate()-1);",
+                    "for(var i=0;i<20;i++){",
+                    "    date.setSeconds(date.getSeconds()+1);",
+                    "    dataArr.push([0,0,Ext.Date.format(date,'Y-m-d H:i:s')]);",
+                    "}",
+                    "var store = new Ext.data.ArrayStore({",
+                    "    fields: ['received','sent', 'time'],",
+                    "    data: dataArr",
+                    "});",
+                    "this.query(\"cartesian[id=trafficeline]\")[0].setStore(store);",
+                    "",
+                    "var s = Ext.create('app.store.StoreNetTraffic');",
+                    "",
+                    "var task = this.task = {",
+                    "    run: function(){",
+                    "        s.load({callback:function(r){",
+                    "            if (sendByte == -1)",
+                    "            {",
+                    "                sendByte = r[0].data.sent;",
+                    "                rtByte = r[0].data.received;",
+                    "                return ;",
+                    "            }",
+                    "",
+                    "            dataArr.push([r[0].data.received -rtByte,r[0].data.sent -sendByte, r[0].data.time]);",
+                    "            if (dataArr.length>21)",
+                    "            {",
+                    "                dataArr = dataArr.slice(1);",
+                    "            }",
+                    "            sendByte = r[0].data.sent;",
+                    "            rtByte = r[0].data.received;",
+                    "            store.loadData(dataArr);",
+                    "            if (me && (chart = me.down('chart'))) {",
+                    "                chart.redraw();",
+                    "            }",
+                    "",
+                    "        }});",
+                    "    },",
+                    "    interval: 3000",
+                    "};",
+                    "task.run();",
+                    "Ext.TaskManager.start(task);"
+                ]
+            },
+            "name": "startTask",
+            "designerId": "94f288aa-f3fe-4aec-941c-5549dd5ecd56"
         }
     ]
 }

@@ -11,6 +11,7 @@
         "designer|userAlias": "StoreZones",
         "designer|userClassName": "StoreZones",
         "model": "Domianmodel",
+        "pageSize": 16,
         "storeId": "StoreZones"
     },
     "name": "MyArrayStore",

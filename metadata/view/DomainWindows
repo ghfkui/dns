@@ -29,7 +29,7 @@
                 "designer|createAlias": "DomainAdd",
                 "designer|displayName": "DomainAdd"
             },
-            "name": "domainadd1",
+            "name": "domainadd",
             "designerId": "fe00a7fd-d03a-4dc0-8290-351052b68c14",
             "masterInstanceId": "b45436cc-e514-4511-a8be-645d849ab452"
         },
