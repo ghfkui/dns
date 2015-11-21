@@ -19,6 +19,7 @@ Ext.define('app.view.SystemInfoView', {
 
     requires: [
         'app.view.SystemInfoViewViewModel',
+		'app.store.StoreSystemInfo',
         'app.view.TrafficView',
         'Ext.tab.Panel',
         'Ext.tab.Tab',
@@ -48,8 +49,6 @@ Ext.define('app.view.SystemInfoView', {
                             margin: 10,
                             bodyPadding: 10,
                             title: '系统资源',
-                            method: 'get',
-                            url: '../system/info',
                             items: [
                                 {
                                     xtype: 'displayfield',
@@ -69,7 +68,9 @@ Ext.define('app.view.SystemInfoView', {
                         }
                     ],
                     listeners: {
-                        beforeactivate: 'onPanelBeforeActivate'
+                        beforeactivate: 'onPanelBeforeActivate',
+						deactivate: 'stopTask',
+						removed: 'stopTask'
                     }
                 },
                 {
@@ -80,7 +81,30 @@ Ext.define('app.view.SystemInfoView', {
     ],
 
     onPanelBeforeActivate: function(component, eOpts) {
-          this.down("form").getForm().load();
+		this.startTask();
+    },
+	startTask: function() {
+		var me = this, form;
+	    var s = Ext.create('app.store.StoreSystemInfo');
+
+        var task = me.task = {
+			run: function(){
+				s.load({callback:function(r){
+					if (me && (form = me.down('form')) && r.length) {
+						form.loadRecord(r[0]);
+					}
+				}});
+			},
+            interval: 3000
+        };
+		task.run();
+		Ext.TaskManager.start(task);
+	},
+	
+	stopTask: function() {
+		if (this.task) {
+			Ext.TaskManager.stop(this.task);
+		}
     }
 
 });

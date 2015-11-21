@@ -149,7 +149,10 @@ Ext.define('app.view.TrafficView', {
     ],
 
     onPanelBeforeActivate1: function(component, eOpts) {
-        var chart =this.down('chart');
+        this.startTask();
+    },
+	startTask: function() {
+		var me = this, chart;
         var dataArr = [];
         var sendByte = -1;
         var rtByte = -1;
@@ -185,16 +188,21 @@ Ext.define('app.view.TrafficView', {
                 sendByte = r[0].data.sent;
                 rtByte = r[0].data.received;
                 store.loadData(dataArr);
-                chart.redraw();
+				if (me && (chart = me.down('chart'))) {
+					chart.redraw();
+				}
+                
             }});
         },
             interval: 3000
         };
-        task.run();
+		task.run();
         Ext.TaskManager.start(task);
-    },
+	},
     stopTask: function() {
-        Ext.TaskManager.stop(this.task);
+        if (this.task) {
+			Ext.TaskManager.stop(this.task);
+		}
     }
 
 });
